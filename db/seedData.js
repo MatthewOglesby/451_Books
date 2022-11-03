@@ -1,5 +1,6 @@
-const { client } = require('./')
+const { client } = require('./client')
 
+const { createUser } = require("./users");
 const { createProduct } = require('./products')
 
 async function dropTables() {
@@ -7,6 +8,7 @@ async function dropTables() {
     console.log('Dropping Tables')
     // add code here
     await client.query(`
+      DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS products;
     `)
     
@@ -26,6 +28,13 @@ async function createTables() {
         id SERIAL PRIMARY KEY,
         title VARCHAR(255),
         description VARCHAR(255)
+      );
+
+      CREATE TABLE users (
+        id SERIAL PRIMARY KEY,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        username VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL
       );
     `)
     
@@ -67,12 +76,40 @@ async function createInitialProducts() {
   }
 }
 
+// INTIAL BUILD OF DB BELOW //
+
+async function createInitialUsers() {
+
+  console.log("Starting to create users...")
+
+  try {
+    const usersToCreate = [
+      { email: 'matthew@email.com', username: "matthew", password: "password" },
+      { email: 'ross@email.com', username: "ross", password: "password" },
+      { email: 'claire@email.com', username: "claire", password: "password" },
+      { email: 'jaeln@email.com', username: "jaeln", password: "password" },
+      { email: 'ethan@email.com', username: "ethan", password: "password" },
+      { email: 'default@email.com', username: "albert", password: "bertie99" },
+      { email: 'default@email.com', username: "sandra", password: "sandra123" },
+      { email: 'default@email.com', username: "glamgal", password: "glamgal123" }
+    ]
+    const users = await Promise.all(usersToCreate.map(createUser))
+
+    console.log("Users created:")
+    console.log(users)
+    console.log("Finished creating users!")
+  } catch (error) {
+    console.error("Error creating users!")
+    throw error
+  }
+}
+
 async function buildDB() {
   try {
-    // need to add something here
     client.connect();
     await dropTables();
     await createTables();
+    await createInitialUsers();
     await createInitialProducts();
   }
   catch(ex) {
