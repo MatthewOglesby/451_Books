@@ -5,7 +5,7 @@ async function getAllProducts(){
     const {rows} = await client.query(`
       SELECT * FROM products;
     `);
-    console.log("line 8", rows)
+   
 
     return rows;
   } catch (error) {
@@ -21,7 +21,7 @@ async function createProduct({title, description, author, pageCount, genre, pric
       VALUES ($1, $2, $3, $4, $5, $6, $7)
       RETURNING *;
     `, [title, description, author, pageCount, genre, price, image])
-    
+    console.log(product)
     return product;
 
   }
