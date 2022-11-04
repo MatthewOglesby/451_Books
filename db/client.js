@@ -1,9 +1,10 @@
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
-const { DATABASE_URL } = process.env || 'https://localhost:5432/graceshopper';
+const connectionString = process.env.DATABASE_URL || 'https://localhost:5432/graceshopper';
 
-const client = new Client({
-  connectionString: DATABASE_URL
+const client = new Pool({
+  connectionString,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : undefined,
 })
 
-module.exports = { client }
+module.exports = {client} 
