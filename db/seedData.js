@@ -89,17 +89,20 @@ async function createInitialUsers() {
       { email: 'claire@email.com', username: "claire", password: "password" },
       { email: 'jaeln@email.com', username: "jaeln", password: "password" },
       { email: 'ethan@email.com', username: "ethan", password: "password" },
-      { email: 'default@email.com', username: "albert", password: "bertie99" },
-      { email: 'default@email.com', username: "sandra", password: "sandra123" },
-      { email: 'default@email.com', username: "glamgal", password: "glamgal123" }
+      { email: 'default1@email.com', username: "albert", password: "bertie99" },
+      { email: 'default2@email.com', username: "sandra", password: "sandra123" },
+      { email: 'default3@email.com', username: "glamgal", password: "glamgal123" }
     ]
-    const users = await Promise.all(usersToCreate.map(createUser))
+    const users = await Promise.all(usersToCreate.map( async (user) => {
+      const result = await createUser(user)
+      return result;
+    }))
 
     console.log("Users created:")
     console.log(users)
     console.log("Finished creating users!")
   } catch (error) {
-    console.error("Error creating users!")
+    console.error("Error creating users!", error)
     throw error
   }
 }
