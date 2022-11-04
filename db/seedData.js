@@ -1,7 +1,7 @@
 const { client } = require('./client')
 
 const { createUser } = require("./users");
-const { createProduct } = require('./products')
+const { createProduct, getAllProducts } = require('./products')
 
 async function dropTables() {
   try {
@@ -26,8 +26,13 @@ async function createTables() {
     await client.query(`
       CREATE TABLE products (
         id SERIAL PRIMARY KEY,
-        title VARCHAR(255),
-        description VARCHAR(255)
+        title VARCHAR(255) UNIQUE NOT NULL,
+        description VARCHAR(255) UNIQUE NOT NULL,
+        author VARCHAR(255),
+        pageCount VARCHAR(255),
+        genre VARCHAR(255),
+        price VARCHAR(255),
+        image VARCHAR(255)
       );
 
       CREATE TABLE users (
@@ -50,23 +55,53 @@ async function createInitialProducts() {
     console.log('Creating Products')
     await createProduct({
       title:
-        "The first most amazing product",
+        "The book is about Harry Potter, who is invited to attend Hogwarts, school of witchcraft and wizardry. He then learns that a powerful wizard and his minions are after the sorcerer's stone that will make this evil wizard immortal and undefeatable.",
       description:
-        "Description for the first most amazing product ever...."
+        "Sad story wizard.",
+      author:
+        "J.K. Rowling",
+      pageCount:
+        "298",
+      genre:
+        "fantasy",
+      price:
+        "$20",
+      image:
+        "https://media.harrypotterfanzone.com/sorcerers-stone-us-childrens-edition.jpg"
     });
     
     await createProduct({
       title:
-        "The second most amazing product",
+        "Harry Potter and the Chamber of Secrets",
       description:
-        "Description for the second most amazing product ever...."
+        "Big snake so scary",
+        author:
+        "J.K. Rowling",
+      pageCount:
+        "299",
+      genre:
+        "fantasy",
+      price:
+        "$20",
+      image:
+        "https://media.harrypotterfanzone.com/chamber-of-secrets-ebook-cover-1050x0-c-default.jpg"
     });
     
     await createProduct({
       title:
-        "The third most amazing product",
+        "Twilight",
       description:
-        "Description for the third most amazing product ever...."
+        "Love story so sweet nice",
+      author:
+        "Stephanie Meyer",
+      pageCount:
+        "498",
+      genre:
+        "Romance",
+      price:
+        "$19.99",
+      image:
+        "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg"
     });
     
     console.log('Finished creating Products')
@@ -98,8 +133,6 @@ async function createInitialUsers() {
       return result;
     }))
 
-    console.log("Users created:")
-    console.log(users)
     console.log("Finished creating users!")
   } catch (error) {
     console.error("Error creating users!", error)
