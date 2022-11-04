@@ -11,10 +11,10 @@ async function dropTables() {
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS products;
     `)
-    
+
     console.log('Finished Dropping Tables')
-  } 
-  catch(ex) {
+  }
+  catch (ex) {
     console.log('error dropping tables')
   }
 }
@@ -42,10 +42,10 @@ async function createTables() {
         password VARCHAR(255) NOT NULL
       );
     `)
-    
+
     console.log('Finished Creating Tables')
-  } 
-  catch(ex) {
+  }
+  catch (ex) {
     console.log('error creating tables')
   }
 }
@@ -69,13 +69,13 @@ async function createInitialProducts() {
       image:
         "https://media.harrypotterfanzone.com/sorcerers-stone-us-childrens-edition.jpg"
     });
-    
+
     await createProduct({
       title:
         "Harry Potter and the Chamber of Secrets",
       description:
         "Big snake so scary",
-        author:
+      author:
         "J.K. Rowling",
       pageCount:
         "299",
@@ -86,7 +86,7 @@ async function createInitialProducts() {
       image:
         "https://media.harrypotterfanzone.com/chamber-of-secrets-ebook-cover-1050x0-c-default.jpg"
     });
-    
+
     await createProduct({
       title:
         "Twilight",
@@ -103,10 +103,27 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg"
     });
-    
+
+    await createProduct({
+      title:
+        'Life 3.0',
+      description:
+        'How will AI affect crime, war, justice, jobs, society and our very sense of being human?',
+      author:
+        'Max Tegmark',
+      pageCount:
+        '384',
+      genre:
+        'Non-Fiction',
+      price:
+        '$15.99',
+      image:
+        'https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg'
+    });
+
     console.log('Finished creating Products')
-  } 
-  catch(ex) {
+  }
+  catch (ex) {
     console.log('error creating Products')
   }
 }
@@ -128,7 +145,7 @@ async function createInitialUsers() {
       { email: 'default2@email.com', username: "sandra", password: "sandra123" },
       { email: 'default3@email.com', username: "glamgal", password: "glamgal123" }
     ]
-    const users = await Promise.all(usersToCreate.map( async (user) => {
+    const users = await Promise.all(usersToCreate.map(async (user) => {
       const result = await createUser(user)
       return result;
     }))
@@ -148,7 +165,7 @@ async function buildDB() {
     await createInitialUsers();
     await createInitialProducts();
   }
-  catch(ex) {
+  catch (ex) {
     console.log('Error building the DB')
   }
 }
