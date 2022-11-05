@@ -52,7 +52,9 @@ async function createTables() {
 async function createInitialProducts() {
   try {
     console.log('Creating Products')
+    
     await createProduct({
+      
       title:
         "The book is about Harry Potter, who is invited to attend Hogwarts, school of witchcraft and wizardry. He then learns that a powerful wizard and his minions are after the sorcerer's stone that will make this evil wizard immortal and undefeatable.",
       description:
@@ -70,6 +72,7 @@ async function createInitialProducts() {
     });
 
     await createProduct({
+      
       title:
         "Harry Potter and the Chamber of Secrets",
       description:
@@ -87,6 +90,7 @@ async function createInitialProducts() {
     });
 
     await createProduct({
+      
       title:
         "Twilight",
       description:
@@ -104,6 +108,7 @@ async function createInitialProducts() {
     });
     
     await createProduct({
+      
       title:
         "The Lord of The Rings",
       description:
@@ -121,6 +126,7 @@ async function createInitialProducts() {
     });
 
     await createProduct({
+      
       title:
         "I Will Find You: Solving Killer Cases from My Life Fighting Crime ",
       description:
@@ -138,6 +144,7 @@ async function createInitialProducts() {
     });
     
     await createProduct({
+      
       title:
         "True Crime Stories You Won't Believe: Book Two ",
       description:
@@ -156,6 +163,7 @@ async function createInitialProducts() {
 
 
     await createProduct({
+      
       title:
         "Robin",
       description:
@@ -173,6 +181,7 @@ async function createInitialProducts() {
     });
     
     await createProduct({
+      
       title:
         "The Complete Zen Disc Golf",
       description:
@@ -190,6 +199,7 @@ async function createInitialProducts() {
     });
     
     await createProduct({
+      
       title:
         "SpongeBob Goes to the Doctor",
       description:
@@ -240,10 +250,11 @@ await createProduct({
         "$19.99",
       image:
         "https://images.penguinrandomhouse.com/cover/9780307887443"
+      });
         
 await createProduct({
+  
       title:
-
         "Born a Crime",
       description:
         "Autobiography of Trevor Noah's upbringing in the slums of South Africa.",
@@ -260,8 +271,8 @@ await createProduct({
     });
     
     await createProduct({
+      
       title:
-
         'Life 3.0',
       description:
         'How will AI affect crime, war, justice, jobs, society and our very sense of being human?',
@@ -276,9 +287,6 @@ await createProduct({
       image:
         'https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg'
     });
-
-
-
 
     await createProduct({
       title:
@@ -296,8 +304,6 @@ await createProduct({
       image:
         "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ucsandiegobookstore.com%2F00000045532&psig=AOvVaw3qdbYwbJ6wMDsmhcAslrPy&ust=1667742361911000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJjOlMuWl_sCFQAAAAAdAAAAABAE"
     });
-
-
 
     console.log('Finished creating Products')
   }
