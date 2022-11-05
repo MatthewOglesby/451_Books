@@ -1,7 +1,7 @@
 const { client } = require('./client')
 
 const { createUser } = require("./users");
-const { createProduct, getAllProducts, getProductById } = require('./products')
+const { createProduct, getAllProducts, } = require('./products')
 
 async function dropTables() {
   try {
@@ -370,7 +370,7 @@ async function createInitialUsers() {
   }
 }
 
-getProductById(3)
+
 
 async function buildDB() {
   try {
