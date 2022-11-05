@@ -379,6 +379,7 @@ async function testDB() {
     // console.log('testing getting product by title')
     // const result = await getProductByTitle('SpongeBob Goes to the Doctor');
     // console.log(result);
+
     // const allProducts = await getAllProducts();
     // console.log('testing updating product')
     // const result = await updateProduct(allProducts[0].id, {
@@ -386,6 +387,12 @@ async function testDB() {
     //   description: 'eeee',
     // })
     // console.log(result);
+
+    // console.log('testing deleting product')
+    // const result = await deleteProduct(4)
+    // console.log(await getAllProducts())
+    
+    // return result;
 
 
   } catch (error) {
