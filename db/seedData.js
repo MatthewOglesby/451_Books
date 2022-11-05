@@ -11,11 +11,11 @@ async function dropTables() {
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS products;
     `)
-    
+
     console.log('Finished Dropping Tables')
   } 
   catch(ex) {
-    console.log('error dropping tables',ex)
+    console.log('error dropping tables', ex)
   }
 }
 
@@ -42,12 +42,11 @@ async function createTables() {
         password VARCHAR(255) NOT NULL
       );
     `)
-    
+
     console.log('Finished Creating Tables')
   } 
   catch(ex) {
     console.log('error creating tables',ex)
-  }
 }
 
 async function createInitialProducts() {
@@ -69,13 +68,13 @@ async function createInitialProducts() {
       image:
         "https://media.harrypotterfanzone.com/sorcerers-stone-us-childrens-edition.jpg"
     });
-    
+
     await createProduct({
       title:
         "Harry Potter and the Chamber of Secrets",
       description:
         "Big snake so scary",
-        author:
+      author:
         "J.K. Rowling",
       pageCount:
         "299",
@@ -86,7 +85,7 @@ async function createInitialProducts() {
       image:
         "https://media.harrypotterfanzone.com/chamber-of-secrets-ebook-cover-1050x0-c-default.jpg"
     });
-    
+
     await createProduct({
       title:
         "Twilight",
@@ -137,6 +136,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/51a5n1ueF1L._SX332_BO1,204,203,200_.jpg"
     });
+    
     await createProduct({
       title:
         "True Crime Stories You Won't Believe: Book Two ",
@@ -171,6 +171,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/51EIw7k-X1L.jpg"
     });
+    
     await createProduct({
       title:
         "The Complete Zen Disc Golf",
@@ -187,6 +188,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/41r2RZ4JBgL._SX326_BO1,204,203,200_.jpg"
     });
+    
     await createProduct({
       title:
         "SpongeBob Goes to the Doctor",
@@ -205,6 +207,7 @@ async function createInitialProducts() {
     });
 
     await createProduct({
+    
       title:
         "JavaScript and jQuery: Interactive Front-End Web Development ",
       description:
@@ -220,9 +223,63 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/4119l82gW1L._SX518_BO1,204,203,200_.jpg"
     });
+
+await createProduct({
+
+      title:
+        "Ready Player One",
+      description:
+        "Set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune.",
+      author:
+        "Ernest Cline",
+      pageCount:
+        "374",
+      genre:
+        "Science Fiction and Fantasty",
+      price:
+        "$19.99",
+      image:
+        "https://images.penguinrandomhouse.com/cover/9780307887443"
+        
+await createProduct({
+      title:
+
+        "Born a Crime",
+      description:
+        "Autobiography of Trevor Noah's upbringing in the slums of South Africa.",
+      author:
+        "Trevor Noah",
+      pageCount:
+        "304",
+      genre:
+        "Non-fiction",
+      price:
+        "$14.99",
+      image:
+        "https://m.media-amazon.com/images/I/5155UwVQ-LL._AC_SY780_.jpg"
+    });
+    
+    await createProduct({
+      title:
+
+        'Life 3.0',
+      description:
+        'How will AI affect crime, war, justice, jobs, society and our very sense of being human?',
+      author:
+        'Max Tegmark',
+      pageCount:
+        '384',
+      genre:
+        'Non-Fiction',
+      price:
+        '$15.99',
+      image:
+        'https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg'
+    });
+
     console.log('Finished creating Products')
-  } 
-  catch(ex) {
+  }
+  catch (ex) {
     console.log('error creating Products', ex)
   }
 }
@@ -244,7 +301,7 @@ async function createInitialUsers() {
       { email: 'default2@email.com', username: "sandra", password: "sandra123" },
       { email: 'default3@email.com', username: "glamgal", password: "glamgal123" }
     ]
-    const users = await Promise.all(usersToCreate.map( async (user) => {
+    const users = await Promise.all(usersToCreate.map(async (user) => {
       const result = await createUser(user)
       console.log(result)
       return result;
@@ -265,7 +322,7 @@ async function buildDB() {
     await createInitialUsers();
     await createInitialProducts();
   }
-  catch(ex) {
+  catch (ex) {
     console.log('Error building the DB')
   }
 }
