@@ -47,7 +47,7 @@ async function createTables() {
   } 
   catch(ex) {
     console.log('error creating tables',ex)
-}
+}}
 
 async function createInitialProducts() {
   try {
