@@ -105,6 +105,23 @@ async function createInitialProducts() {
     });
 
     await createProduct({
+    
+      title:
+        "Ready Player One",
+      description:
+        "Set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune.",
+      author:
+        "Ernest Cline",
+      pageCount:
+        "374",
+      genre:
+        "Science Fiction and Fantasty",
+      price:
+        "$19.99",
+      image:
+        "https://images.penguinrandomhouse.com/cover/9780307887443"
+        
+await createProduct({
       title:
 
         "Born a Crime",
