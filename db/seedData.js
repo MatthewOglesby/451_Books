@@ -391,6 +391,7 @@ async function testDB() {
     // console.log('testing deleting product')
     // const result = await deleteProduct(4)
     // console.log(await getAllProducts())
+    
     // return result;
 
 
