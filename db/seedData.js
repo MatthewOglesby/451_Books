@@ -1,11 +1,7 @@
 const { client } = require('./client')
 
 const { createUser } = require("./users");
-<<<<<<< HEAD
-const { createProduct, getAllProducts, getProductById } = require('./products')
-=======
 const { createProduct, getProductById, getProductByTitle, updateProduct, getAllProducts, deleteProduct } = require('./products')
->>>>>>> 495d09a51f0d0983e717db6f13f680dc6ea32868
 
 async function dropTables() {
   try {

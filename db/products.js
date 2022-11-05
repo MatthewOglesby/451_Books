@@ -58,23 +58,6 @@ async function createProduct({ title, description, author, pageCount, genre, pri
   }
 }
 
-<<<<<<< HEAD
-async function getProductById(id) {
-
-  try {
-    const { rows: [product] } = await client.query(`
-      SELECT *
-      FROM products
-      WHERE id=$1;
-    `, [id])
-
-    return product;
-  }
-  catch (err) {
-    console.error("getRoutineById-routine.js FAILED:", err);
-  }
-}
-=======
 async function updateProduct( id, fields = {}) {
 
   try {
@@ -121,19 +104,14 @@ async function deleteProduct(id) {
   }
 }
 
->>>>>>> 495d09a51f0d0983e717db6f13f680dc6ea32868
 
 module.exports = {
   createProduct,
   getAllProducts,
-<<<<<<< HEAD
-  getProductById
-=======
   getProductById,
   getProductByTitle,
   updateProduct,
   deleteProduct
->>>>>>> 495d09a51f0d0983e717db6f13f680dc6ea32868
 }
 
 // title, description, author, page-count, genre
