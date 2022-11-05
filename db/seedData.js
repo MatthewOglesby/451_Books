@@ -1,7 +1,7 @@
 const { client } = require('./client')
 
 const { createUser } = require("./users");
-const { createProduct, getAllProducts, } = require('./products')
+const { createProduct, getProductById, getProductByTitle, updateProduct, getAllProducts } = require('./products')
 
 async function dropTables() {
   try {
@@ -58,7 +58,7 @@ async function createInitialProducts() {
 
     await createProduct({
       title:
-        "The book is about Harry Potter, who is invited to attend Hogwarts, school of witchcraft and wizardry. He then learns that a powerful wizard and his minions are after the sorcerer's stone that will make this evil wizard immortal and undefeatable.",
+        "Harry Potter and the Sorcerer's Stone",
       description:
         "Sad story wizard.",
       author:
@@ -333,6 +333,7 @@ async function createInitialProducts() {
       quantity:
         "57"
     });
+
     console.log('Finished creating Products')
   }
   catch (ex) {
@@ -369,7 +370,27 @@ async function createInitialUsers() {
     throw error
   }
 }
+async function testDB() {
+  try {
+    // console.log('testing getting product by id')
+    // const result = await getProductById(9);
+    // console.log(result);
+    //
+    // console.log('testing getting product by title')
+    // const result = await getProductByTitle('SpongeBob Goes to the Doctor');
+    // console.log(result);
+    // const products = await getAllProducts();
+    
+    console.log('testing updating product')
+    const result = await updateProduct(0)
+    console.log(result);
 
+
+  } catch (error) {
+    console.log("Error during testDB");
+    throw error;
+  }
+}
 
 
 async function buildDB() {
@@ -387,5 +408,6 @@ async function buildDB() {
 
 
 buildDB()
+  .then(testDB)
   .catch(console.error)
   .finally(() => client.end())

@@ -13,7 +13,33 @@ async function getAllProducts(){
   }
 }
 
+async function getProductById(id){
+  try {
+    const {rows: [product]} = await client.query(`
+      SELECT * FROM products
+      WHERE id = $1
+    `, [id]);
 
+    return product;
+
+  } catch (error) {
+    throw (error);
+  }
+}
+
+async function getProductByTitle(title){
+  try {
+    const {rows: [product]} = await client.query(`
+      SELECT * FROM products
+      WHERE title = $1
+    `, [title]);
+
+    return product;
+
+  } catch (error) {
+    throw (error);
+  }
+}
 
 async function createProduct({title, description, author, pageCount, genre, price, image, quantity}) {
   try {
@@ -32,9 +58,36 @@ async function createProduct({title, description, author, pageCount, genre, pric
   }
 }
 
+async function updateProduct( id, fields = {} ) {
+  const setString = Object.keys(fields)
+    .map((key, index) => `"${key}"=$${index + 1}`)
+    .join(", ");
+
+  try {
+    if (setString.length > 0) {
+       await client.query(
+        `
+         UPDATE products
+         SET ${setString}
+         WHERE id=${id}
+         RETURNING *;
+       `,
+        Object.values(fields)
+      );
+      const result = await getProductById(id);
+      return result;
+    }
+  } catch (error) {
+    throw (error);
+  }
+}
+
 module.exports = {
   createProduct,
   getAllProducts,
+  getProductById,
+  getProductByTitle,
+  updateProduct
 }
 
 // title, description, author, page-count, genre
