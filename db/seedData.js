@@ -277,6 +277,28 @@ await createProduct({
         'https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg'
     });
 
+
+
+
+    await createProduct({
+      title:
+        "Percy Jackson and The Olympians: The Lightning Thief",
+      description:
+        "Mythical creatures galore",
+      author:
+        "Rick Riordan ",
+      pageCount:
+        "300",
+      genre:
+        "fantasy",
+      price:
+        "$20",
+      image:
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ucsandiegobookstore.com%2F00000045532&psig=AOvVaw3qdbYwbJ6wMDsmhcAslrPy&ust=1667742361911000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJjOlMuWl_sCFQAAAAAdAAAAABAE"
+    });
+
+
+
     console.log('Finished creating Products')
   }
   catch (ex) {
