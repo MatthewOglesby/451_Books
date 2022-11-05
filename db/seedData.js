@@ -1,7 +1,7 @@
 const { client } = require('./client')
 
 const { createUser } = require("./users");
-const { createProduct, getProductById, getProductByTitle, updateProduct, getAllProducts } = require('./products')
+const { createProduct, getProductById, getProductByTitle, updateProduct, getAllProducts, deleteProduct } = require('./products')
 
 async function dropTables() {
   try {
@@ -379,11 +379,13 @@ async function testDB() {
     // console.log('testing getting product by title')
     // const result = await getProductByTitle('SpongeBob Goes to the Doctor');
     // console.log(result);
-    // const products = await getAllProducts();
-    
-    console.log('testing updating product')
-    const result = await updateProduct(0)
-    console.log(result);
+    // const allProducts = await getAllProducts();
+    // console.log('testing updating product')
+    // const result = await updateProduct(allProducts[0].id, {
+    //   title: "meh",
+    //   description: 'eeee',
+    // })
+    // console.log(result);
 
 
   } catch (error) {
