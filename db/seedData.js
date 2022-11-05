@@ -1,7 +1,7 @@
 const { client } = require('./client')
 
 const { createUser } = require("./users");
-const { createProduct, getAllProducts } = require('./products')
+const { createProduct, getAllProducts, getProductById } = require('./products')
 
 async function dropTables() {
   try {
@@ -120,7 +120,7 @@ async function createInitialProducts() {
       image:
         'https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg'
     });
-
+   
     console.log('Finished creating Products')
   }
   catch (ex) {

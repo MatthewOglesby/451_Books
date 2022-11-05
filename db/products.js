@@ -30,10 +30,26 @@ async function createProduct({title, description, author, pageCount, genre, pric
   }
 }
 
+async function getProductById(id) {
+
+  try {
+    const { rows: [product] } = await client.query(`
+      SELECT *
+      FROM products
+      WHERE id=$1;
+    `, [id])
+
+    return product;
+  }
+  catch (err) {
+    console.error("getRoutineById-routine.js FAILED:", err);
+  }
+}
 
 module.exports = {
   createProduct,
-  getAllProducts
+  getAllProducts,
+  getProductById
 }
 
 // title, description, author, page-count, genre
