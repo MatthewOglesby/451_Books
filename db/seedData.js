@@ -13,9 +13,9 @@ async function dropTables() {
     `)
 
     console.log('Finished Dropping Tables')
-  }
-  catch (ex) {
-    console.log('error dropping tables')
+  } 
+  catch(ex) {
+    console.log('error dropping tables', ex)
   }
 }
 
@@ -44,10 +44,9 @@ async function createTables() {
     `)
 
     console.log('Finished Creating Tables')
-  }
-  catch (ex) {
-    console.log('error creating tables')
-  }
+  } 
+  catch(ex) {
+    console.log('error creating tables',ex)
 }
 
 async function createInitialProducts() {
@@ -103,9 +102,130 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg"
     });
+    
+    await createProduct({
+      title:
+        "The Lord of The Rings",
+      description:
+        "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them",
+      author:
+        "J.R.R Toklkien",
+      pageCount:
+        "535",
+      genre:
+        "Fiction",
+      price:
+        "$17.89",
+      image:
+        "https://m.media-amazon.com/images/I/51kfFS5-fnL._AC_SY780_.jpg"
+    });
+
+    await createProduct({
+      title:
+        "I Will Find You: Solving Killer Cases from My Life Fighting Crime ",
+      description:
+        "Detective Lt. Joe Kenda, star of Homicide Hunter, shares his deepest, darkest, and never before revealed case files from his 19 years as a homicide detective",
+      author:
+        "Joe Kenda",
+      pageCount:
+        "288",
+      genre:
+        "Detective story",
+      price:
+        "$11.99",
+      image:
+        "https://m.media-amazon.com/images/I/51a5n1ueF1L._SX332_BO1,204,203,200_.jpg"
+    });
+    
+    await createProduct({
+      title:
+        "True Crime Stories You Won't Believe: Book Two ",
+      description:
+        "In this book, I present tales of true crime and bizarre applications of justice (or injustice, as the case may be)",
+      author:
+        "Romeo Vitelli",
+      pageCount:
+        "230",
+      genre:
+        "Biographies & Memoirs",
+      price:
+        "$10.89",
+      image:
+        "https://m.media-amazon.com/images/I/41VZPJHOlFL.jpg"
+    });
+
+
+    await createProduct({
+      title:
+        "Robin",
+      description:
+        "From New York Times culture reporter Dave Itzkoff comes the definitive audiobook biography of Robin Williams - a compelling portrait of one of America’s most beloved and misunderstood entertainers",
+      author:
+        "Dave ItzKoff",
+      pageCount:
+        "544",
+      genre:
+        "Entertainment",
+      price:
+        "$24.09",
+      image:
+        "https://m.media-amazon.com/images/I/51EIw7k-X1L.jpg"
+    });
+    
+    await createProduct({
+      title:
+        "The Complete Zen Disc Golf",
+      description:
+        "Author and Disc Golfer, Patrick McCormick, takes the reader on journey of mental and psychological calibration using Disc Golf as a tool to help us find more effective ways of thinking on and off the course in his first two book",
+      author:
+        "Patrick D McCormick",
+      pageCount:
+        "230",
+      genre:
+        "Sports",
+      price:
+        "$14.76",
+      image:
+        "https://m.media-amazon.com/images/I/41r2RZ4JBgL._SX326_BO1,204,203,200_.jpg"
+    });
+    
+    await createProduct({
+      title:
+        "SpongeBob Goes to the Doctor",
+      description:
+        "Get Ready Books teach valuable life lessons with your favorite Nickelodeon characters—and they include over 30 stickers!",
+      author:
+        "Steven Banks",
+      pageCount:
+        "24",
+      genre:
+        "Childrens Books",
+      price:
+        "$5.75",
+      image:
+        "https://m.media-amazon.com/images/I/51HL8BEGiAL._SY498_BO1,204,203,200_.jpg"
+    });
 
     await createProduct({
     
+      title:
+        "JavaScript and jQuery: Interactive Front-End Web Development ",
+      description:
+        "A visual and accessible guide to JavaScript and jQuery in a built-to-last hardcover edition",
+      author:
+        "Patrick D McCormick",
+      pageCount:
+        "230",
+      genre:
+        "Educational",
+      price:
+        "$35.78",
+      image:
+        "https://m.media-amazon.com/images/I/4119l82gW1L._SX518_BO1,204,203,200_.jpg"
+    });
+
+await createProduct({
+
       title:
         "Ready Player One",
       description:
@@ -160,7 +280,7 @@ await createProduct({
     console.log('Finished creating Products')
   }
   catch (ex) {
-    console.log('error creating Products')
+    console.log('error creating Products', ex)
   }
 }
 
@@ -183,6 +303,7 @@ async function createInitialUsers() {
     ]
     const users = await Promise.all(usersToCreate.map(async (user) => {
       const result = await createUser(user)
+      console.log(result)
       return result;
     }))
 
