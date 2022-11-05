@@ -1,35 +1,64 @@
 const { client } = require('./client');
 
-async function getAllProducts(){
+async function getAllProducts() {
   try {
-    const {rows} = await client.query(`
+    const { rows } = await client.query(`
       SELECT * FROM products;
     `);
-    console.log("line 8", rows)
 
     return rows;
+
+  } catch (error) {
+    throw ('error getting all products', error);
+  }
+}
+
+async function getProductById(id) {
+  try {
+    const { rows: [product] } = await client.query(`
+      SELECT * FROM products
+      WHERE id = ${id}
+    `);
+
+    return product;
+
   } catch (error) {
     throw (error);
   }
 }
 
-async function createProduct({title, description, author, pageCount, genre, price, image}) {
-
+async function getProductByTitle(title) {
   try {
-    const { rows: [product]} = await client.query(`
-      INSERT INTO products (title, description, author, pageCount, genre, price, image)
-      VALUES ($1, $2, $3, $4, $5, $6, $7)
-      RETURNING *;
-    `, [title, description, author, pageCount, genre, price, image])
-    
+    const { rows: [product] } = await client.query(`
+      SELECT * FROM products
+      WHERE title = $1
+    `, [title]);
+
     return product;
 
+  } catch (error) {
+    throw (error);
   }
-  catch(ex) {
+}
+
+async function createProduct({ title, description, author, pageCount, genre, price, image, quantity }) {
+  try {
+    const { rows: [product] } = await client.query(`
+      INSERT INTO products (title, description, author, pageCount, genre, price, image, quantity)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      RETURNING *;
+    `, [title, description, author, pageCount, genre, price, image, quantity]);
+
+    // console.log(product);
+
+    return product;
+  }
+  catch (ex) {
     console.log('error in createProduct adapter function', ex)
   }
 }
 
+<<<<<<< HEAD
 async function getProductById(id) {
 
   try {
@@ -45,11 +74,66 @@ async function getProductById(id) {
     console.error("getRoutineById-routine.js FAILED:", err);
   }
 }
+=======
+async function updateProduct( id, fields = {}) {
+
+  try {
+    const setString = Object.keys(fields)
+      .map((key, index) => `"${key}"=$${index + 1}`)
+      .join(", ");
+
+    console.log("setstring: ", setString)
+
+    if (setString.length > 0) {
+      await client.query(
+        `
+         UPDATE products
+         SET ${setString}
+         WHERE id=${id}
+         RETURNING *;
+       `,
+        Object.values(fields)
+      );
+      
+      return await getProductById(id);
+
+    }
+  } catch (error) {
+    throw (error);
+  }
+}
+
+async function deleteProduct(id) {
+
+  try {
+    const { 
+      rows: [product] 
+    } = await client.query(`
+      DELETE FROM products 
+      WHERE id = ${id}
+      RETURNING *;
+    `);
+
+    return product;
+
+  } catch (error) {
+    throw error;
+  }
+}
+
+>>>>>>> 495d09a51f0d0983e717db6f13f680dc6ea32868
 
 module.exports = {
   createProduct,
   getAllProducts,
+<<<<<<< HEAD
   getProductById
+=======
+  getProductById,
+  getProductByTitle,
+  updateProduct,
+  deleteProduct
+>>>>>>> 495d09a51f0d0983e717db6f13f680dc6ea32868
 }
 
 // title, description, author, page-count, genre

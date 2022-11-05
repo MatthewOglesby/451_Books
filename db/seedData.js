@@ -1,7 +1,11 @@
 const { client } = require('./client')
 
 const { createUser } = require("./users");
+<<<<<<< HEAD
 const { createProduct, getAllProducts, getProductById } = require('./products')
+=======
+const { createProduct, getProductById, getProductByTitle, updateProduct, getAllProducts, deleteProduct } = require('./products')
+>>>>>>> 495d09a51f0d0983e717db6f13f680dc6ea32868
 
 async function dropTables() {
   try {
@@ -15,14 +19,14 @@ async function dropTables() {
     console.log('Finished Dropping Tables')
   }
   catch (ex) {
-    console.log('error dropping tables')
+    console.log('error dropping tables', ex)
   }
 }
 
 async function createTables() {
   try {
     console.log('Creating Tables')
-    // add code here
+    
     await client.query(`
       CREATE TABLE products (
         id SERIAL PRIMARY KEY,
@@ -32,7 +36,8 @@ async function createTables() {
         pageCount VARCHAR(255),
         genre VARCHAR(255),
         price VARCHAR(255),
-        image VARCHAR(255)
+        image VARCHAR(255),
+        quantity VARCHAR(255)
       );
 
       CREATE TABLE users (
@@ -41,21 +46,23 @@ async function createTables() {
         username VARCHAR(255) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL
       );
-    `)
+    `);
 
-    console.log('Finished Creating Tables')
+    console.log('Finished Creating Tables');
+
   }
   catch (ex) {
-    console.log('error creating tables')
+    console.log('error creating tables', ex)
   }
-}
+};
 
 async function createInitialProducts() {
   try {
     console.log('Creating Products')
+
     await createProduct({
       title:
-        "The book is about Harry Potter, who is invited to attend Hogwarts, school of witchcraft and wizardry. He then learns that a powerful wizard and his minions are after the sorcerer's stone that will make this evil wizard immortal and undefeatable.",
+        "Harry Potter and the Sorcerer's Stone",
       description:
         "Sad story wizard.",
       author:
@@ -67,10 +74,13 @@ async function createInitialProducts() {
       price:
         "$20",
       image:
-        "https://media.harrypotterfanzone.com/sorcerers-stone-us-childrens-edition.jpg"
+        "https://media.harrypotterfanzone.com/sorcerers-stone-us-childrens-edition.jpg",
+      quantity:
+        "57"
     });
 
     await createProduct({
+
       title:
         "Harry Potter and the Chamber of Secrets",
       description:
@@ -84,10 +94,13 @@ async function createInitialProducts() {
       price:
         "$20",
       image:
-        "https://media.harrypotterfanzone.com/chamber-of-secrets-ebook-cover-1050x0-c-default.jpg"
+        "https://media.harrypotterfanzone.com/chamber-of-secrets-ebook-cover-1050x0-c-default.jpg",
+      quantity:
+        "57"
     });
 
     await createProduct({
+
       title:
         "Twilight",
       description:
@@ -101,10 +114,193 @@ async function createInitialProducts() {
       price:
         "$19.99",
       image:
-        "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg"
+        "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg",
+      quantity:
+        "57"
     });
 
     await createProduct({
+
+      title:
+        "The Lord of The Rings",
+      description:
+        "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them",
+      author:
+        "J.R.R Toklkien",
+      pageCount:
+        "535",
+      genre:
+        "Fiction",
+      price:
+        "$17.89",
+      image:
+        "https://m.media-amazon.com/images/I/51kfFS5-fnL._AC_SY780_.jpg",
+      quantity:
+        "57"
+    });
+
+    await createProduct({
+
+      title:
+        "I Will Find You: Solving Killer Cases from My Life Fighting Crime ",
+      description:
+        "Detective Lt. Joe Kenda, star of Homicide Hunter, shares his deepest, darkest, and never before revealed case files from his 19 years as a homicide detective",
+      author:
+        "Joe Kenda",
+      pageCount:
+        "288",
+      genre:
+        "Detective story",
+      price:
+        "$11.99",
+      image:
+        "https://m.media-amazon.com/images/I/51a5n1ueF1L._SX332_BO1,204,203,200_.jpg",
+      quantity:
+        "57"
+    });
+
+    await createProduct({
+
+      title:
+        "True Crime Stories You Won't Believe: Book Two ",
+      description:
+        "In this book, I present tales of true crime and bizarre applications of justice (or injustice, as the case may be)",
+      author:
+        "Romeo Vitelli",
+      pageCount:
+        "230",
+      genre:
+        "Biographies & Memoirs",
+      price:
+        "$10.89",
+      image:
+        "https://m.media-amazon.com/images/I/41VZPJHOlFL.jpg",
+      quantity:
+        "57"
+    });
+
+    await createProduct({
+
+      title:
+        "Robin",
+      description:
+        "From New York Times culture reporter Dave Itzkoff comes the definitive audiobook biography of Robin Williams - a compelling portrait of one of America’s most beloved and misunderstood entertainers",
+      author:
+        "Dave ItzKoff",
+      pageCount:
+        "544",
+      genre:
+        "Entertainment",
+      price:
+        "$24.09",
+      image:
+        "https://m.media-amazon.com/images/I/51EIw7k-X1L.jpg",
+      quantity:
+        "57"
+    });
+
+    await createProduct({
+
+      title:
+        "The Complete Zen Disc Golf",
+      description:
+        "Author and Disc Golfer, Patrick McCormick, takes the reader on journey of mental and psychological calibration using Disc Golf as a tool to help us find more effective ways of thinking on and off the course in his first two book",
+      author:
+        "Patrick D McCormick",
+      pageCount:
+        "230",
+      genre:
+        "Sports",
+      price:
+        "$14.76",
+      image:
+        "https://m.media-amazon.com/images/I/41r2RZ4JBgL._SX326_BO1,204,203,200_.jpg",
+      quantity:
+        "57"
+    });
+
+    await createProduct({
+
+      title:
+        "SpongeBob Goes to the Doctor",
+      description:
+        "Get Ready Books teach valuable life lessons with your favorite Nickelodeon characters—and they include over 30 stickers!",
+      author:
+        "Steven Banks",
+      pageCount:
+        "24",
+      genre:
+        "Childrens Books",
+      price:
+        "$5.75",
+      image:
+        "https://m.media-amazon.com/images/I/51HL8BEGiAL._SY498_BO1,204,203,200_.jpg",
+      quantity:
+        "57"
+    });
+
+    await createProduct({
+
+      title:
+        "JavaScript and jQuery: Interactive Front-End Web Development ",
+      description:
+        "A visual and accessible guide to JavaScript and jQuery in a built-to-last hardcover edition",
+      author:
+        "Patrick D McCormick",
+      pageCount:
+        "230",
+      genre:
+        "Educational",
+      price:
+        "$35.78",
+      image:
+        "https://m.media-amazon.com/images/I/4119l82gW1L._SX518_BO1,204,203,200_.jpg",
+      quantity:
+        "57"
+    });
+
+    await createProduct({
+
+      title:
+        "Ready Player One",
+      description:
+        "Set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune.",
+      author:
+        "Ernest Cline",
+      pageCount:
+        "374",
+      genre:
+        "Science Fiction and Fantasty",
+      price:
+        "$19.99",
+      image:
+        "https://images.penguinrandomhouse.com/cover/9780307887443",
+      quantity:
+        "57"
+    });
+
+    await createProduct({
+
+      title:
+        "Born a Crime",
+      description:
+        "Autobiography of Trevor Noah's upbringing in the slums of South Africa.",
+      author:
+        "Trevor Noah",
+      pageCount:
+        "304",
+      genre:
+        "Non-fiction",
+      price:
+        "$14.99",
+      image:
+        "https://m.media-amazon.com/images/I/5155UwVQ-LL._AC_SY780_.jpg",
+      quantity:
+        "57"
+    });
+
+    await createProduct({
+
       title:
         'Life 3.0',
       description:
@@ -118,13 +314,34 @@ async function createInitialProducts() {
       price:
         '$15.99',
       image:
-        'https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg'
+        'https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg',
+      quantity:
+        "57"
+    });
+
+    await createProduct({
+      title:
+        "Percy Jackson and The Olympians: The Lightning Thief",
+      description:
+        "Mythical creatures galore",
+      author:
+        "Rick Riordan",
+      pageCount:
+        "300",
+      genre:
+        "fantasy",
+      price:
+        "$20",
+      image:
+        "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+      quantity:
+        "57"
     });
    
     console.log('Finished creating Products')
   }
   catch (ex) {
-    console.log('error creating Products')
+    console.log('error creating Products', ex)
   }
 }
 
@@ -147,6 +364,7 @@ async function createInitialUsers() {
     ]
     const users = await Promise.all(usersToCreate.map(async (user) => {
       const result = await createUser(user)
+      // console.log(result)
       return result;
     }))
 
@@ -156,6 +374,30 @@ async function createInitialUsers() {
     throw error
   }
 }
+async function testDB() {
+  try {
+    // console.log('testing getting product by id')
+    // const result = await getProductById(9);
+    // console.log(result);
+    //
+    // console.log('testing getting product by title')
+    // const result = await getProductByTitle('SpongeBob Goes to the Doctor');
+    // console.log(result);
+    // const allProducts = await getAllProducts();
+    // console.log('testing updating product')
+    // const result = await updateProduct(allProducts[0].id, {
+    //   title: "meh",
+    //   description: 'eeee',
+    // })
+    // console.log(result);
+
+
+  } catch (error) {
+    console.log("Error during testDB");
+    throw error;
+  }
+}
+
 
 async function buildDB() {
   try {
@@ -172,5 +414,6 @@ async function buildDB() {
 
 
 buildDB()
+  .then(testDB)
   .catch(console.error)
   .finally(() => client.end())
