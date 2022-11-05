@@ -103,6 +103,23 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg"
     });
+
+    await createProduct({
+      title:
+        "Born a Crime",
+      description:
+        "Autobiography of Trevor Noah's upbringing in the slums of South Africa.",
+      author:
+        "Trevor Noah",
+      pageCount:
+        "304",
+      genre:
+        "Non-fiction",
+      price:
+        "$14.99",
+      image:
+        "https://m.media-amazon.com/images/I/5155UwVQ-LL._AC_SY780_.jpg"
+    });
     
     console.log('Finished creating Products')
   } 
