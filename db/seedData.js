@@ -8,6 +8,7 @@ async function dropTables() {
     console.log('Dropping Tables')
     // add code here
     await client.query(`
+      DROP TABLE IF EXISTS cart;
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS products;
     `)
@@ -42,6 +43,13 @@ async function createTables() {
         username VARCHAR(255) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL
       );
+
+      CREATE TABLE cart (
+        id SERIAL PRIMARY KEY,
+        “userId” INTEGER REFERENCES users(id),
+        “productId” INTEGER REFERENCES products(id),
+        UNIQUE (“userId”, “productId”)
+     );
     `);
 
     console.log('Finished Creating Tables');
@@ -343,6 +351,15 @@ async function createInitialProducts() {
 
 // INTIAL BUILD OF DB BELOW //
 
+async function createInitialCarts() {
+  try {
+    const cartsToCreate = ["cart"]
+
+  } catch(ex) {
+    console.log("error making initial carts")
+  }
+}
+
 async function createInitialUsers() {
 
   console.log("Starting to create users...")
@@ -409,6 +426,7 @@ async function buildDB() {
     await createTables();
     await createInitialUsers();
     await createInitialProducts();
+    await createInitialCarts();
   }
   catch (ex) {
     console.log('Error building the DB')
