@@ -9,7 +9,7 @@ async function dropTables() {
     console.log('Dropping Tables')
     // add code here
     await client.query(`
-    DROP TABLE IF EXISTS purchases;
+    
       DROP TABLE IF EXISTS cart;
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS products;
