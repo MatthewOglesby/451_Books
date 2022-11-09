@@ -2,12 +2,15 @@ const { client } = require('./client')
 
 const { createUser } = require("./users");
 const { createProduct, getProductById, getProductByTitle, updateProduct, getAllProducts, deleteProduct } = require('./products')
+const { addProductToCart } = require('./cart');
 
 async function dropTables() {
   try {
     console.log('Dropping Tables')
     // add code here
     await client.query(`
+    DROP TABLE IF EXISTS purchases;
+      DROP TABLE IF EXISTS cart;
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS products;
     `)
@@ -42,6 +45,14 @@ async function createTables() {
         username VARCHAR(255) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL
       );
+
+      CREATE TABLE cart (
+        id SERIAL PRIMARY KEY,
+        order_quantity INTEGER,
+        "userId" INTEGER REFERENCES users(id),
+        "productId" INTEGER REFERENCES products(id),
+        UNIQUE ("userId", "productId")
+     );
     `);
 
     console.log('Finished Creating Tables');
@@ -343,6 +354,15 @@ async function createInitialProducts() {
 
 // INTIAL BUILD OF DB BELOW //
 
+async function createInitialCarts() {
+  try {
+    const cartsToCreate = ["cart"]
+
+  } catch(ex) {
+    console.log("error making initial carts")
+  }
+}
+
 async function createInitialUsers() {
 
   console.log("Starting to create users...")
@@ -379,6 +399,7 @@ async function testDB() {
     // console.log('testing getting product by title')
     // const result = await getProductByTitle('SpongeBob Goes to the Doctor');
     // console.log(result);
+
     // const allProducts = await getAllProducts();
     // console.log('testing updating product')
     // const result = await updateProduct(allProducts[0].id, {
@@ -386,6 +407,16 @@ async function testDB() {
     //   description: 'eeee',
     // })
     // console.log(result);
+
+    // console.log('testing deleting product')
+    // const result = await deleteProduct(4)
+    // console.log(await getAllProducts())
+
+    console.log('testing adding product to cart-----------')
+    const result = await addProductToCart(2, 2, 10)
+    console.log(result)
+    
+    // return result;
 
 
   } catch (error) {
@@ -402,6 +433,7 @@ async function buildDB() {
     await createTables();
     await createInitialUsers();
     await createInitialProducts();
+    await createInitialCarts();
   }
   catch (ex) {
     console.log('Error building the DB')
