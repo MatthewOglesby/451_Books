@@ -452,7 +452,7 @@ async function testDB() {
 // console.log("testing update cart",updateCart2)
 
 
-//--TESTING DELET CART ITEM-----------------
+//--TESTING DELETE CART ITEM-----------------
  // console.log('testing deleting cart')
     //  const result1 = await deleteCartItem(1)
 //      const result2 = await deleteCart(2)
