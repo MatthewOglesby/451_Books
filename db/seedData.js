@@ -9,6 +9,7 @@ async function dropTables() {
     console.log('Dropping Tables')
     // add code here
     await client.query(`
+    DROP TABLE IF EXISTS purchases;
       DROP TABLE IF EXISTS cart;
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS products;
@@ -48,9 +49,9 @@ async function createTables() {
       CREATE TABLE cart (
         id SERIAL PRIMARY KEY,
         order_quantity INTEGER,
-        “userId” INTEGER REFERENCES users(id),
-        “productId” INTEGER REFERENCES products(id),
-        UNIQUE (“userId”, “productId”)
+        "userId" INTEGER REFERENCES users(id),
+        "productId" INTEGER REFERENCES products(id),
+        UNIQUE ("userId", "productId")
      );
     `);
 
@@ -411,7 +412,7 @@ async function testDB() {
     // const result = await deleteProduct(4)
     // console.log(await getAllProducts())
 
-    console.log('testing adding product to cart')
+    console.log('testing adding product to cart-----------')
     const result = await addProductToCart(2, 2, 10)
     console.log(result)
     
