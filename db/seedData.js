@@ -2,7 +2,7 @@ const { client } = require('./client')
 
 const { createUser } = require("./users");
 const { createProduct, getProductById, getProductByTitle, updateProduct, getAllProducts, deleteProduct } = require('./products')
-const { addProductToCart, updateCart, getCartById, getAllCarts } = require('./cart');
+const { addProductToCart, updateCart, getCartById, getAllCarts, deleteCart } = require('./cart');
 
 async function dropTables() {
   try {
@@ -413,24 +413,38 @@ async function testDB() {
     // const result = await deleteProduct(4)
     // console.log(await getAllProducts())
 
-    // console.log('testing adding product to cart-----------')
-    const result = await addProductToCart(2, 2, 10)
-    const cart = await getCartById(1)
-    console.log("cart test",cart)
+    console.log('testing adding product to cart-----------')
+    const addProduct1 = await addProductToCart(2, 2, 10)
+    const addProduct2 = await addProductToCart(3, 4, 1)
+    const cart1 = await getCartById(1)
+    const cart2 = await getCartById(2)
+    console.log("cart test 1",cart1)
+    console.log("cart test 1",cart2)
 
     
-    // return result;
+//     // return result;
 
-   const allCarts = await getAllCarts()
-   console.log("testing line 425",allCarts)
-    // const cart = await getCartById(1)
-const updateCart2 = await updateCart(allCarts[0].id,{
-  order_quantity:9
+//    const allCarts = await getAllCarts()
+//    console.log("testing line 425",allCarts)
+//     // const cart = await getCartById(1)
+// const updateCart1 = await updateCart(allCarts[0].id,{
+//   order_quantity:9,
+//   productId: 7
   
-})
- console.log("testing update cart",updateCart2)
-//     console.log("cart test",cart)
-// console.log(result)
+// })
+//  console.log("testing update cart",updateCart1)
+
+//  const updateCart2 = await updateCart(allCarts[1].id,{
+//   order_quantity:11,
+//   productId: 5
+  
+// })
+// console.log("testing update cart",updateCart2)
+ // console.log('testing deleting product')
+     const result1 = await deleteCart(1)
+     const result2 = await deleteCart(2)
+    console.log(await getAllCarts())
+
   } catch (error) {
     console.log("Error during testDB");
     throw error;

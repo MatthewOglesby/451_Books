@@ -76,11 +76,28 @@ async function updateCart( id, fields = {}) {
     }
   }
 
+  async function deleteCart(id) {
 
+    try {
+      const { 
+        rows: [carts] 
+      } = await client.query(`
+        DELETE FROM cart
+        WHERE id = ${id}
+        RETURNING *;
+      `);
+  
+      return carts;
+  
+    } catch (error) {
+      throw error;
+    }
+  }
 
 module.exports = {
     addProductToCart,
     getCartById,
     updateCart,
-    getAllCarts
+    getAllCarts,
+    deleteCart
 };
