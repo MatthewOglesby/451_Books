@@ -1,6 +1,19 @@
 const { client } = require('./client');
 const { getProductById } = require('./products');
 
+async function getAllCarts() {
+    try {
+      const { rows } = await client.query(`
+        SELECT * FROM cart;
+      `);
+  
+      return rows;
+  
+    } catch (error) {
+      throw ('error getting all cart', error);
+    }
+  }
+
 async function addProductToCart(
     productId,
     userId,
@@ -21,5 +34,53 @@ async function addProductToCart(
         throw ex;
     }
 }
+async function getCartById(id) {
+    try {
+      const { rows: [cart] } = await client.query(`
+        SELECT * FROM cart
+        WHERE id = ${id}
+      `);
+  
+      return cart;
+  
+    } catch (error) {
+      throw (error);
+    }
+  }
 
-module.exports = {addProductToCart};
+async function updateCart( id, fields = {}) {
+
+    try {
+      const setString = Object.keys(fields)
+        .map((key, index) => `"${key}"=$${index + 1}`)
+        .join(", ");
+  
+      console.log("setstring: ", setString)
+  
+      if (setString.length > 0) {
+        await client.query(
+          `
+           UPDATE cart
+           SET ${setString}
+           WHERE id=${id}
+           RETURNING *;
+         `,
+          Object.values(fields)
+        );
+        
+        return await getCartById(id);
+  
+      }
+    } catch (error) {
+      throw (error);
+    }
+  }
+
+
+
+module.exports = {
+    addProductToCart,
+    getCartById,
+    updateCart,
+    getAllCarts
+};
