@@ -399,7 +399,7 @@ async function testDB() {
  
     //--TESTING GET ALL USER--
    const result = await getAllUsers()
-   console.log(result)
+   console.log("TESTING GET ALL USERS LINE 402",result)
 
     //--TESING GET PRODUCT BY ID---------
     // console.log('testing getting product by id')
@@ -453,8 +453,8 @@ async function testDB() {
 
 
 //--TESTING DELET CART ITEM-----------------
- // console.log('testing deleting product')
-     const result1 = await deleteCartItem(1)
+ // console.log('testing deleting cart')
+    //  const result1 = await deleteCartItem(1)
 //      const result2 = await deleteCart(2)
 //     console.log(await getAllCarts())
 
