@@ -2,6 +2,7 @@ const { client } = require('./client')
 
 const { createUser } = require("./users");
 const { createProduct, getProductById, getProductByTitle, updateProduct, getAllProducts, deleteProduct } = require('./products')
+const { addProductToCart } = require('./cart');
 
 async function dropTables() {
   try {
@@ -46,6 +47,7 @@ async function createTables() {
 
       CREATE TABLE cart (
         id SERIAL PRIMARY KEY,
+        order_quantity INTEGER,
         “userId” INTEGER REFERENCES users(id),
         “productId” INTEGER REFERENCES products(id),
         UNIQUE (“userId”, “productId”)
@@ -408,6 +410,10 @@ async function testDB() {
     // console.log('testing deleting product')
     // const result = await deleteProduct(4)
     // console.log(await getAllProducts())
+
+    console.log('testing adding product to cart')
+    const result = await addProductToCart(2, 2, 10)
+    console.log(result)
     
     // return result;
 
