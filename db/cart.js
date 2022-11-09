@@ -76,7 +76,7 @@ async function updateCart( id, fields = {}) {
     }
   }
 
-  async function deleteCart(id) {
+  async function deleteCartItem(id) {
 
     try {
       const { 
@@ -99,5 +99,5 @@ module.exports = {
     getCartById,
     updateCart,
     getAllCarts,
-    deleteCart
+    deleteCartItem
 };
