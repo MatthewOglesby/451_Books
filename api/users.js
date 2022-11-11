@@ -8,7 +8,7 @@ const {
   getUser,
 } = require("../db/users");
 const { getCartById } = require('../db/cart')
-const { JWT_SECRET } = process.env;
+const { JWT_SECRET }  = process.env;
 const { requireUser } = require('./utils')
 
 const bcrypt = require("bcrypt");
@@ -62,12 +62,10 @@ router.post('/register', async (req, res, next) => {
 
   try {
     const _user = await getUserByUsername(username);
-
     const user = await createUser({
       email,
       username,
       password
-
     });
 
     if (_user) {
@@ -81,7 +79,7 @@ router.post('/register', async (req, res, next) => {
     const token = jwt.sign({
       id: user.id,
       username
-    }, process.env.JWT_SECRET, {
+    }, JWT_SECRET, {
       expiresIn: '1w'
     });
 
@@ -94,21 +92,21 @@ router.post('/register', async (req, res, next) => {
   }
 });
 
-router.get('/me', requireUser, async (req, res) => {
+router.get('/:id', async (req, res, next) => {
   try {
-    const { id, username } = req.body;
-    const users = await getUserById(id, username);
-    console.log(users, "GETTING USERS HERE")
+    const { id } = req.params;
+    const users = await getUserById(id);
+    console.log("GETTING USERS HERE", users)
     res.send(users);
   } catch (error) {
-    console.log(error)
+    console.log(error);
+    next(error);
   }
 });
 
-router.get('/users/:id/cart', async (req, res, next) => {
-  const { id } = req.params;
-
+router.get('/:id/cart', async (req, res, next) => {
   try {
+    const { id } = req.params;
     const usersCart = await getCartById(id);
     res.send(usersCart)
   } catch (error) {
