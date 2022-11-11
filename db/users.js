@@ -39,10 +39,10 @@ async function createUser({ email, username, password, isAdmin = false }) {
     }
   }
   
-  async function getUser({ username, password }) {
+  async function getUser( username, password ) {
 
     const user = await getUserByUsername(username);
-    const hashedPassword = password;
+    const hashedPassword = user.password;
     const passwordsMatch = await bcrypt.compare(password, hashedPassword);
 
     if (passwordsMatch) {
@@ -51,7 +51,7 @@ async function createUser({ email, username, password, isAdmin = false }) {
           rows: [user],
         } = await client.query(
           `
-        SELECT id, username
+        SELECT id, email, username, password 
         FROM users
         WHERE username=$1 AND password=$2;
         `,
@@ -66,9 +66,7 @@ async function createUser({ email, username, password, isAdmin = false }) {
     }
   }
 
-
-  
-  async function getUserById(userId) {
+async function getUserById(userId) {
     
     try {
       const {
@@ -87,7 +85,7 @@ async function createUser({ email, username, password, isAdmin = false }) {
     }
   }
   
-  async function getUserByUsername(userName) {
+async function getUserByUsername(userName) {
     try {
       const {
         rows: [user],

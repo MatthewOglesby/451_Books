@@ -1,6 +1,6 @@
 const { client } = require('./client')
 
-const { createUser, getAllUsers, getUserByUsername } = require("./users");
+const { createUser, getAllUsers, getUserByUsername, getUser, getUserById } = require("./users");
 const { createProduct, getProductById, getProductByTitle, updateProduct, getAllProducts, deleteProduct } = require('./products')
 const { addProductToCart, updateCart, getCartById, getAllCarts, deleteCartItem, getCartByUser } = require('./cart');
 
@@ -405,10 +405,17 @@ async function testDB() {
       //  const result = await getAllUsers()
       //  console.log("TESTING GET ALL USERS LINE 402",result)
       
-   //--TESTING GET USER BY USER NAME--
+   //--TESTING GET USER BY USERNAME--
+  //  const result = await getUserByUsername('ross')
+  //  console.log("TESTING GET USER BY USER NAME DB", result)
 
-   const result = await getUserByUsername('ross')
-   console.log("TESTING GET USER BY USER NAME DB", result)
+  // --TESTING GET USER----------
+    // const result = await getUser("matthew", "password")
+    // console.log("line 414", result)
+
+    // --TESTING GET USER BY ID-----------
+      // const result = await getUserById(1)
+      // console.log(result)
 
     //--TESING GET PRODUCT BY ID---------
     // console.log('testing getting product by id')
