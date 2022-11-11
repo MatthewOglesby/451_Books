@@ -435,18 +435,18 @@ async function testDB() {
     // console.log(await getAllProducts())
 
     //--TESTING ADD PRODUCT TO CART--------------
-        console.log('testing adding product to cart-----------')
-        const addProduct1 = await addProductToCart(2, 2, 10)
-        const addProduct2 = await addProductToCart(3, 4, 1)
-        const cart1 = await getCartById(1)
-        const cart2 = await getCartById(2)
-        console.log("cart test 1", cart1)
-        console.log("cart test 1", cart2)
+        // console.log('testing adding product to cart-----------')
+        // const addProduct1 = await addProductToCart(2, 2, 10)
+        // const addProduct2 = await addProductToCart(3, 4, 1)
+        // const cart1 = await getCartById(1)
+        // const cart2 = await getCartById(2)
+        // console.log("cart test 1", cart1)
+        // console.log("cart test 1", cart2)
 
     //--TESTING GETTING CART BY USER---------------
-        console.log('testing getting cart by user-----------')
-        const usersCart = await getCartByUser(4)
-        console.log(usersCart)
+        // console.log('testing getting cart by user-----------')
+        // const usersCart = await getCartByUser(4)
+        // console.log(usersCart)
 
         
     //--TESTING UPDATE CART-----------------
