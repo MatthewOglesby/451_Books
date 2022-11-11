@@ -2,7 +2,7 @@ const { client } = require('./client')
 
 const { createUser, getAllUsers } = require("./users");
 const { createProduct, getProductById, getProductByTitle, updateProduct, getAllProducts, deleteProduct } = require('./products')
-const { addProductToCart, updateCart, getCartById, getAllCarts, deleteCartItem } = require('./cart');
+const { addProductToCart, updateCart, getCartById, getAllCarts, deleteCartItem, getCartByUser } = require('./cart');
 
 async function dropTables() {
   try {
@@ -402,8 +402,8 @@ async function testDB() {
   try {
  
     //--TESTING GET ALL USER--
-   const result = await getAllUsers()
-   console.log("TESTING GET ALL USERS LINE 402",result)
+      //  const result = await getAllUsers()
+      //  console.log("TESTING GET ALL USERS LINE 402",result)
 
     //--TESING GET PRODUCT BY ID---------
     // console.log('testing getting product by id')
@@ -430,37 +430,42 @@ async function testDB() {
     // console.log(await getAllProducts())
 
     //--TESTING ADD PRODUCT TO CART--------------
-//     console.log('testing adding product to cart-----------')
-//     const addProduct1 = await addProductToCart(2, 2, 10)
-//     const addProduct2 = await addProductToCart(3, 4, 1)
-//     const cart1 = await getCartById(1)
-//     const cart2 = await getCartById(2)
-//     console.log("cart test 1",cart1)
-//     console.log("cart test 1",cart2)
+        console.log('testing adding product to cart-----------')
+        const addProduct1 = await addProductToCart(2, 2, 10)
+        const addProduct2 = await addProductToCart(3, 4, 1)
+        const cart1 = await getCartById(1)
+        const cart2 = await getCartById(2)
+        console.log("cart test 1", cart1)
+        console.log("cart test 1", cart2)
 
-    
-//--TESTING UPDATE CART-----------------
-//    const allCarts = await getAllCarts()
-//    console.log("testing line 425",allCarts)
-//     // const cart = await getCartById(1)
-// const updateCart1 = await updateCart(allCarts[0].id,{
-//   order_quantity:9,
-//   productId: 7
-// })
-//  console.log("testing update cart",updateCart1)
+    //--TESTING GETTING CART BY USER---------------
+        console.log('testing getting cart by user-----------')
+        const usersCart = await getCartByUser(4)
+        console.log(usersCart)
 
-//  const updateCart2 = await updateCart(allCarts[1].id,{
-//   order_quantity:11,
-//   productId: 5
-// })
-// console.log("testing update cart",updateCart2)
+        
+    //--TESTING UPDATE CART-----------------
+    //    const allCarts = await getAllCarts()
+    //    console.log("testing line 425",allCarts)
+    //     // const cart = await getCartById(1)
+    // const updateCart1 = await updateCart(allCarts[0].id,{
+    //   order_quantity:9,
+    //   productId: 7
+    // })
+    //  console.log("testing update cart",updateCart1)
+
+    //  const updateCart2 = await updateCart(allCarts[1].id,{
+    //   order_quantity:11,
+    //   productId: 5
+    // })
+    // console.log("testing update cart",updateCart2)
 
 
-//--TESTING DELETE CART ITEM-----------------
- // console.log('testing deleting cart')
-    //  const result1 = await deleteCartItem(1)
-//      const result2 = await deleteCart(2)
-//     console.log(await getAllCarts())
+    //--TESTING DELETE CART ITEM-----------------
+    // console.log('testing deleting cart')
+        //  const result1 = await deleteCartItem(1)
+    //      const result2 = await deleteCart(2)
+    //     console.log(await getAllCarts())
 
   } catch (error) {
     console.log("Error during testDB");
