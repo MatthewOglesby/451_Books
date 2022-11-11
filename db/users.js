@@ -42,7 +42,7 @@ async function createUser({ email, username, password, isAdmin = false }) {
   async function getUser({ username, password }) {
 
     const user = await getUserByUsername(username);
-    const hashedPassword = user.password;
+    const hashedPassword = password;
     const passwordsMatch = await bcrypt.compare(password, hashedPassword);
 
     if (passwordsMatch) {
@@ -53,7 +53,7 @@ async function createUser({ email, username, password, isAdmin = false }) {
           `
         SELECT id, username
         FROM users
-        WHERE username=$2 AND password=$3;
+        WHERE username=$1 AND password=$2;
         `,
           [username, hashedPassword]
         );
@@ -65,6 +65,8 @@ async function createUser({ email, username, password, isAdmin = false }) {
       }
     }
   }
+
+
   
   async function getUserById(userId) {
     

@@ -48,8 +48,21 @@ async function getCartById(id) {
     }
   }
 
-async function updateCart( id, fields = {}) {
+  async function getCartByUser(userId) {
+    try {
+      const { rows: [cart] } = await client.query(`
+        SELECT * FROM cart
+        WHERE "userId" = ${userId}
+      `);
+  
+      return cart;
+  
+    } catch (error) {
+      throw (error);
+    }
+  }
 
+async function updateCart( id, fields = {}) {
     try {
       const setString = Object.keys(fields)
         .map((key, index) => `"${key}"=$${index + 1}`)
@@ -76,8 +89,7 @@ async function updateCart( id, fields = {}) {
     }
   }
 
-  async function deleteCartItem(id) {
-
+async function deleteCartItem(id) {
     try {
       const { 
         rows: [carts] 
@@ -99,5 +111,6 @@ module.exports = {
     getCartById,
     updateCart,
     getAllCarts,
-    deleteCartItem
+    deleteCartItem,
+    getCartByUser
 };
