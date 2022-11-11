@@ -10,9 +10,11 @@ async function dropTables() {
     // add code here
     await client.query(`
     
+      
       DROP TABLE IF EXISTS cart;
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS products;
+      
     `)
 
     console.log('Finished Dropping Tables')
@@ -54,6 +56,8 @@ async function createTables() {
         "productId" INTEGER REFERENCES products(id),
         UNIQUE ("userId", "productId")
      );
+
+   
     `);
 
     console.log('Finished Creating Tables');
