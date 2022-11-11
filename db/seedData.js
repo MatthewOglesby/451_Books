@@ -38,7 +38,7 @@ async function createTables() {
         genre VARCHAR(255),
         price VARCHAR(255),
         image VARCHAR(255),
-        quantity VARCHAR(255)
+        quantity INTEGER
       );
 
       CREATE TABLE users (
@@ -88,7 +88,7 @@ async function createInitialProducts() {
       image:
         "https://media.harrypotterfanzone.com/sorcerers-stone-us-childrens-edition.jpg",
       quantity:
-        "57"
+        57
     });
 
     await createProduct({
@@ -108,7 +108,7 @@ async function createInitialProducts() {
       image:
         "https://media.harrypotterfanzone.com/chamber-of-secrets-ebook-cover-1050x0-c-default.jpg",
       quantity:
-        "57"
+        57
     });
 
     await createProduct({
@@ -128,7 +128,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg",
       quantity:
-        "57"
+        60
     });
 
     await createProduct({
@@ -148,7 +148,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/51kfFS5-fnL._AC_SY780_.jpg",
       quantity:
-        "57"
+        60
     });
 
     await createProduct({
@@ -168,7 +168,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/51a5n1ueF1L._SX332_BO1,204,203,200_.jpg",
       quantity:
-        "57"
+        60
     });
 
     await createProduct({
@@ -188,7 +188,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/41VZPJHOlFL.jpg",
       quantity:
-        "57"
+        55
     });
 
     await createProduct({
@@ -208,7 +208,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/51EIw7k-X1L.jpg",
       quantity:
-        "57"
+        50
     });
 
     await createProduct({
@@ -228,7 +228,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/41r2RZ4JBgL._SX326_BO1,204,203,200_.jpg",
       quantity:
-        "57"
+        57
     });
 
     await createProduct({
@@ -248,7 +248,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/51HL8BEGiAL._SY498_BO1,204,203,200_.jpg",
       quantity:
-        "57"
+        60
     });
 
     await createProduct({
@@ -268,7 +268,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/4119l82gW1L._SX518_BO1,204,203,200_.jpg",
       quantity:
-        "57"
+        60
     });
 
     await createProduct({
@@ -288,7 +288,7 @@ async function createInitialProducts() {
       image:
         "https://images.penguinrandomhouse.com/cover/9780307887443",
       quantity:
-        "57"
+        56
     });
 
     await createProduct({
@@ -308,7 +308,7 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/5155UwVQ-LL._AC_SY780_.jpg",
       quantity:
-        "57"
+        55
     });
 
     await createProduct({
@@ -328,7 +328,7 @@ async function createInitialProducts() {
       image:
         'https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg',
       quantity:
-        "57"
+        57
     });
 
     await createProduct({
@@ -347,7 +347,7 @@ async function createInitialProducts() {
       image:
         "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
       quantity:
-        "57"
+        60
     });
    
     console.log('Finished creating Products')
