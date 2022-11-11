@@ -35,9 +35,9 @@ router.post('/login', async (req, res, next) => {
       });
     }
     const user = await getUserByUsername(username);
-    console.log("TETSING USER______", user)
-  const hashedPassword = user.password;
-  const isValid = await bcrypt.compare(password,hashedPassword)
+    console.log("TESTING USER______", user)
+    const hashedPassword = user.password;
+    const isValid = await bcrypt.compare(password, hashedPassword)
 
     if (user && isValid) {
       const token = jwt.sign({ id: user.id, username }, process.env.JWT_SECRET)
@@ -106,7 +106,7 @@ router.get('/me', requireUser, async (req, res) => {
 });
 
 router.get('/users/:id/cart', async (req, res, next) => {
-  const { id } = req.params; 
+  const { id } = req.params;
 
   try {
     const usersCart = await getCartById(id);
