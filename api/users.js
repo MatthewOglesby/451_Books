@@ -5,6 +5,7 @@ const {
   createUser,
   getAllUsers,
   getUserById,
+  getUser,
 } = require("../db/users");
 const { getCartById } = require('../db/cart')
 const { JWT_SECRET } = process.env;
@@ -24,19 +25,21 @@ router.get('/', async (req, res) => {
 
 
 router.post('/login', async (req, res, next) => {
-  const { username, password } = req.body;
-
-  if (!username || !password) {
-    next({
-      name: "MissingCredentialsError",
-      message: "Please supply both a username and password"
-    });
-  }
-
   try {
+    const { username, password } = req.body;
+    console.log("TESTING USERNAME LINE 30", username)
+    if (!username || !password) {
+      res.send({
+        name: "MissingCredentialsError",
+        message: "Please supply both a username and password"
+      });
+    }
     const user = await getUserByUsername(username);
+    console.log("TETSING USER______", user)
+  const hashedPassword = user.password;
+  const isValid = await bcrypt.compare(password,hashedPassword)
 
-    if (user && user.password == password) {
+    if (user && isValid) {
       const token = jwt.sign({ id: user.id, username }, process.env.JWT_SECRET)
 
       res.send({ message: "you're logged in!", token });
@@ -55,7 +58,7 @@ router.post('/login', async (req, res, next) => {
 
 
 router.post('/register', async (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, password, email } = req.body;
 
   try {
     const _user = await getUserByUsername(username);
