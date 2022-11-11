@@ -1,6 +1,6 @@
 const { client } = require('./client')
 
-const { createUser, getAllUsers, getUserByUsername } = require("./users");
+const { createUser, getAllUsers, getUserByUsername, getUser, getUserById } = require("./users");
 const { createProduct, getProductById, getProductByTitle, updateProduct, getAllProducts, deleteProduct } = require('./products')
 const { addProductToCart, updateCart, getCartById, getAllCarts, deleteCartItem, getCartByUser } = require('./cart');
 
@@ -374,12 +374,12 @@ async function createInitialUsers() {
 
   try {
     const usersToCreate = [
-      { email: 'matthew@email.com', username: "matthew", password: "password", isAdmin:true },
-      { email: 'ross@email.com', username: "ross", password: "password", isAdmin:true  },
-      { email: 'claire@email.com', username: "claire", password: "password", isAdmin:true  },
-      { email: 'jaeln@email.com', username: "jaeln", password: "password", isAdmin:true  },
-      { email: 'ethan@email.com', username: "ethan", password: "password", isAdmin:true  },
-      { email: 'default1@email.com', username: "albert", password: "bertie99"},
+      { email: 'matthew@email.com', username: "matthew", password: "password", isAdmin: true },
+      { email: 'ross@email.com', username: "ross", password: "password", isAdmin: true },
+      { email: 'claire@email.com', username: "claire", password: "password", isAdmin: true },
+      { email: 'jaeln@email.com', username: "jaeln", password: "password", isAdmin: true },
+      { email: 'ethan@email.com', username: "ethan", password: "password", isAdmin: true },
+      { email: 'default1@email.com', username: "albert", password: "bertie99" },
       { email: 'default2@email.com', username: "sandra", password: "sandra123" },
       { email: 'default3@email.com', username: "glamgal", password: "glamgal123" }
     ]
@@ -405,10 +405,17 @@ async function testDB() {
       //  const result = await getAllUsers()
       //  console.log("TESTING GET ALL USERS LINE 402",result)
       
-   //--TESTING GET USER BY USER NAME--
+   //--TESTING GET USER BY USERNAME--
+  //  const result = await getUserByUsername('ross')
+  //  console.log("TESTING GET USER BY USER NAME DB", result)
 
-   const result = await getUserByUsername('ross')
-   console.log("TESTING GET USER BY USER NAME DB", result)
+  // --TESTING GET USER----------
+    // const result = await getUser("matthew", "password")
+    // console.log("line 414", result)
+
+    // --TESTING GET USER BY ID-----------
+      // const result = await getUserById(1)
+      // console.log(result)
 
     //--TESING GET PRODUCT BY ID---------
     // console.log('testing getting product by id')
@@ -435,18 +442,18 @@ async function testDB() {
     // console.log(await getAllProducts())
 
     //--TESTING ADD PRODUCT TO CART--------------
-        // console.log('testing adding product to cart-----------')
-        // const addProduct1 = await addProductToCart(2, 2, 10)
-        // const addProduct2 = await addProductToCart(3, 4, 1)
-        // const cart1 = await getCartById(1)
-        // const cart2 = await getCartById(2)
-        // console.log("cart test 1", cart1)
-        // console.log("cart test 1", cart2)
+        console.log('testing adding product to cart-----------')
+        const addProduct1 = await addProductToCart(2, 2, 10)
+        const addProduct2 = await addProductToCart(3, 4, 1)
+        const cart1 = await getCartById(1)
+        const cart2 = await getCartById(2)
+        console.log("cart test 1", cart1)
+        console.log("cart test 2", cart2)
 
     //--TESTING GETTING CART BY USER---------------
-        // console.log('testing getting cart by user-----------')
-        // const usersCart = await getCartByUser(4)
-        // console.log(usersCart)
+        console.log('testing getting cart by user-----------')
+        const usersCart = await getCartByUser(4)
+        console.log(usersCart)
 
         
     //--TESTING UPDATE CART-----------------
