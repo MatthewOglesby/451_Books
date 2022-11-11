@@ -1,6 +1,20 @@
 const { client } = require("./client");
 const bcrypt = require('bcrypt')
 
+
+async function getAllUsers() {
+  try {
+    const { rows } = await client.query(`
+      SELECT * FROM users;
+    `);
+
+    return rows;
+
+  } catch (error) {
+    throw ('error getting all user', error);
+  }
+}
+
 async function createUser({ email, username, password, isAdmin = false }) {
     const SALT_COUNT = 10;
     const hashedPassword = await bcrypt.hash(password, SALT_COUNT);
@@ -95,4 +109,5 @@ async function createUser({ email, username, password, isAdmin = false }) {
     getUser,
     getUserById,
     getUserByUsername,
+    getAllUsers,
   }

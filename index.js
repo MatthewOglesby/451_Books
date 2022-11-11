@@ -18,6 +18,26 @@ server.use((req, res, next) => {
 const apiRouter = require('./api');
 server.use('/api', apiRouter);
 
+apiRouter.use('*', (req, res,) => {
+  res.status(404).send({
+    error: 'unknownpage',
+    name: 'badURL',
+    message: 'wrong route'
+  });
+ 
+})
+
+apiRouter.use((error, req, res, next) => {
+    
+    res.send({
+      error: error.error,
+      name: error.name,
+      message: error.message
+    });
+  });
+
+
+
 server.listen(PORT, () => {
   console.log(`Server is up and running on port ${PORT}`)
 })
