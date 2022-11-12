@@ -2,7 +2,13 @@ const express = require('express');
 
 const productsRouter = express.Router();
 
-const { getAllProducts, getProductById, createProduct, updateProduct, getProductByTitle } = require('../db/products');
+const { 
+  getAllProducts, 
+  getProductById, 
+  createProduct, 
+  updateProduct, 
+  getProductByTitle, 
+  deleteProduct} = require('../db/products');
 const { requireUser } = require('./utils');
 
 productsRouter.get("/", async (req, res, next) => {
@@ -47,15 +53,14 @@ productsRouter.post('/', requireUser, async (req, res, next) => {
   }
 });
 
-productsRouter.patch('/:productId', async (req, res, next) => {
+productsRouter.patch('/:productId',requireUser, async (req, res, next) => {
   const { productId } = req.params
   const { title, description, author, pageCount, genre, price, image, quantity } = req.body
   const { ... fields } = req.body
 
   try {
     const product = await getProductById(productId);
-    console.log("TESTING PRODUCT ID", productId)
-    console.log("TESTING PRODUCTS",product)
+    
     if (product) {
       const updatedProduct = await updateProduct(productId,{
         id: productId,
@@ -68,9 +73,7 @@ productsRouter.patch('/:productId', async (req, res, next) => {
         image, 
         quantity
       });
-      console.log("PAGE COUNT", pageCount)
-      console.log("TESTNG PRODUCT ID LINE 71", productId)
-      console.log("TESTING UPDATING PRODUCT", updatedProduct)
+      
       res.send(updatedProduct)
     } else {
       res.send({
@@ -92,5 +95,30 @@ productsRouter.patch('/:productId', async (req, res, next) => {
     next(error);
   }
 });
+
+productsRouter.delete('/:productId',requireUser, async (req, res, next) => {
+  const { productId } = req.params;
+
+ try {
+  const product = await getProductById(productId);
+  
+ if(product){
+  const deleteProducts = await deleteProduct(productId )
+  res.send(deleteProducts)
+ }else {
+  res.status(403);
+  next({
+    name: "UnauthorizedUserError",
+    message: `Cannot delete product`,
+    error: " Error can't edit ",
+  });
+}
+ }
+ catch ( error ) {
+  next( error );
+}
+
+})
+
 
 module.exports = productsRouter;
