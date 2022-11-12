@@ -14,7 +14,6 @@ const { requireUser } = require('./utils')
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-
 router.get('/', async (req, res) => {
   const users = await getAllUsers();
 
@@ -22,7 +21,6 @@ router.get('/', async (req, res) => {
     users
   });
 });
-
 
 router.post('/login', async (req, res, next) => {
   try {
@@ -55,7 +53,6 @@ router.post('/login', async (req, res, next) => {
     next(error);
   }
 });
-
 
 router.post('/register', async (req, res, next) => {
   const { username, password, email } = req.body;

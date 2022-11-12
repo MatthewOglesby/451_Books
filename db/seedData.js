@@ -6,18 +6,14 @@ const { addProductToCart, updateCart, getCartById, getAllCarts, deleteCartItem, 
 
 async function dropTables() {
   try {
-    console.log('Dropping Tables')
-    // add code here
+    console.log('Dropping Tables');
     await client.query(`
-    
-      
       DROP TABLE IF EXISTS cart;
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS products;
-      
     `)
 
-    console.log('Finished Dropping Tables')
+    console.log('Finished Dropping Tables');
   }
   catch (ex) {
     console.log('error dropping tables', ex)
@@ -26,7 +22,7 @@ async function dropTables() {
 
 async function createTables() {
   try {
-    console.log('Creating Tables')
+    console.log('Creating Tables');
     
     await client.query(`
       CREATE TABLE products (
@@ -64,13 +60,13 @@ async function createTables() {
 
   }
   catch (ex) {
-    console.log('error creating tables', ex)
+    console.log('error creating tables', ex);
   }
 };
 //--INTIAL SEED DATA--
 async function createInitialProducts() {
   try {
-    console.log('Creating Products')
+    console.log('Creating Products');
 
     await createProduct({
       title:
@@ -92,7 +88,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         "Harry Potter and the Chamber of Secrets",
       description:
@@ -112,7 +107,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         "Twilight",
       description:
@@ -132,7 +126,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         "The Lord of The Rings",
       description:
@@ -152,7 +145,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         "I Will Find You: Solving Killer Cases from My Life Fighting Crime ",
       description:
@@ -172,7 +164,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         "True Crime Stories You Won't Believe: Book Two ",
       description:
@@ -192,7 +183,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         "Robin",
       description:
@@ -212,7 +202,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         "The Complete Zen Disc Golf",
       description:
@@ -232,7 +221,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         "SpongeBob Goes to the Doctor",
       description:
@@ -252,7 +240,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         "JavaScript and jQuery: Interactive Front-End Web Development ",
       description:
@@ -272,7 +259,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         "Ready Player One",
       description:
@@ -292,7 +278,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         "Born a Crime",
       description:
@@ -312,7 +297,6 @@ async function createInitialProducts() {
     });
 
     await createProduct({
-
       title:
         'Life 3.0',
       description:
@@ -350,10 +334,10 @@ async function createInitialProducts() {
         60
     });
    
-    console.log('Finished creating Products')
+    console.log('Finished creating Products');
   }
   catch (ex) {
-    console.log('error creating Products', ex)
+    console.log('error creating Products', ex);
   }
 }
 
@@ -364,7 +348,7 @@ async function createInitialCarts() {
     const cartsToCreate = ["cart"]
 
   } catch(ex) {
-    console.log("error making initial carts")
+    console.log("error making initial carts");
   }
 }
 
@@ -396,7 +380,6 @@ async function createInitialUsers() {
   }
 }
 
-
 //--START TESTING DB--
 async function testDB() {
   try {
@@ -406,78 +389,77 @@ async function testDB() {
       //  console.log("TESTING GET ALL USERS LINE 402",result)
       
    //--TESTING GET USER BY USERNAME--
-  //  const result = await getUserByUsername('ross')
-  //  console.log("TESTING GET USER BY USER NAME DB", result)
+      //  const result = await getUserByUsername('ross')
+      //  console.log("TESTING GET USER BY USER NAME DB", result)
 
-  // --TESTING GET USER----------
-    // const result = await getUser("matthew", "password")
-    // console.log("line 414", result)
+    // --TESTING GET USER----------
+      // const result = await getUser("matthew", "password")
+      // console.log("line 414", result)
 
     // --TESTING GET USER BY ID-----------
       // const result = await getUserById(1)
       // console.log(result)
 
     //--TESING GET PRODUCT BY ID---------
-    // console.log('testing getting product by id')
-    // const result = await getProductById(9);
-    // console.log(result);
+      // console.log('testing getting product by id')
+      // const result = await getProductById(9);
+      // console.log(result);
     
     //--TESING GET PRODUCT BY TITLE--------
-    // console.log('testing getting product by title')
-    // const result = await getProductByTitle('SpongeBob Goes to the Doctor');
-    // console.log(result);
+      // console.log('testing getting product by title')
+      // const result = await getProductByTitle('SpongeBob Goes to the Doctor');
+      // console.log(result);
 
     //--TESTING UPDATE PRODUCTS----------
-    // const allProducts = await getAllProducts();
-    // console.log('testing updating product')
-    // const result = await updateProduct(allProducts[0].id, {
-    //   title: "meh",
-    //   description: 'eeee',
-    // })
-    // console.log(result);
+      // const allProducts = await getAllProducts();
+      // console.log('testing updating product')
+      // const result = await updateProduct(allProducts[0].id, {
+      //   title: "meh",
+      //   description: 'eeee',
+      // })
+      // console.log(result);
 
     //--TESTING DELETE PRODUCTS-------------
-    // console.log('testing deleting product')
-    // const result = await deleteProduct(4)
-    // console.log(await getAllProducts())
+      // console.log('testing deleting product')
+      // const result = await deleteProduct(4)
+      // console.log(await getAllProducts())
 
     //--TESTING ADD PRODUCT TO CART--------------
-        // console.log('testing adding product to cart-----------')
-        // const addProduct1 = await addProductToCart(2, 2, 10)
-        // const addProduct2 = await addProductToCart(3, 4, 1)
-        // const cart1 = await getCartById(1)
-        // const cart2 = await getCartById(2)
-        // console.log("cart test 1", cart1)
-        // console.log("cart test 2", cart2)
+      // console.log('testing adding product to cart-----------')
+      // const addProduct1 = await addProductToCart(2, 2, 10)
+      // const addProduct2 = await addProductToCart(3, 4, 1)
+      // const cart1 = await getCartById(1)
+      // const cart2 = await getCartById(2)
+      // console.log("cart test 1", cart1)
+      // console.log("cart test 2", cart2)
 
     //--TESTING GETTING CART BY USER---------------
-        // console.log('testing getting cart by user-----------')
-        // const usersCart = await getCartByUser(4)
-        // console.log(usersCart)
+      // console.log('testing getting cart by user-----------')
+      // const usersCart = await getCartByUser(4)
+      // console.log(usersCart)
 
         
     //--TESTING UPDATE CART-----------------
-    //    const allCarts = await getAllCarts()
-    //    console.log("testing line 425",allCarts)
-    //     // const cart = await getCartById(1)
-    // const updateCart1 = await updateCart(allCarts[0].id,{
-    //   order_quantity:9,
-    //   productId: 7
-    // })
-    //  console.log("testing update cart",updateCart1)
-
-    //  const updateCart2 = await updateCart(allCarts[1].id,{
-    //   order_quantity:11,
-    //   productId: 5
-    // })
-    // console.log("testing update cart",updateCart2)
+      //    const allCarts = await getAllCarts()
+      //    console.log("testing line 425",allCarts)
+      //     // const cart = await getCartById(1)
+      // const updateCart1 = await updateCart(allCarts[0].id,{
+      //   order_quantity:9,
+      //   productId: 7
+      // })
+      //  console.log("testing update cart",updateCart1)
+      //  const updateCart2 = await updateCart(allCarts[1].id,{
+      //   order_quantity:11,
+      //   productId: 5
+      // })
+      // console.log("testing update cart",updateCart2)
 
 
     //--TESTING DELETE CART ITEM-----------------
-    // console.log('testing deleting cart')
-        //  const result1 = await deleteCartItem(1)
-    //      const result2 = await deleteCart(2)
-    //     console.log(await getAllCarts())
+      // console.log('testing deleting cart')
+          //  const result1 = await deleteCartItem(1)
+      //      const result2 = await deleteCart(2)
+      //     console.log(await getAllCarts())
 
   } catch (error) {
     console.log("Error during testDB");
@@ -499,7 +481,6 @@ async function buildDB() {
     console.log('Error building the DB')
   }
 }
-
 
 buildDB()
   .then(testDB)

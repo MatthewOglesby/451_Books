@@ -104,7 +104,6 @@ async function deleteProduct(id) {
   }
 }
 
-
 module.exports = {
   createProduct,
   getAllProducts,

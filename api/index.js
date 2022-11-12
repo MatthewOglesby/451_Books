@@ -8,8 +8,6 @@ apiRouter.use('/products', productsRouter);
 const usersRouter = require('./users');
 apiRouter.use('/users', usersRouter);
 
-
-
 //-----HEALTH CHECK-------
 apiRouter.get('/health', async (req, res, next) => {
     res.status(200).json({
@@ -27,6 +25,5 @@ apiRouter.use((error, req, res, next) => {
       message: error.message
     });
   });
-
 
 module.exports = apiRouter;

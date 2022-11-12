@@ -14,11 +14,7 @@ async function getAllCarts() {
     }
   }
 
-async function addProductToCart(
-    productId,
-    userId,
-    quantity
-) {
+async function addProductToCart( productId, userId, quantity ) {
     const product = await getProductById(productId);
     console.log(product)
     try {
@@ -34,6 +30,7 @@ async function addProductToCart(
         throw ex;
     }
 }
+
 async function getCartById(id) {
     try {
       const { rows: [cart] } = await client.query(`
@@ -48,7 +45,7 @@ async function getCartById(id) {
     }
   }
 
-  async function getCartByUser(userId) {
+async function getCartByUser(userId) {
     try {
       const { rows: [cart] } = await client.query(`
         SELECT * FROM cart

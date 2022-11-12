@@ -1,14 +1,13 @@
 const express = require('express');
-
 const productsRouter = express.Router();
-
-const { 
-  getAllProducts, 
-  getProductById, 
-  createProduct, 
-  updateProduct, 
-  getProductByTitle, 
-  deleteProduct} = require('../db/products');
+const {
+  getAllProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  getProductByTitle,
+  deleteProduct 
+} = require('../db/products');
 const { requireUser } = require('./utils');
 
 productsRouter.get("/", async (req, res, next) => {
@@ -16,7 +15,7 @@ productsRouter.get("/", async (req, res, next) => {
     const allProducts = await getAllProducts();
 
     res.send(allProducts);
-  } catch ({ description, id, title, genre, price, author, image, quantity, pagecount}) {
+  } catch ({ description, id, title, genre, price, author, image, quantity, pagecount }) {
     next({ description, id, title, genre, price, author, image, quantity, pagecount });
   }
 });
@@ -37,43 +36,43 @@ productsRouter.post('/', requireUser, async (req, res, next) => {
 
   try {
     const product = await createProduct({
-      title, 
-      description, 
-      author, 
-      pageCount, 
-      genre, 
-      price, 
-      image, 
+      title,
+      description,
+      author,
+      pageCount,
+      genre,
+      price,
+      image,
       quantity
     });
-      res.send(product)
+    res.send(product)
   } catch (error) {
     console.log(error);
     next(error);
   }
 });
 
-productsRouter.patch('/:productId',requireUser, async (req, res, next) => {
+productsRouter.patch('/:productId', requireUser, async (req, res, next) => {
   const { productId } = req.params
   const { title, description, author, pageCount, genre, price, image, quantity } = req.body
-  const { ... fields } = req.body
+  const { ...fields } = req.body
 
   try {
     const product = await getProductById(productId);
-    
+
     if (product) {
-      const updatedProduct = await updateProduct(productId,{
+      const updatedProduct = await updateProduct(productId, {
         id: productId,
-        title, 
-        description, 
-        author, 
-        pageCount, 
-        genre, 
-        price, 
-        image, 
+        title,
+        description,
+        author,
+        pageCount,
+        genre,
+        price,
+        image,
         quantity
       });
-      
+
       res.send(updatedProduct)
     } else {
       res.send({
@@ -96,29 +95,28 @@ productsRouter.patch('/:productId',requireUser, async (req, res, next) => {
   }
 });
 
-productsRouter.delete('/:productId',requireUser, async (req, res, next) => {
+productsRouter.delete('/:productId', requireUser, async (req, res, next) => {
   const { productId } = req.params;
 
- try {
-  const product = await getProductById(productId);
-  
- if(product){
-  const deleteProducts = await deleteProduct(productId )
-  res.send(deleteProducts)
- }else {
-  res.status(403);
-  next({
-    name: "UnauthorizedUserError",
-    message: `Cannot delete product`,
-    error: " Error can't edit ",
-  });
-}
- }
- catch ( error ) {
-  next( error );
-}
+  try {
+    const product = await getProductById(productId);
+
+    if (product) {
+      const deleteProducts = await deleteProduct(productId)
+      res.send(deleteProducts)
+    } else {
+      res.status(403);
+      next({
+        name: "UnauthorizedUserError",
+        message: `Cannot delete product`,
+        error: " Error can't edit ",
+      });
+    }
+  }
+  catch (error) {
+    next(error);
+  }
 
 })
-
 
 module.exports = productsRouter;
