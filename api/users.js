@@ -92,7 +92,7 @@ router.post('/register', async (req, res, next) => {
   }
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', requireUser, async (req, res, next) => {
   try {
     const { id } = req.params;
     const user = await getUserById(id);
