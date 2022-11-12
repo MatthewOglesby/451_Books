@@ -95,9 +95,9 @@ router.post('/register', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    const users = await getUserById(id);
-    console.log("GETTING USERS HERE", users)
-    res.send(users);
+    const user = await getUserById(id);
+    console.log("GETTING USERS HERE", user)
+    res.send(user);
   } catch (error) {
     console.log(error);
     next(error);
