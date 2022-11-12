@@ -1,7 +1,6 @@
 const { client } = require("./client");
 const bcrypt = require('bcrypt')
 
-
 async function getAllUsers() {
   try {
     const { rows } = await client.query(`
@@ -39,7 +38,7 @@ async function createUser({ email, username, password, isAdmin = false }) {
     }
   }
   
-  async function getUser( username, password ) {
+async function getUser( username, password ) {
 
     const user = await getUserByUsername(username);
     const hashedPassword = user.password;

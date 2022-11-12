@@ -438,7 +438,6 @@ async function testDB() {
       // const usersCart = await getCartByUser(4)
       // console.log(usersCart)
 
-        
     //--TESTING UPDATE CART-----------------
       //    const allCarts = await getAllCarts()
       //    console.log("testing line 425",allCarts)
@@ -454,7 +453,6 @@ async function testDB() {
       // })
       // console.log("testing update cart",updateCart2)
 
-
     //--TESTING DELETE CART ITEM-----------------
       // console.log('testing deleting cart')
           //  const result1 = await deleteCartItem(1)
@@ -466,7 +464,6 @@ async function testDB() {
     throw error;
   }
 }
-
 
 async function buildDB() {
   try {
