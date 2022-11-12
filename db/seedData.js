@@ -34,7 +34,7 @@ async function createTables() {
         title VARCHAR(255) UNIQUE NOT NULL,
         description VARCHAR(255) UNIQUE NOT NULL,
         author VARCHAR(255),
-        pageCount VARCHAR(255),
+        "pageCount" VARCHAR(255),
         genre VARCHAR(255),
         price VARCHAR(255),
         image VARCHAR(255),

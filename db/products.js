@@ -44,7 +44,7 @@ async function getProductByTitle(title) {
 async function createProduct({ title, description, author, pageCount, genre, price, image, quantity }) {
   try {
     const { rows: [product] } = await client.query(`
-      INSERT INTO products (title, description, author, pageCount, genre, price, image, quantity)
+      INSERT INTO products (title, description, author, "pageCount", genre, price, image, quantity)
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
       RETURNING *;
     `, [title, description, author, pageCount, genre, price, image, quantity]);
