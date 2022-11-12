@@ -19,7 +19,6 @@ productsRouter.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
     const product = await getProductById(id);
-    console.log("GETTING PRODUCT HERE", product)
     res.send(product);
   } catch (error) {
     console.log(error);
@@ -55,8 +54,10 @@ productsRouter.patch('/:productId', async (req, res, next) => {
 
   try {
     const product = await getProductById(productId);
+    console.log("TESTING PRODUCT ID", productId)
+    console.log("TESTING PRODUCTS",product)
     if (product) {
-      const updatedProduct = await updateProduct({
+      const updatedProduct = await updateProduct(productId,{
         id: productId,
         title, 
         description, 
@@ -67,6 +68,9 @@ productsRouter.patch('/:productId', async (req, res, next) => {
         image, 
         quantity
       });
+      console.log("PAGE COUNT", pageCount)
+      console.log("TESTNG PRODUCT ID LINE 71", productId)
+      console.log("TESTING UPDATING PRODUCT", updatedProduct)
       res.send(updatedProduct)
     } else {
       res.send({
@@ -75,14 +79,14 @@ productsRouter.patch('/:productId', async (req, res, next) => {
         message: `This product was unable to be udpated`,
       })
     }
-    const existingProduct = await getProductByTitle(fields.name);
-    if (existingProduct) {
-      res.send({
-        error: 'ProductExistsError',
-        name: 'Product name already exists',
-        message: `A product with name ${fields.name} already exists`,
-      })
-    }
+    // const existingProduct = await getProductByTitle(fields.name);
+    // if (existingProduct) {
+    //   res.send({
+    //     error: 'ProductExistsError',
+    //     name: 'Product name already exists',
+    //     message: `A product with name ${fields.name} already exists`,
+    //   })
+    // }
   } catch (error) {
     console.log(error);
     next(error);
