@@ -428,6 +428,7 @@ async function testDB() {
       console.log('testing adding product to cart-----------')
       const addProduct1 = await addProductToCart(2, 2, 10)
       const addProduct2 = await addProductToCart(3, 4, 1)
+      const addProduct3 = await addProductToCart(3, 2, 2)
       const cart1 = await getCartById(1)
       const cart2 = await getCartById(2)
       console.log("cart test 1", cart1)

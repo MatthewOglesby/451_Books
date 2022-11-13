@@ -15,10 +15,11 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res, next) => {
-    const { order_quantity, productId} = req.body;
+    const {productId,userId, order_quantity} = req.body;
+    console.log("TESTING CREATE CART", order_quantity)
     try{
     console.log('TESTING ABOVE CART');    
-    const cart = await addProductToCart({ order_quantity,  productId });
+    const cart = await addProductToCart( productId,userId,order_quantity );
 
 
     console.log("TESTING CART", cart);
