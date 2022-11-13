@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllCarts, addProductToCart, updateCart, deleteCartItem } = require('../db/cart')
+const { getAllCarts, addProductToCart, updateCart, getCartById ,deleteCartItem } = require('../db/cart')
 
 router.get('/', async (req, res) => {
     try {
@@ -30,5 +30,35 @@ router.post('/', async (req, res, next) => {
         next(error);
     }
 });
+
+router.patch('/:id', async (req, res, next) => {
+    const {id} = req.params;
+    const {order_quantity, userId, productId} = req.body;
+
+    try{
+        const cart = await getCartById(id);
+
+        if (cart) {
+            const updatedCart = await updateCart(id, {
+                id,
+                order_quantity,
+                userId,
+                productId
+            });
+            console.log(updatedCart)
+            res.send(updatedCart)
+        } else {
+            res.send({
+                error: 'CartUpdateError',
+                name: 'Error updating cart',
+                message: `This cart was unable to be udpated`,
+              })  
+        }
+
+    }catch (error) {
+        console.log(error);
+        next(error);
+    }
+})
 
 module.exports = router;
