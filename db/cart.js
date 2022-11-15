@@ -16,7 +16,7 @@ async function getAllCarts() {
 
 async function addProductToCart( productId, userId, quantity ) {
     const product = await getProductById(productId);
-    console.log(product)
+   
     try {
         const { rows: [cart] } = await client.query(`
             INSERT INTO cart ("productId", "userId", order_quantity)
@@ -46,13 +46,19 @@ async function getCartById(id) {
   }
 
 async function getCartByUser(userId) {
+ 
     try {
-      const { rows: [cart] } = await client.query(`
-        SELECT * FROM cart
+      const {rows} = await client.query(`
+        SELECT *
+        FROM cart
         WHERE "userId" = ${userId}
       `);
+      
   
-      return cart;
+
+   
+
+      return rows;
   
     } catch (error) {
       throw (error);
@@ -65,7 +71,7 @@ async function updateCart( id, fields = {}) {
         .map((key, index) => `"${key}"=$${index + 1}`)
         .join(", ");
   
-      console.log("setstring: ", setString)
+     
   
       if (setString.length > 0) {
         await client.query(
