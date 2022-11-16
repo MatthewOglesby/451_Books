@@ -42,7 +42,7 @@ const App = () => {
             setUsername(results.username);
             setUserId(results.id)
         } else {
-            console.log(results.error)
+            console.log('error getting user results')
         }
     }
 
@@ -71,7 +71,7 @@ const App = () => {
             <Routes>
                 <Route 
                     path='/home'
-                    element={<Home />}
+                    element={<Home navigate={navigate} token={token} logout={logout}/>}
                 />
                 <Route 
                     path='/products'
