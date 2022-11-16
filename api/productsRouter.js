@@ -55,7 +55,6 @@ productsRouter.post('/', requireUser, async (req, res, next) => {
 productsRouter.patch('/:productId', requireUser, async (req, res, next) => {
   const { productId } = req.params
   const { title, description, author, pageCount, genre, price, image, quantity } = req.body
-  const { ...fields } = req.body
 
   try {
     const product = await getProductById(productId);
@@ -81,14 +80,6 @@ productsRouter.patch('/:productId', requireUser, async (req, res, next) => {
         message: `This product was unable to be udpated`,
       })
     }
-    // const existingProduct = await getProductByTitle(fields.name);
-    // if (existingProduct) {
-    //   res.send({
-    //     error: 'ProductExistsError',
-    //     name: 'Product name already exists',
-    //     message: `A product with name ${fields.name} already exists`,
-    //   })
-    // }
   } catch (error) {
     console.log(error);
     next(error);
