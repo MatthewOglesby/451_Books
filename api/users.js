@@ -89,6 +89,15 @@ router.post('/register', async (req, res, next) => {
   }
 });
 
+router.get('/me', requireUser, async (req, res, next) => {
+    const user = req.user;
+    console.log(user)
+    res.send(user);
+  
+    next;
+  
+});
+
 router.get('/:id', requireUser, async (req, res, next) => {
   try {
     const { id } = req.params;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import './style.css';
-import { getAllProducts, getUser } from './api'; 
+import { getAllProducts, getUserDetails } from './api'; 
 
 import {
     Products,
@@ -25,6 +25,8 @@ const App = () => {
     const [username, setUsername] = useState('');
     const [userId, setUserId] = useState(0);
 
+    // console.log('Testing User: ', user)
+
     const navigate = useNavigate();
 
     async function getMe() {
@@ -36,13 +38,14 @@ const App = () => {
             return;
         }
 
-        const results = await getUser(token)
+        const results = await getUserDetails(token)
+        console.log('Testing getMe results: ', results)
         if (results) {
             setUser(results);
             setUsername(results.username);
             setUserId(results.id)
         } else {
-            console.log('error getting user results')
+            console.log('error getting user results in the getMe function')
         }
     }
 
@@ -70,7 +73,7 @@ const App = () => {
             <Navbar logout={logout} token={token}/>
             <Routes>
                 <Route 
-                    path='/home'
+                    path='/'
                     element={<Home navigate={navigate} token={token} logout={logout}/>}
                 />
                 <Route 
