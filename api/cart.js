@@ -61,4 +61,30 @@ router.patch('/:id', async (req, res, next) => {
     }
 })
 
+router.delete('/:id', async (req, res, next) => {
+    const {id} = req.params;
+    // const {order_quantity, userId, productId} = req.body;
+  
+    try {
+      const cart = await getCartById(id);
+  
+      if (cart) {
+        const deleteCartItems = await deleteCartItem(id)
+        res.send(deleteCartItems)
+      } else {
+        res.status(403);
+        next({
+          name: "UnauthorizedUserError",
+          message: `Cannot delete cart item`,
+          error: " Error can't edit ",
+        });
+      }
+    }
+    catch (error) {
+      next(error);
+    }
+  
+  })
+
+
 module.exports = router;
