@@ -8,8 +8,8 @@ const Register = ({setToken, token, navigate}) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    // let loginForm = document.getElementById('loginForm')
-    // let errorMessage = document.getElementById('errorMessage')
+    let loginForm = document.getElementById('loginForm')
+    let errorMessage = document.getElementById('errorMessage')
 
     const handleSubmit = async() => {
         const results = await registerUser(email, username, password);
@@ -25,10 +25,11 @@ const Register = ({setToken, token, navigate}) => {
             navigate('/home');
         } else {
             console.log('Error registering an account')
-            // loginForm.style.animation = 'shake .5s'
-            // document.getElementsByName('username')[0].value = ''
-            // document.getElementsByName('password')[0].value = ''
-            // document.getElementsByName('confirmPassword')[0].value = ''
+            loginForm.style.animation = 'shake .5s'
+            document.getElementsByName('email')[0].value = ''
+            document.getElementsByName('username')[0].value = ''
+            document.getElementsByName('password')[0].value = ''
+            document.getElementsByName('confirmPassword')[0].value = ''
         }
     }
 

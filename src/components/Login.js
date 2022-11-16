@@ -5,8 +5,8 @@ const Login = ({ setToken, navigate }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    // let loginForm = document.getElementById('loginForm')
-    // let errorMessage = document.getElementById('errorMessage')
+    let loginForm = document.getElementById('loginForm')
+    let errorMessage = document.getElementById('errorMessage')
 
     const handleSubmit = async () => {
         const results = await loginUser(username, password);
@@ -18,10 +18,9 @@ const Login = ({ setToken, navigate }) => {
           navigate('/home');
       } else {
           console.log('Error logging in')
-        //   loginForm.style.animation = 'shake .5s'
-        //   errorMessage.innerText = results.error
-        //   document.getElementsByName('username')[0].value = ''
-        //   document.getElementsByName('password')[0].value = ''
+          loginForm.style.animation = 'shake .5s'
+          document.getElementsByName('username')[0].value = ''
+          document.getElementsByName('password')[0].value = ''
       }
     }
 
