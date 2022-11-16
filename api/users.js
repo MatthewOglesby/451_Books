@@ -7,7 +7,7 @@ const {
   getUserById,
   getUser,
 } = require("../db/users");
-const { getCartById } = require('../db/cart')
+const { getCartByUser } = require('../db/cart')
 const { JWT_SECRET }  = process.env;
 const { requireUser } = require('./utils')
 
@@ -101,10 +101,10 @@ router.get('/:id', requireUser, async (req, res, next) => {
   }
 });
 
-router.get('/:id/cart', async (req, res, next) => {
+router.get('/cart/:userId', async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const usersCart = await getCartById(id);
+    const { userId } = req.params;
+    const usersCart = await getCartByUser(userId);
     res.send(usersCart)
   } catch (error) {
     console.log(error)

@@ -7,6 +7,8 @@ const productsRouter = require('./productsRouter');
 apiRouter.use('/products', productsRouter);
 const usersRouter = require('./users');
 apiRouter.use('/users', usersRouter);
+const cartsRouter = require('./cart');
+apiRouter.use('/carts', cartsRouter);
 
 //-----HEALTH CHECK-------
 apiRouter.get('/health', async (req, res, next) => {
