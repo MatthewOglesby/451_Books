@@ -89,11 +89,21 @@ const App = () => {
                     path='/register'
                     element={<Register token={token} navigate={navigate} setToken={setToken}/>}
                 />
-                <Route 
-                    path='/edit-product'
+                    <Route
+                    path='/product/:productId'
+                    element={<EditProduct
+                        // token={token}
+                        navigate={navigate}
+                        fetchAllProducts={fetchAllProducts}
+                        products={products}
+                    />}
                 />
                 <Route 
                     path='/add-product'
+                    element={<AddProduct
+                        fetchAllProducts={fetchAllProducts}
+                        products={products}
+                    />}
                 />
                 <Route 
                     path='/edit-cart'
