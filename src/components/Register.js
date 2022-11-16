@@ -9,7 +9,6 @@ const Register = ({setToken, token, navigate}) => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     let loginForm = document.getElementById('loginForm')
-    let errorMessage = document.getElementById('errorMessage')
 
     const handleSubmit = async() => {
         const results = await registerUser(email, username, password);
@@ -34,14 +33,14 @@ const Register = ({setToken, token, navigate}) => {
     }
 
     return (
-        <div className='loginForm' id='loginForm'>
-            <form className='registerForm' onSubmit={(event) => {
+        <div className='registerForm' id='loginForm'>
+            <form className='registrationForm' onSubmit={(event) => {
                 event.preventDefault();
                 handleSubmit();
             }
             }>
-                <div className='inputDiv'>
-                    <label className='inputLabel'>Enter Email</label>
+                <div className='registerDiv'>
+                    <label className='registerLabel'>Enter Email</label>
                     <input
                         className='userorpass'
                         name='email'
@@ -50,8 +49,8 @@ const Register = ({setToken, token, navigate}) => {
                         onChange={(event) => setEmail(event.target.value)}
                     />
                 </div>
-                <div className='inputDiv'>
-                    <label className='inputLabel'>Create Username</label>
+                <div className='registerDiv'>
+                    <label className='registerLabel'>Create Username</label>
                     <input
                         className='userorpass'
                         name='username'
@@ -60,8 +59,8 @@ const Register = ({setToken, token, navigate}) => {
                         onChange={(event) => setUsername(event.target.value)}
                     />
                 </div>
-                <div className='inputDiv'>
-                    <label className='inputLabel'>Create Password</label>
+                <div className='registerDiv'>
+                    <label className='registerLabel'>Create Password</label>
                     <input
                         className='userorpass'
                         name='password'
@@ -69,8 +68,8 @@ const Register = ({setToken, token, navigate}) => {
                         onChange={(event) => setPassword(event.target.value)}
                     />
                 </div>
-                <div className='inputDiv'>
-                    <label className='inputLabel'>Confirm Password</label>
+                <div className='registerDiv'>
+                    <label className='registerLabel'>Confirm Password</label>
                     <input
                         className='userorpass'
                         name='confirmPassword'
@@ -78,7 +77,7 @@ const Register = ({setToken, token, navigate}) => {
                         onChange={(event) => setConfirmPassword(event.target.value)}
                     />
                 </div>
-                <button className='submit' type='submit'>Register</button>
+                <button className='submitRegister' type='submit'>Register</button>
                 <p id='errorMessage'></p>
             </form>
         </div>

@@ -1,20 +1,211 @@
+/* NAVBAR */
+header {
+    height: 4rem;
+    box-shadow: 5px 5px 5px black;
+    background-color: black;
+    width: fit-content;
+    justify-content: center;
+    margin: 0 auto;
+}
+.navBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 30px;
+}
+.navbarLink, .navbarLink:visited {
+    color: whitesmoke;
+    text-shadow: 3px 3px 10px white;
+    text-decoration: none;
+    margin-right: 4rem;
+    margin-top: .75rem;
+}
+.navbarLink:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}
+.navbarName {
+    font-size: 45px;
+    color: whitesmoke;
+    text-shadow: 3px 3px 10px white;
+    text-decoration: none;
+    margin-right: 40rem;
+    margin-top: .4rem;
+    margin-left: 1rem;
+}
 
+/* LOGIN */
+.loginForm {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+    border-radius: 5%;
+    color: #F1F1F2;
+    position: relative;
+    width: 400px;
+    height: 600px;
+}
+.loginDiv {
+    padding-bottom: 2rem;
+    text-align: center;
+    margin: auto;
+}
+.loginLabel {
+    color: white;
+    text-shadow: 3px 3px 10px white;
+    font-size: 20px;
+    padding-bottom: 1rem;
+    margin-right: 1rem;
+}
+.userorpass {
+    color: white;
+    font-size: 20px;
+    height: 2rem;
+    border: none;
+    background: none;
+    width: 200px;
+    border-bottom: 2px solid #707075;
+}
+.submitLogin {
+    background: none;
+    color: white;
+    text-shadow: 3px 3px 10px white;
+    transition: color 300ms;
+    height: 50px;
+    width: 300px;
+    font-size: 20px;
+    border-radius: 50px;
+    border: 2px solid grey;
+}
+.submitLogin:focus {
+    color: #f2f2f2;
+}
+.submitLogin:active {
+    color: #d0d0d2;
+}
+.submitLogin:hover {
+    cursor: pointer;
+}
+.loggingInForm {
+    display: flex;
+    flex-direction: column;
+}
 
+/* REGISTER */
+.registerForm {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+    border-radius: 5%;
+    color: #F1F1F2;
+    position: relative;
+    width: 400px;
+    height: 600px;
+}
+.registerDiv {
+    padding-bottom: 2rem;
+    text-align: center;
+    margin: auto;
+}
+.registerLabel {
+    color: white;
+    text-shadow: 3px 3px 10px white;
+    font-size: 20px;
+    padding-bottom: 1rem;
+    margin-right: 1rem;
+}
+.userorpass {
+    color: white;
+    font-size: 20px;
+    height: 2rem;
+    border: none;
+    background: none;
+    width: 200px;
+    border-bottom: 2px solid #707075;
+}
+.submitRegister {
+    background: none;
+    color: white;
+    text-shadow: 3px 3px 10px white;
+    transition: color 300ms;
+    height: 50px;
+    width: 300px;
+    font-size: 20px;
+    border-radius: 50px;
+    border: 2px solid grey;
+}
+.submitRegister:focus {
+    color: #f2f2f2;
+}
+.submitRegister:active {
+    color: #d0d0d2;
+}
+.submitRegister:hover {
+    cursor: pointer;
+}
+.registrationForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+/* PRODUCTS */
+.allProducts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.productBox {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    max-height: 500px;
+    padding: 3rem;
+}
+.productImage {
+    width: 350px;
+    height: 400px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* HOME */
+.homeBoxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.homeBox {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+    border-radius: 5%;
+    color: #F1F1F2;
+    position: relative;
+    width: 400px;
+    height: 600px;
+    font-size: 40px;
+}
+.homeBox:hover {
+    cursor: pointer;
+}
 
 /* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
 @keyframes shake {

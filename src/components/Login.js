@@ -26,13 +26,13 @@ const Login = ({ setToken, navigate }) => {
 
     return ( 
         <div className='loginForm' id='loginForm'>
-            <form className='registerForm' onSubmit={(event) => {
+            <form className='loggingInForm' onSubmit={(event) => {
                 event.preventDefault();
                 handleSubmit();
             }
             }>
-                <div className='inputDiv'>
-                <label className='inputLabel'>Username</label>
+                <div className='loginDiv'>
+                <label className='loginLabel'>Username</label>
                     <input
                         className='userorpass'
                         name='username'
@@ -40,8 +40,8 @@ const Login = ({ setToken, navigate }) => {
                         onChange={(event) => setUsername(event.target.value)}
                     />
                 </div>
-                <div className='inputDiv'>
-                <label className='inputLabel'>Password</label>
+                <div className='loginDiv'>
+                <label className='loginLabel'>Password</label>
                     <input
                         className='userorpass'
                         name='password'
@@ -49,7 +49,7 @@ const Login = ({ setToken, navigate }) => {
                         onChange={(event) => setPassword(event.target.value)}
                     />
                 </div>
-                <button className='submit' type='submit'>Login</button>
+                <button className='submitLogin' type='submit'>Login</button>
                 <p id='errorMessage'></p>
             </form>
         </div>
