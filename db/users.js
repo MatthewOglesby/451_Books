@@ -52,9 +52,9 @@ async function getUser( username, password ) {
           `
         SELECT id, email, username, password 
         FROM users
-        WHERE username=$1 AND password=$2;
+        WHERE email=$1 AND username=$2 AND password=$3;
         `,
-          [username, hashedPassword]
+          [email, username, hashedPassword]
         );
   
         return user;
