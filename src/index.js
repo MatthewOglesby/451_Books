@@ -89,6 +89,10 @@ const App = () => {
                     path='/register'
                     element={<Register token={token} navigate={navigate} setToken={setToken}/>}
                 />
+                <Route
+                    path='/single-view'
+                    element={<SingleProductView products={products}/>}
+                />    
                 <Route 
                     path='/edit-product'
                 />
