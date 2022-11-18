@@ -15,6 +15,21 @@ export const getAllProducts = async () => {
     }
 }
 
+export const getAllUsers = async () => {
+  try {
+      const response = await fetch(`${baseURL}/users`, {
+          headers: {
+              'Content-Type': 'application/json',
+          }
+      });
+      const results = await response.json();
+
+      return results;
+  } catch(ex) {
+      console.error('Error getting all users', ex)
+  }
+}
+
 export const registerUser = async (email, username, password) => {
     try {
       console.log(email, username, password)
@@ -61,7 +76,7 @@ export const loginUser = async (username, password) => {
   }
 
 export const getUserDetails = async (token) => {
-  console.log('Testing Token in API: ', token)
+  // console.log('Testing Token in API: ', token)
     try {
       const response = await fetch(`${baseURL}/users/me`, {
         headers: {
@@ -76,4 +91,4 @@ export const getUserDetails = async (token) => {
     } catch (ex) {
       console.log('error gettings user details in API')
     }
-  }
+}
