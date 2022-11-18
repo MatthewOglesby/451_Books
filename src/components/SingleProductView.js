@@ -23,7 +23,7 @@ const SingleProductView = ({products}) => {
             isAdmin ? (
                 <Link to='/edit-product'>Edit Product</Link>
             ) : (
-                <Link to='/products'>Back</Link>
+                <p></p>
             )
         }            
         </div>
