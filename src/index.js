@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import './style.css';
-import { getAllProducts, getUserDetails } from './api'; 
+import { getAllProducts, getAllUsers, getUserDetails } from './api'; 
 
 import {
     Products,
@@ -15,17 +15,21 @@ import {
     Home,
     Login,
     Register,
-    SingleProductView
+    SingleProductView,
+    AllUsers
 } from './components'
 
 const App = () => {
     const [products, setProducts] = useState([]);
     const [token, setToken] = useState('');
     const [user, setUser] = useState({});
+    const [users, setUsers] = useState([]);
     const [username, setUsername] = useState('');
     const [userId, setUserId] = useState(0);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     // console.log('Testing User: ', user)
+    // console.log('Testing all users: ', users)
 
     const navigate = useNavigate();
 
@@ -39,11 +43,12 @@ const App = () => {
         }
 
         const results = await getUserDetails(token)
-        console.log('Testing getMe results: ', results)
+        // console.log('Testing getMe results: ', results)
         if (results) {
             setUser(results);
             setUsername(results.username);
             setUserId(results.id)
+            setIsAdmin(results.isAdmin)
         } else {
             console.log('error getting user results in the getMe function')
         }
@@ -60,8 +65,18 @@ const App = () => {
         setProducts(results);
     }
 
+    async function fetchAllUsers() {
+        const results = await getAllUsers();
+        console.log(results)
+        setUsers(results);
+    }
+
     useEffect(() => {
         fetchAllProducts();
+    }, []);
+
+    useEffect(() => {
+        fetchAllUsers();
     }, []);
 
     useEffect(() => {
@@ -74,7 +89,7 @@ const App = () => {
             <Routes>
                 <Route 
                     path='/'
-                    element={<Home navigate={navigate} token={token} logout={logout}/>}
+                    element={<Home navigate={navigate} token={token} logout={logout} user={user}/>}
                 />
                 <Route 
                     path='/products'
@@ -84,6 +99,10 @@ const App = () => {
                     path='/:title'
                 />
                 {/* useParams ^^ */}
+                <Route 
+                    path='/all-users'
+                    element={<AllUsers navigate={navigate} fetchAllUsers={fetchAllUsers} users={users} />}
+                />
                 <Route 
                     path='/login'
                     element={<Login navigate={navigate} setToken={setToken}/>}
