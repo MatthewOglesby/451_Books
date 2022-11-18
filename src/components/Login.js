@@ -10,12 +10,12 @@ const Login = ({ setToken, navigate }) => {
 
     const handleSubmit = async () => {
         const results = await loginUser(username, password);
-        console.log(results.token)
+        console.log(results)
         if (results.token) {
           setToken(results.token)
           console.log('Successfully signed in');
           window.localStorage.setItem('token', results.token);
-          navigate('/home');
+          navigate('/');
       } else {
           console.log('Error logging in')
           loginForm.style.animation = 'shake .5s'

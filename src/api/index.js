@@ -53,16 +53,17 @@ export const loginUser = async (username, password) => {
       })
   
       const result = await response.json();
-
+      
       return result;
     } catch (ex) {
       console.log(error)
     }
   }
 
-export const getUser = async (token) => {
+export const getUserDetails = async (token) => {
+  console.log('Testing Token in API: ', token)
     try {
-      const response = await fetch(`${baseURL}/users/:id`, {
+      const response = await fetch(`${baseURL}/users/me`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
@@ -73,6 +74,6 @@ export const getUser = async (token) => {
       return result;
   
     } catch (ex) {
-      console.log('error gettings user details')
+      console.log('error gettings user details in API')
     }
   }
