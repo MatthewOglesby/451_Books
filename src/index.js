@@ -25,6 +25,8 @@ const App = () => {
     const [username, setUsername] = useState('');
     const [userId, setUserId] = useState(0);
 
+    // console.log(products)
+
     const navigate = useNavigate();
 
     async function getMe() {
@@ -90,7 +92,7 @@ const App = () => {
                     element={<Register token={token} navigate={navigate} setToken={setToken}/>}
                 />
                 <Route
-                    path='/products/single-view'
+                    path='/products/:productID'
                     element={<SingleProductView products={products} user={user}/>}
                 />    
                 <Route 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Products = ({ products }) => {
 
-    console.log(products)
+    // console.log(products)
 
     return (
         <div className='allProducts'>
@@ -21,7 +21,7 @@ const Products = ({ products }) => {
                                         <p>{author}</p>
                                         <p>{description}</p>
                                     </div>
-                                    <Link to='/products/single-view'>View</Link>
+                                    <Link to={`/products/${id}`}>View</Link>
                                 </div>
                                 
                             )
