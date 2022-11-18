@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Cart = () => {
     return (
         <div>
-
+          CART
         </div>
     )
 }

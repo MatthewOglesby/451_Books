@@ -103,6 +103,7 @@ const App = () => {
                 />
                 <Route 
                     path='/cart'
+                    element={<Cart user={user}/>}
                 />
                 <Route 
                     path='/checkout'
