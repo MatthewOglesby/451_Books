@@ -2,10 +2,10 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-const SingleProductView = ({products}) => {
+const SingleProductView = ({products, user}) => {
     const {productId } = useParams();
-
-    const [currentProduct] = products.filter(product => product.id === productId);
+    const {isAdmin} = user;
+    const [currentProduct] = products.filter(product => product._id === productId);
     const {image, title, description, author, pageCount, genre, quantity, price} = currentProduct
     return (
         <div>
@@ -18,6 +18,7 @@ const SingleProductView = ({products}) => {
             <p>Genre: {genre}</p>
             <p>Quantity: {quantity}</p>
             <p>Price: {price}</p>
+            <Link to='/products'>Back</Link>
         </div>
         {
             isAdmin ? (

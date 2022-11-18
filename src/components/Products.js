@@ -21,7 +21,7 @@ const Products = ({ products }) => {
                                         <p>{author}</p>
                                         <p>{description}</p>
                                     </div>
-                                    <Link to='/single-view'>View</Link>
+                                    <Link to='/products/single-view'>View</Link>
                                 </div>
                                 
                             )
