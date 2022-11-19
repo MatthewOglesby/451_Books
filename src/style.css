@@ -199,9 +199,9 @@ header {
     border-radius: 5%;
     color: #F1F1F2;
     position: relative;
-    width: 400px;
-    height: 600px;
-    font-size: 40px;
+    width: 250px;
+    height: 400px;
+    font-size: 32px;
 }
 .homeBox:hover {
     cursor: pointer;
