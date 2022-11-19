@@ -6,13 +6,14 @@ const SingleProductView = ({ products, user }) => {
     const { productID } = useParams();
     // console.log(productID)
     console.log(products)
-    console.log(user)
+    // console.log(user)
 
     if (products.length) {
-        const [currentProduct] = products.filter(product => product.id === productID);
+        const [currentProduct] = products.filter(product => product.id == productID);
+        console.log(currentProduct)
         const { author, title, description, genre, id, image, quantity, pageCount, price } = currentProduct;
         const { isAdmin } = user;
-        console.log(currentProduct)
+        console.log(isAdmin)
 
         return (
             <div>
