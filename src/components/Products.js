@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 
-const Products = ({ products }) => {
+const Products = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const productMatches = (product, string) => {
@@ -49,13 +49,12 @@ const Products = ({ products }) => {
                                     <div>
                                     <div key={id}>
                                         <div className='productBox'>
-                                            <img className='productImage' src={image}/>
+                                            <img className='productImage' src={image} onClick={() => navigate(`/products/${id}`)}/>
                                             <p>{title}</p>
                                             <p>{author}</p>
                                             <p>{description}</p>
                                             <p>{price}</p>
                                         </div>
-                                        <Link to={`/products/${id}`}>View</Link>
                                     </div>
                                     </div>
                                 )

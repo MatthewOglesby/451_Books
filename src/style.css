@@ -191,6 +191,10 @@ header {
     height: 5rem;
     
 }
+.productImage:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px black;
+}
 
 /* HOME */
 .homeBoxes {

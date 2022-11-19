@@ -102,7 +102,7 @@ const App = () => {
                 />
                 <Route 
                     path='/products'
-                    element={<Products products={products} fetchAllProducts={fetchAllProducts}/>}
+                    element={<Products products={products} fetchAllProducts={fetchAllProducts} navigate={navigate}/>}
                 />
                 <Route 
                     path='/:title'
@@ -111,7 +111,6 @@ const App = () => {
                     path='/all-users'
                     element={<AllUsers navigate={navigate} fetchAllUsers={fetchAllUsers} users={users} />}
                 />
-                {/* useParams ^^ */}
                 <Route 
                     path='/login'
                     element={<Login navigate={navigate} setToken={setToken}/>}
