@@ -31,6 +31,8 @@ const App = () => {
     // console.log('Testing User: ', user)
     // console.log('Testing all users: ', users)
 
+    // console.log(products)
+
     const navigate = useNavigate();
 
     async function getMe() {
@@ -111,6 +113,10 @@ const App = () => {
                     path='/register'
                     element={<Register token={token} navigate={navigate} setToken={setToken}/>}
                 />
+                <Route
+                    path='/products/:productID'
+                    element={<SingleProductView products={products} user={user}/>}
+                />    
                 <Route 
                     path='/edit-product'
                 />

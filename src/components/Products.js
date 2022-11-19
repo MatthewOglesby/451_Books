@@ -55,6 +55,10 @@ const Products = ({ products }) => {
                                             <p>{price}</p>
                                         </div>
                                     </div>
+
+                                    <Link to={`/products/${id}`}>View</Link>
+                                </div>
+
                                 )
                             })
                         ) : (
