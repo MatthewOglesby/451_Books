@@ -7,7 +7,7 @@ const AllUsers = ({ users }) => {
     const userMatches = (user, string) => {
         const { id, username, email, isAdmin } = user;
 
-        if ((username.includes(string)) || email.includes(string)) {
+        if ((username.toLowerCase().includes(string)) || email.toLowerCase().includes(string)) {
             return user;
         }
     }
