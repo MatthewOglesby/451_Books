@@ -8,7 +8,7 @@ const Products = ({ products }) => {
         const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
         title.toLowerCase();
 
-        if ((title.includes(string)) || author.includes(string) || description.includes(string) || genre.includes(string)) {
+        if ((title.toLowerCase().includes(string)) || author.toLowerCase().includes(string) || description.toLowerCase().includes(string) || genre.toLowerCase().includes(string)) {
             return product;
         }
     }
