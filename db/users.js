@@ -66,7 +66,7 @@ async function getUser( username, password ) {
   }
 
 async function getUserById(userId) {
-    console.log("TESTING ON 69")
+   
     try {
       const {
         rows: [user],
@@ -76,7 +76,7 @@ async function getUserById(userId) {
     FROM users
     WHERE id=${userId};
     `);
-   console.log("TESTING USER 79", user)
+ 
       return user;
 
     } catch (error) {

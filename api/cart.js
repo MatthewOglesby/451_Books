@@ -9,8 +9,9 @@ router.get('/', async (req, res) => {
     res.send({
         cart
     });
-    }catch({order_quantity, productId}) {
-        next({order_quantity, productId});
+    }catch(error) {
+      console.log(error);
+        next(error);
     }
 });
 

@@ -46,6 +46,7 @@ const Products = ({ products }) => {
                                 const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
                                 // const [display, setDisplay] = useState('none')
                                 return (
+                                    <div>
                                     <div key={id}>
                                         <div className='productBox'>
                                             <img className='productImage' src={image} />
