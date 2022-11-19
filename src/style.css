@@ -207,6 +207,52 @@ header {
     cursor: pointer;
 }
 
+/* ALL USERS */
+.allUsersContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.allUserBox {
+    display: flex;
+    justify-content: center;
+    width: 25rem;
+    height: 20rem;
+    align-items: center;
+}
+.allUserBoxContent {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    border: 2px solid black;
+    border-radius: 50px;
+    height: 15rem;
+    width: 20rem;
+    align-items: center;
+}
+.searchUsersForm {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    border: 2px solid black;
+    border-radius: 50px;
+    height: 15rem;
+    width: 20rem;
+    align-items: center;
+}
+.returnedFormContent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    align-items: center;
+}
+.userSearchInput {
+    border-radius: 50px;
+    height: 2rem;
+    width: 15rem;
+    margin-bottom: 2rem;
+}
 /* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
 @keyframes shake {
     0% {transform: translate(1px, 1px) rotate(0deg);}
