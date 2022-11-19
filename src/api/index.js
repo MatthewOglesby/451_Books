@@ -93,8 +93,9 @@ export const getUserDetails = async (token) => {
     }
 
 }
-  export const getUserCart = async ({userId},token) => {
+  export const getUserCart = async (token,userId) => {
     console.log(userId)
+    console.log(token)
       try {
         const response = await fetch(`${baseURL}/users/cart/${userId}`, {
           headers: {

@@ -5,6 +5,8 @@ const Cart = ({
   products, 
   cartItems,
  }) => {
+console.log(products)
+  console.log("TETSING",cartItems)
   return (
     <form>
       <div className="cart-main-div">
@@ -12,23 +14,24 @@ const Cart = ({
 
         {/* <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div> */}
 
-        {cartItems.map((cartItem) => {
+        {cartItems && cartItems.map((cartItem) => {
           const {
             id:cartId,
             order_quantity,
             productId,
-            products,
+            
           } = cartItem;
-
+      
           return (
             <div key={cartId}>
               <div className="inner-cart-div">
                 <p>
-                  <b> {productId}</b>
+                  <b>ProductId {productId}</b>
                 </p>
-                <p>{order_quantity}</p>
-
+                <p>Quantity {order_quantity}</p>
+               
                 {products.map((props) => {
+                
                   const {
                     author,
                     title,
@@ -40,18 +43,21 @@ const Cart = ({
                     pageCount,
                     price,
                   } = props;
-
-                  return (
-                    <div key={id}>
-                      <p>
-                         {title}
-                      </p>
-                      <p>
-                        <img src={image} />
-                      </p>
-                    </div>
-                  );
-                })}
+                  
+                    if( id === productId ) {
+                      return( <div key={props.id}>
+                        <p>
+                          Title: {props.title}
+                        </p>
+                        <p>
+                          <img src={props.image} />
+                        </p>
+                      </div>
+                    )
+                    }
+                  }
+                )
+        }
               </div>
             </div>
           );
