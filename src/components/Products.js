@@ -54,11 +54,8 @@ const Products = ({ products }) => {
                                             <p>{description}</p>
                                             <p>{price}</p>
                                         </div>
+                                        <Link to={`/products/${id}`}>View</Link>
                                     </div>
-
-                                    <Link to={`/products/${id}`}>View</Link>
-                                </div>
-
                                 )
                             })
                         ) : (
