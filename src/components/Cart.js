@@ -2,33 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Cart = ({ products, cartItems }) => {
-  console.log("Testing Cart Items: ",cartItems)
-  
+  console.log("Testing Cart Items: ", cartItems)
+
   return (
-    <form>
+    <div>
+      <h1>CART</h1>
       <div className="cart-main-div">
-        <h1>CARTS</h1>
 
         {/* <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div> */}
 
         {cartItems && cartItems.map((cartItem) => {
           const {
-            id:cartId,
+            id: cartId,
             order_quantity,
-            productId,
-            
+            productId
           } = cartItem;
-      
+
           return (
-            <div key={cartId}>
+            <div key={cartId} className='individualCartContainer'>
               <div className="inner-cart-div">
-                <p>
-                  <b>ProductId {productId}</b>
-                </p>
+                <p><b>ProductId {productId}</b></p>
                 <p>Quantity {order_quantity}</p>
-               
+
                 {products.map((props) => {
-                
                   const {
                     author,
                     title,
@@ -40,27 +36,24 @@ const Cart = ({ products, cartItems }) => {
                     pageCount,
                     price,
                   } = props;
-                  
-                    if( id === productId ) {
-                      return( <div key={props.id}>
-                        <p>
-                          Title: {props.title}
-                        </p>
-                        <p>
-                          <img src={props.image} className='productImage'/>
-                        </p>
-                      </div>
+
+                  if (id === productId) {
+                    return (
+                    <div key={props.id}>
+                      <img src={props.image} className='cartProductImage' />
+                      <p>{props.title}</p>
+                    </div>
                     )
-                    }
                   }
+                }
                 )
-              }
+                }
               </div>
             </div>
           );
         })}
       </div>
-    </form>
+    </div>
   );
 };
 

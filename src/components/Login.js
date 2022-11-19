@@ -10,7 +10,7 @@ const Login = ({ setToken, navigate }) => {
 
     const handleSubmit = async () => {
         const results = await loginUser(username, password);
-        console.log(results)
+        // console.log(results)
         if (results.token) {
             setToken(results.token)
             console.log('Successfully signed in');
@@ -31,7 +31,7 @@ const Login = ({ setToken, navigate }) => {
 
     return (
         <div className='loginForm' id='loginForm'>
-            <form className='loggingInForm' autocomplete='off' onSubmit={(event) => {
+            <form className='loggingInForm' autoComplete='off' onSubmit={(event) => {
                 event.preventDefault();
                 handleSubmit();
             }

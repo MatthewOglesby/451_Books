@@ -265,6 +265,33 @@ header {
     width: 15rem;
     margin-bottom: 2rem;
 }
+
+/* CART */
+.cart-main-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 50%;
+    height: 450px;
+    border: 5px solid black;
+    border-radius: 50px;
+    padding-left: 5rem;
+    margin-left: 5rem;
+}
+.cartProductImage {
+    width: 200px;
+    height: 250px;
+}
+.individualCartContainer {
+    height: 400px;
+    width: 225px;
+    padding-right: 3rem;
+}
+.inner-cart-div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 /* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
 @keyframes shake {
     0% {transform: translate(1px, 1px) rotate(0deg);}

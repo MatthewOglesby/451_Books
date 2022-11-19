@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 const Products = ({ products }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -49,7 +49,7 @@ const Products = ({ products }) => {
                                     <div>
                                     <div key={id}>
                                         <div className='productBox'>
-                                            <img className='productImage' src={image} />
+                                            <img className='productImage' src={image}/>
                                             <p>{title}</p>
                                             <p>{author}</p>
                                             <p>{description}</p>

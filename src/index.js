@@ -42,7 +42,7 @@ const App = () => {
         }
 
         const results = await getUserDetails(token)
-        console.log('Testing getMe results: ', results)
+        // console.log('Testing getMe results: ', results)
         if (results) {
             setUser(results);
             setUsername(results.username);
@@ -120,6 +120,10 @@ const App = () => {
                     path='/register'
                     element={<Register token={token} navigate={navigate} setToken={setToken}/>}
                 />
+                <Route
+                    path='/products/:productID'
+                    element={<SingleProductView products={products} user={user}/>}
+                />   
                 <Route 
                     path='/edit-product'
                 />

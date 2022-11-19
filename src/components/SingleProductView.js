@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const SingleProductView = ({ products, user }) => {
     const { productID } = useParams();
-    // console.log(productID)
+    console.log(productID)
     console.log(products)
-    // console.log(user)
+    console.log(user)
 
     if (products.length) {
         const [currentProduct] = products.filter(product => product.id == productID);
