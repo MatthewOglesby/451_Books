@@ -11,7 +11,7 @@ const Navbar = ({ logout, token, user, cartItems }) => {
           <>
             <Link to="/" className="navbarLink">Home</Link>
             <Link to="/products" className="navbarLink">Books</Link>
-            <Link to="/register" onClick={() => {logout();}} className="navbarLink">Logout</Link>
+            <Link to="/" onClick={() => {logout();}} className="navbarLink">Logout</Link>
             <Link to={`/cart/${id}`} className="navbarLink"><ShoppingCartCheckoutIcon /></Link>
           </>
         ) : (

@@ -100,6 +100,10 @@ header {
 .loggingInForm {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+.errorMessageContainer {
+    margin: 0 auto;
 }
 
 /* REGISTER */

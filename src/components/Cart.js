@@ -1,12 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Cart = ({ 
-  products, 
-  cartItems,
- }) => {
-console.log(products)
-  console.log("TETSING",cartItems)
+const Cart = ({ products, cartItems }) => {
+  console.log("Testing Cart Items: ",cartItems)
+  
   return (
     <form>
       <div className="cart-main-div">
@@ -57,7 +54,7 @@ console.log(products)
                     }
                   }
                 )
-        }
+              }
               </div>
             </div>
           );

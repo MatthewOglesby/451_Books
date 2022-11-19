@@ -6,7 +6,7 @@ const AllUsers = ({ users }) => {
 
     const userMatches = (user, string) => {
         const { id, username, email, isAdmin } = user;
-
+        
         if ((username.toLowerCase().includes(string)) || email.toLowerCase().includes(string)) {
             return user;
         }
@@ -15,8 +15,6 @@ const AllUsers = ({ users }) => {
     const filteredUsers = users.filter(user => userMatches(user, searchTerm));
 
     const usersToDisplay = searchTerm.length ? filteredUsers : users;
-
-    // console.log(users)
 
     return (
         <div className='allUsersContainer'>
@@ -43,15 +41,21 @@ const AllUsers = ({ users }) => {
                         usersToDisplay.map((user) => {
                             const { id, username, email, isAdmin } = user;
 
-                            let isAdminText = isAdmin.toString();
+                            const yesAdmin = () => {
+                                if (isAdmin === true) {
+                                    return (
+                                    <b>ADMINISTRATOR</b>
+                                    )
+                                }
+                            }
 
                             return (
                                 <div key={id} className='allUserBox'>
                                     <div className='allUserBoxContent'>
-                                        <p>User ID: {id}</p>
-                                        <p>Username: {username}</p>
-                                        <p>Email: {email}</p>
-                                        <p>Administrator: {isAdminText}</p>
+                                        <p><b>User ID:</b> {id}</p>
+                                        <p><b>Username:</b> {username}</p>
+                                        <p><b>Email:</b> {email}</p>
+                                        <p>{yesAdmin()}</p>
                                     </div>
                                 </div>
                             )

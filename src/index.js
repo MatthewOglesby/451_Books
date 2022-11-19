@@ -28,7 +28,7 @@ const App = () => {
     const [userId, setUserId] = useState(0);
     const [cartItems, setCartItems] = useState([]);
     const [isAdmin, setIsAdmin] = useState(false);
-    console.log('Testing User: ', user)
+    // console.log('Testing User: ', user)
 
     const navigate = useNavigate();
 
@@ -56,6 +56,7 @@ const App = () => {
         window.localStorage.removeItem('token');
         setToken('')
         setUser({});
+        navigate('/')
     }
 
     async function fetchAllProducts() {
@@ -63,10 +64,9 @@ const App = () => {
         setProducts(results);
     }
 
-
     async function fetchAllUserCartItems() {
         const results = await getUserCart(token,user.id)
-        console.log("TESTING LINE 67",results)
+        // console.log("Testing results from getting cart: ",results)
         setCartItems(results)
     }
 
