@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import './style.css';
-import { getAllProducts, getAllUsers, getUserDetails } from './api'; 
+import { getAllProducts, getAllUsers, getUserDetails } from './api';
 
 import {
     Products,
@@ -30,6 +30,8 @@ const App = () => {
 
     // console.log('Testing User: ', user)
     // console.log('Testing all users: ', users)
+
+    // console.log(products)
 
     const navigate = useNavigate();
 
@@ -85,33 +87,52 @@ const App = () => {
 
     return (
         <div>
-            <Navbar logout={logout} token={token}/>
+            <Navbar logout={logout} token={token} />
             <Routes>
-                <Route 
+                <Route
                     path='/'
-                    element={<Home navigate={navigate} token={token} logout={logout} user={user}/>}
+                    element={<Home
+                        navigate={navigate}
+                        token={token}
+                        logout={logout}
+                        user={user}
+                    />}
                 />
-                <Route 
+                <Route
                     path='/products'
-                    element={<Products products={products} fetchAllProducts={fetchAllProducts}/>}
+                    element={<Products
+                        products={products}
+                        fetchAllProducts={fetchAllProducts}
+                    />}
                 />
-                <Route 
+                <Route
                     path='/:title'
                 />
                 {/* useParams ^^ */}
-                <Route 
+                <Route
                     path='/all-users'
-                    element={<AllUsers navigate={navigate} fetchAllUsers={fetchAllUsers} users={users} />}
+                    element={<AllUsers
+                        navigate={navigate}
+                        fetchAllUsers={fetchAllUsers}
+                        users={users}
+                    />}
                 />
-                <Route 
+                <Route
                     path='/login'
-                    element={<Login navigate={navigate} setToken={setToken}/>}
+                    element={<Login
+                        navigate={navigate}
+                        setToken={setToken}
+                    />}
                 />
-                <Route 
+                <Route
                     path='/register'
-                    element={<Register token={token} navigate={navigate} setToken={setToken}/>}
+                    element={<Register
+                        token={token}
+                        navigate={navigate}
+                        setToken={setToken}
+                    />}
                 />
-                    <Route
+                <Route
                     path='/product/:productId'
                     element={<EditProduct
                         // token={token}
@@ -120,20 +141,36 @@ const App = () => {
                         products={products}
                     />}
                 />
-                <Route 
+                <Route
+                    path='/products/:productID'
+                    element={<SingleProductView
+                        products={products}
+                        user={user}
+                    />}
+                />
+                <Route
+                    path='/product/:productId'
+                    element={<EditProduct
+                        // token={token}
+                        navigate={navigate}
+                        fetchAllProducts={fetchAllProducts}
+                        products={products}
+                    />}
+                />
+                <Route
                     path='/add-product'
                     element={<AddProduct
                         fetchAllProducts={fetchAllProducts}
                         products={products}
                     />}
                 />
-                <Route 
+                <Route
                     path='/edit-cart'
                 />
-                <Route 
+                <Route
                     path='/cart'
                 />
-                <Route 
+                <Route
                     path='/checkout'
                 />
             </Routes>
