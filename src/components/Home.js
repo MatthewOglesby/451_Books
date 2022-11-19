@@ -1,10 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = ({ logout, token, navigate }) => {
+const Home = ({ logout, token, navigate, user }) => {
+    const { isAdmin } = user
+    // console.log(user)
+    // console.log(isAdmin)
 
     return (
         <div className='homeBoxes'>
+            {
+                isAdmin ? (
+                    <>
+                        <button className='homeBox' onClick={() => navigate('all-users')}>All Users</button>
+                        <button className='homeBox' onClick={() => navigate('addProduct')}>Add Book</button>
+                    </>
+                ) : (
+                    <p></p>
+                )
+            }
             {
                 token ? (
                     <>

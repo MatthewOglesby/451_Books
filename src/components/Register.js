@@ -21,7 +21,7 @@ const Register = ({setToken, token, navigate}) => {
             setToken(results.token)
             console.log(results.message);
             window.localStorage.setItem('token', results.token);
-            navigate('/home');
+            navigate('/');
         } else {
             console.log('Error registering an account')
             loginForm.style.animation = 'shake .5s'

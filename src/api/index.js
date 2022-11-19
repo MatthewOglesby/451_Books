@@ -15,6 +15,21 @@ export const getAllProducts = async () => {
     }
 }
 
+export const getAllUsers = async () => {
+  try {
+      const response = await fetch(`${baseURL}/users`, {
+          headers: {
+              'Content-Type': 'application/json',
+          }
+      });
+      const results = await response.json();
+
+      return results;
+  } catch(ex) {
+      console.error('Error getting all users', ex)
+  }
+}
+
 export const registerUser = async (email, username, password) => {
     try {
       console.log(email, username, password)
@@ -53,16 +68,17 @@ export const loginUser = async (username, password) => {
       })
   
       const result = await response.json();
-
+      
       return result;
     } catch (ex) {
       console.log(error)
     }
   }
 
-export const getUser = async (token) => {
+export const getUserDetails = async (token) => {
+  // console.log('Testing Token in API: ', token)
     try {
-      const response = await fetch(`${baseURL}/users/:id`, {
+      const response = await fetch(`${baseURL}/users/me`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
@@ -73,6 +89,6 @@ export const getUser = async (token) => {
       return result;
   
     } catch (ex) {
-      console.log('error gettings user details')
+      console.log('error gettings user details in API')
     }
-  }
+}
