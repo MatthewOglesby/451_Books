@@ -14,12 +14,22 @@ const { requireUser } = require('./utils')
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-router.get('/', async (req, res) => {
-  const users = await getAllUsers();
+// router.get('/', async (req, res) => {
+//   const users = await getAllUsers();
 
-  res.send({
-    users
-  });
+//   res.send({
+//     users
+//   });
+// });
+
+router.get("/", async (req, res, next) => {
+  try {
+    const allUsers = await getAllUsers();
+
+    res.send(allUsers);
+  } catch ({ id, username, email, isAdmin }) {
+    next({ id, username, email, isAdmin });
+  }
 });
 
 router.post('/login', async (req, res, next) => {
@@ -87,6 +97,15 @@ router.post('/register', async (req, res, next) => {
   } catch ({ name, message }) {
     next({ name, message })
   }
+});
+
+router.get('/me', requireUser, async (req, res, next) => {
+    const user = req.user;
+    console.log(user)
+    res.send(user);
+  
+    next;
+  
 });
 
 router.get('/:id', requireUser, async (req, res, next) => {
