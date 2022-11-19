@@ -53,11 +53,13 @@ const Products = ({ products }) => {
                                             <p>{author}</p>
                                             <p>{description}</p>
                                             <p>{price}</p>
+                                            <Link to={`/products/${id}`}>View</Link>
                                         </div>
+
                                     </div>
 
-                                    <Link to={`/products/${id}`}>View</Link>
-                                </div>
+                                    
+                             
 
                                 )
                             })

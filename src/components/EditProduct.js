@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { navigate, useParams } from 'react-router-dom';
 import { updateProduct } from '../api'
 
-const EditProduct = ( {products} ) => {
-    const { productId } = useParams();
-
-    // forget how to get this without the product first...
-    const [currProduct] = products.filter(product => product.id == productId)
+const EditProduct = ({ products, navigate, fetchAllProducts }) => {
+    console.log('PRODUCTSS------', products)
+    const { productID } = useParams();
+  console.log('PRODUCTIDDD---------', productID)
+    const [currProduct] = products.filter(product => product.id == productID)
+    console.log('CURR-PRODUCT----------', currProduct)
     const { id, title, description, author, pageCount, genre, price, image, quantity } = currProduct;
     
-    console.log('CURR-PRODUCT----------', currProduct)
 
     const [newTitle, setNewTitle] = useState(title);
     const [newDesc, setNewDesc] = useState(description);
@@ -34,7 +34,8 @@ const EditProduct = ( {products} ) => {
                 quantity: newQuantity
             }
     
-            await updateProduct(token, editedProduct);
+            await updateProduct(editedProduct);
+            navigate('/products')
             fetchAllProducts();
         }
         catch (err) {
@@ -84,7 +85,9 @@ const EditProduct = ( {products} ) => {
                 placeholder='updated price'
                 onChange={(e) => setNewPrice(e.target.value)}
             />
-            <p>Current Book Image: {image}</p>
+            <p>Current Book Image: 
+                <img src={image} />
+            </p>
             <input
                 type='text'
                 placeholder='updated image'

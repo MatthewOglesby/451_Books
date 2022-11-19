@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const SingleProductView = ({ products, user }) => {
     const { productID } = useParams();
     // console.log(productID)
-    console.log(products)
+    // console.log(products)
     // console.log(user)
 
     if (products.length) {
@@ -28,13 +28,13 @@ const SingleProductView = ({ products, user }) => {
                     <p>Price: {price}</p>
                     <Link to='/products'>Back</Link>
                 </div>
-                {
-                    isAdmin ? (
-                        <Link to='/edit-product'>Edit Product</Link>
-                    ) : (
+                {/* {
+                    isAdmin ? ( */}
+                        <Link to={`/products/edit/${productID}`}>Edit Product</Link>
+                    {/* ) : (
                         <p></p>
                     )
-                }
+                } */}
             </div>
         )
     } else {

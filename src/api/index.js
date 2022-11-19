@@ -103,13 +103,12 @@ export const getUserDetails = async (token) => {
     }
 }
 
-export const updateProduct = async (token, { title, description, author, pageCount, genre, price, image, quantity }) => {
+export const updateProduct = async ({ title, description, author, pageCount, genre, price, image, quantity }) => {
   try {
     const response = await fetch(`${baseURL}/products/:productId`, {
       method: "PATCH",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         title: title,

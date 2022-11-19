@@ -133,12 +133,12 @@ const App = () => {
                     />}
                 />
                 <Route
-                    path='/product/:productId'
+                    path='/products/edit/:productID'
                     element={<EditProduct
                         // token={token}
+                        products={products}
                         navigate={navigate}
                         fetchAllProducts={fetchAllProducts}
-                        products={products}
                     />}
                 />
                 <Route
@@ -146,15 +146,6 @@ const App = () => {
                     element={<SingleProductView
                         products={products}
                         user={user}
-                    />}
-                />
-                <Route
-                    path='/product/:productId'
-                    element={<EditProduct
-                        // token={token}
-                        navigate={navigate}
-                        fetchAllProducts={fetchAllProducts}
-                        products={products}
                     />}
                 />
                 <Route
