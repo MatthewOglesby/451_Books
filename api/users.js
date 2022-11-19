@@ -119,8 +119,8 @@ router.get('/:id', requireUser, async (req, res, next) => {
     next(error);
   }
 });
-
-router.get('/cart/:userId', async (req, res, next) => {
+///api/cart/:userId
+router.get('/cart/:userId',requireUser, async (req, res, next) => {
   try {
     const { userId } = req.params;
     const usersCart = await getCartByUser(userId);

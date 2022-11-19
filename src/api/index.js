@@ -91,4 +91,23 @@ export const getUserDetails = async (token) => {
     } catch (ex) {
       console.log('error gettings user details in API')
     }
+
 }
+  export const getUserCart = async ({userId},token) => {
+    console.log(userId)
+      try {
+        const response = await fetch(`${baseURL}/users/cart/${userId}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        })
+    
+        const result = await response.json();
+        return result;
+    
+      } catch (ex) {
+        console.log('error gettings user cart details in API')
+      }
+    }
+

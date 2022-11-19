@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-const Navbar = ({ logout, token }) => {
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+const Navbar = ({ logout, token, userId }) => {
     return (
         <header>
             <nav className='navBox'>
@@ -19,6 +19,7 @@ const Navbar = ({ logout, token }) => {
                             <Link to='/' className='navbarLink'>Home</Link>
                             <Link to='/products' className='navbarLink'>Books</Link>
                             <Link to='/register' onClick={() => { logout(); }} className='navbarLink'>Logout</Link>
+                            <Link to={`/cart/${userId}`} className='navbarLink'><ShoppingCartCheckoutIcon /></Link>
                         </>
                     ) : (
                         <>
@@ -26,6 +27,7 @@ const Navbar = ({ logout, token }) => {
                             <Link to='/products' className='navbarLink'>Books</Link>
                             <Link to='/register' className='navbarLink'>Register</Link>
                             <Link to='/login' className='navbarLink'>Login</Link>
+                            <Link to={`/cart/${userId}`} className='navbarLink'><ShoppingCartCheckoutIcon /></Link>
                         </>
                     )
                 }
