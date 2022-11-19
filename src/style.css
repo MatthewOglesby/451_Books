@@ -37,7 +37,10 @@ header {
 
 /* LOGIN */
 .loginForm {
-    background-color: black;
+    background-image: url('../images/burningBook.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -8rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,14 +61,14 @@ header {
     margin: auto;
 }
 .loginLabel {
-    color: white;
+    color: black;
     text-shadow: 3px 3px 10px white;
     font-size: 20px;
     padding-bottom: 1rem;
     margin-right: 1rem;
 }
 .userorpass {
-    color: white;
+    color: black;
     font-size: 20px;
     height: 2rem;
     border: none;
@@ -75,7 +78,7 @@ header {
 }
 .submitLogin {
     background: none;
-    color: white;
+    color: black;
     text-shadow: 3px 3px 10px white;
     transition: color 300ms;
     height: 50px;
