@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import './style.css';
-import { getAllProducts, getUserDetails } from './api'; 
+import { getAllProducts, getUserDetails, getUserCart } from './api'; 
 
 import {
     Products,
@@ -24,8 +24,9 @@ const App = () => {
     const [user, setUser] = useState({});
     const [username, setUsername] = useState('');
     const [userId, setUserId] = useState(0);
+    const [cartItems, setCartItems] = useState([]);
 
-    // console.log('Testing User: ', user)
+    console.log('Testing User: ', user)
 
     const navigate = useNavigate();
 
@@ -59,6 +60,20 @@ const App = () => {
         const results = await getAllProducts();
         setProducts(results);
     }
+
+
+    async function fetchAllUserCartItems() {
+        const results = await getUserCart(user.userId)
+        setCartItems(results)
+    }
+   
+
+    useEffect(() => {
+        if( userId in user){
+
+        fetchAllUserCartItems();
+        }
+    }, [user]);
 
     useEffect(() => {
         fetchAllProducts();
@@ -102,8 +117,8 @@ const App = () => {
                     path='/edit-cart'
                 />
                 <Route 
-                    path='/cart'
-                    element={<Cart user={user}/>}
+                    path='/cart/:userId'
+                    element={<Cart token={token} user={user} cartItems={cartItems} fetchAllUserCartItems={fetchAllUserCartItems}/>}
                 />
                 <Route 
                     path='/checkout'
