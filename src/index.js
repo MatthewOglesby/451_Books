@@ -28,6 +28,7 @@ const App = () => {
     const [username, setUsername] = useState('');
     const [userId, setUserId] = useState(0);
     const [cartItems, setCartItems] = useState([]);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const navigate = useNavigate();
 
