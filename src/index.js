@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import './style.css';
-import { getAllProducts, getUserDetails, getUserCart } from './api'; 
+import { getAllProducts, getUserDetails, getUserCart, getAllUsers } from './api'; 
 
 import {
     Products,
@@ -15,13 +15,15 @@ import {
     Home,
     Login,
     Register,
-    SingleProductView
+    SingleProductView,
+    AllUsers
 } from './components'
 
 const App = () => {
     const [products, setProducts] = useState([]);
     const [token, setToken] = useState('');
     const [user, setUser] = useState({});
+    const [users, setUsers] = useState([]);
     const [username, setUsername] = useState('');
     const [userId, setUserId] = useState(0);
     const [cartItems, setCartItems] = useState([]);
@@ -67,11 +69,20 @@ const App = () => {
         console.log("TESTING LINE 67",results)
         setCartItems(results)
     }
-   
 
+    async function fetchAllUsers() {
+        const results = await getAllUsers();
+        // console.log(results)
+        setUsers(results);
+    }
+   
     useEffect(() => {
       fetchAllUserCartItems();
     }, [user]);
+
+    useEffect(() => {
+        fetchAllUsers();
+    }, []);
 
     useEffect(() => {
         fetchAllProducts();
@@ -85,17 +96,20 @@ const App = () => {
         <div>
             <Navbar logout={logout} token={token} user={user} cartItems={cartItems}/>
             <Routes>
-            <Route 
+                <Route 
                     path='/'
                     element={<Home navigate={navigate} token={token} logout={logout} user={user}/>}
                 />
-
                 <Route 
                     path='/products'
                     element={<Products products={products} fetchAllProducts={fetchAllProducts}/>}
                 />
                 <Route 
                     path='/:title'
+                />
+                <Route 
+                    path='/all-users'
+                    element={<AllUsers navigate={navigate} fetchAllUsers={fetchAllUsers} users={users} />}
                 />
                 {/* useParams ^^ */}
                 <Route 

@@ -57,6 +57,7 @@ const Products = ({ products }) => {
                                         </div>
                                         <Link to={`/products/${id}`}>View</Link>
                                     </div>
+                                    </div>
                                 )
                             })
                         ) : (

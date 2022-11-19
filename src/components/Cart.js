@@ -50,7 +50,7 @@ console.log(products)
                           Title: {props.title}
                         </p>
                         <p>
-                          <img src={props.image} />
+                          <img src={props.image} className='productImage'/>
                         </p>
                       </div>
                     )
