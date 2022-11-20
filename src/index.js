@@ -187,9 +187,10 @@ const container = document.querySelector('#container');
 const root = ReactDOM.createRoot(container);
 root.render(
     <React.Fragment>
-        <CssBaseline />
+        {/* <CssBaseline> */}
         <BrowserRouter>
             <App />
         </BrowserRouter>
+        {/* </CssBaseline > */}
     </React.Fragment>
 );

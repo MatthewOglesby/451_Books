@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
+
 const Navbar = ({ logout, token, user,cartItems }) => {
   const { id } = user;
 

@@ -102,9 +102,6 @@ header {
     flex-direction: column;
     align-items: center;
 }
-.errorMessageContainer {
-    margin: 0 auto;
-}
 
 /* REGISTER */
 .registerForm {
@@ -294,6 +291,54 @@ header {
     flex-direction: column;
     flex-wrap: wrap;
 }
+
+.hidden {
+    display: none;
+}
+
+.errorMessage {
+    font-size: 25px;
+    color: black;
+    text-shadow: 5px 5px 10px black;
+    text-align: center;
+}
+
+.errorMessage2 {
+    font-size: 20px;
+    color: rgb(63, 63, 63);
+    text-shadow: 0px 0px 10px rgb(12, 12, 12);
+    text-align: center;
+}
+
+#sign-in-msg {
+    text-decoration: none;
+    color: rgb(228, 225, 225);
+}
+
+#sign-in-msg:hover {
+    text-decoration: underline;
+}
+
+.error {
+    animation: 0.5s shake;
+    background-image: url('../images/burningBook.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+    border-radius: 5%;
+    color: #F1F1F2;
+    position: relative;
+    width: 400px;
+    height: 600px;
+}
 /* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
 @keyframes shake {
     0% {transform: translate(1px, 1px) rotate(0deg);}
@@ -307,4 +352,21 @@ header {
     80% {transform: translate(-1px, -1px) rotate(1deg);}
     90% {transform: translate(1px, 2px) rotate(0deg);}
     100% {transform: translate(1px, -2px) rotate(-1deg);}
+}
+
+html ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+html ::-webkit-scrollbar-track {
+    background-color: black;
+    border-radius: 100vw;
+    margin-block: 2px;
+    margin-left: 3px;
+}
+
+html ::-webkit-scrollbar-thumb {
+    background-color: rgb(146, 146, 146);
+    border-radius: 100vw;
 }
