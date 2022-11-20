@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Paper, ButtonGroup, Box } from "@mui/material";
 import { deleteCartItem } from "../api";
+import Badge from "@mui/material/Badge";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 const Cart = ({ products, cartItems, token }) => {
   console.log("Testing Cart Items: ", cartItems);
-  const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
     setOpen((prev) => !prev);
@@ -18,7 +18,7 @@ const Cart = ({ products, cartItems, token }) => {
     setOpen(false);
   };
   return (
-    
+    <form>
       <ClickAwayListener onClickAway={handleClickAway}>
         <div>
           <h1>Shopping Cart</h1>
@@ -28,10 +28,12 @@ const Cart = ({ products, cartItems, token }) => {
             {cartItems &&
               cartItems.map((cartItem) => {
                 const { id: cartId, order_quantity, productId } = cartItem;
-
+                const [display, setDisplay] = useState("none");
+                const [count, setCount] = useState(1);
                 return (
                   <div key={cartId} className="individualCartContainer">
                     <div className="inner-cart-div">
+                    
                       <Paper style={{ borderRadius: "1rem" }}>
                         {products.map((props) => {
                           const {
@@ -53,24 +55,27 @@ const Cart = ({ products, cartItems, token }) => {
                                   src={props.image}
                                   className="cartProductImage"
                                 />
-                                <p>Qty: {order_quantity}</p>
+                                <p>Qty: <Badge color="secondary" badgeContent={count}></Badge> </p>
                                 <p>Title: {props.title}</p>
                                 <p>
                                   <strong>Price</strong> {props.price}
                                 </p>
-                                <Box >
-                                  <Button type="button" onClick={handleClick}>
-                                    Click Description
-                                  </Button>
-                                  {open ? (
-                                    <Box>{description}</Box>
-                                  ) : null}
-                                </Box>
+
                                 <ButtonGroup>
-                                  <Button variant="outlined">
+                                  <Button
+                                    aria-label="reduce"
+                                    onClick={() => {
+                                      setCount(Math.max(count - 1, 0));
+                                    }}
+                                  >
                                     <RemoveIcon />
                                   </Button>
-                                  <Button>
+                                  <Button
+                                    aria-label="increase"
+                                    onClick={() => {
+                                      setCount(count + 1);
+                                    }}
+                                  >
                                     <AddIcon />
                                   </Button>
                                   <Button
@@ -85,6 +90,27 @@ const Cart = ({ products, cartItems, token }) => {
                                     <DeleteOutlineIcon />
                                   </Button>
                                 </ButtonGroup>
+
+                                <Button
+                                  variant="outlined"
+                                  style={{}}
+                                  onClick={(event) => {
+                                    event.preventDefault();
+                                    if (display === "none") {
+                                      setDisplay("block");
+                                    } else {
+                                      setDisplay("none");
+                                    }
+                                  }}
+                                >
+                                  Click Description
+                                </Button>
+                                <div
+                                  className="activity-box"
+                                  style={{ display: display }}
+                                >
+                                  <p>{description}</p>
+                                </div>
                               </div>
                             );
                           }
@@ -97,7 +123,7 @@ const Cart = ({ products, cartItems, token }) => {
           </div>
         </div>
       </ClickAwayListener>
-    
+    </form>
   );
 };
 
