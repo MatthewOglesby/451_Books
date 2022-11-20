@@ -1,13 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Paper } from "@mui/material";
+import {deleteCartItem } from "../api"
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-const Cart = ({ products, cartItems }) => {
+const Cart = ({ products, cartItems, token }) => {
   console.log("Testing Cart Items: ", cartItems);
 
   return (
+    <form
+    className="form"
+    onSubmit={(event) => {
+      event.preventDefault();
+     
+    }}
+  >
     <div>
       <h1>Shopping Cart</h1>
       <div className="cart-main-div">
@@ -50,7 +58,16 @@ const Cart = ({ products, cartItems }) => {
                           <Button>
                             <AddIcon />
                           </Button>
-                          <Button>
+                          <Button
+                            
+                            type="submit"
+                            color="error"
+                            variant="outlined"
+                            onClick={() => {
+                              deleteCartItem(token, cartId);
+                              location.reload();
+                            }}
+                          >
                             <DeleteOutlineIcon />
                           </Button>
                         </div>
@@ -64,6 +81,7 @@ const Cart = ({ products, cartItems }) => {
           })}
       </div>
     </div>
+    </form>
   );
 };
 

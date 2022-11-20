@@ -110,3 +110,19 @@ export const getUserDetails = async (token) => {
       }
     }
 
+    export const deleteCartItem = async (token, id) => {
+      try {
+        const response = await fetch(`${baseURL}/carts/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const results = await response.json();
+        console.log(results);
+        return results;
+      } catch (ex) {
+        console.log("error deleting routine");
+      }
+    };
