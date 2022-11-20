@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import './style.css';
 import { getAllProducts, getUserDetails, getUserCart, getAllUsers } from './api'; 
-
+import CssBaseline from '@mui/material/CssBaseline';
 import {
     Products,
     Navbar,
@@ -147,7 +147,10 @@ const App = () => {
 const container = document.querySelector('#container');
 const root = ReactDOM.createRoot(container);
 root.render(
+    <React.Fragment>
+         <CssBaseline />
     <BrowserRouter>
         <App />
     </BrowserRouter>
+    </React.Fragment>
 );

@@ -22,7 +22,8 @@ const Navbar = ({ logout, token, user, cartItems }) => {
             <Link to="/products" className="navbarLink">Books</Link>
             <Link to="/register" className="navbarLink">Register</Link>
             <Link to="/login" className="navbarLink">Login</Link>
-            <Link to={`/cart/${id}`} className="navbarLink"><ShoppingCartCheckoutIcon /></Link>
+            <Link to={`/cart/${id}`} className="navbarLink"><ShoppingCartCheckoutIcon/></Link>
+           
           </>
         )}
       </nav>

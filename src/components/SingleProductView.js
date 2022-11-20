@@ -27,6 +27,7 @@ const SingleProductView = ({ products, user }) => {
                     <p>Quantity: {quantity}</p>
                     <p>Price: {price}</p>
                     <Link to='/products'>Back</Link>
+                   
                 </div>
                 {
                     isAdmin ? (
