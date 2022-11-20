@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 import temp from '../coming_soon.JPEG';
 
-const Products = ({ products }) => {
+const Products = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const productMatches = (product, string) => {
         const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
         title.toLowerCase();
 
-        if ((title.includes(string)) || author.includes(string) || description.includes(string) || genre.includes(string)) {
+        if ((title.toLowerCase().includes(string)) || author.toLowerCase().includes(string) || description.toLowerCase().includes(string) || genre.toLowerCase().includes(string)) {
             return product;
         }
     }
@@ -47,27 +47,29 @@ const Products = ({ products }) => {
                             productsToDisplay.map((product) => {
                                 const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
                                 return (
-                                    <div key={id}>
-                                        <div className='productBox'>
-                                            
-                                            {
-                                                image == "" ? (
-                                                    <img src={temp} />
+                                    <div>
+                                        <div 
+                                        key={id}
+                                        className='productBox'
+                                        >
+                                                {
+                                                    image == "" ? (
+                                                        <img src={temp} />
                                                     )
                                                     : (
-                                                    <img className='productImage' src={image} />
+                                                        <img className='productImage' src={image} />
                                                     )
-                                            }
-                                            
-                                            <p>{title}</p>
-                                            <p>{author}</p>
-                                            <p>{description}</p>
-                                            <p>{price}</p>
-                                            <Link to={`/products/${id}`}>View</Link>
+                                                }
+
+                                                <p>{title}</p>
+                                                <p>{author}</p>
+                                                <p>{description}</p>
+                                                <p>{price}</p>
+                                                <Link to={`/products/${id}`}>View</Link>
+
                                         </div>
 
                                     </div>
-
                                 )
                             })
                         ) : (

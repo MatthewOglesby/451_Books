@@ -149,3 +149,36 @@ export const createProduct = async (token, {title, description, author, pageCoun
       console.error('createProduct-api FAILED:', err)
   }
 }
+  export const getUserCart = async (token, userId) => {
+      try {
+        const response = await fetch(`${baseURL}/users/cart/${userId}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        })
+    
+        const result = await response.json();
+        return result;
+    
+      } catch (ex) {
+        console.log('error gettings user cart details in API')
+      }
+    }
+
+    export const deleteCartItem = async (token, id) => {
+      try {
+        const response = await fetch(`${baseURL}/carts/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const results = await response.json();
+        console.log(results);
+        return results;
+      } catch (ex) {
+        console.log("error deleting routine");
+      }
+    };

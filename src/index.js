@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import './style.css';
-import { getAllProducts, getAllUsers, getUserDetails } from './api';
-
+import { getAllProducts, getUserDetails, getUserCart, getAllUsers } from './api';
+import CssBaseline from '@mui/material/CssBaseline';
 import {
     Products,
     Navbar,
@@ -26,12 +26,9 @@ const App = () => {
     const [users, setUsers] = useState([]);
     const [username, setUsername] = useState('');
     const [userId, setUserId] = useState(0);
+    const [cartItems, setCartItems] = useState([]);
     const [isAdmin, setIsAdmin] = useState(false);
-
     // console.log('Testing User: ', user)
-    // console.log('Testing all users: ', users)
-
-    // console.log(products)
 
     const navigate = useNavigate();
 
@@ -50,7 +47,6 @@ const App = () => {
             setUser(results);
             setUsername(results.username);
             setUserId(results.id)
-            setIsAdmin(results.isAdmin)
         } else {
             console.log('error getting user results in the getMe function')
         }
@@ -60,6 +56,7 @@ const App = () => {
         window.localStorage.removeItem('token');
         setToken('')
         setUser({});
+        navigate('/')
     }
 
     async function fetchAllProducts() {
@@ -67,18 +64,28 @@ const App = () => {
         setProducts(results);
     }
 
+    async function fetchAllUserCartItems() {
+        const results = await getUserCart(token, user.id)
+        // console.log("Testing results from getting cart: ",results)
+        setCartItems(results)
+    }
+
     async function fetchAllUsers() {
         const results = await getAllUsers();
-        console.log(results)
+        // console.log(results)
         setUsers(results);
     }
 
     useEffect(() => {
-        fetchAllProducts();
-    }, []);
+        fetchAllUserCartItems();
+    }, [user]);
 
     useEffect(() => {
         fetchAllUsers();
+    }, []);
+
+    useEffect(() => {
+        fetchAllProducts();
     }, []);
 
     useEffect(() => {
@@ -87,7 +94,7 @@ const App = () => {
 
     return (
         <div>
-            <Navbar logout={logout} token={token} />
+            <Navbar logout={logout} token={token} user={user} cartItems={cartItems} />
             <Routes>
                 <Route
                     path='/'
@@ -103,12 +110,12 @@ const App = () => {
                     element={<Products
                         products={products}
                         fetchAllProducts={fetchAllProducts}
+                        navigate={navigate}
                     />}
                 />
                 <Route
                     path='/:title'
                 />
-                {/* useParams ^^ */}
                 <Route
                     path='/all-users'
                     element={<AllUsers
@@ -159,7 +166,14 @@ const App = () => {
                     path='/edit-cart'
                 />
                 <Route
-                    path='/cart'
+                    path='/cart/:id'
+                    element={<Cart
+                        token={token}
+                        user={user}
+                        cartItems={cartItems}
+                        fetchAllUserCartItems={fetchAllUserCartItems}
+                        products={products}
+                    />}
                 />
                 <Route
                     path='/checkout'
@@ -172,7 +186,10 @@ const App = () => {
 const container = document.querySelector('#container');
 const root = ReactDOM.createRoot(container);
 root.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+    <React.Fragment>
+        <CssBaseline />
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </React.Fragment>
 );

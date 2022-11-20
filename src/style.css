@@ -37,7 +37,10 @@ header {
 
 /* LOGIN */
 .loginForm {
-    background-color: black;
+    background-image: url('../images/burningBook.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -8rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,14 +61,14 @@ header {
     margin: auto;
 }
 .loginLabel {
-    color: white;
+    color: black;
     text-shadow: 3px 3px 10px white;
     font-size: 20px;
     padding-bottom: 1rem;
     margin-right: 1rem;
 }
 .userorpass {
-    color: white;
+    color: black;
     font-size: 20px;
     height: 2rem;
     border: none;
@@ -75,7 +78,7 @@ header {
 }
 .submitLogin {
     background: none;
-    color: white;
+    color: black;
     text-shadow: 3px 3px 10px white;
     transition: color 300ms;
     height: 50px;
@@ -92,10 +95,15 @@ header {
 }
 .submitLogin:hover {
     cursor: pointer;
+    background-color: darkgray;
 }
 .loggingInForm {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+.errorMessageContainer {
+    margin: 0 auto;
 }
 
 /* REGISTER */
@@ -183,6 +191,10 @@ header {
     height: 5rem;
     
 }
+.productImage:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px black;
+}
 
 /* HOME */
 .homeBoxes {
@@ -256,6 +268,31 @@ header {
     height: 2rem;
     width: 15rem;
     margin-bottom: 2rem;
+}
+
+/* CART */
+.cart-main-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 50%;
+    border-radius: 50px;
+    padding-left: 5rem;
+    margin-left: 5rem;
+}
+.cartProductImage {
+    width: 200px;
+    height: 250px;
+}
+.individualCartContainer {
+    height: 400px;
+    width: 225px;
+    padding-right: 3rem;
+}
+.inner-cart-div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 /* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
 @keyframes shake {
