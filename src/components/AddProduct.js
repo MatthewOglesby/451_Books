@@ -26,7 +26,7 @@ const AddProduct = ({ fetchAllProducts, navigate }) => {
                 quantity: createQuantity
             }
 
-            const results = await createProduct(newProduct)
+            const results = await createProduct(token, newProduct)
             console.log('createProduct RESULTS------', results)
             if (!results.id) {
                 // temporary
