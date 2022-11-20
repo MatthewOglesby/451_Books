@@ -35,7 +35,7 @@ const EditProduct = ({ products, navigate, fetchAllProducts }) => {
             }
     
             await updateProduct(editedProduct);
-            navigate('/products')
+            navigate('/products');
             fetchAllProducts();
         }
         catch (err) {
