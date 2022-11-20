@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { navigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { updateProduct } from '../api'
 
 const EditProduct = ({ products, navigate, fetchAllProducts }) => {
-    console.log('PRODUCTSS------', products)
     const { productID } = useParams();
-  console.log('PRODUCTIDDD---------', productID)
+    
     const [currProduct] = products.filter(product => product.id == productID)
-    console.log('CURR-PRODUCT----------', currProduct)
     const { id, title, description, author, pageCount, genre, price, image, quantity } = currProduct;
     
 
@@ -34,7 +32,7 @@ const EditProduct = ({ products, navigate, fetchAllProducts }) => {
                 quantity: newQuantity
             }
     
-            await updateProduct(editedProduct);
+            await updateProduct(token, editedProduct);
             navigate('/products');
             fetchAllProducts();
         }

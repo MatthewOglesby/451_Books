@@ -135,7 +135,6 @@ const App = () => {
                 <Route
                     path='/products/edit/:productID'
                     element={<EditProduct
-                        // token={token}
                         products={products}
                         navigate={navigate}
                         fetchAllProducts={fetchAllProducts}
@@ -152,6 +151,7 @@ const App = () => {
                     path='/add-product'
                     element={<AddProduct
                         fetchAllProducts={fetchAllProducts}
+                        navigate={navigate}
                         products={products}
                     />}
                 />

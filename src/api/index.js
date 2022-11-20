@@ -94,12 +94,13 @@ export const loginUser = async (username, password) => {
   
   }
 
-export const updateProduct = async ({ title, description, author, pageCount, genre, price, image, quantity }) => {
+export const updateProduct = async (token, { title, description, author, pageCount, genre, price, image, quantity }) => {
   try {
-    const response = await fetch(`${baseURL}/products/:productId`, {
+    const response = await fetch(`${baseURL}/products/:productID`, {
       method: "PATCH",
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({
         title: title,

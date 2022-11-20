@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const AddProduct = ( {fetchAllProducts} ) => {
+import { createProduct } from '../api';
+
+const AddProduct = ({ fetchAllProducts, navigate }) => {
     const [createTitle, setTitle] = useState('');
     const [createDesc, setDesc] = useState('');
     const [createAuthor, setAuthor] = useState('');
@@ -14,7 +16,6 @@ const AddProduct = ( {fetchAllProducts} ) => {
     async function addProduct() {
         try {
             const newProduct = {
-                token: token,
                 title: createTitle,
                 description: createDesc,
                 author: createAuthor,
@@ -25,13 +26,14 @@ const AddProduct = ( {fetchAllProducts} ) => {
                 quantity: createQuantity
             }
 
-            const results = await createNewRoutine(token, newProduct)
-
+            const results = await createProduct(newProduct)
+            console.log('createProduct RESULTS------', results)
             if (!results.id) {
                 // temporary
                 alert('product exists')
             }
             else {
+                navigate('/products')
                 fetchAllProducts();
             }
 

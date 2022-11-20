@@ -28,13 +28,13 @@ const SingleProductView = ({ products, user }) => {
                     <p>Price: {price}</p>
                     <Link to='/products'>Back</Link>
                 </div>
-                {/* {
-                    isAdmin ? ( */}
+                {
+                    isAdmin ? (
                         <Link to={`/products/edit/${productID}`}>Edit Product</Link>
-                    {/* ) : (
+                    ) : (
                         <p></p>
                     )
-                } */}
+                }
             </div>
         )
     } else {

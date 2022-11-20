@@ -12,7 +12,7 @@ const Home = ({ logout, token, navigate, user }) => {
                 isAdmin ? (
                     <>
                         <button className='homeBox' onClick={() => navigate('all-users')}>All Users</button>
-                        <button className='homeBox' onClick={() => navigate('addProduct')}>Add Book</button>
+                        <button className='homeBox' onClick={() => navigate('add-product')}>Add Book</button>
                     </>
                 ) : (
                     <p></p>
