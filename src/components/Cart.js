@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Paper } from "@mui/material";
+import { Button, Paper,ButtonGroup  } from "@mui/material";
 import {deleteCartItem } from "../api"
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -52,10 +52,11 @@ const Cart = ({ products, cartItems, token }) => {
                           <p>
                             <strong>Price</strong> {props.price}
                           </p>
-                          <Button>
+                          <ButtonGroup>
+                          <Button variant="outlined">
                             <RemoveIcon />
                           </Button>
-                          <Button>
+                          <Button >
                             <AddIcon />
                           </Button>
                           <Button
@@ -70,6 +71,7 @@ const Cart = ({ products, cartItems, token }) => {
                           >
                             <DeleteOutlineIcon />
                           </Button>
+                          </ButtonGroup>
                         </div>
                       );
                     }
