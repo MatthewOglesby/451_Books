@@ -126,3 +126,24 @@ export const getUserDetails = async (token) => {
         console.log("error deleting routine");
       }
     };
+
+    export const updateCartItem = async (token, id,order_quantity)=> {
+      try {
+        const response = await fetch(`${baseURL}/carts/${id}`, {
+          method: "PATCH",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            post: {
+              order_quantity,
+            }
+          })
+        })
+        const result = await response.json();
+        return result;  
+      } catch(ex) {
+        console.log('error updating cart item')
+      }
+    }

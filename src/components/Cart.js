@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Paper, ButtonGroup, Box } from "@mui/material";
-import { deleteCartItem } from "../api";
+import { deleteCartItem ,updateCartItem} from "../api";
 import Badge from "@mui/material/Badge";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-const Cart = ({ products, cartItems, token }) => {
+const Cart = ({ products, cartItems, token ,fetchAllUserCartItems}) => {
   console.log("Testing Cart Items: ", cartItems);
 
-  const handleClick = () => {
-    setOpen((prev) => !prev);
-  };
+  
 
   const handleClickAway = () => {
     setOpen(false);
@@ -29,12 +27,15 @@ const Cart = ({ products, cartItems, token }) => {
               cartItems.map((cartItem) => {
                 const { id: cartId, order_quantity, productId } = cartItem;
                 const [display, setDisplay] = useState("none");
-                const [count, setCount] = useState(1);
+                const [count, setCount] = useState(order_quantity);
+
+             
                 return (
                   <div key={cartId} className="individualCartContainer">
                     <div className="inner-cart-div">
                     
                       <Paper style={{ borderRadius: "1rem" }}>
+        
                         {products.map((props) => {
                           const {
                             author,
@@ -65,6 +66,7 @@ const Cart = ({ products, cartItems, token }) => {
                                   <Button
                                     aria-label="reduce"
                                     onClick={() => {
+                                      
                                       setCount(Math.max(count - 1, 0));
                                     }}
                                   >
@@ -73,7 +75,9 @@ const Cart = ({ products, cartItems, token }) => {
                                   <Button
                                     aria-label="increase"
                                     onClick={() => {
+                                      
                                       setCount(count + 1);
+                                      
                                     }}
                                   >
                                     <AddIcon />
@@ -82,7 +86,8 @@ const Cart = ({ products, cartItems, token }) => {
                                     type="submit"
                                     color="error"
                                     variant="outlined"
-                                    onClick={() => {
+                                    onClick={(event) => {
+                                      event.preventDefault();
                                       deleteCartItem(token, cartId);
                                       location.reload();
                                     }}
