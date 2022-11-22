@@ -32,7 +32,7 @@ const EditProduct = ({ products, navigate, fetchAllProducts, token }) => {
                 quantity: newQuantity
             }
 
-            const results = await updateProduct(token, editedProduct);
+            await updateProduct(token, editedProduct);
 
             navigate('/books');
             fetchAllProducts();

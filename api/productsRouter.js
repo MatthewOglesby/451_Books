@@ -62,7 +62,7 @@ productsRouter.patch('/:productID', requireUser, async (req, res, next) => {
 
     if (product) {
       const updatedProduct = await updateProduct(productID, {
-        // id: productID,
+        id: productID,
         title: title,
         description: description,
         author: author,
