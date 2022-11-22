@@ -6,7 +6,7 @@ import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 const Navbar = ({ logout, token, user,cartItems }) => {
   const { id } = user;
 
-  console.log("navbar",cartItems)
+  // console.log("navbar",cartItems)
   return (
     <header>
       <nav className="navBox">
@@ -14,14 +14,14 @@ const Navbar = ({ logout, token, user,cartItems }) => {
         {token ? (
           <>
             <Link to="/" className="navbarLink">Home</Link>
-            <Link to="/products" className="navbarLink">Books</Link>
+            <Link to="/books" className="navbarLink">Books</Link>
             <Link to="/" onClick={() => { logout(); }} className="navbarLink">Logout</Link>
             <Link to={`/cart/${id}`} className="navbarLink"> <Badge badgeContent={3} color="primary"><ShoppingCartCheckoutIcon /> </Badge></Link>
           </>
         ) : (
           <>
             <Link to="/" className="navbarLink">Home</Link>
-            <Link to="/products" className="navbarLink">Books</Link>
+            <Link to="/books" className="navbarLink">Books</Link>
             <Link to="/register" className="navbarLink">Register</Link>
             <Link to="/login" className="navbarLink">Login</Link>
             <Link to={`/cart/${id}`} className="navbarLink"><ShoppingCartCheckoutIcon/></Link>

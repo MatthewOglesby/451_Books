@@ -106,7 +106,7 @@ const App = () => {
                     />}
                 />
                 <Route
-                    path='/products'
+                    path='/books'
                     element={<Products
                         products={products}
                         fetchAllProducts={fetchAllProducts}
@@ -140,15 +140,16 @@ const App = () => {
                     />}
                 />
                 <Route
-                    path='/products/edit/:productID'
+                    path='/books/edit/:productID'
                     element={<EditProduct
                         products={products}
                         navigate={navigate}
                         fetchAllProducts={fetchAllProducts}
+                        token={token}
                     />}
                 />
                 <Route
-                    path='/products/:productID'
+                    path='/books/:productID'
                     element={<SingleProductView
                         products={products}
                         user={user}
@@ -160,6 +161,7 @@ const App = () => {
                         fetchAllProducts={fetchAllProducts}
                         navigate={navigate}
                         products={products}
+                        token={token}
                     />}
                 />
                 <Route

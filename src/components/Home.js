@@ -21,12 +21,12 @@ const Home = ({ logout, token, navigate, user }) => {
             {
                 token ? (
                     <>
-                        <button className='homeBox' onClick={() => navigate('products')}>Books</button>
+                        <button className='homeBox' onClick={() => navigate('books')}>Books</button>
                         <button className='homeBox' onClick={() => { logout(); }}>Logout</button>
                     </>
                 ) : (
                     <>
-                        <button className='homeBox' onClick={() => navigate('products')}>Books</button>
+                        <button className='homeBox' onClick={() => navigate('books')}>Books</button>
                         <button className='homeBox' onClick={() => navigate('register')}>Register</button>
                         <button className='homeBox' onClick={() => navigate('login')}>Login</button>
                     </>

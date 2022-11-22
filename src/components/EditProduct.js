@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { updateProduct } from '../api'
 
-const EditProduct = ({ products, navigate, fetchAllProducts }) => {
+const EditProduct = ({ products, navigate, fetchAllProducts, token }) => {
     const { productID } = useParams();
-    
+
     const [currProduct] = products.filter(product => product.id == productID)
     const { id, title, description, author, pageCount, genre, price, image, quantity } = currProduct;
-    
+
 
     const [newTitle, setNewTitle] = useState(title);
     const [newDesc, setNewDesc] = useState(description);
@@ -19,7 +19,7 @@ const EditProduct = ({ products, navigate, fetchAllProducts }) => {
     const [newQuantity, setNewQuantity] = useState(quantity);
 
     async function editProduct() {
-        try{
+        try {
             const editedProduct = {
                 id: id,
                 title: newTitle,
@@ -31,59 +31,63 @@ const EditProduct = ({ products, navigate, fetchAllProducts }) => {
                 image: newImage,
                 quantity: newQuantity
             }
-    
-            await updateProduct(token, editedProduct);
-            navigate('/products');
+
+            const results = await updateProduct(token, editedProduct);
+
+            navigate('/books');
             fetchAllProducts();
         }
         catch (err) {
             console.error('editproduct FAILED:', err);
         }
-        
+
     }
 
     return (
-        <form onSubmit={ (e) => {
-            e.preventDefault();
-            editProduct();
-        }}>
-            <p>Current Book Title: {title}</p>
+        <form className='edit-form'
+            onSubmit={(e) => {
+                e.preventDefault();
+                editProduct();
+            }}>
+            <p>Current Title: {title}</p>
             <input
+                className='long-input'
                 type='text'
                 placeholder='updated title'
                 onChange={(e) => setNewTitle(e.target.value)}
             />
-            <p>Current Book Description: {description}</p>
+            <p>Current Description: {description}</p>
             <input
+                className='long-input'
                 type='text'
                 placeholder='updated description'
                 onChange={(e) => setNewDesc(e.target.value)}
             />
-            <p>Current Book Author: {author}</p>
+            <p>Author: </p>
             <input
                 type='text'
-                placeholder='updated author'
+                placeholder={author}
                 onChange={(e) => setNewAuthor(e.target.value)}
             />
-            <p>Current Page Count: {pageCount}</p>
+            <p>Page Count: </p>
             <input
                 type='text'
-                placeholder='updated page count'
+                placeholder={pageCount}
                 onChange={(e) => setNewPageCount(e.target.value)}
             />
-            <p>Current Book Genre: {genre}</p>
+            <p>Genre: </p>
             <input
                 type='text'
-                placeholder='updated genre'
+                placeholder={genre}
                 onChange={(e) => setNewGenre(e.target.value)}
             />
-            <p>Current Selling Price: {price}</p>
+            <p>Price: </p>
             <input
                 type='text'
-                placeholder='updated price'
+                placeholder={price}
                 onChange={(e) => setNewPrice(e.target.value)}
             />
-            <p>Current Book Image: 
+            <p>Cover Image:
                 <img src={image} />
             </p>
             <input
@@ -91,10 +95,10 @@ const EditProduct = ({ products, navigate, fetchAllProducts }) => {
                 placeholder='updated image'
                 onChange={(e) => setNewImage(e.target.value)}
             />
-            <p>Current Stock: {quantity}</p>
+            <p>Current Stock: </p>
             <input
                 type='text'
-                placeholder='updated stock quantity'
+                placeholder={quantity}
                 onChange={(e) => setNewQuantity(e.target.value)}
             />
             <button

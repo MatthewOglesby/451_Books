@@ -94,9 +94,9 @@ export const loginUser = async (username, password) => {
   
   }
 
-export const updateProduct = async (token, { title, description, author, pageCount, genre, price, image, quantity }) => {
+export const updateProduct = async (token, { id, title, description, author, pageCount, genre, price, image, quantity }) => {
   try {
-    const response = await fetch(`${baseURL}/products/:productID`, {
+    const response = await fetch(`${baseURL}/products/${id}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',

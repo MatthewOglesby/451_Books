@@ -47,14 +47,13 @@ const Products = ({ products, navigate }) => {
                             productsToDisplay.map((product) => {
                                 const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
                                 return (
-                                    <div>
                                         <div 
                                         key={id}
                                         className='productBox'
                                         >
                                                 {
                                                     image == "" ? (
-                                                        <img src={temp} />
+                                                        <img className='productImage' src={temp} />
                                                     )
                                                     : (
                                                         <img className='productImage' src={image} />
@@ -65,11 +64,10 @@ const Products = ({ products, navigate }) => {
                                                 <p>{author}</p>
                                                 <p>{description}</p>
                                                 <p>{price}</p>
-                                                <Link to={`/products/${id}`}>View</Link>
+                                                <Link to={`/books/${id}`}>View</Link>
 
                                         </div>
-
-                                    </div>
+ 
                                 )
                             })
                         ) : (

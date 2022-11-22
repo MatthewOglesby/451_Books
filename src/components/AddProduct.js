@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { createProduct } from '../api';
 
-const AddProduct = ({ fetchAllProducts, navigate }) => {
+const AddProduct = ({ fetchAllProducts, navigate, token }) => {
     const [createTitle, setTitle] = useState('');
     const [createDesc, setDesc] = useState('');
     const [createAuthor, setAuthor] = useState('');
@@ -16,6 +16,7 @@ const AddProduct = ({ fetchAllProducts, navigate }) => {
     async function addProduct() {
         try {
             const newProduct = {
+                token: token,
                 title: createTitle,
                 description: createDesc,
                 author: createAuthor,
@@ -33,7 +34,7 @@ const AddProduct = ({ fetchAllProducts, navigate }) => {
                 alert('product exists')
             }
             else {
-                navigate('/products')
+                navigate('/books')
                 fetchAllProducts();
             }
 
@@ -45,9 +46,9 @@ const AddProduct = ({ fetchAllProducts, navigate }) => {
 
     return (
         <div>
-            <h3>Add Product to Inventory</h3>
+            <h3 style={{textAlign:'center'}}>Add Product to Inventory</h3>
 
-            <form>
+            <form className='edit-form'>
                 <input
                     type='text'
                     placeholder='Book Title'
@@ -66,7 +67,9 @@ const AddProduct = ({ fetchAllProducts, navigate }) => {
                 <input
                     type='text'
                     placeholder="Book Page Count"
-                    onChange={(e) => setPageCount(e.target.value)}
+                    onChange={(e) => {
+                        e.target.value % 1 !== 0 ? e.target.value = '' :  setPrice(e.target.value)
+                    }}
                 />
                 <input
                     type='text'
@@ -76,7 +79,9 @@ const AddProduct = ({ fetchAllProducts, navigate }) => {
                 <input
                     type='text'
                     placeholder="Price"
-                    onChange={(e) => setPrice(e.target.value)}
+                    onChange={(e) => {
+                        e.target.value % 1 !== 0 ? e.target.value = '' :  setPrice(e.target.value)
+                    }}
                 />
                 <input
                     type='text'
@@ -86,7 +91,9 @@ const AddProduct = ({ fetchAllProducts, navigate }) => {
                 <input
                     type='text'
                     placeholder="Inventory Quantity"
-                    onChange={(e) => setQuantity(e.target.value)}
+                    onChange={(e) => {
+                        e.target.value % 1 !== 0 ? e.target.value = '' :  setPrice(e.target.value)
+                    }}
                 />
                 <button
                     onClick={(e) => {

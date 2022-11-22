@@ -62,15 +62,15 @@ productsRouter.patch('/:productID', requireUser, async (req, res, next) => {
 
     if (product) {
       const updatedProduct = await updateProduct(productID, {
-        id: productID,
-        title,
-        description,
-        author,
-        pageCount,
-        genre,
-        price,
-        image,
-        quantity
+        // id: productID,
+        title: title,
+        description: description,
+        author: author,
+        pageCount: pageCount,
+        genre: genre,
+        price: price,
+        image: image,
+        quantity: quantity
       });
 
       res.send(updatedProduct)
@@ -82,7 +82,7 @@ productsRouter.patch('/:productID', requireUser, async (req, res, next) => {
       })
     }
   } catch (error) {
-    console.log('api error---------', error);
+    console.log('api error---', error);
     next(error);
   }
 });
