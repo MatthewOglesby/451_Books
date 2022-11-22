@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { createProduct } from '../api';
@@ -46,7 +46,7 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
 
     return (
         <div>
-            <h3 style={{textAlign:'center'}}>Add Product to Inventory</h3>
+            <h3 style={{ textAlign: 'center' }}>Add Product to Inventory</h3>
 
             <form className='edit-form'>
                 <input
@@ -68,7 +68,7 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
                     type='text'
                     placeholder="Book Page Count"
                     onChange={(e) => {
-                        e.target.value % 1 !== 0 ? e.target.value = '' :  setPrice(e.target.value)
+                        e.target.value % 1 !== 0 ? e.target.value = '' : setPageCount(e.target.value)
                     }}
                 />
                 <input
@@ -76,13 +76,18 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
                     placeholder="Book Genre"
                     onChange={(e) => setGenre(e.target.value)}
                 />
-                <input
-                    type='text'
-                    placeholder="Price"
-                    onChange={(e) => {
-                        e.target.value % 1 !== 0 ? e.target.value = '' :  setPrice(e.target.value)
-                    }}
-                />
+
+                <div className='price'>
+                    <p>$</p>
+                    <input
+                        type='text'
+                        placeholder="Price"
+                        onChange={(e) => {
+                            e.target.value % 1 !== 0 ? e.target.value = '' : setPrice('$' + e.target.value)
+                        }}
+                    />
+                </div>
+
                 <input
                     type='text'
                     placeholder="Image for Book"
@@ -92,7 +97,7 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
                     type='text'
                     placeholder="Inventory Quantity"
                     onChange={(e) => {
-                        e.target.value % 1 !== 0 ? e.target.value = '' :  setPrice(e.target.value)
+                        e.target.value % 1 !== 0 ? e.target.value = '' : setQuantity(e.target.value)
                     }}
                 />
                 <button

@@ -73,7 +73,9 @@ const EditProduct = ({ products, navigate, fetchAllProducts, token }) => {
             <input
                 type='text'
                 placeholder={pageCount}
-                onChange={(e) => setNewPageCount(e.target.value)}
+                onChange={(e) => {
+                    e.target.value % 1 !== 0 ? e.target.value = '' : setNewPageCount(e.target.value)
+                }}
             />
             <p>Genre: </p>
             <input
@@ -81,12 +83,19 @@ const EditProduct = ({ products, navigate, fetchAllProducts, token }) => {
                 placeholder={genre}
                 onChange={(e) => setNewGenre(e.target.value)}
             />
+
             <p>Price: </p>
-            <input
-                type='text'
-                placeholder={price}
-                onChange={(e) => setNewPrice(e.target.value)}
-            />
+            <div className='price'>
+                <p>$</p>
+                <input
+                    type='text'
+                    placeholder={price}
+                    onChange={(e) => {
+                        e.target.value % 1 !== 0 ? e.target.value = '' : setNewPrice('$' + e.target.value)
+                    }}
+                />
+            </div>
+
             <p>Cover Image:
                 <img src={image} />
             </p>
@@ -99,7 +108,9 @@ const EditProduct = ({ products, navigate, fetchAllProducts, token }) => {
             <input
                 type='text'
                 placeholder={quantity}
-                onChange={(e) => setNewQuantity(e.target.value)}
+                onChange={(e) => {
+                    e.target.value % 1 !== 0 ? e.target.value = '' : setNewQuantity(e.target.value)
+                }}
             />
             <button
                 type='submit'

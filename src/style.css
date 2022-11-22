@@ -241,6 +241,11 @@ input:placeholder-shown {
     text-overflow: ellipsis;
 }
 
+.price > * {
+    display: inline;
+    padding: 5px;
+}
+
 /* HOME */
 .homeBoxes {
     display: flex;
