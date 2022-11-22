@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
-
-const Navbar = ({ logout, token, user,cartItems }) => {
+const Navbar = ({ logout, token, user, cartItems }) => {
   const { id } = user;
 
   // console.log("navbar",cartItems)
   return (
+    
     <header>
       <nav className="navBox">
         <h3 className="navbarName">451 Books</h3>
@@ -16,7 +16,7 @@ const Navbar = ({ logout, token, user,cartItems }) => {
             <Link to="/" className="navbarLink">Home</Link>
             <Link to="/books" className="navbarLink">Books</Link>
             <Link to="/" onClick={() => { logout(); }} className="navbarLink">Logout</Link>
-            <Link to={`/cart/${id}`} className="navbarLink"> <Badge badgeContent={3} color="primary"><ShoppingCartCheckoutIcon /> </Badge></Link>
+            <Link to={`/cart/${id}`} className="navbarLink"> <Badge badgeContent={cartItems.length} color="primary"><ShoppingCartCheckoutIcon /> </Badge></Link>
           </>
         ) : (
           <>
@@ -30,7 +30,7 @@ const Navbar = ({ logout, token, user,cartItems }) => {
         )}
       </nav>
     </header>
-  );
+    );
 };
 
 export default Navbar;
