@@ -36,9 +36,9 @@ let total = 0
             {cartItems.map((cartItem) => {
               const { cartId, order_quantity, productId } = cartItem;
               const [display, setDisplay] = useState("none");
-              const [count, setCount] = useState(order_quantity);
+              const [count, setCount] = useState(1);
             
-             total = Math.round((total + (cartItem.price * order_quantity))* 100) / 100
+             total = Math.round((total + (cartItem.price * count))* 100) / 100
               return (
                 <div key={cartId} className="individualCartContainer">
                   <div className="inner-cart-div">
@@ -50,7 +50,7 @@ let total = 0
                       </p>
                       <p>Title: {cartItem.title}</p>
                       <p>
-                        <strong>Price</strong> {cartItem.price}
+                        <strong>Price</strong> ${cartItem.price}
                       </p>
 
                       <ButtonGroup>
@@ -114,7 +114,7 @@ let total = 0
             <span> Subtotal ({cartItems.length}) items</span>
             <span style={{ fontWeight: 700, fontSize: 20 }}>
               {" "}
-              Total: {total}
+              Total: ${total}
             </span>
           </div>
         </div>

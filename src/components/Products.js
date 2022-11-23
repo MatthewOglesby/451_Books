@@ -63,7 +63,7 @@ const Products = ({ products, navigate }) => {
                                                 <p>{title}</p>
                                                 <p>{author}</p>
                                                 <p>{description}</p>
-                                                <p>{price}</p>
+                                                <p>${price}</p>
                                                 <Link to={`/books/${id}`}>View</Link>
 
                                         </div>
