@@ -5,7 +5,7 @@ import { addProductToCart } from '../api';
 
 import temp from '../coming_soon.JPEG';
 
-const SingleProductView = ({ products, user }) => {
+const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) => {
     const { productID } = useParams();
     // console.log(productID)
     // console.log(products)
@@ -35,7 +35,7 @@ const SingleProductView = ({ products, user }) => {
                     <p>Page Count: {pageCount}</p>
                     <p>Genre: {genre}</p>
                     <p>Price: {price}</p>
-                    <button onClick={() => {addProductToCart(productID, id)}}>Add to Cart</button>
+                    <button onClick={() => {addProductToCart(productID, id); fetchAllUserCartItems();}}>Add to Cart</button>
                     <Link to='/books'>Back</Link>
 
                 </div>
