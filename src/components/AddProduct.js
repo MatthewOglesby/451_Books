@@ -67,9 +67,7 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
                 <input
                     type='text'
                     placeholder="Book Page Count"
-                    onChange={(e) => {
-                        e.target.value % 1 !== 0 ? e.target.value = '' : setPageCount(e.target.value)
-                    }}
+                    onChange={(e) => setPageCount(e.target.value)}
                 />
                 <input
                     type='text'
@@ -82,9 +80,7 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
                     <input
                         type='text'
                         placeholder="Price"
-                        onChange={(e) => {
-                            e.target.value % 1 !== 0 ? e.target.value = '' : setPrice('$' + e.target.value)
-                        }}
+                        onChange={(e) => setPrice('$' + e.target.value)}
                     />
                 </div>
 
@@ -96,9 +92,7 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
                 <input
                     type='text'
                     placeholder="Inventory Quantity"
-                    onChange={(e) => {
-                        e.target.value % 1 !== 0 ? e.target.value = '' : setQuantity(e.target.value)
-                    }}
+                    onChange={(e) => setQuantity(e.target.value)}
                 />
                 <button
                     onClick={(e) => {
