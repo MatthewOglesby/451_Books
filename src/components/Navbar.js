@@ -6,11 +6,22 @@ const Navbar = ({ logout, token, user, cartItems }) => {
   const { id } = user;
 
   if (cartItems === undefined) {
-    return null;
+    return (
+      <header>
+        <nav className="navBox">
+        <h3 className="navbarName">451 Books</h3>
+        <Link to="/" className="navbarLink">Home</Link>
+        <Link to="/books" className="navbarLink">Books</Link>
+        <Link to="/register" className="navbarLink">Register</Link>
+        <Link to="/login" className="navbarLink">Login</Link>
+        </nav>
+      </header>
+    );
   }
-  // console.log("navbar",cartItems)
-  return (
 
+  console.log("Testing cartItems navbar: ", cartItems)
+
+  return (
     <header>
       <nav className="navBox">
         <h3 className="navbarName">451 Books</h3>

@@ -94,7 +94,7 @@ const App = () => {
 
     return (
         <div>
-            <Navbar logout={logout} token={token} user={user} cartItems={cartItems} />
+            <Navbar logout={logout} token={token} user={user} cartItems={cartItems} fetchAllUserCartItems={fetchAllUserCartItems} />
             <Routes>
                 <Route
                     path='/'
@@ -153,6 +153,7 @@ const App = () => {
                     element={<SingleProductView
                         products={products}
                         user={user}
+                        fetchAllUserCartItems={fetchAllUserCartItems}
                     />}
                 />
                 <Route
