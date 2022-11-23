@@ -3,9 +3,10 @@ header {
     height: 4rem;
     box-shadow: 5px 5px 5px black;
     background-color: black;
-    width: fit-content;
+    width: 100%;
     margin: 0 auto;
 }
+
 .navBox {
     display: flex;
     flex-direction: row;
@@ -13,6 +14,7 @@ header {
     font-size: 30px;
     height: 4rem;
 }
+
 .navbarLink, .navbarLink:visited {
     color: whitesmoke;
     text-shadow: 3px 3px 10px white;
@@ -20,17 +22,19 @@ header {
     margin-right: 4rem;
     margin-top: .75rem;
 }
+
 .navbarLink:hover {
     cursor: pointer;
     text-decoration: underline;
-    color: blue;
+    color: rgb(255, 98, 0);
 }
+
 .navbarName {
     font-size: 45px;
     color: whitesmoke;
     text-shadow: 3px 3px 10px white;
     text-decoration: none;
-    margin-right: 40rem;
+    margin-right: 20rem;
     margin-top: .4rem;
     margin-left: 1rem;
 }
@@ -55,11 +59,13 @@ header {
     width: 400px;
     height: 600px;
 }
+
 .loginDiv {
     padding-bottom: 2rem;
     text-align: center;
     margin: auto;
 }
+
 .loginLabel {
     color: black;
     text-shadow: 3px 3px 10px white;
@@ -67,6 +73,7 @@ header {
     padding-bottom: 1rem;
     margin-right: 1rem;
 }
+
 .userorpass {
     color: black;
     font-size: 20px;
@@ -76,6 +83,7 @@ header {
     width: 200px;
     border-bottom: 2px solid #707075;
 }
+
 .submitLogin {
     background: none;
     color: black;
@@ -87,23 +95,24 @@ header {
     border-radius: 50px;
     border: 2px solid grey;
 }
+
 .submitLogin:focus {
     color: #f2f2f2;
 }
+
 .submitLogin:active {
     color: #d0d0d2;
 }
+
 .submitLogin:hover {
     cursor: pointer;
     background-color: darkgray;
 }
+
 .loggingInForm {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.errorMessageContainer {
-    margin: 0 auto;
 }
 
 /* REGISTER */
@@ -123,11 +132,13 @@ header {
     width: 400px;
     height: 600px;
 }
+
 .registerDiv {
     padding-bottom: 2rem;
     text-align: center;
     margin: auto;
 }
+
 .registerLabel {
     color: white;
     text-shadow: 3px 3px 10px white;
@@ -135,6 +146,7 @@ header {
     padding-bottom: 1rem;
     margin-right: 1rem;
 }
+
 .userorpass {
     color: white;
     font-size: 20px;
@@ -144,6 +156,7 @@ header {
     width: 200px;
     border-bottom: 2px solid #707075;
 }
+
 .submitRegister {
     background: none;
     color: white;
@@ -155,15 +168,19 @@ header {
     border-radius: 50px;
     border: 2px solid grey;
 }
+
 .submitRegister:focus {
     color: #f2f2f2;
 }
+
 .submitRegister:active {
     color: #d0d0d2;
 }
+
 .submitRegister:hover {
     cursor: pointer;
 }
+
 .registrationForm {
     display: flex;
     flex-direction: column;
@@ -176,24 +193,57 @@ header {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .productBox {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     max-width: 400px;
-    max-height: 500px;
-    padding: 3rem;
+    max-height: 700px;
+    padding: 10px;
 }
+
 .productImage {
     width: 350px;
     height: 400px;
 }
-.containerSearchProducts {
-    height: 5rem;
-    
-}
+
 .productImage:hover {
     cursor: pointer;
-    box-shadow: 3px 3px 3px black;
+    box-shadow: 0px 0px 10px 5px rgb(58, 58, 58);
+}
+
+.containerSearchProducts {
+    height: 5rem;
+    margin-bottom: 2%;
+}
+
+.single-view-div {
+    margin-top: 2%;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+}
+
+.edit-form > * {
+    margin: 5px;
+}
+
+.long-input {
+    width: 35%;
+}
+
+input:placeholder-shown {
+    text-overflow: ellipsis;
+}
+
+.price > * {
+    display: inline;
+    padding: 5px;
 }
 
 /* HOME */
@@ -202,6 +252,7 @@ header {
     flex-direction: row;
     justify-content: center;
 }
+
 .homeBox {
     background-color: black;
     display: flex;
@@ -219,6 +270,7 @@ header {
     height: 400px;
     font-size: 32px;
 }
+
 .homeBox:hover {
     cursor: pointer;
 }
@@ -230,6 +282,7 @@ header {
     justify-content: center;
     flex-wrap: wrap;
 }
+
 .allUserBox {
     display: flex;
     justify-content: center;
@@ -237,6 +290,7 @@ header {
     height: 20rem;
     align-items: center;
 }
+
 .allUserBoxContent {
     display: flex;
     flex-direction: column;
@@ -247,6 +301,7 @@ header {
     width: 20rem;
     align-items: center;
 }
+
 .searchUsersForm {
     display: flex;
     flex-direction: column;
@@ -257,12 +312,14 @@ header {
     width: 20rem;
     align-items: center;
 }
+
 .returnedFormContent {
     display: flex;
     flex-direction: column;
-    margin-top: 4rem;
+    margin-top: 2%;
     align-items: center;
 }
+
 .userSearchInput {
     border-radius: 50px;
     height: 2rem;
@@ -280,19 +337,70 @@ header {
     padding-left: 5rem;
     margin-left: 5rem;
 }
+
 .cartProductImage {
     width: 200px;
     height: 250px;
 }
+
 .individualCartContainer {
     height: 400px;
     width: 225px;
     padding-right: 3rem;
 }
+
 .inner-cart-div {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+.hidden {
+    display: none;
+}
+
+.errorMessage {
+    font-size: 25px;
+    color: black;
+    text-shadow: 5px 5px 10px black;
+    text-align: center;
+}
+
+.errorMessage2 {
+    font-size: 20px;
+    color: rgb(63, 63, 63);
+    text-shadow: 0px 0px 10px rgb(12, 12, 12);
+    text-align: center;
+}
+
+#sign-in-msg {
+    text-decoration: none;
+    color: rgb(228, 225, 225);
+}
+
+#sign-in-msg:hover {
+    text-decoration: underline;
+}
+
+.error {
+    animation: 0.5s shake;
+    background-image: url('../images/burningBook.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+    border-radius: 5%;
+    color: #F1F1F2;
+    position: relative;
+    width: 400px;
+    height: 600px;
 }
 /* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
 @keyframes shake {
@@ -307,4 +415,21 @@ header {
     80% {transform: translate(-1px, -1px) rotate(1deg);}
     90% {transform: translate(1px, 2px) rotate(0deg);}
     100% {transform: translate(1px, -2px) rotate(-1deg);}
+}
+
+html ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+html ::-webkit-scrollbar-track {
+    background-color: black;
+    border-radius: 100vw;
+    margin-block: 2px;
+    margin-left: 3px;
+}
+
+html ::-webkit-scrollbar-thumb {
+    background-color: rgb(146, 146, 146);
+    border-radius: 100vw;
 }

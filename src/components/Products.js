@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 
+import temp from '../coming_soon.JPEG';
+
 const Products = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -44,19 +46,28 @@ const Products = ({ products, navigate }) => {
                         (
                             productsToDisplay.map((product) => {
                                 const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
-                                // const [display, setDisplay] = useState('none')
                                 return (
-                                    <div>
-                                    <div key={id}>
-                                        <div className='productBox'>
-                                            <img className='productImage' src={image} onClick={() => navigate(`/products/${id}`)}/>
-                                            <p>{title}</p>
-                                            <p>{author}</p>
-                                            <p>{description}</p>
-                                            <p>{price}</p>
+                                        <div 
+                                        key={id}
+                                        className='productBox'
+                                        >
+                                                {
+                                                    image == "" ? (
+                                                        <img className='productImage' src={temp} />
+                                                    )
+                                                    : (
+                                                        <img className='productImage' src={image} />
+                                                    )
+                                                }
+
+                                                <p>{title}</p>
+                                                <p>{author}</p>
+                                                <p>{description}</p>
+                                                <p>{price}</p>
+                                                <Link to={`/books/${id}`}>View</Link>
+
                                         </div>
-                                    </div>
-                                    </div>
+ 
                                 )
                             })
                         ) : (

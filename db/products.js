@@ -4,8 +4,9 @@ async function getAllProducts() {
   try {
     const { rows } = await client.query(`
       SELECT * FROM products;
+      
     `);
-
+// ORDER BY id ASC;
     return rows;
 
   } catch (error) {

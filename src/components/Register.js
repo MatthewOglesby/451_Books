@@ -7,6 +7,7 @@ const Register = ({setToken, token, navigate}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState(false);
 
     let loginForm = document.getElementById('loginForm')
 

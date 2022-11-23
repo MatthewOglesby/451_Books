@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import './style.css';
-import { getAllProducts, getUserDetails, getUserCart, getAllUsers } from './api'; 
+import { getAllProducts, getUserDetails, getUserCart, getAllUsers } from './api';
 import CssBaseline from '@mui/material/CssBaseline';
 import {
     Products,
@@ -65,7 +65,7 @@ const App = () => {
     }
 
     async function fetchAllUserCartItems() {
-        const results = await getUserCart(token,user.id)
+        const results = await getUserCart(token, user.id)
         // console.log("Testing results from getting cart: ",results)
         setCartItems(results)
     }
@@ -75,9 +75,9 @@ const App = () => {
         // console.log(results)
         setUsers(results);
     }
-   
+
     useEffect(() => {
-      fetchAllUserCartItems();
+        fetchAllUserCartItems();
     }, [user]);
 
     useEffect(() => {
@@ -94,49 +94,90 @@ const App = () => {
 
     return (
         <div>
-            <Navbar logout={logout} token={token} user={user} cartItems={cartItems}/>
+            <Navbar logout={logout} token={token} user={user} cartItems={cartItems} />
             <Routes>
-                <Route 
+                <Route
                     path='/'
-                    element={<Home navigate={navigate} token={token} logout={logout} user={user}/>}
-                />
-                <Route 
-                    path='/products'
-                    element={<Products products={products} fetchAllProducts={fetchAllProducts} navigate={navigate}/>}
-                />
-                <Route 
-                    path='/:title'
-                />
-                <Route 
-                    path='/all-users'
-                    element={<AllUsers navigate={navigate} fetchAllUsers={fetchAllUsers} users={users} />}
-                />
-                <Route 
-                    path='/login'
-                    element={<Login navigate={navigate} setToken={setToken}/>}
-                />
-                <Route 
-                    path='/register'
-                    element={<Register token={token} navigate={navigate} setToken={setToken}/>}
+                    element={<Home
+                        navigate={navigate}
+                        token={token}
+                        logout={logout}
+                        user={user}
+                    />}
                 />
                 <Route
-                    path='/products/:productID'
-                    element={<SingleProductView products={products} user={user}/>}
-                />   
-                <Route 
-                    path='/edit-product'
+                    path='/books'
+                    element={<Products
+                        products={products}
+                        fetchAllProducts={fetchAllProducts}
+                        navigate={navigate}
+                    />}
                 />
-                <Route 
+                <Route
+                    path='/:title'
+                />
+                <Route
+                    path='/all-users'
+                    element={<AllUsers
+                        navigate={navigate}
+                        fetchAllUsers={fetchAllUsers}
+                        users={users}
+                    />}
+                />
+                <Route
+                    path='/login'
+                    element={<Login
+                        navigate={navigate}
+                        setToken={setToken}
+                    />}
+                />
+                <Route
+                    path='/register'
+                    element={<Register
+                        token={token}
+                        navigate={navigate}
+                        setToken={setToken}
+                    />}
+                />
+                <Route
+                    path='/books/edit/:productID'
+                    element={<EditProduct
+                        products={products}
+                        navigate={navigate}
+                        fetchAllProducts={fetchAllProducts}
+                        token={token}
+                    />}
+                />
+                <Route
+                    path='/books/:productID'
+                    element={<SingleProductView
+                        products={products}
+                        user={user}
+                    />}
+                />
+                <Route
                     path='/add-product'
+                    element={<AddProduct
+                        fetchAllProducts={fetchAllProducts}
+                        navigate={navigate}
+                        products={products}
+                        token={token}
+                    />}
                 />
-                <Route 
+                <Route
                     path='/edit-cart'
                 />
-                <Route 
+                <Route
                     path='/cart/:id'
-                    element={<Cart token={token} user={user} cartItems={cartItems} fetchAllUserCartItems={fetchAllUserCartItems} products={products}/>}
+                    element={<Cart
+                        token={token}
+                        user={user}
+                        cartItems={cartItems}
+                        fetchAllUserCartItems={fetchAllUserCartItems}
+                        products={products}
+                    />}
                 />
-                <Route 
+                <Route
                     path='/checkout'
                 />
             </Routes>
@@ -148,9 +189,10 @@ const container = document.querySelector('#container');
 const root = ReactDOM.createRoot(container);
 root.render(
     <React.Fragment>
-         <CssBaseline />
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+        {/* <CssBaseline> */}
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+        {/* </CssBaseline > */}
     </React.Fragment>
 );

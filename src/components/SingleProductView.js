@@ -2,23 +2,32 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+import temp from '../coming_soon.JPEG';
+
 const SingleProductView = ({ products, user }) => {
     const { productID } = useParams();
-    console.log(productID)
-    console.log(products)
-    console.log(user)
+    // console.log(productID)
+    // console.log(products)
+    // console.log(user)
 
     if (products.length) {
         const [currentProduct] = products.filter(product => product.id == productID);
         console.log(currentProduct)
         const { author, title, description, genre, id, image, quantity, pageCount, price } = currentProduct;
         const { isAdmin } = user;
-        console.log(isAdmin)
+        // console.log(isAdmin)
 
         return (
-            <div>
+            <div className='single-view-div'>
                 <div>
-                    <img className='productImage' src={image} />
+                    {
+                        image == "" ? (
+                            <img className='productImage' src={temp} />
+                        )
+                            : (
+                                <img className='productImage' src={image} />
+                            )
+                    }
                     <h3>{title}</h3>
                     <p>Description: {description}</p>
                     <p>Author: {author}</p>
@@ -26,12 +35,12 @@ const SingleProductView = ({ products, user }) => {
                     <p>Genre: {genre}</p>
                     <p>Quantity: {quantity}</p>
                     <p>Price: {price}</p>
-                    <Link to='/products'>Back</Link>
-                   
+                    <Link to='/books'>Back</Link>
+
                 </div>
                 {
                     isAdmin ? (
-                        <Link to='/edit-product'>Edit Product</Link>
+                        <Link to={`/books/edit/${productID}`}>Edit Product</Link>
                     ) : (
                         <p></p>
                     )
