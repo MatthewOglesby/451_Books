@@ -2,18 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
-const Navbar = ({ logout, token, user, cartItems }) => {
+import logo from '../black_icon.JPEG';
+
+const Navbar = ({ logout, token, user, cartItems, fetchAllUserCartItems }) => {
   const { id } = user;
 
   if (cartItems === undefined) {
     return (
       <header>
         <nav className="navBox">
-        <h3 className="navbarName">451 Books</h3>
-        <Link to="/" className="navbarLink">Home</Link>
-        <Link to="/books" className="navbarLink">Books</Link>
-        <Link to="/register" className="navbarLink">Register</Link>
-        <Link to="/login" className="navbarLink">Login</Link>
+          <h3 className="navbarName">451 Books</h3>
+          <img src={logo} />
+          <Link to="/" className="navbarLink">Home</Link>
+          <Link to="/books" className="navbarLink">Books</Link>
+          <Link to="/register" className="navbarLink">Register</Link>
+          <Link to="/login" className="navbarLink">Login</Link>
         </nav>
       </header>
     );
@@ -25,10 +28,11 @@ const Navbar = ({ logout, token, user, cartItems }) => {
     <header>
       <nav className="navBox">
         <h3 className="navbarName">451 Books</h3>
+        <img src={logo} />
         {token ? (
           <>
-            <Link to="/" className="navbarLink">Home</Link>
-            <Link to="/books" className="navbarLink">Books</Link>
+            <Link to="/" onClick={() => { fetchAllUserCartItems(); }} className="navbarLink">Home</Link>
+            <Link to="/books" onClick={() => { fetchAllUserCartItems(); }} className="navbarLink">Books</Link>
             <Link to="/" onClick={() => { logout(); }} className="navbarLink">Logout</Link>
             <Link to={`/cart/${id}`} className="navbarLink"> <Badge badgeContent={cartItems.length} color="primary"><ShoppingCartCheckoutIcon /> </Badge></Link>
           </>

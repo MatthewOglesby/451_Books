@@ -103,6 +103,7 @@ const App = () => {
                         token={token}
                         logout={logout}
                         user={user}
+                        fetchAllUserCartItems={fetchAllUserCartItems}
                     />}
                 />
                 <Route
@@ -153,6 +154,7 @@ const App = () => {
                     element={<SingleProductView
                         products={products}
                         user={user}
+                        navigate={navigate}
                         fetchAllUserCartItems={fetchAllUserCartItems}
                     />}
                 />
@@ -176,6 +178,7 @@ const App = () => {
                         cartItems={cartItems}
                         fetchAllUserCartItems={fetchAllUserCartItems}
                         products={products}
+                        navigate={navigate}
                     />}
                 />
                 <Route
