@@ -115,7 +115,12 @@ let total = 0
             <span style={{ fontWeight: 700, fontSize: 20 }}>
               {" "}
               Total: ${total}
+              <Link  style={{ textDecoration: "none" }}
+                    to={`/checkout`}>
+              <Button>Proceed to checkout</Button>
+              </Link>
             </span>
+          
           </div>
         </div>
       </ClickAwayListener>
