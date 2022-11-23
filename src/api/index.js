@@ -179,6 +179,6 @@ export const createProduct = async (token, {title, description, author, pageCoun
         console.log(results);
         return results;
       } catch (ex) {
-        console.log("error deleting routine");
+        console.log("error deleting routine",ex);
       }
     };
