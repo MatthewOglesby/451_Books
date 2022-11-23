@@ -12,7 +12,7 @@ const Navbar = ({ logout, token, user, cartItems, fetchAllUserCartItems }) => {
       <header>
         <nav className="navBox">
           <h3 className="navbarName">451 Books</h3>
-          <img src={logo} />
+          <img src={logo} className='navbarIcon'/>
           <Link to="/" className="navbarLink">Home</Link>
           <Link to="/books" className="navbarLink">Books</Link>
           <Link to="/register" className="navbarLink">Register</Link>

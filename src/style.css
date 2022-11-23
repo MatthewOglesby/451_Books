@@ -22,7 +22,9 @@ header {
     margin-right: 4rem;
     margin-top: .75rem;
 }
-
+.navbarIcon {
+    width: 100px;
+}
 .navbarLink:hover {
     cursor: pointer;
     text-decoration: underline;
