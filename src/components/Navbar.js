@@ -6,7 +6,7 @@ const Navbar = ({ logout, token, user, cartItems }) => {
   const { id } = user;
 
   if (cartItems === undefined) {
-    return null;
+    return (null);
   }
   // console.log("navbar",cartItems)
   return (

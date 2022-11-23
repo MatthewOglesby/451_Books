@@ -46,7 +46,7 @@ let total = 0
                       <img src={cartItem.image} className="cartProductImage" />
                       <p>
                         Qty:{" "}
-                        <Badge color="secondary" badgeContent={count}></Badge>{" "}
+                        <Badge color="info" badgeContent={count}></Badge>{" "}
                       </p>
                       <p>Title: {cartItem.title}</p>
                       <p>
@@ -113,7 +113,7 @@ let total = 0
           
             <span> Subtotal ({cartItems.length}) items</span>
             <span style={{ fontWeight: 700, fontSize: 20 }}>
-              {" "}
+             
               Total: ${total}
               <Link  style={{ textDecoration: "none" }}
                     to={`/checkout`}>
