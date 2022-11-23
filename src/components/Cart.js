@@ -10,13 +10,15 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 const Cart = ({ products, cartItems, token }) => {
   console.log("Testing Cart Items: ", cartItems);
 
-  const handleClick = () => {
-    setOpen((prev) => !prev);
-  };
+ 
 
   const handleClickAway = () => {
     setOpen(false);
   };
+
+  if (cartItems === undefined) {
+    return null;
+  }
   return (
     <form>
       <ClickAwayListener onClickAway={handleClickAway}>
