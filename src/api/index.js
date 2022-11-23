@@ -162,7 +162,7 @@ export const createProduct = async (token, {title, description, author, pageCoun
         return result;
     
       } catch (ex) {
-        console.log('error gettings user cart details in API')
+        console.log('error gettings user cart details in API',ex)
       }
     }
 

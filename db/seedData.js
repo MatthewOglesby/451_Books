@@ -52,7 +52,7 @@ async function createTables() {
         author VARCHAR(255),
         "pageCount" VARCHAR(255),
         genre VARCHAR(255),
-        price VARCHAR(255),
+        price FLOAT,
         image VARCHAR(255),
         quantity INTEGER
       );
@@ -99,7 +99,7 @@ async function createInitialProducts() {
       author: "J.K. Rowling",
       pageCount: "298",
       genre: "fantasy",
-      price: "$20",
+      price: 20,
       image:
         "https://media.harrypotterfanzone.com/sorcerers-stone-us-childrens-edition.jpg",
       quantity: 57,
@@ -111,7 +111,7 @@ async function createInitialProducts() {
       author: "J.K. Rowling",
       pageCount: "299",
       genre: "fantasy",
-      price: "$20",
+      price: 20,
       image:
         "https://media.harrypotterfanzone.com/chamber-of-secrets-ebook-cover-1050x0-c-default.jpg",
       quantity: 57,
@@ -123,7 +123,7 @@ async function createInitialProducts() {
       author: "Stephanie Meyer",
       pageCount: "498",
       genre: "Romance",
-      price: "$19.99",
+      price: 19.99,
       image: "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg",
       quantity: 60,
     });
@@ -135,7 +135,7 @@ async function createInitialProducts() {
       author: "J.R.R Toklkien",
       pageCount: "535",
       genre: "Fiction",
-      price: "$17.89",
+      price: 17.89,
       image: "https://m.media-amazon.com/images/I/51kfFS5-fnL._AC_SY780_.jpg",
       quantity: 60,
     });
@@ -148,7 +148,7 @@ async function createInitialProducts() {
       author: "Joe Kenda",
       pageCount: "288",
       genre: "Detective story",
-      price: "$11.99",
+      price: 11.99,
       image:
         "https://m.media-amazon.com/images/I/51a5n1ueF1L._SX332_BO1,204,203,200_.jpg",
       quantity: 60,
@@ -161,7 +161,7 @@ async function createInitialProducts() {
       author: "Romeo Vitelli",
       pageCount: "230",
       genre: "Biographies & Memoirs",
-      price: "$10.89",
+      price: 10.89,
       image: "https://m.media-amazon.com/images/I/41VZPJHOlFL.jpg",
       quantity: 55,
     });
@@ -173,7 +173,7 @@ async function createInitialProducts() {
       author: "Dave ItzKoff",
       pageCount: "544",
       genre: "Entertainment",
-      price: "$24.09",
+      price: 24.09,
       image: "https://m.media-amazon.com/images/I/51EIw7k-X1L.jpg",
       quantity: 50,
     });
@@ -185,7 +185,7 @@ async function createInitialProducts() {
       author: "Patrick D McCormick",
       pageCount: "230",
       genre: "Sports",
-      price: "$14.76",
+      price: 14.76,
       image:
         "https://m.media-amazon.com/images/I/41r2RZ4JBgL._SX326_BO1,204,203,200_.jpg",
       quantity: 57,
@@ -198,7 +198,7 @@ async function createInitialProducts() {
       author: "Steven Banks",
       pageCount: "24",
       genre: "Childrens Books",
-      price: "$5.75",
+      price: 5.75,
       image:
         "https://m.media-amazon.com/images/I/51HL8BEGiAL._SY498_BO1,204,203,200_.jpg",
       quantity: 60,
@@ -211,7 +211,7 @@ async function createInitialProducts() {
       author: "Patrick D McCormick",
       pageCount: "230",
       genre: "Educational",
-      price: "$35.78",
+      price: 35.78,
       image:
         "https://m.media-amazon.com/images/I/4119l82gW1L._SX518_BO1,204,203,200_.jpg",
       quantity: 60,
@@ -224,7 +224,7 @@ async function createInitialProducts() {
       author: "Ernest Cline",
       pageCount: "374",
       genre: "Science Fiction and Fantasty",
-      price: "$19.99",
+      price: 19.99,
       image: "https://images.penguinrandomhouse.com/cover/9780307887443",
       quantity: 56,
     });
@@ -236,7 +236,7 @@ async function createInitialProducts() {
       author: "Trevor Noah",
       pageCount: "304",
       genre: "Non-fiction",
-      price: "$14.99",
+      price: 14.99,
       image: "https://m.media-amazon.com/images/I/5155UwVQ-LL._AC_SY780_.jpg",
       quantity: 55,
     });
@@ -248,7 +248,7 @@ async function createInitialProducts() {
       author: "Max Tegmark",
       pageCount: "384",
       genre: "Non-Fiction",
-      price: "$15.99",
+      price: 15.98,
       image: "https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg",
       quantity: 57,
     });
@@ -259,7 +259,7 @@ async function createInitialProducts() {
       author: "Rick Riordan",
       pageCount: "300",
       genre: "fantasy",
-      price: "$20",
+      price: 20,
       image:
         "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
       quantity: 60,
@@ -388,7 +388,7 @@ async function testDB() {
 
     //--TESTING ADD PRODUCT TO CART--------------
     // console.log('testing adding product to cart-----------')
-    const addProduct1 = await addProductToCart(2, 2, 10);
+    const addProduct1 = await addProductToCart(2, 2, 2);
     const addProduct2 = await addProductToCart(3, 4, 1);
     const addProduct3 = await addProductToCart(3, 2, 2);
 
