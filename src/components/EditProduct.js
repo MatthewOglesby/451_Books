@@ -93,7 +93,7 @@ const EditProduct = ({ products, navigate, fetchAllProducts, token }) => {
             </div>
 
             <p>Cover Image:
-                <img src={image} />
+                <img className='editProductImage' src={image} />
             </p>
             <input
                 type='text'
