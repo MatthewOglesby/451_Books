@@ -1,4 +1,5 @@
 const baseURL = 'http://localhost:3001/api'
+// const baseURL = 'postgres://db_451_books_db_l2v4_user:4RnPpbb109Y1FOxlSgVg67D2AxV2DTRe@dpg-cdumit5a49967v66o8ng-a.oregon-postgres.render.com/db_451_books_db_l2v4'
 
 export const getAllProducts = async () => {
   try {
@@ -166,13 +167,13 @@ export const createProduct = async (token, {title, description, author, pageCoun
       }
     }
 
-    export const deleteCartItem = async (token, id) => {
+export const deleteCartItem = async (token, id) => {
       try {
         const response = await fetch(`${baseURL}/carts/${id}`, {
           method: "DELETE",
           headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
           },
         });
         const results = await response.json();
@@ -181,4 +182,25 @@ export const createProduct = async (token, {title, description, author, pageCoun
       } catch (ex) {
         console.log("error deleting routine");
       }
-    };
+  };
+
+export const addProductToCart = async ( productId, userId) => {
+  try {
+    const response = await fetch(`${baseURL}/carts`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        
+      },
+      body: JSON.stringify({
+        productId: productId,
+        userId: userId
+      })
+    }); 
+    const results = await response.json();
+    console.log(results)
+    return results;
+  } catch (ex) {
+    console.log('error adding product to cart', ex)
+  }
+}

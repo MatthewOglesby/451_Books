@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { addProductToCart } from '../api';
 
 import temp from '../coming_soon.JPEG';
 
@@ -12,9 +13,9 @@ const SingleProductView = ({ products, user }) => {
 
     if (products.length) {
         const [currentProduct] = products.filter(product => product.id == productID);
-        console.log(currentProduct)
-        const { author, title, description, genre, id, image, quantity, pageCount, price } = currentProduct;
-        const { isAdmin } = user;
+        // console.log(currentProduct)
+        const { author, title, description, genre, image, quantity, pageCount, price } = currentProduct;
+        const { isAdmin, id } = user;
         // console.log(isAdmin)
 
         return (
@@ -30,11 +31,11 @@ const SingleProductView = ({ products, user }) => {
                     }
                     <h3>{title}</h3>
                     <p>Description: {description}</p>
-                    <p>Author: {author}</p>
+                    <p>By {author}</p>
                     <p>Page Count: {pageCount}</p>
                     <p>Genre: {genre}</p>
-                    <p>Quantity: {quantity}</p>
                     <p>Price: {price}</p>
+                    <button onClick={() => {addProductToCart(productID, id)}}>Add to Cart</button>
                     <Link to='/books'>Back</Link>
 
                 </div>

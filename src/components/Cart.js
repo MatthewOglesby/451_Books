@@ -5,21 +5,13 @@ import { deleteCartItem } from "../api";
 import Badge from "@mui/material/Badge";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import ClickAwayListener from "@mui/material/ClickAwayListener";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-const Cart = ({ products, cartItems, token }) => {
+
+const Cart = ({ products, cartItems, token, fetchAllUserCartItems }) => {
   console.log("Testing Cart Items: ", cartItems);
 
-  const handleClick = () => {
-    setOpen((prev) => !prev);
-  };
-
-  const handleClickAway = () => {
-    setOpen(false);
-  };
   return (
     <form>
-      <ClickAwayListener onClickAway={handleClickAway}>
         <div>
           <h1>Shopping Cart</h1>
           <div className="cart-main-div">
@@ -84,7 +76,7 @@ const Cart = ({ products, cartItems, token }) => {
                                     variant="outlined"
                                     onClick={() => {
                                       deleteCartItem(token, cartId);
-                                      location.reload();
+                                      fetchAllUserCartItems();
                                     }}
                                   >
                                     <DeleteOutlineIcon />
@@ -122,7 +114,6 @@ const Cart = ({ products, cartItems, token }) => {
               })}
           </div>
         </div>
-      </ClickAwayListener>
     </form>
   );
 };
