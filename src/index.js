@@ -195,10 +195,10 @@ const root = ReactDOM.createRoot(container);
 root.render(
     <React.Fragment>
         {/* CssBaseLine assist with layout */}
-        <CssBaseline>
+        <CssBaseline/>
         <BrowserRouter>
             <App />
         </BrowserRouter>
-        </CssBaseline >
+       
     </React.Fragment>
 );

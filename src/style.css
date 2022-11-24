@@ -203,7 +203,8 @@ header {
     justify-content: space-between;
     max-width: 400px;
     max-height: 700px;
-    padding: 10px;
+    margin: 2%;
+    padding: 1%;
 }
 
 .productImage {
@@ -268,7 +269,6 @@ input:placeholder-shown {
     background-color: #9A7269;
     display:flex;
     justify-content: center;
-     
     margin: 2rem;
     padding-top:2rem;
     padding-bottom:2rem;

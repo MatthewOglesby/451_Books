@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-
+import { Paper } from '@mui/material';
 import temp from '../coming_soon.JPEG';
 
 const Products = ({ products, navigate }) => {
@@ -49,8 +49,10 @@ const Products = ({ products, navigate }) => {
                                 return (
                                         <div 
                                         key={id}
+                                        
                                         className='productBox'
                                         >
+                                            <Paper>
                                                 {
                                                     image == "" ? (
                                                         <img className='productImage' src={temp} />
@@ -65,7 +67,7 @@ const Products = ({ products, navigate }) => {
                                                 <p>{description}</p>
                                                 <p>{price}</p>
                                                 <Link to={`/books/${id}`}>View</Link>
-
+                                                </Paper>
                                         </div>
  
                                 )
