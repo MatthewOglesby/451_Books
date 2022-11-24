@@ -27,9 +27,7 @@ const App = () => {
     const [username, setUsername] = useState('');
     const [userId, setUserId] = useState(0);
     const [cartItems, setCartItems] = useState([]);
-    const [total, setTotal] = useState(0)
     const [isAdmin, setIsAdmin] = useState(false);
-    // const [total, setTotal] = useState(0);
     // console.log('Testing User: ', user)
 
     const navigate = useNavigate();
@@ -70,11 +68,6 @@ const App = () => {
         const results = await getUserCart(token, user.id)
         // console.log("Testing results from getting cart: ",results)
         setCartItems(results)
-        // console.log("testing line 73------",cartItems)
-        // const newTotal = cartItems.reduce((prev,curr)=>{
-        //     return 5
-        // },0)
-       
     }
 
     async function fetchAllUsers() {
@@ -87,14 +80,12 @@ const App = () => {
         fetchAllUserCartItems();
     }, [user]);
 
-    // useEffect(() => {
-    //     fetchAllUsers();
-    // }, []);
+    useEffect(() => {
+        fetchAllUsers();
+    }, []);
 
     useEffect(() => {
         fetchAllProducts();
-        fetchAllUsers();
-    
     }, []);
 
     useEffect(() => {
@@ -103,7 +94,7 @@ const App = () => {
 
     return (
         <div>
-            <Navbar logout={logout} token={token} user={user} cartItems={cartItems} />
+            <Navbar logout={logout} token={token} user={user} cartItems={cartItems} fetchAllUserCartItems={fetchAllUserCartItems} />
             <Routes>
                 <Route
                     path='/'
@@ -112,6 +103,7 @@ const App = () => {
                         token={token}
                         logout={logout}
                         user={user}
+                        fetchAllUserCartItems={fetchAllUserCartItems}
                     />}
                 />
                 <Route
@@ -162,6 +154,8 @@ const App = () => {
                     element={<SingleProductView
                         products={products}
                         user={user}
+                        navigate={navigate}
+                        fetchAllUserCartItems={fetchAllUserCartItems}
                     />}
                 />
                 <Route
@@ -182,15 +176,13 @@ const App = () => {
                         token={token}
                         user={user}
                         cartItems={cartItems}
-                        setTotal={setTotal}
-                        total={total}
                         fetchAllUserCartItems={fetchAllUserCartItems}
                         products={products}
+                        navigate={navigate}
                     />}
                 />
                 <Route
                     path='/checkout'
-                    element={<Checkout/>}
                 />
             </Routes>
         </div>
@@ -201,6 +193,7 @@ const container = document.querySelector('#container');
 const root = ReactDOM.createRoot(container);
 root.render(
     <React.Fragment>
+        {/* CssBaseLine assist with layout */}
         <CssBaseline>
         <BrowserRouter>
             <App />

@@ -56,14 +56,14 @@ const Products = ({ products, navigate }) => {
                                                         <img className='productImage' src={temp} />
                                                     )
                                                     : (
-                                                        <img className='productImage' src={image} />
+                                                        <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)}/>
                                                     )
                                                 }
 
                                                 <p>{title}</p>
                                                 <p>{author}</p>
                                                 <p>{description}</p>
-                                                <p>${price}</p>
+                                                <p>{price}</p>
                                                 <Link to={`/books/${id}`}>View</Link>
 
                                         </div>
