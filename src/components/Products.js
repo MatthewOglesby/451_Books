@@ -34,7 +34,7 @@ const Products = ({ products, navigate }) => {
                         <input
                             className='userSearchInput'
                             type='text'
-                            placeholder='(i.e. title, author, description)'
+                            placeholder='(i.e. genre, title, author, description)'
                             onChange={(event) => setSearchTerm(event.target.value)}
                         />
                     </div>
@@ -59,7 +59,7 @@ const Products = ({ products, navigate }) => {
                                                         <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)}/>
                                                     )
                                                 }
-
+                                                <p><strong>Genre: </strong>{genre}</p>
                                                 <p>{title}</p>
                                                 <p>{author}</p>
                                                 <p>{description}</p>
