@@ -9,7 +9,7 @@ const Navbar = ({ logout, token, user, cartItems, fetchAllUserCartItems }) => {
 
   if (cartItems === undefined) {
     return (
-      <header>
+      <header >
         <nav className="navBox">
           <h3 className="navbarName">451 Books</h3>
           {/* <img src={logo} className='navbarIcon'/> */}
