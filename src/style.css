@@ -256,7 +256,7 @@ input:placeholder-shown {
     flex-direction: row;
     align-items: flex-end;
     overflow: hidden;
-    padding:2rem 5rem 2rem 12rem;
+    padding:2rem 5rem 2rem 20%;
     min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -268,6 +268,7 @@ input:placeholder-shown {
     background-color: #9A7269;
     display:flex;
     justify-content: center;
+     
     margin: 2rem;
     padding-top:2rem;
     padding-bottom:2rem;
@@ -278,6 +279,7 @@ input:placeholder-shown {
     align-items: center;
     width: 11rem;
     height: 4rem;
+    min-width: 10%;
     font-size: 32px;
     text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
