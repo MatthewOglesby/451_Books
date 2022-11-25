@@ -176,10 +176,19 @@ const App = () => {
                         cartItems={cartItems}
                         fetchAllUserCartItems={fetchAllUserCartItems}
                         products={products}
+                        navigate={navigate}
                     />}
                 />
                 <Route
                     path='/checkout'
+                    element={<Checkout
+                        products={products}
+                        user={user}
+                        token={token}
+                        cartItems={cartItems}
+                        fetchAllUserCartItems={fetchAllUserCartItems}
+                        navigate={navigate}
+                    />}
                 />
             </Routes>
         </div>

@@ -7,13 +7,19 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
-const Cart = ({ products, cartItems, token, fetchAllUserCartItems }) => {
+const Cart = ({ products, cartItems, token, fetchAllUserCartItems, navigate }) => {
   console.log("Testing Cart Items: ", cartItems);
 
   return (
     <form>
         <div>
           <h1>Shopping Cart</h1>
+          <Button
+            variant='contained'
+            onClick={() => navigate('/checkout')}
+          >
+            Checkout
+          </Button>
           <div className="cart-main-div">
             {/* <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div> */}
 

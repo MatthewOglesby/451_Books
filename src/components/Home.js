@@ -1,5 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Card, CardContent, CardMedia, CardActionArea } from '@mui/material'
+
+import books from '../books.jpg';
+import logo  from '../451_Books_6.jpg';
+import image from '../images.jpg'
 
 const Home = ({ logout, token, navigate, user }) => {
     const { isAdmin } = user
@@ -11,8 +15,41 @@ const Home = ({ logout, token, navigate, user }) => {
             {
                 isAdmin ? (
                     <>
-                        <button className='homeBox' onClick={() => navigate('all-users')}>All Users</button>
-                        <button className='homeBox' onClick={() => navigate('add-product')}>Add Book</button>
+                        <Card className='home-cards' sx={{width:'300px', background:'black', color:'white'}}>
+                            <CardActionArea onClick={() => navigate('all-users')}>
+                                <CardMedia
+                                    component="img"
+                                    height="180"
+                                    image={logo}
+                                    alt="green iguana"
+                                />
+                                <CardContent>
+                                    <h2 component="div">
+                                        ALL USERS
+                                    </h2>
+
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
+
+                        <Card className='home-cards' sx={{width:'300px', background:'black', color:'white'}}>
+                            <CardActionArea onClick={() => navigate('add-product')}>
+                                <CardMedia
+                                    component="img"
+                                    height="180"
+                                    image={logo}
+                                    alt="green iguana"
+                                />
+                                <CardContent>
+                                    <h2 component="div">
+                                        ADD BOOK
+                                    </h2>
+
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
+
+
                     </>
                 ) : (
                     <p></p>
@@ -21,8 +58,39 @@ const Home = ({ logout, token, navigate, user }) => {
             {
                 token ? (
                     <>
-                        <button className='homeBox' onClick={() => navigate('books')}>Books</button>
-                        <button className='homeBox' onClick={() => { logout(); }}>Logout</button>
+                        <Card className='home-cards' sx={{background:'black', color:'white'}}>
+                            <CardActionArea onClick={() => navigate('books')}>
+                                <CardMedia
+                                    component="img"
+                                    height="180"
+                                    image={books}
+                                    alt="green iguana"
+                                />
+                                <CardContent>
+                                    <h2 component="div">
+                                        BOOKS
+                                    </h2>
+
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
+
+                        <Card className='home-cards' sx={{width:'300px', background:'black', color:'white'}}>
+                            <CardActionArea onClick={() => logout()}>
+                                <CardMedia
+                                    component="img"
+                                    height="180"
+                                    image={image}
+                                    alt="green iguana"
+                                />
+                                <CardContent>
+                                    <h2 component="div">
+                                        LOGOUT
+                                    </h2>
+
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
                     </>
                 ) : (
                     <>

@@ -13,7 +13,7 @@ const SingleProductView = ({ products, user }) => {
 
     if (products.length) {
         const [currentProduct] = products.filter(product => product.id == productID);
-        // console.log(currentProduct)
+        console.log(currentProduct)
         const { author, title, description, genre, image, quantity, pageCount, price } = currentProduct;
         const { isAdmin, id } = user;
         // console.log(isAdmin)
@@ -31,10 +31,10 @@ const SingleProductView = ({ products, user }) => {
                     }
                     <h3>{title}</h3>
                     <p>Description: {description}</p>
-                    <p>By {author}</p>
+                    <p>By: {author}</p>
                     <p>Page Count: {pageCount}</p>
                     <p>Genre: {genre}</p>
-                    <p>Price: {price}</p>
+                    <p>Price: ${price}</p>
                     <button onClick={() => {addProductToCart(productID, id)}}>Add to Cart</button>
                     <Link to='/books'>Back</Link>
 
