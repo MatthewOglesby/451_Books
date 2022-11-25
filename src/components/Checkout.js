@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Paper, ButtonGroup, Box } from "@mui/material";
+import { Button, Paper } from "@mui/material";
 import Badge from "@mui/material/Badge";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 const Checkout = ({ products, cartItems, token, fetchAllUserCartItems, navigate, user }) => {
+    const [name, setName] = useState('');
+    const [cvv, setCVV] = useState('');
+    const [cardNum, setCardNum] = useState('');
+
     const { id } = user
+    let total = 0;
 
     return (
         <div className='checkout'>
@@ -21,7 +23,7 @@ const Checkout = ({ products, cartItems, token, fetchAllUserCartItems, navigate,
                 >
                     Back to Cart
                 </Button>
-                
+
                 <h2>Your order:</h2>
 
                 <div className="cart-main-div">
@@ -31,7 +33,6 @@ const Checkout = ({ products, cartItems, token, fetchAllUserCartItems, navigate,
                             const { id: cartId, productId } = cartItem;
                             const [display, setDisplay] = useState("none");
                             const [count, setCount] = useState(1);
-                            let total = 0;
 
                             return (
                                 <div key={cartId} className="individualCartContainer">
@@ -51,8 +52,9 @@ const Checkout = ({ products, cartItems, token, fetchAllUserCartItems, navigate,
                                                 } = props;
 
                                                 if (id === productId) {
+                                                    // console.log('total before', total)
                                                     total += parseFloat(price)
-                                                    console.log('total', total)
+                                                    // console.log('total after', total)
 
                                                     return (
                                                         <div key={id}>
@@ -63,7 +65,7 @@ const Checkout = ({ products, cartItems, token, fetchAllUserCartItems, navigate,
                                                             <p>Qty: <Badge color="secondary" badgeContent={count}></Badge> </p>
                                                             <p>Title: {title}</p>
                                                             <p>
-                                                                <strong>Price</strong> ${parseFloat(price)}
+                                                                <strong>Price</strong> ${price}
                                                             </p>
 
                                                             <div
@@ -83,7 +85,11 @@ const Checkout = ({ products, cartItems, token, fetchAllUserCartItems, navigate,
                         })}
                 </div>
             </div>
-            <h3 style={{ marginTop: '50px', marginBottom: '15px', fontWeight: 'bold' }}>Sub-total:</h3>
+
+            <h3 className='checkout-total'>Sub-total: ${total.toFixed(2)}</h3>
+            <h3 className='checkout-total'>Tax: ${(total * 0.029).toFixed(2)}</h3>
+            <h3 className='checkout-total'>Total: ${((total * 0.029) + total).toFixed(2)}</h3>
+
             <form className='card-info-form'>
                 <input
                     placeholder='card owner name'
@@ -99,6 +105,7 @@ const Checkout = ({ products, cartItems, token, fetchAllUserCartItems, navigate,
             <Button
                 id='checkout-button'
                 variant='contained'
+                sx={{marginTop:'15px'}}
             >
                 Checkout
             </Button>

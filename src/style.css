@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Caladea:wght@700&display=swap');
+
+* {
+    font-family: 'Caladea', serif;
+}
 /* NAVBAR */
 html {
     height: 100%;
     width: 100%;
-    background-color: rgb(35, 35, 35);
-    box-shadow: inset 0px 0px 3em black;
+    background-color: rgb(58, 58, 58);
+    box-shadow: inset 0px 0px 5em black;
 }
 
 header {
@@ -288,7 +293,15 @@ input:placeholder-shown {
     max-width: 300;
     text-align: center;
     margin: 3em;
+    will-change: transform;
+    transition: transform 1s;
 }
+
+.home-cards:hover {
+    transition: transform 0.3s;
+    transform: translateY(-20px);
+}
+
 /* ALL USERS */
 .allUsersContainer {
     display: flex;
@@ -383,10 +396,12 @@ input:placeholder-shown {
 
 .checkout>* {
     margin: 30px;
+    margin-bottom: 0;
 }
 
-.hidden {
-    display: none;
+.checkout-total {
+    margin-top: 15px;
+    color: white;
 }
 
 .errorMessage {
@@ -408,8 +423,17 @@ input:placeholder-shown {
     color: rgb(228, 225, 225);
 }
 
+.editProductImage {
+    width: 350px;
+    height: 400px;
+}
+
 #sign-in-msg:hover {
     text-decoration: underline;
+}
+
+.hidden {
+    display: none;
 }
 
 .error {
@@ -433,10 +457,6 @@ input:placeholder-shown {
     height: 600px;
 }
 
-.editProductImage {
-    width: 350px;
-    height: 400px;
-}
 
 /* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
 @keyframes shake {

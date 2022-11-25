@@ -15,7 +15,7 @@ const Home = ({ logout, token, navigate, user }) => {
             {
                 isAdmin ? (
                     <>
-                        <Card className='home-cards' sx={{width:'300px', background:'black', color:'white'}}>
+                        <Card className='home-cards' sx={{width:'300px', background:'linear-gradient(270deg, rgba(223,37,0,1) 0%, rgba(83,13,1,1) 60%, rgba(2,0,1,1) 100%)', color:'white'}}>
                             <CardActionArea onClick={() => navigate('all-users')}>
                                 <CardMedia
                                     component="img"
@@ -32,7 +32,7 @@ const Home = ({ logout, token, navigate, user }) => {
                             </CardActionArea>
                         </Card>
 
-                        <Card className='home-cards' sx={{width:'300px', background:'black', color:'white'}}>
+                        <Card className='home-cards' sx={{width:'300px', background:'linear-gradient(270deg, rgba(223,37,0,1) 0%, rgba(83,13,1,1) 60%, rgba(2,0,1,1) 100%)', color:'white'}}>
                             <CardActionArea onClick={() => navigate('add-product')}>
                                 <CardMedia
                                     component="img"
@@ -58,7 +58,7 @@ const Home = ({ logout, token, navigate, user }) => {
             {
                 token ? (
                     <>
-                        <Card className='home-cards' sx={{background:'black', color:'white'}}>
+                        <Card className='home-cards' sx={{background:'linear-gradient(270deg, rgba(223,37,0,1) 0%, rgba(83,13,1,1) 60%, rgba(2,0,1,1) 100%)', color:'white'}}>
                             <CardActionArea onClick={() => navigate('books')}>
                                 <CardMedia
                                     component="img"
@@ -75,7 +75,7 @@ const Home = ({ logout, token, navigate, user }) => {
                             </CardActionArea>
                         </Card>
 
-                        <Card className='home-cards' sx={{width:'300px', background:'black', color:'white'}}>
+                        <Card className='home-cards' sx={{width:'300px', background:'linear-gradient(270deg, rgba(223,37,0,1) 0%, rgba(83,13,1,1) 60%, rgba(2,0,1,1) 100%)', color:'white'}}>
                             <CardActionArea onClick={() => logout()}>
                                 <CardMedia
                                     component="img"
