@@ -113,11 +113,9 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
                         type="submit"
                         color="error"
                         variant="outlined"
-                        onClick={async (event) => {
-                          event.preventDefault();
+                        onClick={async () => {
                           await deleteCartItem(token, cartId);
                           fetchAllUserCartItems();
-                        // location.reload()
                         }}
                       >
                         <DeleteOutlineIcon />
