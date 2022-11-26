@@ -1,12 +1,10 @@
 /* NAVBAR */
 header {
     height: 4rem;
-    box-shadow: 2px 2px 5px black, 
-    -2px -2px 5px #fff;
-    background: #9A7269;
+    box-shadow: 5px 5px 5px black;
+    background-color: black;
     width: 100%;
     margin: 0 auto;
-    
 }
 
 .navBox {
@@ -19,23 +17,24 @@ header {
 
 .navbarLink, .navbarLink:visited {
     color: whitesmoke;
-    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    text-shadow: 3px 3px 10px white;
     text-decoration: none;
     margin-right: 4rem;
     margin-top: .75rem;
 }
-
+.navbarIcon {
+    width: 100px;
+}
 .navbarLink:hover {
     cursor: pointer;
-    color: #FFFF;
-    transform: scale(1.3);
-    opacity:50%;
+    text-decoration: underline;
+    color: rgb(255, 98, 0);
 }
 
 .navbarName {
     font-size: 45px;
     color: whitesmoke;
-    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    text-shadow: 3px 3px 10px white;
     text-decoration: none;
     margin-right: 20rem;
     margin-top: .4rem;
@@ -203,8 +202,7 @@ header {
     justify-content: space-between;
     max-width: 400px;
     max-height: 700px;
-    margin: 2%;
-    padding: 1%;
+    padding: 10px;
 }
 
 .productImage {
@@ -251,44 +249,32 @@ input:placeholder-shown {
 }
 
 /* HOME */
-
 .homeBoxes {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
-    overflow: hidden;
-    padding:2rem 5rem 2rem 20%;
-    min-height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity:98%;
-    background-image: url('../images/451Books\ 3.jpeg');
+    justify-content: center;
 }
 
 .homeBox {
-    background-color: #9A7269;
-    display:flex;
+    background-color: black;
+    display: flex;
     justify-content: center;
-    margin: 2rem;
-    padding-top:2rem;
-    padding-bottom:2rem;
-    box-shadow: 2px 2px 5px black, 
-    -1px -1px 3px #fff;
-    border-radius: 12%;
-    color: #F1F1F2;
     align-items: center;
-    width: 11rem;
-    height: 4rem;
-    min-width: 10%;
+    margin: 1rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+    border-radius: 5%;
+    color: #F1F1F2;
+    position: relative;
+    width: 250px;
+    height: 400px;
     font-size: 32px;
-    text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 
 .homeBox:hover {
     cursor: pointer;
-    transform: scale(1.1);
-    opacity:88%;
-    background:#d4bcb0;
 }
 
 /* ALL USERS */
@@ -303,7 +289,7 @@ input:placeholder-shown {
     display: flex;
     justify-content: center;
     width: 25rem;
-    height: 25rem;
+    height: 20rem;
     align-items: center;
 }
 
@@ -417,6 +403,10 @@ input:placeholder-shown {
     position: relative;
     width: 400px;
     height: 600px;
+}
+.editProductImage {
+    width: 350px;
+    height: 400px;
 }
 /* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
 @keyframes shake {

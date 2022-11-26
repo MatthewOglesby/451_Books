@@ -14,7 +14,7 @@ async function getAllCarts() {
     }
   }
 
-async function addProductToCart( productId, userId, quantity ) {
+async function addProductToCart( productId, userId) {
     const product = await getProductById(productId);
    
     try {
@@ -22,7 +22,7 @@ async function addProductToCart( productId, userId, quantity ) {
             INSERT INTO cart ("productId", "userId", order_quantity)
             VALUES ($1, $2, $3)
             RETURNING *;
-        `, [productId, userId, quantity])
+        `, [productId, userId, 1])
 
         return cart;
     } catch(ex) {

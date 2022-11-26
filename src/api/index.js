@@ -151,6 +151,7 @@ export const createProduct = async (token, {title, description, author, pageCoun
   }
 }
   export const getUserCart = async (token, userId) => {
+    console.log("Testing on 154-----", userId)
       try {
         const response = await fetch(`${baseURL}/users/cart/${userId}`, {
           headers: {
@@ -160,10 +161,11 @@ export const createProduct = async (token, {title, description, author, pageCoun
         })
     
         const result = await response.json();
+        console.log("TESTING ON 164-----",result)
         return result;
     
       } catch (ex) {
-        console.log('error gettings user cart details in API')
+        console.log('error gettings user cart details in API',ex)
       }
     }
 
@@ -184,7 +186,9 @@ export const deleteCartItem = async (token, id) => {
       }
   };
 
-  export const updateCart = async (token,id,quantity)=> {
+  export const updateCart = async (token,order_quantity,id)=> {
+    console.log("TESING ON 188 id",id)
+   
     try {
       const response = await fetch(`${baseURL}/carts/${id}`, {
         method: "PATCH",
@@ -192,11 +196,9 @@ export const deleteCartItem = async (token, id) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({
-          post: {
-            quantity,
-          }
-        })
+        body: JSON.stringify(
+          order_quantity
+        )
       })
       
       const result = await response.json();

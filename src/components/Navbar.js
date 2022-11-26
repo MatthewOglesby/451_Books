@@ -23,7 +23,6 @@ const Navbar = ({ logout, token, user, cartItems, fetchAllUserCartItems }) => {
     );
   }
 
-  console.log("Testing cartItems navbar: ", cartItems)
 
   return (
     <header>

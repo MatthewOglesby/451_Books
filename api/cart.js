@@ -16,11 +16,11 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res, next) => {
-    const {productId,userId, order_quantity} = req.body;
-    console.log("TESTING CREATE CART", order_quantity)
+    const {productId,userId} = req.body;
+
     try{
     console.log('TESTING ABOVE CART');    
-    const cart = await addProductToCart( productId,userId,order_quantity );
+    const cart = await addProductToCart( productId,userId );
 
 
     console.log("TESTING CART", cart);
@@ -34,17 +34,18 @@ router.post('/', async (req, res, next) => {
 
 router.patch('/:id', async (req, res, next) => {
     const {id} = req.params;
-    const {order_quantity, userId, productId} = req.body;
-
+    const {order_quantity, productId} = req.body;
+    const userId = req.user.id
+console.log("ORDER Quantity", order_quantity)
     try{
         const cart = await getCartById(id);
 
         if (cart) {
             const updatedCart = await updateCart(id, {
-                id,
+               
                 order_quantity,
-                userId,
-                productId
+              
+              
             });
             console.log(updatedCart)
             res.send(updatedCart)

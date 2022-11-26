@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter, Routes, useNavigate } from 'react-router-dom';
 import './style.css';
 import { getAllProducts, getUserDetails, getUserCart, getAllUsers } from './api';
-import CssBaseline from '@mui/material/CssBaseline';
 import {
     Products,
     Navbar,
@@ -28,7 +27,6 @@ const App = () => {
     const [userId, setUserId] = useState(0);
     const [cartItems, setCartItems] = useState([]);
     const [isAdmin, setIsAdmin] = useState(false);
-    // console.log('Testing User: ', user)
 
     const navigate = useNavigate();
 
@@ -42,7 +40,7 @@ const App = () => {
         }
 
         const results = await getUserDetails(token)
-        // console.log('Testing getMe results: ', results)
+
         if (results) {
             setUser(results);
             setUsername(results.username);
@@ -194,8 +192,6 @@ const container = document.querySelector('#container');
 const root = ReactDOM.createRoot(container);
 root.render(
     <React.Fragment>
-        {/* CssBaseLine assist with layout */}
-        <CssBaseline/>
         <BrowserRouter>
             <App />
         </BrowserRouter>
