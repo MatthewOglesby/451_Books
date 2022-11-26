@@ -1,11 +1,19 @@
+html {
+    width: 100%;
+    max-height: 100%;
+}
+body {
+    height: 100%;
+    width: 100%;
+}
 /* NAVBAR */
 header {
     overflow: hidden;
     height: 4rem;
     position: fixed;
     top: 0;
-    box-shadow: 5px 5px 5px black;
-    background-color: black;
+    box-shadow: 5px 5px 5px #d4bcb0;
+    background-color: #9A7269;
     width: 100%;
     margin: 0 auto;
 }
@@ -25,8 +33,8 @@ header {
     margin-right: 4rem;
     margin-top: .75rem;
 }
-.navbarIcon {
-    width: 100px;
+.navbarLogo {
+    margin-right: 10rem;
 }
 .navbarLink:hover {
     cursor: pointer;
@@ -121,12 +129,18 @@ header {
 }
 
 /* REGISTER */
+
+.allRegister {
+    display: flex;
+    flex-direction: row;
+}
 .registerForm {
     background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    margin-left: 15rem;
     margin-top: 7rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -135,9 +149,12 @@ header {
     color: #F1F1F2;
     position: relative;
     width: 400px;
-    height: 600px;
+    height: 500px;
 }
-
+.registerLogo {
+    height: 300px;
+    width: 400px;
+}
 .registerDiv {
     padding-bottom: 2rem;
     text-align: center;
@@ -199,7 +216,7 @@ header {
     justify-content: center;
 }
 .allProductsHere {
-    margin-top: 7rem;
+    margin-top: 5rem;
 }
 .productBox {
     display: flex;
@@ -209,22 +226,28 @@ header {
     max-height: 700px;
     padding: 10px;
 }
-
+.searchForm {
+    height: 11rem;
+}
 .productImage {
     width: 350px;
     height: 400px;
 }
-
+.searchBarImageContainer {
+    background-image: url('/src/All_Books_Search.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 350px;
+}
 .productImage:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px 5px rgb(58, 58, 58);
 }
 
 .containerSearchProducts {
-    height: 5rem;
-    margin-bottom: 2%;
+    height: 11rem;
+    margin-bottom: 1rem;
+    align-items: center;
 }
-
 .single-view-div {
     margin-top: 7rem;
 }
@@ -254,33 +277,50 @@ input:placeholder-shown {
 }
 
 /* HOME */
+.container {
+    height: 1920px;
+}
+.routeDiv {
+    height: 1920px;
+}
 .homeBoxes {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 7rem;
+    height: 1000px;
+    background-image: url('../images/transparentBackground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
-
+.homeContainer {
+    min-height: 175vh;
+    background-image: url('../images/451_Books.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
 .homeBox {
-    background-color: black;
+    background-color: #9A7269;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 1rem;
-    margin-top: 4rem;
+    margin-top: 48rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
-    box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
-    border-radius: 5%;
+    box-shadow: 0px 0px 10px 10px #d4bcb0;
+    border-radius: 50px;
     color: #F1F1F2;
     position: relative;
-    width: 250px;
-    height: 400px;
+    width: 15rem;
+    height: 8rem;
     font-size: 32px;
 }
 
 .homeBox:hover {
     cursor: pointer;
+    box-shadow: 0px 0px 40px 10px #d4bcb0;
 }
 
 /* ALL USERS */
@@ -289,6 +329,7 @@ input:placeholder-shown {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 7rem;
 }
 
 .allUserBox {
@@ -344,6 +385,9 @@ input:placeholder-shown {
     border-radius: 50px;
     padding-left: 5rem;
     margin-left: 5rem;
+}
+.cartMainContainer {
+    margin-top: 7rem;
 }
 .cart-total{
 position: fixed;
@@ -418,6 +462,11 @@ right: 0%;
     width: 350px;
     height: 400px;
 }
+
+/* ADDPRODUCT */
+.formContainerAddProduct {
+    margin-top: 7rem;
+}
 /* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
 @keyframes shake {
     0% {transform: translate(1px, 1px) rotate(0deg);}
@@ -448,4 +497,10 @@ html ::-webkit-scrollbar-track {
 html ::-webkit-scrollbar-thumb {
     background-color: rgb(146, 146, 146);
     border-radius: 100vw;
+}
+
+/* MOBILE MODIFCATION */
+
+@media only screen and (max-width: 1281px) {
+
 }

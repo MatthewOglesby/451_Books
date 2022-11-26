@@ -14,9 +14,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
   let total = 0;
 
   return (
-    <form>
-      <div>
-        
+      <div className='cartMainContainer'>
         <h1>Shopping Cart</h1>
         <div className="cart-main-div">
           <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div>
@@ -126,7 +124,6 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
         </div>
         </div>
       </div>
-    </form>
   );
 };
 
