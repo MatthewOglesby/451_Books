@@ -1,6 +1,9 @@
 /* NAVBAR */
 header {
+    overflow: hidden;
     height: 4rem;
+    position: fixed;
+    top: 0;
     box-shadow: 5px 5px 5px black;
     background-color: black;
     width: 100%;
