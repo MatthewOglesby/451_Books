@@ -150,7 +150,6 @@ export const createProduct = async (token, {title, description, author, pageCoun
   }
 }
   export const getUserCart = async (token, userId) => {
-    console.log("Testing on 154-----", userId)
       try {
         const response = await fetch(`${baseURL}/users/cart/${userId}`, {
           headers: {
@@ -160,7 +159,6 @@ export const createProduct = async (token, {title, description, author, pageCoun
         })
     
         const result = await response.json();
-        console.log("TESTING ON 164-----",result)
         return result;
     
       } catch (ex) {

@@ -336,7 +336,6 @@ input:placeholder-shown {
 .cart-main-div {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: flex-start;
     width: 50%;
     border-radius: 50px;
