@@ -1,5 +1,4 @@
 const baseURL = 'http://localhost:3001/api'
-// const baseURL = 'postgres://db_451_books_db_l2v4_user:4RnPpbb109Y1FOxlSgVg67D2AxV2DTRe@dpg-cdumit5a49967v66o8ng-a.oregon-postgres.render.com/db_451_books_db_l2v4'
 
 export const getAllProducts = async () => {
   try {
@@ -163,7 +162,7 @@ export const createProduct = async (token, {title, description, author, pageCoun
         return result;
     
       } catch (ex) {
-        console.log('error gettings user cart details in API')
+        console.log('error gettings user cart details in API',ex)
       }
     }
 
@@ -180,9 +179,30 @@ export const deleteCartItem = async (token, id) => {
         console.log(results);
         return results;
       } catch (ex) {
-        console.log("error deleting routine");
+        console.log("error deleting routine",ex);
       }
   };
+
+  export const updateCart = async (token,order_quantity,id)=> {
+   
+    try {
+      const response = await fetch(`${baseURL}/carts/${id}`, {
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(
+          order_quantity
+        )
+      })
+      
+      const result = await response.json();
+      return result;  
+    } catch(ex) {
+      console.log('error updating cart items',ex)
+    }
+  }
 
 export const addProductToCart = async ( productId, userId) => {
   try {

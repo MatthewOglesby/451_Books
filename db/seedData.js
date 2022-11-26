@@ -52,7 +52,7 @@ async function createTables() {
         author VARCHAR(255),
         "pageCount" VARCHAR(255),
         genre VARCHAR(255),
-        price VARCHAR(255),
+        price FLOAT,
         image VARCHAR(255),
         quantity INTEGER
       );
@@ -95,11 +95,11 @@ async function createInitialProducts() {
 
     await createProduct({
       title: "Harry Potter and the Sorcerer's Stone",
-      description: "Sad story wizard.",
+      description: "Harry Potter is a boy who learns on his eleventh birthday that he is the son of two powerful wizards. He is summoned to become a student at Hogwarts. There he meets several friends who help him discover the truth about his parents’ mysterious deaths",
       author: "J.K. Rowling",
       pageCount: "298",
       genre: "fantasy",
-      price: "20",
+      price: 20,
       image:
         "https://media.harrypotterfanzone.com/sorcerers-stone-us-childrens-edition.jpg",
       quantity: 57,
@@ -107,11 +107,11 @@ async function createInitialProducts() {
 
     await createProduct({
       title: "Harry Potter and the Chamber of Secrets",
-      description: "Big snake so scary",
+      description: "A mysterious elf tells Harry to expect trouble during his second year at Hogwarts, but nothing can prepare him for trees that fight back, flying cars, spiders that talk and deadly warnings written in blood on the walls of the school.",
       author: "J.K. Rowling",
       pageCount: "299",
       genre: "fantasy",
-      price: "20",
+      price: 20,
       image:
         "https://media.harrypotterfanzone.com/chamber-of-secrets-ebook-cover-1050x0-c-default.jpg",
       quantity: 57,
@@ -119,11 +119,11 @@ async function createInitialProducts() {
 
     await createProduct({
       title: "Twilight",
-      description: "Love story so sweet nice",
+      description: "Bella Swan doesn't expect life to change much when she moves from Arizona to Washington. She meets Edward Cullen, a handsome but mysterious teen with piercing eyes, he is a vampire who does not drink blood. They enter into a dangerous romance.",
       author: "Stephanie Meyer",
       pageCount: "498",
       genre: "Romance",
-      price: "19.99",
+      price: 19.99,
       image: "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg",
       quantity: 60,
     });
@@ -135,7 +135,7 @@ async function createInitialProducts() {
       author: "J.R.R Toklkien",
       pageCount: "535",
       genre: "Fiction",
-      price: "17.89",
+      price: 17.89,
       image: "https://m.media-amazon.com/images/I/51kfFS5-fnL._AC_SY780_.jpg",
       quantity: 60,
     });
@@ -148,7 +148,7 @@ async function createInitialProducts() {
       author: "Joe Kenda",
       pageCount: "288",
       genre: "Detective story",
-      price: "11.99",
+      price: 11.99,
       image:
         "https://m.media-amazon.com/images/I/51a5n1ueF1L._SX332_BO1,204,203,200_.jpg",
       quantity: 60,
@@ -161,7 +161,7 @@ async function createInitialProducts() {
       author: "Romeo Vitelli",
       pageCount: "230",
       genre: "Biographies & Memoirs",
-      price: "10.89",
+      price: 10.89,
       image: "https://m.media-amazon.com/images/I/41VZPJHOlFL.jpg",
       quantity: 55,
     });
@@ -173,7 +173,7 @@ async function createInitialProducts() {
       author: "Dave ItzKoff",
       pageCount: "544",
       genre: "Entertainment",
-      price: "24.09",
+      price: 24.09,
       image: "https://m.media-amazon.com/images/I/51EIw7k-X1L.jpg",
       quantity: 50,
     });
@@ -185,7 +185,7 @@ async function createInitialProducts() {
       author: "Patrick D McCormick",
       pageCount: "230",
       genre: "Sports",
-      price: "14.76",
+      price: 14.76,
       image:
         "https://m.media-amazon.com/images/I/41r2RZ4JBgL._SX326_BO1,204,203,200_.jpg",
       quantity: 57,
@@ -198,7 +198,7 @@ async function createInitialProducts() {
       author: "Steven Banks",
       pageCount: "24",
       genre: "Childrens Books",
-      price: "5.75",
+      price: 5.75,
       image:
         "https://m.media-amazon.com/images/I/51HL8BEGiAL._SY498_BO1,204,203,200_.jpg",
       quantity: 60,
@@ -211,7 +211,7 @@ async function createInitialProducts() {
       author: "Patrick D McCormick",
       pageCount: "230",
       genre: "Educational",
-      price: "35.78",
+      price: 35.78,
       image:
         "https://m.media-amazon.com/images/I/4119l82gW1L._SX518_BO1,204,203,200_.jpg",
       quantity: 60,
@@ -224,7 +224,7 @@ async function createInitialProducts() {
       author: "Ernest Cline",
       pageCount: "374",
       genre: "Science Fiction and Fantasty",
-      price: "19.99",
+      price: 19.99,
       image: "https://images.penguinrandomhouse.com/cover/9780307887443",
       quantity: 56,
     });
@@ -232,11 +232,11 @@ async function createInitialProducts() {
     await createProduct({
       title: "Born a Crime",
       description:
-        "Autobiography of Trevor Noah's upbringing in the slums of South Africa.",
+        "Autobiography of Trevor Noah's upbringing in the slums of South Africa and how he became one of South Africa's most notable names in recent years.",
       author: "Trevor Noah",
       pageCount: "304",
       genre: "Non-fiction",
-      price: "14.99",
+      price: 14.99,
       image: "https://m.media-amazon.com/images/I/5155UwVQ-LL._AC_SY780_.jpg",
       quantity: 55,
     });
@@ -248,18 +248,18 @@ async function createInitialProducts() {
       author: "Max Tegmark",
       pageCount: "384",
       genre: "Non-Fiction",
-      price: "15.99",
+      price: 15.98,
       image: "https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg",
       quantity: 57,
     });
 
     await createProduct({
       title: "Percy Jackson and The Olympians: The Lightning Thief",
-      description: "Mythical creatures galore",
+      description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
       author: "Rick Riordan",
       pageCount: "300",
       genre: "fantasy",
-      price: "20",
+      price: 20,
       image:
         "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
       quantity: 60,
@@ -314,6 +314,12 @@ async function createInitialUsers() {
         email: "ethan@email.com",
         username: "ethan",
         password: "password",
+        isAdmin: true,
+      },
+      {
+        email: "admin@email.com",
+        username: "admin",
+        password: "administrator123",
         isAdmin: true,
       },
       { email: "default1@email.com", username: "albert", password: "bertie99" },
@@ -388,9 +394,9 @@ async function testDB() {
 
     //--TESTING ADD PRODUCT TO CART--------------
     // console.log('testing adding product to cart-----------')
-      // const addProduct1 = await addProductToCart(2, 2, 10);
-      // const addProduct2 = await addProductToCart(3, 4, 1);
-      // const addProduct3 = await addProductToCart(3, 2, 2);
+    const addProduct1 = await addProductToCart(2, 2, 2);
+    const addProduct2 = await addProductToCart(3, 4, 1);
+    const addProduct3 = await addProductToCart(3, 2, 2);
 
     //--TESTING GETTING CART BY USER---------------
     // console.log("testing getting cart by userId-----------");

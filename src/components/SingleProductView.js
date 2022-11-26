@@ -5,7 +5,7 @@ import { addProductToCart } from '../api';
 
 import temp from '../coming_soon.JPEG';
 
-const SingleProductView = ({ products, user }) => {
+const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) => {
     const { productID } = useParams();
     // console.log(productID)
     // console.log(products)

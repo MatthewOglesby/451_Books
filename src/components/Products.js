@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-
+import { Paper,TextField } from '@mui/material';
 import temp from '../coming_soon.JPEG';
 
 const Products = ({ products, navigate }) => {
@@ -22,7 +22,7 @@ const Products = ({ products, navigate }) => {
     // console.log(products)
 
     return (
-        <div>
+        <div className='allProductsHere'>
             <div className='containerSearchProducts'>
                 <form
                     className=''
@@ -31,10 +31,11 @@ const Products = ({ products, navigate }) => {
                     }}>
                     <div className='returnedFormContent'>
                         <h3 className='searchHeader'>Search For Products Here</h3>
-                        <input
+                        <TextField
+                        id="standard-basic" label="(i.e. genre, title, author, description)" variant="standard"
                             className='userSearchInput'
                             type='text'
-                            placeholder='(i.e. title, author, description)'
+                            
                             onChange={(event) => setSearchTerm(event.target.value)}
                         />
                     </div>
@@ -49,8 +50,10 @@ const Products = ({ products, navigate }) => {
                                 return (
                                         <div 
                                         key={id}
+                                        
                                         className='productBox'
                                         >
+                                            <Paper>
                                                 {
                                                     image == "" ? (
                                                         <img className='productImage' src={temp} />
@@ -59,13 +62,12 @@ const Products = ({ products, navigate }) => {
                                                         <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)}/>
                                                     )
                                                 }
-
                                                 <p>{title}</p>
                                                 <p>{author}</p>
                                                 <p>{description}</p>
                                                 <p>${price}</p>
                                                 <Link to={`/books/${id}`}>View</Link>
-
+                                                </Paper>
                                         </div>
  
                                 )
