@@ -21,15 +21,13 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.post("/", async (req, res, next) => {
+  const { productId, userId } = req.body;
 
-router.post('/', async (req, res, next) => {
-    const {productId, userId } = req.body;
-    console.log("TESTING CREATE CART")
-    try {
-    console.log('TESTING ABOVE CART');    
-    console.log('Backend API: ', productId, userId)
-    const cart = await addProductToCart( productId, userId );
-    console.log("TESTING CART", cart);
+  try {
+   
+    const cart = await addProductToCart(productId, userId);
+
     res.send(cart);
   } catch (error) {
     console.log(error);
