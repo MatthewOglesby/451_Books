@@ -22,7 +22,7 @@ const Products = ({ products, navigate }) => {
     // console.log(products)
 
     return (
-        <div>
+        <div className='allProductsHere'>
             <div className='containerSearchProducts'>
                 <form
                     className=''
@@ -62,10 +62,8 @@ const Products = ({ products, navigate }) => {
                                                         <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)}/>
                                                     )
                                                 }
-                                                <p><strong>Genre: </strong>{genre}</p>
                                                 <p>{title}</p>
                                                 <p>{author}</p>
-                                                <p>{description}</p>
                                                 <p>{price}</p>
                                                 <Link to={`/books/${id}`}>View</Link>
                                                 </Paper>

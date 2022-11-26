@@ -30,8 +30,8 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) 
                             )
                     }
                     <h3>{title}</h3>
-                    <p>Description: {description}</p>
                     <p>By {author}</p>
+                    <p>{description}</p>
                     <p>Page Count: {pageCount}</p>
                     <p>Genre: {genre}</p>
                     <p>Price: {price}</p>
