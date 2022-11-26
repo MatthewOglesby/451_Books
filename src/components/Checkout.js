@@ -7,9 +7,18 @@ const Checkout = ({ products, cartItems, token, fetchAllUserCartItems, navigate,
     const [name, setName] = useState('');
     const [cvv, setCVV] = useState('');
     const [cardNum, setCardNum] = useState('');
+    const [email, setEmail] = useState('');
 
     const { id } = user
     let total = 0;
+
+    function handleCheckout() {
+        if (name === '' || cvv === '' || cardNum === '') {
+            alert('field is missing')
+        } else {
+            alert('no field is missing')
+        }
+    }
 
     return (
         <div className='checkout'>
@@ -91,21 +100,35 @@ const Checkout = ({ products, cartItems, token, fetchAllUserCartItems, navigate,
             <h3 className='checkout-total'>Total: ${((total * 0.029) + total).toFixed(2)}</h3>
 
             <form className='card-info-form'>
+                {
+                    token ? (
+                        null
+                        ) : (
+                            <input
+                                placeholder='email'
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            )
+                }
                 <input
                     placeholder='card owner name'
+                    onChange={(e) => setName(e.target.value)}
                 />
                 <input
                     placeholder='cvv'
+                    onChange={(e) => setCVV(e.target.value)}
                 />
                 <input
                     placeholder='card number'
+                    onChange={(e) => setCardNum(e.target.value)}
                 />
                 {/* options for month and year exp date */}
             </form>
             <Button
                 id='checkout-button'
                 variant='contained'
-                sx={{marginTop:'15px'}}
+                sx={{ marginTop: '15px' }}
+                onClick={() => handleCheckout()}
             >
                 Checkout
             </Button>
