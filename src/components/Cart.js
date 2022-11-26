@@ -6,6 +6,7 @@ import Badge from "@mui/material/Badge";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+
 const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
   if (cartItems === undefined) {
     return null;
@@ -21,6 +22,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
         <div className="cart-main-div">
           <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div>
 
+
           {cartItems.map((cartItem) => {
            
             const { cartId, order_quantity, productId } = cartItem;
@@ -35,10 +37,40 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
               };
               const result = await updateCart(token, updatedCartItems, cartId);
               console.log(result);
-
               fetchAllUserCartItems();
               
-            }
+
+                                <ButtonGroup>
+                                  <Button
+                                    aria-label="reduce"
+                                    onClick={() => {
+                                      setCount(Math.max(count - 1, 0));
+                                    }}
+                                  >
+                                    <RemoveIcon />
+                                  </Button>
+                                  <Button
+                                    aria-label="increase"
+                                    onClick={() => {
+                                      setCount(count + 1);
+                                    }}
+                                  >
+                                    <AddIcon />
+                                  </Button>
+                                  <Button
+                                    type="submit"
+                                    color="error"
+                                    variant="outlined"
+                                    onClick={(event) => {
+                                      event.preventDefault();
+                                      deleteCartItem(token, cartId);
+                                      location.reload();
+                                    }}
+                                  >
+                                    <DeleteOutlineIcon />
+                                  </Button>
+                                </ButtonGroup>
+
 
             total = Math.round((total + cartItem.price * count) * 100) / 100;
             return (
@@ -126,8 +158,8 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
             </Link>
           </span>
         </div>
-        </div>
       </div>
+
     </form>
   );
 };

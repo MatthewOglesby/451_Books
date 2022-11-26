@@ -17,18 +17,20 @@ const Navbar = ({ logout, token, user, cartItems, fetchAllUserCartItems }) => {
           <Link to="/books" className="navbarLink">Books</Link>
           <Link to="/register" className="navbarLink">Register</Link>
           <Link to="/login" className="navbarLink">Login</Link>
-          
         </nav>
       </header>
     );
   }
 
+  console.log("Testing cartItems navbar: ", cartItems)
 
   return (
     <header>
       <nav className="navBox">
         <h3 className="navbarName">451 Books</h3>
+
         {/* <img src={logo} /> */}
+
         {token ? (
           <>
             <Link to="/" onClick={() => { fetchAllUserCartItems(); }} className="navbarLink">Home</Link>
