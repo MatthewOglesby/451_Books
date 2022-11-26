@@ -60,7 +60,6 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
                           event.preventDefault();
                           const newCount = Math.max(count - 1, 0);
                           setCount(newCount);
-
                           editCartItem(newCount);
                         }}
                       >
@@ -81,8 +80,8 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
                         type="submit"
                         color="error"
                         variant="outlined"
-                        onClick={async (event) => {
-                          event.preventDefault();
+                        onClick={async () => {
+                          
                           await deleteCartItem(token, cartId);
                           fetchAllUserCartItems();
                         
