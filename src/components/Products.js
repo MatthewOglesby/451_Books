@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { Paper } from '@mui/material';
+import { Paper,TextField } from '@mui/material';
 import temp from '../coming_soon.JPEG';
 
 const Products = ({ products, navigate }) => {
@@ -31,10 +31,11 @@ const Products = ({ products, navigate }) => {
                     }}>
                     <div className='returnedFormContent'>
                         <h3 className='searchHeader'>Search For Products Here</h3>
-                        <input
+                        <TextField
+                        id="standard-basic" label="(i.e. genre, title, author, description)" variant="standard"
                             className='userSearchInput'
                             type='text'
-                            placeholder='(i.e. genre, title, author, description)'
+                            
                             onChange={(event) => setSearchTerm(event.target.value)}
                         />
                     </div>
