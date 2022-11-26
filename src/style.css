@@ -336,13 +336,17 @@ input:placeholder-shown {
 .cart-main-div {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
     width: 50%;
     border-radius: 50px;
     padding-left: 5rem;
     margin-left: 5rem;
 }
-
+.cart-total{
+position: fixed;
+right: 0%;
+}
 .cartProductImage {
     width: 200px;
     height: 250px;
@@ -352,6 +356,7 @@ input:placeholder-shown {
     height: 400px;
     width: 225px;
     padding-right: 3rem;
+    margin-top: 10%;
 }
 
 .inner-cart-div {

@@ -16,6 +16,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
   return (
     <form>
       <div>
+        
         <h1>Shopping Cart</h1>
         <div className="cart-main-div">
           <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div>
@@ -113,14 +114,18 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
               </div>
             );
           })}
-
+         <div className="cart-total">
           <span> Subtotal ({cartItems.length}) items</span>
           <span style={{ fontWeight: 700, fontSize: 20 }}>
             Total: ${total}
             <Link style={{ textDecoration: "none" }} to={`/checkout`}>
               <Button>Proceed to checkout</Button>
             </Link>
+            <Link style={{ textDecoration: "none" }} to={`/books`}>
+              <Button>Continue Shopping</Button>
+            </Link>
           </span>
+        </div>
         </div>
       </div>
     </form>
@@ -128,3 +133,8 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
 };
 
 export default Cart;
+
+
+
+
+
