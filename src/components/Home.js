@@ -7,6 +7,7 @@ const Home = ({ logout, token, navigate, user }) => {
     // console.log(isAdmin)
 
     return (
+        <div className='homeContainer'>
         <div className='homeBoxes'>
             {
                 isAdmin ? (
@@ -32,6 +33,7 @@ const Home = ({ logout, token, navigate, user }) => {
                     </>
                 )
             }
+        </div>
         </div>
     )
 }

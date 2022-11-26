@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Paper,TextField } from '@mui/material';
 import temp from '../coming_soon.JPEG';
+import SearchImage from '../All_Books_Search.jpg'
 
 const Products = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -23,9 +24,10 @@ const Products = ({ products, navigate }) => {
 
     return (
         <div className='allProductsHere'>
+            <div className='searchBarImageContainer'>
             <div className='containerSearchProducts'>
                 <form
-                    className=''
+                    className='searchForm'
                     onSubmit={(event) => {
                         event.preventDefault();
                     }}>
@@ -40,6 +42,7 @@ const Products = ({ products, navigate }) => {
                         />
                     </div>
                 </form>
+            </div>
             </div>
             <div className='allProducts'>
                 {
