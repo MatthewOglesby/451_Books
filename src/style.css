@@ -1,6 +1,9 @@
 /* NAVBAR */
 header {
+    overflow: hidden;
     height: 4rem;
+    position: fixed;
+    top: 0;
     box-shadow: 5px 5px 5px black;
     background-color: black;
     width: 100%;
@@ -339,7 +342,10 @@ input:placeholder-shown {
     padding-left: 5rem;
     margin-left: 5rem;
 }
-
+.cart-total{
+position: fixed;
+right: 0%;
+}
 .cartProductImage {
     width: 200px;
     height: 250px;
@@ -349,6 +355,7 @@ input:placeholder-shown {
     height: 400px;
     width: 225px;
     padding-right: 3rem;
+    margin-top: 10%;
 }
 
 .inner-cart-div {

@@ -14,7 +14,9 @@ async function getAllCarts() {
     }
   }
 
+
 async function addProductToCart( productId, userId ) {
+
     const product = await getProductById(productId);
     console.log(productId, userId)
 
@@ -23,7 +25,7 @@ async function addProductToCart( productId, userId ) {
             INSERT INTO cart ("productId", "userId")
             VALUES ($1, $2)
             RETURNING *;
-        `, [productId, userId])
+        `, [productId, userId, 1])
 
         return cart;
     } catch(ex) {
@@ -50,8 +52,9 @@ async function getCartByUser(userId) {
  
     try {
       const {rows} = await client.query(`
-        SELECT *
+        SELECT products.*, cart.order_quantity, cart.id AS "cartId"
         FROM cart
+        JOIN products ON products.id=cart."productId"
         WHERE "userId" = ${userId}
       `);
 

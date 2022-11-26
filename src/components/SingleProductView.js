@@ -35,7 +35,7 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) 
                     <p>Page Count: {pageCount}</p>
                     <p>Genre: {genre}</p>
                     <p>Price: {price}</p>
-                    <button onClick={() => {addProductToCart(productID, id); fetchAllUserCartItems();}}>Add to Cart</button>
+                    <button  onClick={async (event) => {event.preventDefault(); await addProductToCart(productID, id); fetchAllUserCartItems();}}>Add to Cart</button>
                     <Link to='/books'>Back</Link>
 
                 </div>
