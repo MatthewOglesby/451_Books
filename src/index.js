@@ -91,7 +91,7 @@ const App = () => {
     }, [token])
 
     return (
-        <div>
+        <div className='routesDiv'>
             <Navbar logout={logout} token={token} user={user} cartItems={cartItems} fetchAllUserCartItems={fetchAllUserCartItems} />
             <Routes>
                 <Route

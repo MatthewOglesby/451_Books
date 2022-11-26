@@ -45,7 +45,8 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
     }
 
     return (
-        <div>
+        <div className='addingProductMainContainer'>
+            <div className='formContainerAddProduct'>
             <h3 style={{ textAlign: 'center' }}>Add Product to Inventory</h3>
 
             <form className='edit-form'>
@@ -107,6 +108,7 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
                     }}>Add Book</button>
 
             </form>
+            </div>
         </div>
     )
 }
