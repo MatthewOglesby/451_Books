@@ -7,8 +7,6 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
-
-
   if (cartItems === undefined) {
     return null;
   }
@@ -23,23 +21,21 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
           <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div>
 
           {cartItems.map((cartItem) => {
-            console.log("TESTING ON 26-----", cartItem)
+           
             const { cartId, order_quantity, productId } = cartItem;
             const [display, setDisplay] = useState("none");
             const [count, setCount] = useState(order_quantity);
-           console.log("TESTING CART ITEM",cartItem)
-            
-  
-           async function editCartItem(newCount) {
-            console.log("TESTING COUNT-----34", count)
+           
+
+            async function editCartItem(newCount) {
+             
               const updatedCartItems = {
                 order_quantity: newCount,
               };
-            const result = await updateCart(token, updatedCartItems, cartId);
-             console.log(result)
-             
+              const result = await updateCart(token, updatedCartItems, cartId);
+              console.log(result);
+
               fetchAllUserCartItems();
-              // console.log("TESTING LINE 38 cartId",cartId)
               
             }
 
@@ -62,7 +58,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
                         aria-label="reduce"
                         onClick={(event) => {
                           event.preventDefault();
-                          const newCount = Math.max(count -1, 0);
+                          const newCount = Math.max(count - 1, 0);
                           setCount(newCount);
 
                           editCartItem(newCount);
@@ -85,11 +81,11 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
                         type="submit"
                         color="error"
                         variant="outlined"
-                        onClick={async(event) => {
+                        onClick={async (event) => {
                           event.preventDefault();
-                         await deleteCartItem(token, cartId);
+                          await deleteCartItem(token, cartId);
                           fetchAllUserCartItems();
-                          // location.reload();
+                        
                         }}
                       >
                         <DeleteOutlineIcon />
