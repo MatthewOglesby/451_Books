@@ -499,8 +499,51 @@ html ::-webkit-scrollbar-thumb {
     border-radius: 100vw;
 }
 
-/* MOBILE MODIFCATION */
 
+
+
+checkout.input[type=text] {
+    width: 20%;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: block;
+    background-color: lightblue; 
+  }
+
+  
+  .containerCheckout { 
+    width: 40%;
+    padding: 5px;
+    margin: 5px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 3px;
+    display: inline;
+    float: left;
+  }
+
+  .containerCheckouts { 
+    width: 40%;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 10%;
+    padding: 5px 5px 5px 5px;
+    border-radius: 3px;
+    display: inline;
+    float: right;
+  }
+
+h4 {
+    margin-top: 15%;
+    font-size: larger;
+    text-align: center;
+    color: black;
+    text-shadow: gray;
+}
+
+/* MOBILE MODIFCATION */
 @media only screen and (max-width: 1281px) {
+
 
 }
