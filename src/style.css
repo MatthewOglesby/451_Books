@@ -400,11 +400,14 @@ input:placeholder-shown {
     display: flex;
     justify-content: flex-start;
     position: fixed;
-    left: 0%;
-    margin: 10% 1%;
-    height: 80%;
-    width: 66%;
-    overflow: scroll;
+    top:15%;
+    left: 3%;
+    height: 65%;
+    max-width:66%;
+    padding: 1% 0% 7% 0%;
+    cursor: grab;
+    overflow-x: hidden;
+    overflow-y: auto;
     background: none;
     backdrop-filter: blur(0.4rem);
     border-radius: 1rem;
@@ -439,9 +442,9 @@ input:placeholder-shown {
     position: fixed;
     right: 0%;
     margin: 3rem auto;
-    margin-top: 15%;
-    width: 25%;
-    height: 25%;
+    margin-top: 20%;
+    max-width: 25%;
+    max-height: 25%;
     background: none;
     backdrop-filter: blur(0.4rem);
     text-align: center;
@@ -469,11 +472,6 @@ input:placeholder-shown {
     
 }
 
-/* .inner-cart-div {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-} */
 
 .hidden {
     display: none;
