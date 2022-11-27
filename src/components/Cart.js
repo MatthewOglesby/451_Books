@@ -81,7 +81,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
                         variant="outlined"
                         onClick={async () => {
                           await deleteCartItem(token, cartId);
-                          fetchAllUserCartItems();
+                          location.reload();
                         }}
                       >
                         <DeleteOutlineIcon />
