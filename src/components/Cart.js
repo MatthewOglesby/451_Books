@@ -7,11 +7,13 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
+  let total = 0;
+  
   if (cartItems === undefined) {
     return null;
   }
 
-  let total = 0;
+  
 
   return (
       <div className='cartMainContainer'>
@@ -79,9 +81,11 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
                         type="submit"
                         color="error"
                         variant="outlined"
-                        onClick={async () => {
+                        onClick={async (event) => {
+                          event.preventDefault();
                           await deleteCartItem(token, cartId);
-                          location.reload();
+                          await fetchAllUserCartItems();
+                          // location.reload();
                         }}
                       >
                         <DeleteOutlineIcon />
