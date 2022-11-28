@@ -6,33 +6,26 @@ import Badge from "@mui/material/Badge";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import logoIMG from "../Cart.jpeg";
+import cartIMG from "../Cart.jpeg";
 const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
   let total = 0;
-  
+
   if (cartItems === undefined) {
     return null;
   }
 
-  
-
   return (
-  
-      
-      <div className='cartMainContainer'>
-       
+    <div>
+      <div className="cartMainContainer">
         <div className="cart-main-div">
           <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div>
 
           {cartItems.map((cartItem) => {
-           
             const { cartId, order_quantity, productId } = cartItem;
             const [display, setDisplay] = useState("none");
             const [count, setCount] = useState(order_quantity);
-           
 
             async function editCartItem(newCount) {
-             
               const updatedCartItems = {
                 order_quantity: newCount,
               };
@@ -40,7 +33,6 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
               console.log(result);
 
               fetchAllUserCartItems();
-              
             }
 
             total = Math.round((total + cartItem.price * count) * 100) / 100;
@@ -57,7 +49,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
                       <strong>Price</strong> ${cartItem.price}
                     </p>
 
-                    <ButtonGroup>
+                    <ButtonGroup fullWidth={true}>
                       <Button
                         aria-label="reduce"
                         onClick={(event) => {
@@ -84,18 +76,18 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
                         type="submit"
                         color="error"
                         variant="outlined"
-                        onClick={async () => {
-                          // event.preventDefault();
+                        onClick={async (event) => {
+                          event.preventDefault();
                           await deleteCartItem(token, cartId);
-                          // await fetchAllUserCartItems();
-                          location.reload();
+                          fetchAllUserCartItems();
                         }}
                       >
                         <DeleteOutlineIcon />
                       </Button>
                     </ButtonGroup>
 
-                    <Button
+                    <Button 
+                    fullWidth={true}
                       variant="outlined"
                       style={{}}
                       onClick={(event) => {
@@ -117,11 +109,11 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
               </div>
             );
           })}
-          </div>
-         <div className="cart-total">
-         <br></br>
+        </div>
+        <div className="cart-total">
+          <br></br>
           <span> Subtotal ({cartItems.length}) items</span>
-        
+
           <span style={{ fontWeight: 700, fontSize: 20 }}>
             Total: ${total}
             <br></br>
@@ -134,15 +126,9 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
             </Link>
           </span>
         </div>
-        
       </div>
-      
+    </div>
   );
 };
 
 export default Cart;
-
-
-
-
-

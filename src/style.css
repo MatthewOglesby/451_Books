@@ -406,8 +406,7 @@ input:placeholder-shown {
     max-width:66%;
     padding: 1% 0% 7% 0%;
     cursor: grab;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: scroll;
     background: none;
     backdrop-filter: blur(0.4rem);
     border-radius: 1rem;
@@ -416,18 +415,15 @@ input:placeholder-shown {
 
 }
 
-.cartMainContainer {
-    display: flex;
-    
-}
+
 
 @media only screen and (max-width: 600px) {
-    .cartMainContainer {
+    .cart-main-div {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-
+  
 
     }
 
@@ -441,14 +437,14 @@ input:placeholder-shown {
     align-items: center;
     position: fixed;
     right: 0%;
-    margin: 3rem auto;
+    margin: 4rem auto;
     margin-top: 20%;
     max-width: 25%;
-    max-height: 25%;
+    max-height: 30%;
     background: none;
     backdrop-filter: blur(0.4rem);
     text-align: center;
-    margin-right: 5%;
+    margin-right: 1%;
     padding: 1rem 1rem;
     border-radius: 1rem;
     box-shadow: 0px 0px 2px #daa871, 0px 0px 5px #ffe9d1, 3px 3px 8px #b1b1b1,
