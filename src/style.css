@@ -433,19 +433,17 @@ input:placeholder-shown {
     flex-wrap: wrap;
     align-items: center;
     position: fixed;
-    top: 0%;
-    right: 0%;
-    margin: 4rem auto;
-    margin-top: 30%;
+    top: 35rem;
+    right: 1.5%;
     max-width: 25%;
     max-height: 30%;
     background: none;
     backdrop-filter: blur(0.4rem);
     text-align: center;
-    margin-right: 1%;
+    margin-right: 2%;
     padding: 1rem 1rem;
     border-radius: 1rem;
-    box-shadow: 0px 0px 2px #daa871, 0px 0px 5px #ffe9d1, 3px 3px 8px #b1b1b1,
+    box-shadow: 0px 0px 1px #daa871, 0px 0px 3px #ffe9d1, 1px 1px 2px #b1b1b1,
         -3px -3px 8px #fff;
 }
 

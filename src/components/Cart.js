@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Button, Paper, ButtonGroup, Box } from "@mui/material";
 import CartItem from "./CartItem";
 import cartIMG from "../Cart.jpeg";
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
   let total = 0;
 
@@ -16,7 +18,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
         src={cartIMG}
         style={{ paddingTop: "2.89%" }}
         width={"100%"}
-        height={350}
+        height={500}
         alt="Cart IMG"
       />
 
@@ -48,11 +50,11 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
             Total: ${total}
             <br></br>
             <Link style={{ textDecoration: "none" }} to={`/checkout`}>
-              <Button variant="outlined">Proceed to checkout</Button>
+              <Button >Proceed to checkout <PointOfSaleIcon/></Button>
             </Link>
             <br></br>
             <Link style={{ textDecoration: "none" }} to={`/books`}>
-              <Button variant="outlined">Continue Shopping</Button>
+              <Button >Contiue Shopping <ArrowRightIcon/></Button>
             </Link>
           </span>
         </div>

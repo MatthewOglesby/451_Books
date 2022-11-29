@@ -62,7 +62,7 @@ const CartItem = ({ cartItem, token, fetchAllUserCartItems }) => {
             <Button
               type="submit"
               color="error"
-              variant="outlined"
+             
               onClick={async (event) => {
                 event.preventDefault();
                 await deleteCartItem(token, cartId);
