@@ -399,16 +399,13 @@ input:placeholder-shown {
 .cart-main-div {
     display: flex;
     justify-content: flex-start;
-    position: fixed;
-    top:15%;
-    left: 3%;
+    margin-top: 2%;
     height: 65%;
     max-width:66%;
     padding: 1% 0% 7% 0%;
     cursor: grab;
     overflow: scroll;
     background: none;
-    backdrop-filter: blur(0.4rem);
     border-radius: 1rem;
     box-shadow: 0px 0px 2px #daa871, 0px 0px 5px #ffe9d1, 3px 3px 8px #b1b1b1,
       -3px -3px 8px #fff;
@@ -436,9 +433,10 @@ input:placeholder-shown {
     flex-wrap: wrap;
     align-items: center;
     position: fixed;
+    top: 0%;
     right: 0%;
     margin: 4rem auto;
-    margin-top: 20%;
+    margin-top: 30%;
     max-width: 25%;
     max-height: 30%;
     background: none;

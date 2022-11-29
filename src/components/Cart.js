@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, Paper, ButtonGroup, Box } from "@mui/material";
-import { deleteCartItem, updateCart } from "../api";
-import Badge from "@mui/material/Badge";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import CartItem from "./CartItem";
 import cartIMG from "../Cart.jpeg";
 const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
@@ -17,14 +12,32 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
 
   return (
     <div>
+      <img
+        src={cartIMG}
+        style={{ paddingTop: "2.89%" }}
+        width={"100%"}
+        height={350}
+        alt="Cart IMG"
+      />
+
       <div className="cartMainContainer">
         <div className="cart-main-div">
           <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div>
 
           {cartItems?.map((cartItem, idx) => {
-            console.log("In MAP")
-            total = Math.round((total + cartItem.price * cartItem.order_quantity) * 100) / 100;
-          return <CartItem key={idx} cartItem={cartItem} token={token} fetchAllUserCartItems={fetchAllUserCartItems}/>
+            console.log("In MAP");
+            total =
+              Math.round(
+                (total + cartItem.price * cartItem.order_quantity) * 100
+              ) / 100;
+            return (
+              <CartItem
+                key={idx}
+                cartItem={cartItem}
+                token={token}
+                fetchAllUserCartItems={fetchAllUserCartItems}
+              />
+            );
           })}
         </div>
         <div className="cart-total">
