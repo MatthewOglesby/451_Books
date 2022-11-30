@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
-// import logo from '../black_icon.JPEG';
+import logo from '../header_logo-2.jpeg';
 
 const Navbar = ({ logout, token, user, cartItems, fetchAllUserCartItems }) => {
   const { id } = user;
@@ -11,8 +11,7 @@ const Navbar = ({ logout, token, user, cartItems, fetchAllUserCartItems }) => {
     return (
       <header >
         <nav className="navBox">
-          <h3 className="navbarName">451 Books</h3>
-          {/* <img src={logo} className='navbarIcon'/> */}
+          <img src={logo} className='navbarLogo'/>
           <Link to="/" className="navbarLink">Home</Link>
           <Link to="/books" className="navbarLink">Books</Link>
           <Link to="/register" className="navbarLink">Register</Link>
@@ -27,8 +26,7 @@ const Navbar = ({ logout, token, user, cartItems, fetchAllUserCartItems }) => {
   return (
     <header>
       <nav className="navBox">
-        <h3 className="navbarName">451 Books</h3>
-        {/* <img src={logo} /> */}
+        <img src={logo} className='navbarLogo'/>
         {token ? (
           <>
             <Link to="/" onClick={() => { fetchAllUserCartItems(); }} className="navbarLink">Home</Link>

@@ -37,6 +37,7 @@ async function dropTables() {
     console.log("Finished Dropping Tables");
   } catch (ex) {
     console.log("error dropping tables", ex);
+    throw ex;
   }
 }
 
@@ -86,6 +87,7 @@ async function createTables() {
     console.log("Finished Creating Tables");
   } catch (ex) {
     console.log("error creating tables", ex);
+    throw ex;
   }
 }
 //--INTIAL SEED DATA--
@@ -268,6 +270,7 @@ async function createInitialProducts() {
     console.log("Finished creating Products");
   } catch (ex) {
     console.log("error creating Products", ex);
+    throw ex;
   }
 }
 
@@ -278,6 +281,7 @@ async function createInitialCarts() {
     const cartsToCreate = ["cart"];
   } catch (ex) {
     console.log("error making initial carts");
+    throw ex;
   }
 }
 
@@ -439,6 +443,7 @@ async function buildDB() {
     await createInitialCarts();
   } catch (ex) {
     console.log("Error building the DB");
+    throw ex;
   }
 }
 

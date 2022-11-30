@@ -2,15 +2,16 @@ const { client } = require('./client');
 
 async function getAllProducts() {
   try {
+    console.log('DB PRODUCT ADAPTER')
     const { rows } = await client.query(`
-      SELECT * FROM products;
-      
+    SELECT * FROM products;
+    
     `);
 // ORDER BY id ASC;
     return rows;
 
   } catch (error) {
-    throw ('error getting all products', error);
+    throw error;
   }
 }
 
@@ -24,7 +25,7 @@ async function getProductById(id) {
     return product;
 
   } catch (error) {
-    throw (error);
+    throw error;
   }
 }
 
@@ -38,12 +39,12 @@ async function getProductByTitle(title) {
     return product;
 
   } catch (error) {
-    throw (error);
+    throw error;
   }
 }
 
 async function createProduct({ title, description, author, pageCount, genre, price, image, quantity }) {
- console.log(price)
+
   try {
     const { rows: [product] } = await client.query(`
       INSERT INTO products (title, description, author, "pageCount", genre, price, image, quantity)
@@ -57,6 +58,7 @@ async function createProduct({ title, description, author, pageCount, genre, pri
   }
   catch (ex) {
     console.log('error in createProduct adapter function', ex)
+    throw ex;
   }
 }
 
@@ -84,7 +86,7 @@ async function updateProduct( id, fields = {}) {
 
     }
   } catch (error) {
-    throw (error);
+    throw error;
   }
 }
 

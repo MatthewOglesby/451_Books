@@ -10,7 +10,7 @@ async function getAllUsers() {
     return rows;
 
   } catch (error) {
-    throw ('error getting all user', error);
+    throw error;
   }
 }
 

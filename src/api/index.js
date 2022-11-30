@@ -12,6 +12,7 @@ export const getAllProducts = async () => {
     return results;
   } catch (ex) {
     console.error('Error getting all products', ex)
+    throw ex;
   }
 }
 
@@ -27,6 +28,7 @@ export const getAllUsers = async () => {
       return results;
   } catch(ex) {
       console.error('Error getting all users', ex)
+      throw ex;
   }
 }
 
@@ -50,7 +52,8 @@ export const registerUser = async (email, username, password) => {
     return result;
 
   } catch (error) {
-    console.error(error)
+    console.error(error);
+    throw error;
   }
 }
 
@@ -70,7 +73,8 @@ export const loginUser = async (username, password) => {
       
       return result;
     } catch (err) {
-      console.log(err)
+      console.log(err);
+      throw err;
     }
   }
 
@@ -89,7 +93,8 @@ export const loginUser = async (username, password) => {
         return result;
     
       } catch (ex) {
-        console.log('error gettings user details in API', err)
+        console.log('error gettings user details in API', ex)
+        throw ex;
       }
   
   }
@@ -119,6 +124,7 @@ export const updateProduct = async (token, { id, title, description, author, pag
   }
   catch (err) {
     console.error('updateProduct-api FAILED:', err);
+    throw err;
   }
 }
 
@@ -147,6 +153,7 @@ export const createProduct = async (token, {title, description, author, pageCoun
   }
   catch (err) {
       console.error('createProduct-api FAILED:', err)
+      throw err
   }
 }
   export const getUserCart = async (token, userId) => {
@@ -163,6 +170,7 @@ export const createProduct = async (token, {title, description, author, pageCoun
     
       } catch (ex) {
         console.log('error gettings user cart details in API',ex)
+        throw ex;
       }
     }
 
@@ -180,6 +188,7 @@ export const deleteCartItem = async (token, id) => {
         return results;
       } catch (ex) {
         console.log("error deleting routine",ex);
+        throw ex;
       }
   };
 
@@ -201,6 +210,7 @@ export const deleteCartItem = async (token, id) => {
       return result;  
     } catch(ex) {
       console.log('error updating cart items',ex)
+      throw ex;
     }
   }
 
@@ -222,5 +232,6 @@ export const addProductToCart = async ( productId, userId) => {
     return results;
   } catch (ex) {
     console.log('error adding product to cart', ex)
+    throw ex;
   }
 }

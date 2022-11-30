@@ -1,139 +1,145 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Paper } from "@mui/material";
+import React, {useState} from 'react';
+import { Button, Paper} from "@mui/material";
+import Swal from 'sweetalert2';
 import Badge from "@mui/material/Badge";
 
-const Checkout = ({ products, cartItems, token, fetchAllUserCartItems, navigate, user }) => {
-    const [name, setName] = useState('');
-    const [cvv, setCVV] = useState('');
-    const [cardNum, setCardNum] = useState('');
-    const [email, setEmail] = useState('');
+const Checkout = ({cartItems, token, fetchAllUserCartItems}) => { 
+    if (cartItems === undefined) {
+        return null;
+      }
+      let total =0;
 
-    const { id } = user
-    let total = 0;
-
-    function handleCheckout() {
-        if (name === '' || cvv === '' || cardNum === '') {
-            alert('field is missing')
-        } else {
-            alert('no field is missing')
-        }
-    }
+      
 
     return (
-        <div className='checkout'>
-            <div>
 
-                <h1>Ready to Checkout?</h1>
+    <div>
+        <div className="cart-main-div">
+        <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div>
 
-                <Button
-                    variant='contained'
-                    onClick={() => navigate(`/cart/${id}`)}
-                >
-                    Back to Cart
-                </Button>
+        {cartItems.map((cartItem) => {
+         
+          const { cartId, order_quantity, productId } = cartItem;
+          const [display, setDisplay] = useState("none");
+          const [count, setCount] = useState(order_quantity);
+         
 
-                <h2>Your order:</h2>
+          async function editCartItem(newCount) {
+           
+            const updatedCartItems = {
+              order_quantity: newCount,
+            };
+            const result = await updateCart(token, updatedCartItems, cartId);
+            console.log(result);
 
-                <div className="cart-main-div">
-                    {
-                        cartItems &&
-                        cartItems.map((cartItem) => {
-                            const { id: cartId, productId } = cartItem;
-                            const [display, setDisplay] = useState("none");
-                            const [count, setCount] = useState(1);
+            fetchAllUserCartItems();
+            
+          }
 
-                            return (
-                                <div key={cartId} className="individualCartContainer">
-                                    <div className="inner-cart-div">
-                                        <Paper style={{ borderRadius: "1rem" }}>
-                                            {products.map((props) => {
-                                                const {
-                                                    author,
-                                                    title,
-                                                    description,
-                                                    genre,
-                                                    id,
-                                                    image,
-                                                    quantity,
-                                                    pageCount,
-                                                    price,
-                                                } = props;
+          total = Math.round((total + cartItem.price * count) * 100) / 100;
+          return (
+            <div key={cartId} className="individualCartContainer">
+              <div className="inner-cart-div">
+                <Paper style={{ borderRadius: "1rem" }}>
+                  <img src={cartItem.image} className="cartProductImage" />
+                  <p>
+                    Qty: <Badge color="info" badgeContent={count}></Badge>{" "}
+                  </p>
+                  <p>Title: {cartItem.title}</p>
+                  <p>
+                    <strong>Price</strong> ${cartItem.price}
+                  </p>
 
-                                                if (id === productId) {
-                                                    // console.log('total before', total)
-                                                    total += parseFloat(price)
-                                                    // console.log('total after', total)
 
-                                                    return (
-                                                        <div key={id}>
-                                                            <img
-                                                                src={image}
-                                                                className="cartProductImage"
-                                                            />
-                                                            <p>Qty: <Badge color="secondary" badgeContent={count}></Badge> </p>
-                                                            <p>Title: {title}</p>
-                                                            <p>
-                                                                <strong>Price</strong> ${price}
-                                                            </p>
-
-                                                            <div
-                                                                className="activity-box"
-                                                                style={{ display: display }}
-                                                            >
-                                                                <p>{description}</p>
-                                                            </div>
-                                                        </div>
-                                                    );
-                                                }
-                                            })}
-                                        </Paper>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                </div>
+                  <Button
+                    variant="outlined"
+                    style={{}}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      if (display === "none") {
+                        setDisplay("block");
+                      } else {
+                        setDisplay("none");
+                      }
+                    }}
+                  >
+                    Click Description
+                  </Button>
+                  <div className="activity-box" style={{ display: display }}>
+                    <p>{cartItem.description}</p>
+                  </div>
+                </Paper>
+              </div>
             </div>
+          );
+        })}
 
-            <h3 className='checkout-total'>Sub-total: ${total.toFixed(2)}</h3>
-            <h3 className='checkout-total'>Tax: ${(total * 0.029).toFixed(2)}</h3>
-            <h3 className='checkout-total'>Total: ${((total * 0.029) + total).toFixed(2)}</h3>
+</div>
 
-            <form className='card-info-form'>
-                {
-                    token ? (
-                        null
-                        ) : (
-                            <input
-                                placeholder='email'
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            )
-                }
-                <input
-                    placeholder='card owner name'
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <input
-                    placeholder='cvv'
-                    onChange={(e) => setCVV(e.target.value)}
-                />
-                <input
-                    placeholder='card number'
-                    onChange={(e) => setCardNum(e.target.value)}
-                />
-                {/* options for month and year exp date */}
+
+
+        <div>
+            <form 
+            
+            className='containerCheckout'
+            > 
+           <h4 style={{  textAlign: 'left'}} >Enter Credit Card Information Below</h4> 
+            <p> First Name </p>
+            <input type="text" id="fname" name="firstname" placeholder="Jane"></input>
+            <p> Last Name </p>
+            <input type="text" id="lname" name="lastname" placeholder="Doe"></input>
+            <p> Shipping Address </p>
+            <input type="text" id="saddress" name="shippingaddress" placeholder="1234 Street"></input>
+        
+            <p> City </p>
+            <input type="text" id="city" name="city" placeholder="New Orleans" required></input>
+            <p> State </p> 
+            <input type="text" id="state" name="state" placeholder="LA" required></input>
+            <p> Zip Code </p>
+            <input type="text" id="zcode" name="zipcode" placeholder="11111" required></input>
             </form>
-            <Button
-                id='checkout-button'
-                variant='contained'
-                sx={{ marginTop: '15px' }}
-                onClick={() => handleCheckout()}
-            >
-                Checkout
-            </Button>
+        
+       
+            <form className='containerCheckouts'> 
+            <p style={{ textAlign: 'left' }} > Name on Card </p>
+            <input type="text" id="cname" name="cardname" placeholder="Jane J. Doe" required></input>
+            <p style={{ textAlign: 'left'}} > Credit Card Number </p>
+            <input type="text" id="creditcard" name="creditcard" placeholder="1111 2222 3333 4444" required></input>
+            <p style={{ textAlign: 'left' }} > Expiration Date </p>
+            <input type="text" id="expirationdate" name="expirationdate" placeholder="11/23" required></input>
+            <p style={{ textAlign: 'left' }} >CVV </p> 
+            <input type="text" id="cvv" name="cvv" placeholder="999" required></input>
+
+
+         
+
+            <button  onClick={() => {
+                 Swal.fire({
+                    title: 'Thanks for shopping with us',
+                    icon: 'success',
+                    iconColor: 'green',
+                    confirmButtonColor: 'orange'
+                })
+            }} > Submit Order </button>
+
+
+
+
+    
+            </form>
+
+        
+
+
+          
         </div>
-    );
-}
+        </div>
+    )
+} 
+
+
+
+
+
 
 export default Checkout;
