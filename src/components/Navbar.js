@@ -26,8 +26,7 @@ const Navbar = ({ logout, token, user, cartItems, fetchAllUserCartItems }) => {
   return (
     <header>
       <nav className="navBox">
-        <h3 className="navbarName">451 Books</h3>
-        {/* <img src={logo} /> */}
+        <img src={logo} className='navbarLogo'/>
         {token ? (
           <>
             <Link to="/" onClick={() => { fetchAllUserCartItems(); }} className="navbarLink">Home</Link>
