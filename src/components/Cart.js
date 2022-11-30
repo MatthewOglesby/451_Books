@@ -54,7 +54,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
             </Link>
             <br></br>
             <Link style={{ textDecoration: "none" }} to={`/books`}>
-              <Button >Contiue Shopping <ArrowRightIcon/></Button>
+              <Button >Continue Shopping <ArrowRightIcon/></Button>
             </Link>
           </span>
         </div>
