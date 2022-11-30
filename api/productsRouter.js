@@ -11,6 +11,7 @@ const {
 const { requireUser } = require('./utils');
 
 productsRouter.get("/", async (req, res, next) => {
+  console.log("ALL PRODUCTS YEAAHHHH!")
   try {
     const allProducts = await getAllProducts();
 

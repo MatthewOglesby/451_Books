@@ -4,6 +4,9 @@ const morgan = require('morgan');
 const cors = require('cors');
 const { getUserById } = require('./db/users')
 const jwt = require('jsonwebtoken')
+const { client } = require('./db/client');
+
+client.connect();
 
 const server = express();
 const PORT = process.env.PORT || 3001

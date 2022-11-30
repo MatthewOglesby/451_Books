@@ -2,9 +2,10 @@ const { client } = require('./client');
 
 async function getAllProducts() {
   try {
+    console.log('DB PRODUCT ADAPTER')
     const { rows } = await client.query(`
-      SELECT * FROM products;
-      
+    SELECT * FROM products;
+    
     `);
 // ORDER BY id ASC;
     return rows;
