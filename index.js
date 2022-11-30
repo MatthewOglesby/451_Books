@@ -6,7 +6,7 @@ const { getUserById } = require('./db/users')
 const jwt = require('jsonwebtoken')
 
 const server = express();
-const PORT = 3001;
+const PORT = process.env["PORT"] ?? 3001
 
 server.use(morgan("dev"));
 server.use(express.json());
