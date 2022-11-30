@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3001/api'
+const baseURL = 'https://four51-books.onrender.com/api'
 
 export const getAllProducts = async () => {
   try {
