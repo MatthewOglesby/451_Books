@@ -10,7 +10,7 @@ async function getAllCarts() {
       return rows;
   
     } catch (error) {
-      throw ('error getting all cart', error);
+      throw error;
     }
   }
 
@@ -41,7 +41,7 @@ async function getCartById(id) {
       return cart;
   
     } catch (error) {
-      throw (error);
+      throw error;
     }
   }
 
@@ -54,15 +54,11 @@ async function getCartByUser(userId) {
         JOIN products ON products.id=cart."productId"
         WHERE "userId" = ${userId}
       `);
-      
-  
-
-   
 
       return rows;
   
     } catch (error) {
-      throw (error);
+      throw error;
     }
   }
 
@@ -89,7 +85,7 @@ async function updateCart( id, fields = {}) {
   
       }
     } catch (error) {
-      throw (error);
+      throw error;
     }
   }
 

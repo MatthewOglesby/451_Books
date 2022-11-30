@@ -89,7 +89,7 @@ export const loginUser = async (username, password) => {
         return result;
     
       } catch (ex) {
-        console.log('error gettings user details in API', err)
+        console.log('error gettings user details in API', ex)
       }
   
   }

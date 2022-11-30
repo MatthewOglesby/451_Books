@@ -6,7 +6,7 @@ const { getUserById } = require('./db/users')
 const jwt = require('jsonwebtoken')
 
 const server = express();
-const PORT = process.env["PORT"] ?? 3001
+const PORT = 3001
 
 server.use(morgan("dev"));
 server.use(express.json());
@@ -63,8 +63,6 @@ apiRouter.use((error, req, res, next) => {
       message: error.message
     });
   });
-
-
 
 server.listen(PORT, () => {
   console.log(`Server is up and running on port ${PORT}`)

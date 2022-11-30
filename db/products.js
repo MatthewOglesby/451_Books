@@ -10,7 +10,7 @@ async function getAllProducts() {
     return rows;
 
   } catch (error) {
-    throw ('error getting all products', error);
+    throw error;
   }
 }
 
@@ -24,7 +24,7 @@ async function getProductById(id) {
     return product;
 
   } catch (error) {
-    throw (error);
+    throw error;
   }
 }
 
@@ -38,7 +38,7 @@ async function getProductByTitle(title) {
     return product;
 
   } catch (error) {
-    throw (error);
+    throw error;
   }
 }
 
@@ -57,6 +57,7 @@ async function createProduct({ title, description, author, pageCount, genre, pri
   }
   catch (ex) {
     console.log('error in createProduct adapter function', ex)
+    throw ex;
   }
 }
 
@@ -84,7 +85,7 @@ async function updateProduct( id, fields = {}) {
 
     }
   } catch (error) {
-    throw (error);
+    throw error;
   }
 }
 

@@ -27,8 +27,8 @@ router.get("/", async (req, res, next) => {
     const allUsers = await getAllUsers();
 
     res.send(allUsers);
-  } catch ({ id, username, email, isAdmin }) {
-    next({ id, username, email, isAdmin });
+  } catch (error) {
+    next(error);
   }
 });
 
@@ -94,8 +94,8 @@ router.post('/register', async (req, res, next) => {
       message: "you're signed up!", token, user
     });
 
-  } catch ({ name, message }) {
-    next({ name, message })
+  } catch (error) {
+    next(error)
   }
 });
 
@@ -104,7 +104,7 @@ router.get('/me', requireUser, async (req, res, next) => {
     console.log(user)
     res.send(user);
   
-    next;
+    next();
   
 });
 
@@ -126,7 +126,8 @@ router.get('/cart/:userId',requireUser, async (req, res, next) => {
     const usersCart = await getCartByUser(userId);
     res.send(usersCart)
   } catch (error) {
-    console.log(error)
+    console.log(error);
+    next(error);
   }
 })
 
