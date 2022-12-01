@@ -110,9 +110,6 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems}) => {
             <p style={{ textAlign: 'left' }} >CVV </p> 
             <input type="text" id="cvv" name="cvv" placeholder="999" required></input>
 
-
-         
-
             <button  onClick={() => {
                  Swal.fire({
                     title: 'Thanks for shopping with us',
