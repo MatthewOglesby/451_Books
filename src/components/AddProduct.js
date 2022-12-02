@@ -31,7 +31,7 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
             console.log('createProduct RESULTS------', results)
             if (!results.id) {
                 // temporary
-                alert('product exists')
+                alert('error adding product')
             }
             else {
                 navigate('/books')
@@ -81,7 +81,7 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
                     <input
                         type='text'
                         placeholder="Price"
-                        onChange={(e) => setPrice('$' + e.target.value)}
+                        onChange={(e) => setPrice(parseFloat(e.target.value))}
                     />
                 </div>
 

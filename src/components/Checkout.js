@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 import Badge from "@mui/material/Badge";
 
 const Checkout = ({cartItems, token, fetchAllUserCartItems}) => { 
+
+  
     if (cartItems === undefined) {
         return null;
       }

@@ -100,7 +100,7 @@ async function createInitialProducts() {
       description: "Harry Potter is a boy who learns on his eleventh birthday that he is the son of two powerful wizards. He is summoned to become a student at Hogwarts. There he meets several friends who help him discover the truth about his parents’ mysterious deaths",
       author: "J.K. Rowling",
       pageCount: "298",
-      genre: "fantasy",
+      genre: "Fantasy",
       price: 20,
       image:
         "https://media.harrypotterfanzone.com/sorcerers-stone-us-childrens-edition.jpg",
@@ -112,7 +112,7 @@ async function createInitialProducts() {
       description: "A mysterious elf tells Harry to expect trouble during his second year at Hogwarts, but nothing can prepare him for trees that fight back, flying cars, spiders that talk and deadly warnings written in blood on the walls of the school.",
       author: "J.K. Rowling",
       pageCount: "299",
-      genre: "fantasy",
+      genre: "Fantasy",
       price: 20,
       image:
         "https://media.harrypotterfanzone.com/chamber-of-secrets-ebook-cover-1050x0-c-default.jpg",
@@ -149,7 +149,7 @@ async function createInitialProducts() {
         "Detective Lt. Joe Kenda, star of Homicide Hunter, shares his deepest, darkest, and never before revealed case files from his 19 years as a homicide detective",
       author: "Joe Kenda",
       pageCount: "288",
-      genre: "Detective story",
+      genre: "Detective Story",
       price: 11.99,
       image:
         "https://m.media-amazon.com/images/I/51a5n1ueF1L._SX332_BO1,204,203,200_.jpg",
@@ -162,7 +162,7 @@ async function createInitialProducts() {
         "In this book, I present tales of true crime and bizarre applications of justice (or injustice, as the case may be)",
       author: "Romeo Vitelli",
       pageCount: "230",
-      genre: "Biographies & Memoirs",
+      genre: "Biographies and Memoirs",
       price: 10.89,
       image: "https://m.media-amazon.com/images/I/41VZPJHOlFL.jpg",
       quantity: 55,
@@ -171,7 +171,7 @@ async function createInitialProducts() {
     await createProduct({
       title: "Robin",
       description:
-        "From New York Times culture reporter Dave Itzkoff comes the definitive audiobook biography of Robin Williams - a compelling portrait of one of America’s most beloved and misunderstood entertainers",
+        "From New York Times culture reporter Dave Itzkoff comes the definitive audiobook biography of Robin Williams - a compelling portrait of one of America's most beloved and misunderstood entertainers",
       author: "Dave ItzKoff",
       pageCount: "544",
       genre: "Entertainment",
@@ -199,7 +199,7 @@ async function createInitialProducts() {
         "Get Ready Books teach valuable life lessons with your favorite Nickelodeon characters—and they include over 30 stickers!",
       author: "Steven Banks",
       pageCount: "24",
-      genre: "Childrens Books",
+      genre: "Kids",
       price: 5.75,
       image:
         "https://m.media-amazon.com/images/I/51HL8BEGiAL._SY498_BO1,204,203,200_.jpg",
@@ -225,7 +225,7 @@ async function createInitialProducts() {
         "Set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune.",
       author: "Ernest Cline",
       pageCount: "374",
-      genre: "Science Fiction and Fantasty",
+      genre: "Fantasy",
       price: 19.99,
       image: "https://images.penguinrandomhouse.com/cover/9780307887443",
       quantity: 56,
@@ -237,7 +237,7 @@ async function createInitialProducts() {
         "Autobiography of Trevor Noah's upbringing in the slums of South Africa and how he became one of South Africa's most notable names in recent years.",
       author: "Trevor Noah",
       pageCount: "304",
-      genre: "Non-fiction",
+      genre: "Non-Fiction",
       price: 14.99,
       image: "https://m.media-amazon.com/images/I/5155UwVQ-LL._AC_SY780_.jpg",
       quantity: 55,
@@ -260,12 +260,224 @@ async function createInitialProducts() {
       description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
       author: "Rick Riordan",
       pageCount: "300",
-      genre: "fantasy",
+      genre: "Fantasy",
       price: 20,
       image:
         "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
       quantity: 60,
     });
+
+// ------------------
+
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
+    // await createProduct({
+    //   title: "Percy Jackson and The Olympians: The Lightning Thief",
+    //   description: "Percy Jackson is about to be kicked out of boarding school... again. Lately, monsters and the gods of Mount Olympus seem to be walking straight out of Percy's Greek mythology textbook and into his life. And worse, he's angered a few of them.",
+    //   author: "Rick Riordan",
+    //   pageCount: "300",
+    //   genre: "Fantasy",
+    //   price: 20,
+    //   image:
+    //     "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400602609i/28187.jpg",
+    //   quantity: 60,
+    // });
 
     console.log("Finished creating Products");
   } catch (ex) {

@@ -9,13 +9,15 @@ import {
     AddProduct,
     Cart,
     Checkout,
-    EditCart,
     EditProduct,
     Home,
     Login,
     Register,
     SingleProductView,
-    AllUsers
+    AllUsers,
+    Fantasy,
+    NonFiction,
+    Kids
 } from './components'
 
 const App = () => {
@@ -113,9 +115,6 @@ const App = () => {
                     />}
                 />
                 <Route
-                    path='/:title'
-                />
-                <Route
                     path='/all-users'
                     element={<AllUsers
                         navigate={navigate}
@@ -157,6 +156,27 @@ const App = () => {
                     />}
                 />
                 <Route
+                    path='/books/fantasy'
+                    element={<Fantasy
+                        navigate={navigate}
+                        products={products}
+                    />}
+                />
+                <Route
+                    path='/books/nonfiction'
+                    element={<NonFiction
+                        navigate={navigate}
+                        products={products}
+                    />}
+                />
+                <Route
+                    path='/books/kids'
+                    element={<Kids
+                        navigate={navigate}
+                        products={products}
+                    />}
+                />
+                <Route
                     path='/add-product'
                     element={<AddProduct
                         fetchAllProducts={fetchAllProducts}
@@ -164,9 +184,6 @@ const App = () => {
                         products={products}
                         token={token}
                     />}
-                />
-                <Route
-                    path='/edit-cart'
                 />
                 <Route
                     path='/cart/:id'
@@ -183,9 +200,9 @@ const App = () => {
                     path='/checkout'
 
                     element={<Checkout
-                    cartItems={cartItems}
+                        cartItems={cartItems}
                     />}
-                    
+
                 />
             </Routes>
         </div>
@@ -199,6 +216,6 @@ root.render(
         <BrowserRouter>
             <App />
         </BrowserRouter>
-       
+
     </React.Fragment>
 );

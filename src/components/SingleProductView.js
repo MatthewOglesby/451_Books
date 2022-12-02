@@ -43,14 +43,15 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) 
                     >
                         Add to Cart
                     </button>
-                    <Link to='/books'>Back</Link>
+                    {/* goes back to last loaded url (previous page) */}
+                    <button onClick={ () => history.back() }>Back</button>
 
                 </div>
                 {
                     isAdmin ? (
                         <Link to={`/books/edit/${productID}`}>Edit Product</Link>
                     ) : (
-                        <p></p>
+                        <p>You are not authorized to view this page.</p>
                     )
                 }
             </div>
