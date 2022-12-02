@@ -81,7 +81,7 @@ const Register = ({setToken, token, navigate}) => {
                         onChange={(event) => setConfirmPassword(event.target.value)}
                     />
                 </div>
-                <button className='submitRegister' type='submit'>Register</button>
+                <button className='submitRegister' type='submit' />
                 <p id='errorMessage'></p>
             </form>
         </div>

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');
+* {
+    font-family: 'EB Garamond', serif;
+}
 html {
     width: 100%;
     max-height: 100%;
@@ -18,6 +22,7 @@ header {
     background-color: #9A7269;
     width: 100%;
     margin: 0 auto;
+    z-index: 1;
 }
 
 .navBox {
@@ -58,16 +63,22 @@ header {
 }
 
 /* LOGIN */
-.loginForm {
-    background-image: url('../images/burningBook.gif');
+.loginAll {
+    min-height: 175vh;
+    background-image: url('/images/loginbackground.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: -8rem;
+    background-position: 0rem -30rem;
+    overflow: hidden;
+}
+
+.loginForm {
+    background-color: rgba(14, 6, 6, 0.741);
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    margin-top: 7rem;
+    margin-top: 15rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
     box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
@@ -75,7 +86,8 @@ header {
     color: #F1F1F2;
     position: relative;
     width: 400px;
-    height: 600px;
+    height: 200px;
+    opacity: 1;
 }
 
 .loginDiv {
@@ -85,7 +97,7 @@ header {
 }
 
 .loginLabel {
-    color: black;
+    color: white;
     text-shadow: 3px 3px 10px white;
     font-size: 20px;
     padding-bottom: 1rem;
@@ -93,7 +105,7 @@ header {
 }
 
 .userorpass {
-    color: black;
+    color: white;
     font-size: 20px;
     height: 2rem;
     border: none;
@@ -104,7 +116,7 @@ header {
 
 .submitLogin {
     background: none;
-    color: black;
+    color: white;
     text-shadow: 3px 3px 10px white;
     transition: color 300ms;
     height: 50px;
@@ -136,17 +148,24 @@ header {
 /* REGISTER */
 
 .allRegister {
+    min-height: 175vh;
+    max-height: 175vh;
     display: flex;
     flex-direction: row;
+    background-image: url('/images/registerbackground.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0rem -40rem;
+    overflow: hidden;
 }
 
 .registerForm {
-    background-color: black;
+    background-color: rgba(14, 6, 6, 0.744);
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    margin-left: 15rem;
+    margin-left: 20rem;
     margin-top: 7rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -155,7 +174,7 @@ header {
     color: #F1F1F2;
     position: relative;
     width: 400px;
-    height: 500px;
+    height: 450px;
 }
 
 .registerLogo {
@@ -188,7 +207,10 @@ header {
 }
 
 .submitRegister {
-    background: none;
+    background-image: url('/images/Register.jpg');
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: 1rem -2.5rem;
     color: white;
     text-shadow: 3px 3px 10px white;
     transition: color 300ms;
@@ -226,35 +248,73 @@ header {
 
 .allProductsHere {
     margin-top: 5rem;
+    background-image: url('/src/All_Books_Search.jpg');
+    background-repeat: 1;
+    background-size: 100%;
 }
 
 .productBox {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 400px;
-    max-height: 700px;
+    max-width: 300px;
+    max-height: 550px;
     padding: 10px;
+    margin-right: 4rem;
+}
+
+.productContents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 275px;
+    max-height: 525px;
+}
+
+.productContents:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 5px rgb(58, 58, 58);
+}
+
+.productTitle {
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.productAuthor {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.productPrice {
+    font-size: 30px;
+    margin-top: 0;
 }
 
 .searchForm {
-    height: 11rem;
+    height: 110px;
+}
+
+.searchHeader {
+    font-size: 36px;
+    color: aliceblue;
+    text-shadow: 5px 5px 10px aliceblue;
+    margin-bottom: 0;
+    padding-top: 2rem;
 }
 
 .productImage {
-    width: 350px;
-    height: 400px;
+    width: 250px;
+    height: 350px;
 }
 
 .searchBarImageContainer {
-    background-image: url('/src/All_Books_Search.jpg');
+    /* background-image: url('/src/All_Books_Search.jpg');
     background-repeat: no-repeat;
-    background-size: 100% 350px;
-}
-
-.productImage:hover {
-    cursor: pointer;
-    box-shadow: 0px 0px 10px 5px rgb(58, 58, 58);
+    background-size: 100% 350px; */
 }
 
 .containerSearchProducts {
@@ -320,7 +380,7 @@ input:placeholder-shown {
 }
 
 .homeBox {
-    background-color: #9A7269;
+    background-color: rgba(81, 42, 27, 0.703);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -328,7 +388,7 @@ input:placeholder-shown {
     margin-top: 48rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
-    box-shadow: 0px 0px 10px 10px #d4bcb0;
+    border: none;
     border-radius: 50px;
     color: #F1F1F2;
     position: relative;
@@ -339,7 +399,7 @@ input:placeholder-shown {
 
 .homeBox:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 40px 10px #d4bcb0;
+    box-shadow: 0px 0px 20px 1px #d4bcb0;
 }
 
 /* ALL USERS */
@@ -393,6 +453,8 @@ input:placeholder-shown {
     height: 2rem;
     width: 15rem;
     margin-bottom: 2rem;
+    color: white;
+    font-size: 30px;
 }
 
 /* CART */
@@ -528,43 +590,33 @@ input:placeholder-shown {
     0% {
         transform: translate(1px, 1px) rotate(0deg);
     }
-
     10% {
         transform: translate(-1px, -2px) rotate(-1deg);
     }
-
     20% {
         transform: translate(-3px, 0px) rotate(1deg);
     }
-
     30% {
         transform: translate(3px, 2px) rotate(0deg);
     }
-
     40% {
         transform: translate(1px, -1px) rotate(1deg);
     }
-
     50% {
         transform: translate(-1px, 2px) rotate(-1deg);
     }
-
     60% {
         transform: translate(-3px, 1px) rotate(0deg);
     }
-
     70% {
         transform: translate(3px, 1px) rotate(-1deg);
     }
-
     80% {
         transform: translate(-1px, -1px) rotate(1deg);
     }
-
     90% {
         transform: translate(1px, 2px) rotate(0deg);
     }
-
     100% {
         transform: translate(1px, -2px) rotate(-1deg);
     }

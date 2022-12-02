@@ -15,7 +15,7 @@ import {
     Login,
     Register,
     SingleProductView,
-    AllUsers
+    AllUsers,
 } from './components'
 
 const App = () => {
