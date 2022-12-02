@@ -43,12 +43,12 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) 
                         <p id="productPrice">${price}</p>
                 </div>
 
-                <div id="productButtons">
-                        <button onClick={async (event) => {event.preventDefault(); await addProductToCart(productID, id); fetchAllUserCartItems();}}>Add to Cart</button>
-                        <button className='productSV-Buttons'><Link to='/books'>Back</Link></button>
+                <div id="productButtonsDiv">
+                        <button className='productButtons' onClick={async (event) => {event.preventDefault(); await addProductToCart(productID, id); fetchAllUserCartItems();}}>Add to Cart</button>
+                        <button className='productButtons'><Link className='productLink' to='/books'>Back</Link></button>
                 {
                     isAdmin ? (
-                        <button className='productSV-Buttons'><Link to={`/books/edit/${productID}`}>Edit Product</Link></button>
+                        <button className='productButtons'><Link className='productLink' to={`/books/edit/${productID}`}>Edit Product</Link></button>
                     ) : (
                         <p></p>
                     )

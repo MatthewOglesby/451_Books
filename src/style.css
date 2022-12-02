@@ -326,15 +326,19 @@ input:placeholder-shown {
     font-size: 2rem;
 }
 
-#productButtons{
+#productButtonsDiv{
     margin-top: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     align-content: center;
 }
 
-button.productSV-buttons{
+.productButtons{
+    color: black;
+}
+
+.productLink{
     text-decoration: none;
     color: black;
 }
