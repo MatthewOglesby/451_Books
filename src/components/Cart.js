@@ -14,7 +14,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, navigate }) => {
   }
 
   return (
-    <div>
+    <div className="main-cart-div">
       <img
         src={cartIMG}
         style={{ paddingTop: "2.89%" }}
