@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+// import React from 'react';
+// import { Link } from 'react-router-dom';
 
-const EditCart = () => {
-    return (
-        <div>
+// const EditCart = () => {
+//     return (
+//         <div>
 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-export default EditCart;
+// export default EditCart;
