@@ -708,12 +708,12 @@ checkout.input[type=text] {
     display: flex;
     flex-direction: row;
 }
-.containerCheckout {
-}
+/* .containerCheckout {
 
+}
 .containerCheckouts {
 
-}
+} */
 
 h4 {
     margin-top: 5px;

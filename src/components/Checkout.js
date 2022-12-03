@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import Badge from "@mui/material/Badge";
 import { deleteCartItem } from '../api';
 
+
 const Checkout = ({cartItems, token, fetchAllUserCartItems, navigate, fetchAllProducts}) => { 
 
     if (cartItems === undefined) {
@@ -15,6 +16,15 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems, navigate, fetchAllPr
   //   return <Link> to={`/checkout`} </Link>
   // } 
 
+  const deleteFunc = () => {
+    cartItems.map(async (item) => {
+      await deleteCartItem(token, item.cartId);
+    })
+    // fetch all the users cart items 
+  }
+
+  // alternatively update each item to set "isActive" to false
+
   return (
 
     <div className='checkoutContainer'>
@@ -25,6 +35,16 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems, navigate, fetchAllPr
 
           const { cartId, order_quantity, productId } = cartItem;
           const [count, setCount] = useState(order_quantity);
+          console.log(cartId)
+
+          const clearCart = async () => {
+            if (cartItem) {
+              const results = await deleteCartItem(token, cartId)
+              return results;
+            } else {
+              console.log('unable to delete cart')
+            }
+          }
 
           async function editCartItem(newCount) {
 
@@ -101,19 +121,10 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems, navigate, fetchAllPr
               footer: '<a href="/order">Order Confirmation Page</a>',
               closeOnConfirm: false
             }).then(async (result) => {
-
-              
-              const clearCart = async () => {
-                if (cartItem) {
-                  console.log(cartItem)
-                  const results = await deleteCartItem(token, cartId)
-                  return results;
-                }
-              }
               if (result.isConfirmed) {
+                deleteFunc();
+                fetchAllUserCartItems();
                 navigate('/books');
-                fetchAllProducts();
-                await clearCart();
               }
             })
           }}> Submit Order </button>
@@ -122,10 +133,5 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems, navigate, fetchAllPr
     </div>
   )
 }
-
-
-
-
-
 
 export default Checkout;

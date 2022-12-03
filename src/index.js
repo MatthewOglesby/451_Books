@@ -69,7 +69,7 @@ const App = () => {
 
     async function fetchAllUserCartItems() {
         const results = await getUserCart(token, user.id)
-        // console.log("Testing results from getting cart: ",results)
+        console.log("Testing results from getting cart: ",results)
         setCartItems(results)
     }
 
