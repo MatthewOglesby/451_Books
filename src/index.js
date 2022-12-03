@@ -156,6 +156,8 @@ const App = () => {
                         user={user}
                         navigate={navigate}
                         fetchAllUserCartItems={fetchAllUserCartItems}
+                        token={token}
+                        fetchAllProducts={fetchAllProducts}
                     />}
                 />
                 <Route
@@ -215,9 +217,12 @@ const App = () => {
                 />
                 <Route
                     path='/checkout'
-
                     element={<Checkout
                         cartItems={cartItems}
+                        navigate={navigate}
+                        fetchAllProducts={fetchAllProducts}
+                        fetchAllUserCartItems={fetchAllUserCartItems}
+                        token={token}
                     />}
 
                 />

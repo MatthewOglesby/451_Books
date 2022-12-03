@@ -166,7 +166,7 @@ header {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    margin-left: 20rem;
+    margin-left: 30rem;
     margin-top: 7rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -270,6 +270,7 @@ header {
     align-items: center;
     max-width: 275px;
     max-height: 525px;
+    overflow: auto;
 }
 
 .productContents:hover {
@@ -300,8 +301,8 @@ header {
 }
 
 .searchHeader {
-    font-size: 36px;
-    color: aliceblue;
+    font-size: 40px;
+    color: black;
     text-shadow: 5px 5px 10px aliceblue;
     margin-bottom: 0;
     padding-top: 2rem;
@@ -676,6 +677,11 @@ input:placeholder-shown {
 /* ADDPRODUCT */
 .formContainerAddProduct {
     margin-top: 7rem;
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 10rem;
 }
 
 /* CHECKOUT */

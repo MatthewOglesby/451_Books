@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Link, Button, Paper } from "@mui/material";
 import Swal from 'sweetalert2';
 import Badge from "@mui/material/Badge";
+import { deleteCartItem } from '../api';
 
-const Checkout = ({cartItems, token, fetchAllUserCartItems}) => { 
+const Checkout = ({cartItems, token, fetchAllUserCartItems, navigate, fetchAllProducts}) => { 
 
-  
     if (cartItems === undefined) {
         return null;
       }
-      let total =0;
+      let total = 0;
 
   // if(!user) {
   //   return <Link> to={`/checkout`} </Link>
@@ -25,7 +25,6 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems}) => {
 
           const { cartId, order_quantity, productId } = cartItem;
           const [count, setCount] = useState(order_quantity);
-
 
           async function editCartItem(newCount) {
 
@@ -101,9 +100,23 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems}) => {
               confirmButtonColor: 'orange',
               footer: '<a href="/order">Order Confirmation Page</a>',
               closeOnConfirm: false
+            }).then(async (result) => {
 
+              
+              const clearCart = async () => {
+                if (cartItem) {
+                  console.log(cartItem)
+                  const results = await deleteCartItem(token, cartId)
+                  return results;
+                }
+              }
+              if (result.isConfirmed) {
+                navigate('/books');
+                fetchAllProducts();
+                await clearCart();
+              }
             })
-          }} > Submit Order </button>
+          }}> Submit Order </button>
         </form>
       </div>
     </div>

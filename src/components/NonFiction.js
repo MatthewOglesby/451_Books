@@ -97,25 +97,25 @@ const NonFiction = ({ products, navigate }) => {
                                 const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
                                 return (
                                     genre == 'Non-Fiction' || genre == 'Non-fiction' ?
-                                        <div
-                                            key={id}
-                                            className='productBox'
-                                        >
-                                            <Paper>
-                                                {
-                                                    image == "" ? (
-                                                        <img className='productImage' src={temp} />
-                                                    )
-                                                        : (
-                                                            <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)} />
-                                                        )
-                                                }
-                                                <p>{title}</p>
-                                                <p>{author}</p>
-                                                <p>${price}</p>
-                                                <Link to={`/books/${id}`}>View</Link>
-                                            </Paper>
-                                        </div>
+                                    <div
+                                    key={id}
+                                    onClick={() => navigate(`/books/${id}`)}
+                                    className='productBox'
+                                >
+                                    <Paper className='productContents'>
+                                        {
+                                            image == "" ? (
+                                                <img className='productImage' src={temp} />
+                                            )
+                                                : (
+                                                    <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)} />
+                                                )
+                                        }
+                                        <p className='productTitle'>{title}</p>
+                                        <p className='productAuthor'>{author}</p>
+                                        <p className='productPrice'>${price}</p>
+                                    </Paper>
+                                </div>
                                         :
                                         null
                                 )
