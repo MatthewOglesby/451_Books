@@ -335,7 +335,9 @@ input:placeholder-shown {
 }
 
 .productButtons{
-    color: black;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 25%;
 }
 
 .productLink{
