@@ -5,7 +5,9 @@ import CartItem from "./CartItem";
 import cartIMG from "../Cart.jpeg";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
+
 const Cart = ({ cartItems, token, fetchAllUserCartItems, user }) => {
+
   let total = 0;
   const { isAdmin, id } = user;
 

@@ -25,35 +25,37 @@ const Login = ({ setToken, navigate }) => {
     }
 
     return (
-        <div className={error ? 'error' : 'loginForm'}>
-            <form className='loggingInForm' autoComplete='off' onSubmit={(event) => {
-                event.preventDefault();
-                handleSubmit();
-                setError(false);
-            }
-            }>
-                <div className='loginDiv'>
-                    <label className='loginLabel'>Username</label>
-                    <input
-                        className='userorpass'
-                        name='username'
-                        type='text'
-                        onChange={(event) => setUsername(event.target.value)}
-                    />
-                </div>
-                <div className='loginDiv'>
-                    <label className='loginLabel'>Password</label>
-                    <input
-                        className='userorpass'
-                        name='password'
-                        type='password'
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
-                </div>
-                <p className={error ? 'errorMessage' : 'hidden'}>Username or password is incorrect</p>
-                <button className='submitLogin' type='submit'>Login</button>
-                <p className={error ? 'errorMessage2' : 'hidden'}>Try <Link to='/register' id='sign-in-msg'>signing in</Link> instead</p>
-            </form>
+        <div className='loginAll'>
+            <div className={error ? 'error' : 'loginForm'}>
+                <form className='loggingInForm' autoComplete='off' onSubmit={(event) => {
+                    event.preventDefault();
+                    handleSubmit();
+                    setError(false);
+                }
+                }>
+                    <div className='loginDiv'>
+                        <label className='loginLabel'>Username</label>
+                        <input
+                            className='userorpass'
+                            name='username'
+                            type='text'
+                            onChange={(event) => setUsername(event.target.value)}
+                        />
+                    </div>
+                    <div className='loginDiv'>
+                        <label className='loginLabel'>Password</label>
+                        <input
+                            className='userorpass'
+                            name='password'
+                            type='password'
+                            onChange={(event) => setPassword(event.target.value)}
+                        />
+                    </div>
+                    <p className={error ? 'errorMessage' : 'hidden'}>Username or password is incorrect</p>
+                    <button className='submitLogin' type='submit'>Login</button>
+                    <p className={error ? 'errorMessage2' : 'hidden'}>Try <Link to='/register' id='sign-in-msg'>signing in</Link> instead</p>
+                </form>
+            </div>
         </div>
     )
 }

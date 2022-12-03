@@ -28,8 +28,7 @@ async function dropTables() {
   try {
     console.log("Dropping Tables");
     await client.query(`
-    DROP TABLE IF EXISTS reviews;
-    DROP TABLE IF EXISTS orders;
+      DROP TABLE IF EXISTS orders;
       DROP TABLE IF EXISTS cart;
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS products;

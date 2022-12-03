@@ -17,7 +17,6 @@ import {
     SingleProductView,
     AllUsers,
     Order
-   
 } from './components'
 
 const App = () => {

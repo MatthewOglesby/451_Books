@@ -33,9 +33,10 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post('/login', async (req, res, next) => {
+  
   try {
     const { username, password } = req.body;
-    console.log("TESTING USERNAME LINE 30", username)
+    console.log("TESTING USERNAME LINE 30", username);
     if (!username || !password) {
       res.send({
         name: "MissingCredentialsError",
@@ -43,12 +44,12 @@ router.post('/login', async (req, res, next) => {
       });
     }
     const user = await getUserByUsername(username);
-    console.log("TESTING USER______", user)
+    console.log("TESTING USER______", user);
     const hashedPassword = user.password;
-    const isValid = await bcrypt.compare(password, hashedPassword)
-
+    const isValid = await bcrypt.compare(password, hashedPassword);
+    console.log(process.env.JWT_SECRET)
     if (user && isValid) {
-      const token = jwt.sign({ id: user.id, username }, process.env.JWT_SECRET)
+      const token = jwt.sign({ id: user.id, username }, process.env.JWT_SECRET);
 
       res.send({ message: "you're logged in!", token });
 
