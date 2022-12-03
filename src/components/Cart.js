@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button, Paper, ButtonGroup, Box } from "@mui/material";
+import { Button} from "@mui/material";
 import CartItem from "./CartItem";
 import cartIMG from "../Cart.jpeg";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
-const Cart = ({ cartItems, token, fetchAllUserCartItems, user }) => {
+const Cart = ({ cartItems, token, fetchAllUserCartItems, user, navigate }) => {
 
   let total = 0;
   const { isAdmin, id } = user;
@@ -16,18 +16,16 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, user }) => {
   }
 
   return (
-    <div>
+    <div className="main-cart-div">
       <img
         src={cartIMG}
         style={{ paddingTop: "2.89%" }}
         width={"100%"}
-        height={500}
         alt="Cart IMG"
       />
 
       <div className="cartMainContainer">
         <div className="cart-main-div">
-          <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div>
 
           {cartItems?.map((cartItem, idx) => {
             console.log("In MAP");
@@ -40,6 +38,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, user }) => {
                 key={idx}
                 cartItem={cartItem}
                 token={token}
+                navigate={navigate}
                 fetchAllUserCartItems={fetchAllUserCartItems}
               />
             );
@@ -52,26 +51,20 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, user }) => {
           <span style={{ fontWeight: 700, fontSize: 20 }}>
             Total: ${total}
             <br></br>
-            
-             {/* ternary operator ?token */}
-             {
-                    isAdmin ? (
-                      <Link style={{ textDecoration: "none" }} to={`/checkout`}>
-           
-                      <Button >Proceed to checkout <PointOfSaleIcon/></Button>
-                    </Link>
-                    ) : (
-                        <p></p>
-                    )
-                }
-            {/* <Link style={{ textDecoration: "none" }} to={`/checkout`}>
-           
-              <Button >Proceed to checkout <PointOfSaleIcon/></Button>
-            </Link> */}
-            <br></br>
+            <div className="button-group-cartItems">
             <Link style={{ textDecoration: "none" }} to={`/books`}>
-              <Button >Continue Shopping <ArrowRightIcon/></Button>
+              <Button style={{ color:"white", width:"100%"}} >Continue Shopping <ArrowRightIcon fontSize="large"/></Button>
             </Link>
+            </div>
+            <br></br>
+
+            <div className="button-group-cartItems">
+            <Link style={{color:"white", textDecoration: "none" }} to={`/checkout`}>
+              <Button style={{color:"white", width:"100%"}} >Proceed to checkout <PointOfSaleIcon fontSize="small"/></Button>
+            </Link>
+           </div>
+            <br></br>
+        
           </span>
         </div>
       </div>

@@ -32,7 +32,7 @@ const Navbar = ({ logout, token, user, cartItems, fetchAllUserCartItems }) => {
             <Link to="/" onClick={() => { fetchAllUserCartItems(); }} className="navbarLink">Home</Link>
             <Link to="/books" onClick={() => { fetchAllUserCartItems(); }} className="navbarLink">Books</Link>
             <Link to="/" onClick={() => { logout(); }} className="navbarLink">Logout</Link>
-            <Link to={`/cart/${id}`} className="navbarLink"> <Badge badgeContent={cartItems.length} color="primary"><ShoppingCartCheckoutIcon /> </Badge></Link>
+            <Link to={`/cart/${id}`} className="navbarLink"> <Badge badgeContent={cartItems.length} color='warning'><ShoppingCartCheckoutIcon /> </Badge></Link>
           </>
         ) : (
           <>

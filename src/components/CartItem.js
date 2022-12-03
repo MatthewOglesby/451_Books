@@ -7,9 +7,14 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
-const CartItem = ({ cartItem, token, fetchAllUserCartItems }) => {
-  const { cartId, order_quantity, productId } = cartItem;
-  const [display, setDisplay] = useState("none");
+const CartItem = ({
+  products,
+  cartItem,
+  token,
+  fetchAllUserCartItems,
+  navigate,
+}) => {
+  const { cartId, order_quantity } = cartItem;
   const [count, setCount] = useState(order_quantity);
 
   async function editCartItem(newCount) {
@@ -23,21 +28,38 @@ const CartItem = ({ cartItem, token, fetchAllUserCartItems }) => {
   }
 
   console.log("In CartItems");
+
   return (
     <div key={cartId} className="main-cart-div">
       <div className="individualCartContainer">
         <Paper style={{ borderRadius: "1rem" }}>
-          <img src={cartItem.image} className="cartProductImage" />
+          <img
+            src={cartItem.image}
+            className="cartProductImage"
+            onClick={() => navigate(`/books/${cartItem.id}`)}
+          />
+          <br></br>
           <p>
-            Qty: <Badge color="info" badgeContent={count}></Badge>{" "}
+            Qty: <Badge color='warning' badgeContent={count}></Badge>{" "}
           </p>
           <p>Title: {cartItem.title}</p>
           <p>
             <strong>Price</strong> ${cartItem.price}
           </p>
 
-          <ButtonGroup fullWidth={true}>
+          <ButtonGroup
+          className="button-group-cartItems"
+            style={{
+              color: "white",
+              background: "#9A7269",
+              width: "100%",
+              borderRadius: "1rem",
+            }}
+            fullWidth={true}
+          >
             <Button
+              style={{ color: "white" }}
+              variant="text"
               aria-label="reduce"
               onClick={(event) => {
                 event.preventDefault();
@@ -49,6 +71,8 @@ const CartItem = ({ cartItem, token, fetchAllUserCartItems }) => {
               <RemoveIcon />
             </Button>
             <Button
+              style={{ color: "white" }}
+              variant="text"
               aria-label="increase"
               onClick={(event) => {
                 event.preventDefault();
@@ -60,9 +84,10 @@ const CartItem = ({ cartItem, token, fetchAllUserCartItems }) => {
               <AddIcon />
             </Button>
             <Button
+              style={{ color: "white" }}
+              variant="text"
               type="submit"
               color="error"
-             
               onClick={async (event) => {
                 event.preventDefault();
                 await deleteCartItem(token, cartId);
@@ -72,25 +97,6 @@ const CartItem = ({ cartItem, token, fetchAllUserCartItems }) => {
               <DeleteOutlineIcon />
             </Button>
           </ButtonGroup>
-
-          <Button
-            fullWidth={true}
-            variant="outlined"
-            style={{}}
-            onClick={(event) => {
-              event.preventDefault();
-              if (display === "none") {
-                setDisplay("block");
-              } else {
-                setDisplay("none");
-              }
-            }}
-          >
-            Click Description
-          </Button>
-          <div className="activity-box" style={{ display: display }}>
-            <p>{cartItem.description}</p>
-          </div>
         </Paper>
       </div>
     </div>
