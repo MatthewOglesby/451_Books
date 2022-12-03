@@ -567,6 +567,36 @@ h4 {
     background-color: #9A7269;;
 }
 
+h5 {
+    margin-top: 50px;
+    font-size: 50px; 
+    text-align: center;
+    color:#9A7269;
+    text-shadow: 3px 3px 10px gray;
+    background-color: blanchedalmond;
+    margin: 25px ;
+
+   
+}
+
+.orderbutton {
+ 
+    background-color:  blanchedalmond;
+    border: none;
+    color:white;
+    text-shadow: 3px 3px 10px gray;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 520px;
+    margin-left: 550px;
+    display: right;
+    font-size: larger;
+  
+ 
+
+}
+
 /* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
 @keyframes shake {
     0% {

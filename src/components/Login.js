@@ -10,7 +10,7 @@ const Login = ({ setToken, navigate }) => {
 
     const handleSubmit = async () => {
         const results = await loginUser(username, password);
-        // console.log(results)
+        console.log(results)
         if (results.token) {
             setToken(results.token)
             console.log('Successfully signed in');
