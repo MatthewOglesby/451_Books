@@ -2,7 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Paper,TextField, Button } from '@mui/material';
 import temp from '../coming_soon.JPEG';
-import SearchImage from '../All_Books_Search.jpg'
+import SearchImage from '../All_Books_Search.jpg';
+import {createTheme, ThemeProvider } from '@mui/material/styles';
+import { grey } from '@mui/material/colors';
+
+
+const customTheme = createTheme({
+    palette: {
+        primary: {
+            main: grey[50]
+        }
+    }
+})
+
 
 const Products = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -25,7 +37,8 @@ const Products = ({ products, navigate }) => {
     return (
         <div>
         <div className='allProductsHere'>
-            
+
+          <ThemeProvider theme={customTheme}>
             <div className='containerSearchProducts'>
                 <form
                     className='searchForm'
@@ -38,12 +51,14 @@ const Products = ({ products, navigate }) => {
                         id="standard-basic" label="(i.e. genre, title, author, description)" variant="standard"
                             className='userSearchInput'
                             type='text'
+                            color="primary"
                             
                             onChange={(event) => setSearchTerm(event.target.value)}
                         />
                     </div>
                 </form>
             </div>
+            </ThemeProvider>
             </div>
             <h3 style={{textAlign:'center'}}>Genre</h3>
 
