@@ -48,7 +48,7 @@ const Products = ({ products, navigate }) => {
                     <div className='returnedFormContent'>
                         <h3 className='searchHeader'>Search For Products Here</h3>
                         <TextField
-                        id="standard-basic" label="(i.e. genre, title, author, description)" variant="standard"
+                            id="outlined-basic" label="(i.e. genre, title, author, description)" variant="outlined"
                             className='userSearchInput'
                             type='text'
                             color="primary"
