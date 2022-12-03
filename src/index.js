@@ -19,7 +19,8 @@ import {
     GraphicNovel,
     NonFiction,
     Kids,
-    Educational
+    Educational,
+    Order
 } from './components'
 
 const App = () => {
