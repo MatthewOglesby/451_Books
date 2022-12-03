@@ -36,7 +36,7 @@ header {
 .navbarLink,
 .navbarLink:visited {
     color: whitesmoke;
-    text-shadow: 3px 3px 10px white;
+    text-shadow: 2px 3px 6px rgb(177, 174, 174);
     text-decoration: none;
     margin-right: 4rem;
     margin-top: .75rem;
@@ -47,9 +47,10 @@ header {
 }
 
 .navbarLink:hover {
+    transform: scale(1.5);
     cursor: pointer;
-    text-decoration: underline;
-    color: rgb(255, 98, 0);
+    text-decoration: none;
+    color: #312321;
 }
 
 .navbarName {

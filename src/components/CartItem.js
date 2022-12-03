@@ -51,7 +51,7 @@ const CartItem = ({
           className="button-group-cartItems"
             style={{
               color: "white",
-              background: "rgba(81, 42, 27, 0.703",
+              background: "#9A7269",
               width: "100%",
               borderRadius: "1rem",
             }}
