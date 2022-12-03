@@ -49,13 +49,15 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, navigate }) => {
           <span style={{ fontWeight: 700, fontSize: 20 }}>
             Total: ${total}
             <br></br>
-            <Link style={{color:"white", textDecoration: "none" }} to={`/checkout`}>
-              <Button style={{color:"white"}} >Proceed to checkout <PointOfSaleIcon/></Button>
+            <Link style={{ textDecoration: "none" }} to={`/books`}>
+              <Button style={{color:"white", width:"100%"}} >Continue Shopping <ArrowRightIcon fontSize="large"/></Button>
             </Link>
             <br></br>
-            <Link style={{ textDecoration: "none" }} to={`/books`}>
-              <Button style={{color:"white"}} >Continue Shopping <ArrowRightIcon/></Button>
+            <Link style={{color:"white", textDecoration: "none" }} to={`/checkout`}>
+              <Button style={{color:"white", width:"100%"}} >Proceed to checkout <PointOfSaleIcon fontSize="small"/></Button>
             </Link>
+            <br></br>
+           
           </span>
         </div>
       </div>
