@@ -425,6 +425,9 @@ input:placeholder-shown {
     text-decoration: none;
     color: black;
 }
+#deleteProductButton {
+    margin-left: 4rem;
+}
 
 /* HOME */
 .container {
