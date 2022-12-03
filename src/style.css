@@ -462,6 +462,7 @@ input:placeholder-shown {
     display: flex;
     flex-direction: row;
     position: fixed;
+    text-align: center;
     top: 4em;
     left: 4rem;
     margin-top: 2%;
