@@ -6,8 +6,10 @@ import cartIMG from "../Cart.jpeg";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
-const Cart = ({ cartItems, token, fetchAllUserCartItems, navigate }) => {
+const Cart = ({ cartItems, token, fetchAllUserCartItems, user, navigate }) => {
+
   let total = 0;
+  const { isAdmin, id } = user;
 
   if (cartItems === undefined) {
     return null;
@@ -62,7 +64,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, navigate }) => {
             </Link>
            </div>
             <br></br>
-           
+        
           </span>
         </div>
       </div>

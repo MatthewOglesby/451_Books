@@ -16,6 +16,7 @@ import {
     Register,
     SingleProductView,
     AllUsers,
+    Order
 } from './components'
 
 const App = () => {
@@ -187,6 +188,17 @@ const App = () => {
                     />}
                     
                 />
+
+                <Route
+                    path='/order'
+
+                    element={<Order
+                    navigate= {navigate}
+                    />}
+                    
+                />
+
+
             </Routes>
         </div>
     )
