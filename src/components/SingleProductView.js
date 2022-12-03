@@ -26,26 +26,35 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) 
                             <img className='productImage' src={temp} />
                         )
                             : (
-                                <img className='productImage' src={image} />
+                                <img id="productImageSV" className='productImage' src={image} />
                             )
                     }
-                    <h3>{title}</h3>
-                    <p>By {author}</p>
-                    <p>{description}</p>
-                    <p>Page Count: {pageCount}</p>
-                    <p>Genre: {genre}</p>
-                    <p>Price: ${price}</p>
-                    <button  onClick={async (event) => {event.preventDefault(); await addProductToCart(productID, id); fetchAllUserCartItems();}}>Add to Cart</button>
-                    <Link to='/books'>Back</Link>
-
                 </div>
+
+                <div>
+                    <div id="productInfo">
+                        <h3 id="productTitle" >{title}</h3>
+                        <p>By {author}</p>
+                        <hr className='seperatingLine'/>
+                        <p>{description}</p>
+                        <p>Page Count: {pageCount}</p>
+                        <p>{genre}</p>
+                        <hr className='seperatingLine'/>
+                        <p id="productPrice">${price}</p>
+                </div>
+
+                <div id="productButtonsDiv">
+                        <button className='productButtons' onClick={async (event) => {event.preventDefault(); await addProductToCart(productID, id); fetchAllUserCartItems();}}>Add to Cart</button>
+                        <button className='productButtons'><Link className='productLink' to='/books'>Back</Link></button>
                 {
                     isAdmin ? (
-                        <Link to={`/books/edit/${productID}`}>Edit Product</Link>
+                        <button className='productButtons'><Link className='productLink' to={`/books/edit/${productID}`}>Edit Product</Link></button>
                     ) : (
                         <p></p>
                     )
                 }
+                </div>
+                </div>
             </div>
         )
     } else {
