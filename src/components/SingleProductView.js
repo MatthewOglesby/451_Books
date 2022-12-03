@@ -34,12 +34,12 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) 
                 <div>
                     <div id="productInfo">
                         <h3 id="productTitle" >{title}</h3>
-                        <p>By {author}</p>
-                        <hr className='seperatingLine' />
-                        <p>{description}</p>
-                        <p>Page Count: {pageCount}</p>
-                        <p>{genre}</p>
-                        <hr className='seperatingLine' />
+                        <p className='productAuthor'>By {author}</p>
+                        <hr className='seperatingLine'/>
+                        <p className='productAuthor'>{description}</p>
+                        <p className='productAuthor'>Page Count: {pageCount}</p>
+                        <p className='productAuthor'>{genre}</p>
+                        <hr className='seperatingLine'/>
                         <p id="productPrice">${price}</p>
                     </div>
 

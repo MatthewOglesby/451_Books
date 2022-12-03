@@ -374,11 +374,12 @@ input:placeholder-shown {
     max-width: 800px;
     display: flex;
     flex-direction: column;
-
 }
 
 #productTitle{
-    font-size: 2.5rem;
+    font-size: 4.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
 .seperatingLine{
@@ -389,7 +390,14 @@ input:placeholder-shown {
 
 #productPrice{
     font-style: bold;
-    font-size: 2rem;
+    font-size: 4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.productAuthor {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 22px;
 }
 
 #productButtonsDiv{
@@ -402,16 +410,21 @@ input:placeholder-shown {
 
 .productButtons{
     height: 5rem;
-    width: 5rem;
-    border-radius: 25%;
+    width: 10rem;
+    border-radius: 50px;
+    border: none;
+    background-color: #d4bcb0;
+    font-size: 23.4px;
+}
+.productButtons:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 20px 1px #9A7269;
 }
 
 .productLink{
     text-decoration: none;
     color: black;
 }
-
-
 
 /* HOME */
 .container {
@@ -533,7 +546,7 @@ input:placeholder-shown {
     padding: 1% 0% 7% 0%;
     backdrop-filter: blur(0.4rem);
     cursor: grab;
-    overflow: scroll;
+    overflow-x: scroll;
     background: none;
     border-radius: 1rem;
     box-shadow: 0px 0px 2px #daa871, 0px 0px 5px #ffe9d1, 3px 3px 8px #b1b1b1,
@@ -672,29 +685,25 @@ checkout.input[type=text] {
     display: block;
     background-color: lightblue;
 }
-
-
-.containerCheckout {
-    width: 500px;
+.containerPayment {
+    width: 450px;
+    height: 550px;
     padding: 5px 5px 5px 5px;
-    /* border-radius: 3px; */
-    display: inline;
+    border-radius: 50px;
     float: left;
     color:white;
     text-shadow: 3px 3px 10px gray;
     background-color: #9A7269;;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    display: flex;
+    flex-direction: row;
+}
+.containerCheckout {
 }
 
 .containerCheckouts {
-    width: 500px;
-    height: 469px;
-    padding: 5px 5px 5px 5px;
-    /* border-radius: 3px; */
-    display: inline;
-    float: left;
-    color:white;
-    text-shadow: 3px 3px 10px gray;
-    background-color: #9A7269;;
+
 }
 
 h4 {
@@ -714,14 +723,24 @@ h5 {
     text-shadow: 3px 3px 10px gray;
     background-color: blanchedalmond;
     margin: 25px ;
-
-   
+}
+.checkout-cart-items {
+    max-height: 750px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1000px;
+}
+.checkoutContainer {
+    display: flex;
+    margin-top: 5rem;
+    justify-content: center;
 }
 
 .orderbutton {
- 
     background-color:  blanchedalmond;
     border: none;
+    border-radius: 50px;
     color:#9A7269;
     text-shadow: 3px 3px 10px gray;
     padding: 15px 32px;
@@ -731,9 +750,6 @@ h5 {
     margin-left: 46%;
     display: right;
     font-size: larger;
-  
- 
-
 }
 
 /* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
