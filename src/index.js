@@ -15,9 +15,11 @@ import {
     Register,
     SingleProductView,
     AllUsers,
-    Fantasy,
+    Fiction,
+    GraphicNovel,
     NonFiction,
-    Kids
+    Kids,
+    Educational
 } from './components'
 
 const App = () => {
@@ -156,8 +158,15 @@ const App = () => {
                     />}
                 />
                 <Route
-                    path='/books/fantasy'
-                    element={<Fantasy
+                    path='/books/fiction'
+                    element={<Fiction
+                        navigate={navigate}
+                        products={products}
+                    />}
+                />
+                <Route
+                    path='/books/graphic-novel'
+                    element={<GraphicNovel
                         navigate={navigate}
                         products={products}
                     />}
@@ -165,6 +174,13 @@ const App = () => {
                 <Route
                     path='/books/nonfiction'
                     element={<NonFiction
+                        navigate={navigate}
+                        products={products}
+                    />}
+                />
+                <Route
+                    path='/books/educational'
+                    element={<Educational
                         navigate={navigate}
                         products={products}
                     />}

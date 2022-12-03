@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Paper, TextField, Button } from '@mui/material';
 import temp from '../coming_soon.JPEG';
 
-const NonFiction = ({ products, navigate }) => {
+const GraphicNovel = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const productMatches = (product, string) => {
@@ -45,29 +45,29 @@ const NonFiction = ({ products, navigate }) => {
 
             <div className='genre-buttons-div'>
                 <Button
-                    style={{background:'purple'}}
+                    style={{ background: 'purple' }}
                     variant='contained'
                     onClick={() => navigate('/books')}
                 >
                     All Books
                 </Button>
                 <Button
-                style={{background:'rgb(152, 152, 247)'}}
+                    style={{ background: 'rgb(152, 152, 247)' }}
                     variant='contained'
-                    onClick={() => navigate('books/fiction')}
+                    onClick={() => navigate('/books/fiction')}
                 >
                     Fiction
                 </Button>
                 <Button
                     style={{ background: 'rgb(152, 152, 247)' }}
                     variant='contained'
-                    onClick={() => navigate('/books/graphic-novel')}
                 >
                     Graphic Novels
                 </Button>
                 <Button
-                style={{background:'rgb(152, 152, 247)'}}
+                    style={{ background: 'rgb(152, 152, 247)' }}
                     variant='contained'
+                    onClick={() => navigate('/books/nonfiction')}
                 >
                     Non-Fiction
                 </Button>
@@ -85,10 +85,9 @@ const NonFiction = ({ products, navigate }) => {
                 >
                     Kids
                 </Button>
-               
             </div>
 
-            <h3 style={{ textAlign: 'center', fontSize: '25px' }}>Non-Fiction</h3>
+            <h3 style={{ textAlign: 'center', fontSize: '25px' }}>Graphic Novels</h3>
             <div className='allProducts'>
                 {
                     products ?
@@ -96,7 +95,7 @@ const NonFiction = ({ products, navigate }) => {
                             productsToDisplay.map((product) => {
                                 const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
                                 return (
-                                    genre == 'Non-Fiction' || genre == 'Non-fiction' ?
+                                    genre == 'Graphic Novel' || genre == 'Graphic novel' ?
                                         <div
                                             key={id}
                                             className='productBox'
@@ -130,4 +129,4 @@ const NonFiction = ({ products, navigate }) => {
 
 }
 
-export default NonFiction;
+export default GraphicNovel;

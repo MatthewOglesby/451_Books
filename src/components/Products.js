@@ -50,9 +50,16 @@ const Products = ({ products, navigate }) => {
                 <Button
                 style={{background:'rgb(152, 152, 247)'}}
                     variant='contained'
-                    onClick={() => navigate('books/fantasy')}
+                    onClick={() => navigate('books/fiction')}
                 >
-                    Fantasy
+                    Fiction
+                </Button>
+                <Button
+                    style={{ background: 'rgb(152, 152, 247)' }}
+                    variant='contained'
+                    onClick={() => navigate('/books/graphic-novel')}
+                >
+                    Graphic Novels
                 </Button>
                 <Button
                 style={{background:'rgb(152, 152, 247)'}}
@@ -60,6 +67,13 @@ const Products = ({ products, navigate }) => {
                     onClick={() => navigate('/books/nonfiction')}
                 >
                     Non-Fiction
+                </Button>
+                <Button
+                    style={{ background: 'rgb(152, 152, 247)' }}
+                    variant='contained'
+                    onClick={() => navigate('/books/educational')}
+                >
+                    Educational
                 </Button>
                 <Button
                     style={{ background: 'rgb(152, 152, 247)' }}

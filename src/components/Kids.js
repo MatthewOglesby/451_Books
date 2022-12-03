@@ -54,8 +54,16 @@ const Kids = ({ products, navigate }) => {
                 <Button
                     style={{ background: 'rgb(152, 152, 247)' }}
                     variant='contained'
+                    onClick={() => navigate('/books/fiction')}
                 >
-                    Fantasy
+                    Fiction
+                </Button>
+                <Button
+                    style={{ background: 'rgb(152, 152, 247)' }}
+                    variant='contained'
+                    onClick={() => navigate('/books/graphic-novel')}
+                >
+                    Graphic Novels
                 </Button>
                 <Button
                     style={{ background: 'rgb(152, 152, 247)' }}
@@ -63,6 +71,13 @@ const Kids = ({ products, navigate }) => {
                     onClick={() => navigate('/books/nonfiction')}
                 >
                     Non-Fiction
+                </Button>
+                <Button
+                    style={{ background: 'rgb(152, 152, 247)' }}
+                    variant='contained'
+                    onClick={() => navigate('/books/educational')}
+                >
+                    Educational
                 </Button>
                 <Button
                     style={{ background: 'rgb(152, 152, 247)' }}
@@ -80,7 +95,7 @@ const Kids = ({ products, navigate }) => {
                             productsToDisplay.map((product) => {
                                 const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
                                 return (
-                                    genre == 'Kids' ?
+                                    genre == 'Kids' || genre == 'kids' ?
                                         <div
                                             key={id}
                                             className='productBox'

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Paper, TextField, Button } from '@mui/material';
 import temp from '../coming_soon.JPEG';
 
-const Fantasy = ({ products, navigate }) => {
+const Educational = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const productMatches = (product, string) => {
@@ -54,8 +54,16 @@ const Fantasy = ({ products, navigate }) => {
                 <Button
                     style={{ background: 'rgb(152, 152, 247)' }}
                     variant='contained'
+                    onClick={() => navigate('/books/fiction')}
                 >
-                    Fantasy
+                    Fiction
+                </Button>
+                <Button
+                    style={{ background: 'rgb(152, 152, 247)' }}
+                    variant='contained'
+                    onClick={() => navigate('/books/graphic-novel')}
+                >
+                    Graphic Novels
                 </Button>
                 <Button
                     style={{ background: 'rgb(152, 152, 247)' }}
@@ -67,13 +75,19 @@ const Fantasy = ({ products, navigate }) => {
                 <Button
                     style={{ background: 'rgb(152, 152, 247)' }}
                     variant='contained'
+                >
+                    Educational
+                </Button>
+                <Button
+                    style={{ background: 'rgb(152, 152, 247)' }}
+                    variant='contained'
                     onClick={() => navigate('/books/kids')}
                 >
                     Kids
                 </Button>
             </div>
 
-            <h3 style={{ textAlign: 'center', fontSize: '25px' }}>Fantasy</h3>
+            <h3 style={{ textAlign: 'center', fontSize: '25px' }}>Educational</h3>
             <div className='allProducts'>
                 {
                     products ?
@@ -81,7 +95,7 @@ const Fantasy = ({ products, navigate }) => {
                             productsToDisplay.map((product) => {
                                 const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
                                 return (
-                                    genre == 'Fantasy' ?
+                                    genre == 'Educational' || genre == 'educational' ?
                                         <div
                                             key={id}
                                             className='productBox'
@@ -115,4 +129,4 @@ const Fantasy = ({ products, navigate }) => {
 
 }
 
-export default Fantasy;
+export default Educational;
