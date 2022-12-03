@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Button, Paper} from "@mui/material";
+import { Link, Button, Paper} from "@mui/material";
 import Swal from 'sweetalert2';
 import Badge from "@mui/material/Badge";
 
@@ -8,6 +8,10 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems}) => {
         return null;
       }
       let total =0;
+
+      // if(!user) {
+      //   return <Link> to={`/checkout`} </Link>
+      // } 
 
       
 
@@ -92,35 +96,38 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems}) => {
             <input type="text" id="saddress" name="shippingaddress" placeholder="1234 Street"></input>
         
             <p> City </p>
-            <input type="text" id="city" name="city" placeholder="New Orleans" required></input>
+            <input type="text" id="city" name="city" placeholder="New Orleans" ></input>
             <p> State </p> 
-            <input type="text" id="state" name="state" placeholder="LA" required></input>
+            <input type="text" id="state" name="state" placeholder="LA" ></input>
             <p> Zip Code </p>
-            <input type="text" id="zcode" name="zipcode" placeholder="11111" required></input>
+            <input type="text" id="zcode" name="zipcode" placeholder="11111" ></input>
             </form>
         
        
             <form className='containerCheckouts'> 
             <p style={{ textAlign: 'left' }} > Name on Card </p>
-            <input type="text" id="cname" name="cardname" placeholder="Jane J. Doe" required></input>
+            <input type="text" id="cname" name="cardname" placeholder="Jane J. Doe" ></input>
             <p style={{ textAlign: 'left'}} > Credit Card Number </p>
-            <input type="text" id="creditcard" name="creditcard" placeholder="1111 2222 3333 4444" required></input>
+            <input type="text" id="creditcard" name="creditcard" placeholder="1111 2222 3333 4444" ></input>
             <p style={{ textAlign: 'left' }} > Expiration Date </p>
-            <input type="text" id="expirationdate" name="expirationdate" placeholder="11/23" required></input>
+            <input type="text" id="expirationdate" name="expirationdate" placeholder="11/23" ></input>
             <p style={{ textAlign: 'left' }} >CVV </p> 
-            <input type="text" id="cvv" name="cvv" placeholder="999" required></input>
+            <input type="text" id="cvv" name="cvv" placeholder="999"></input>
 
-
-         
-
-            <button  onClick={() => {
+            <button  onClick={(e) => {
+             e.preventDefault();
                  Swal.fire({
                     title: 'Thanks for shopping with us',
                     icon: 'success',
                     iconColor: 'green',
-                    confirmButtonColor: 'orange'
+                    confirmButtonColor: 'orange',
+                    footer: '<a href="/order">Order Confirmation Page</a>',
+                    closeOnConfirm: false
+                   
                 })
             }} > Submit Order </button>
+
+
 
 
 

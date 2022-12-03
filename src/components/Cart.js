@@ -6,8 +6,10 @@ import cartIMG from "../Cart.jpeg";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
-const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
+const Cart = ({ cartItems, token, fetchAllUserCartItems, user }) => {
+
   let total = 0;
+  const { isAdmin, id } = user;
 
   if (cartItems === undefined) {
     return null;
@@ -50,9 +52,22 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
           <span style={{ fontWeight: 700, fontSize: 20 }}>
             Total: ${total}
             <br></br>
-            <Link style={{ textDecoration: "none" }} to={`/checkout`}>
+            
+             {/* ternary operator ?token */}
+             {
+                    isAdmin ? (
+                      <Link style={{ textDecoration: "none" }} to={`/checkout`}>
+           
+                      <Button >Proceed to checkout <PointOfSaleIcon/></Button>
+                    </Link>
+                    ) : (
+                        <p></p>
+                    )
+                }
+            {/* <Link style={{ textDecoration: "none" }} to={`/checkout`}>
+           
               <Button >Proceed to checkout <PointOfSaleIcon/></Button>
-            </Link>
+            </Link> */}
             <br></br>
             <Link style={{ textDecoration: "none" }} to={`/books`}>
               <Button >Continue Shopping <ArrowRightIcon/></Button>
