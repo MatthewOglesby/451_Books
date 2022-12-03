@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Paper,TextField, Button } from '@mui/material';
+import { Paper, TextField, Button } from '@mui/material';
 import temp from '../coming_soon.JPEG';
-import SearchImage from '../All_Books_Search.jpg'
 
-const Products = ({ products, navigate }) => {
+const Fiction = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const productMatches = (product, string) => {
@@ -20,38 +19,41 @@ const Products = ({ products, navigate }) => {
 
     const productsToDisplay = searchTerm.length ? filteredProducts : products;
 
-    // console.log(products)
-
     return (
-        <div>
         <div className='allProductsHere'>
-            
-            <div className='containerSearchProducts'>
-                <form
-                    className='searchForm'
-                    onSubmit={(event) => {
-                        event.preventDefault();
-                    }}>
-                    <div className='returnedFormContent'>
-                        <h3 className='searchHeader'>Search For Products Here</h3>
-                        <TextField
-                        id="standard-basic" label="(i.e. genre, title, author, description)" variant="standard"
-                            className='userSearchInput'
-                            type='text'
-                            
-                            onChange={(event) => setSearchTerm(event.target.value)}
-                        />
-                    </div>
-                </form>
+            <div className='searchBarImageContainer'>
+                <div className='containerSearchProducts'>
+                    <form
+                        className='searchForm'
+                        onSubmit={(event) => {
+                            event.preventDefault();
+                        }}>
+                        <div className='returnedFormContent'>
+                            <h3 className='searchHeader'>Search For Products Here</h3>
+                            <TextField
+                                id="standard-basic" label="(i.e. genre, title, author, description)" variant="standard"
+                                className='userSearchInput'
+                                type='text'
+
+                                onChange={(event) => setSearchTerm(event.target.value)}
+                            />
+                        </div>
+                    </form>
+                </div>
             </div>
-            </div>
-            <h3 style={{textAlign:'center'}}>Genre</h3>
+            <h3>Genre</h3>
 
             <div className='genre-buttons-div'>
                 <Button
-                style={{background:'rgb(152, 152, 247)'}}
+                    style={{ background: 'purple' }}
                     variant='contained'
-                    onClick={() => navigate('books/fiction')}
+                    onClick={() => navigate('/books')}
+                >
+                    All Books
+                </Button>
+                <Button
+                    style={{ background: 'rgb(152, 152, 247)' }}
+                    variant='contained'
                 >
                     Fiction
                 </Button>
@@ -63,7 +65,7 @@ const Products = ({ products, navigate }) => {
                     Graphic Novels
                 </Button>
                 <Button
-                style={{background:'rgb(152, 152, 247)'}}
+                    style={{ background: 'rgb(152, 152, 247)' }}
                     variant='contained'
                     onClick={() => navigate('/books/nonfiction')}
                 >
@@ -83,8 +85,9 @@ const Products = ({ products, navigate }) => {
                 >
                     Kids
                 </Button>
-
             </div>
+
+            <h3 style={{ textAlign: 'center', fontSize: '25px' }}>Fiction</h3>
             <div className='allProducts'>
                 {
                     products ?
@@ -92,36 +95,38 @@ const Products = ({ products, navigate }) => {
                             productsToDisplay.map((product) => {
                                 const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
                                 return (
-                                        <div 
-                                        key={id}
-                                        onClick={() => navigate(`/books/${id}`)}
-                                        className='productBox'
+                                    genre == 'Fantasy' || genre == 'fantasy' ?
+                                        <div
+                                            key={id}
+                                            className='productBox'
                                         >
-                                            <Paper className='productContents'>
+                                            <Paper>
                                                 {
                                                     image == "" ? (
                                                         <img className='productImage' src={temp} />
                                                     )
-                                                    : (
-                                                        <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)}/>
-                                                    )
+                                                        : (
+                                                            <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)} />
+                                                        )
                                                 }
-                                                <p className='productTitle'>{title}</p>
-                                                <p className='productAuthor'>{author}</p>
-                                                <p className='productPrice'>${price}</p>
+                                                <p>{title}</p>
+                                                <p>{author}</p>
+                                                <p>${price}</p>
+                                                <Link to={`/books/${id}`}>View</Link>
                                             </Paper>
                                         </div>
- 
+                                        :
+                                        null
                                 )
                             })
                         ) : (
-                            <p>Whoops! There was an issue getting our books for you.</p>
+                            <p></p>
                         )
                 }
             </div>
         </div>
-        
     )
+
 }
 
-export default Products;
+export default Fiction;

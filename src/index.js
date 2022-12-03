@@ -9,13 +9,17 @@ import {
     AddProduct,
     Cart,
     Checkout,
-    EditCart,
     EditProduct,
     Home,
     Login,
     Register,
     SingleProductView,
     AllUsers,
+    Fiction,
+    GraphicNovel,
+    NonFiction,
+    Kids,
+    Educational,
     Order
 } from './components'
 
@@ -114,9 +118,6 @@ const App = () => {
                     />}
                 />
                 <Route
-                    path='/:title'
-                />
-                <Route
                     path='/all-users'
                     element={<AllUsers
                         navigate={navigate}
@@ -158,6 +159,41 @@ const App = () => {
                     />}
                 />
                 <Route
+                    path='/books/fiction'
+                    element={<Fiction
+                        navigate={navigate}
+                        products={products}
+                    />}
+                />
+                <Route
+                    path='/books/graphic-novel'
+                    element={<GraphicNovel
+                        navigate={navigate}
+                        products={products}
+                    />}
+                />
+                <Route
+                    path='/books/nonfiction'
+                    element={<NonFiction
+                        navigate={navigate}
+                        products={products}
+                    />}
+                />
+                <Route
+                    path='/books/educational'
+                    element={<Educational
+                        navigate={navigate}
+                        products={products}
+                    />}
+                />
+                <Route
+                    path='/books/kids'
+                    element={<Kids
+                        navigate={navigate}
+                        products={products}
+                    />}
+                />
+                <Route
                     path='/add-product'
                     element={<AddProduct
                         fetchAllProducts={fetchAllProducts}
@@ -165,9 +201,6 @@ const App = () => {
                         products={products}
                         token={token}
                     />}
-                />
-                <Route
-                    path='/edit-cart'
                 />
                 <Route
                     path='/cart/:id'
@@ -184,21 +217,10 @@ const App = () => {
                     path='/checkout'
 
                     element={<Checkout
-                    cartItems={cartItems}
+                        cartItems={cartItems}
                     />}
-                    
+
                 />
-
-                <Route
-                    path='/order'
-
-                    element={<Order
-                    navigate= {navigate}
-                    />}
-                    
-                />
-
-
             </Routes>
         </div>
     )
@@ -211,6 +233,6 @@ root.render(
         <BrowserRouter>
             <App />
         </BrowserRouter>
-       
+
     </React.Fragment>
 );

@@ -13,7 +13,7 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) 
 
     if (products.length) {
         const [currentProduct] = products.filter(product => product.id == productID);
-        // console.log(currentProduct)
+        console.log(currentProduct)
         const { author, title, description, genre, image, quantity, pageCount, price } = currentProduct;
         const { isAdmin, id } = user;
         // console.log(isAdmin)
@@ -41,19 +41,26 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) 
                         <p className='productAuthor'>{genre}</p>
                         <hr className='seperatingLine'/>
                         <p id="productPrice">${price}</p>
-                </div>
+                    </div>
 
-                <div id="productButtonsDiv">
-                        <button className='productButtons' onClick={async (event) => {event.preventDefault(); await addProductToCart(productID, id); fetchAllUserCartItems();}}>Add to Cart</button>
-                        <button className='productButtons'><Link className='productLink' to='/books'>Back</Link></button>
-                {
-                    isAdmin ? (
-                        <button className='productButtons'><Link className='productLink' to={`/books/edit/${productID}`}>Edit Product</Link></button>
-                    ) : (
-                        <p></p>
-                    )
-                }
-                </div>
+                    <div id="productButtonsDiv">
+                        <button className='productButtons' onClick={async (event) => {
+                            event.preventDefault();
+                            await addProductToCart(productID, id);
+                            fetchAllUserCartItems();
+                        }}
+                        >
+                            Add to Cart
+                        </button>
+                        <button className='productButtons' onClick={() => history.back()}>Back</button>
+                        {
+                            isAdmin ? (
+                                <button className='productButtons'><Link className='productLink' to={`/books/edit/${productID}`}>Edit Product</Link></button>
+                            ) : (
+                                <p>You are not authorized to view this page.</p>
+                            )
+                        }
+                    </div>
                 </div>
             </div>
         )

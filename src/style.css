@@ -312,11 +312,11 @@ header {
     height: 350px;
 }
 
-.searchBarImageContainer {
-    /* background-image: url('/src/All_Books_Search.jpg');
+/* .searchBarImageContainer {
+    background-image: url('/src/All_Books_Search.jpg');
     background-repeat: no-repeat;
-    background-size: 100% 350px; */
-}
+    background-size: 100% 350px; 
+} */
 
 .containerSearchProducts {
     height: 11rem;
@@ -347,6 +347,11 @@ input:placeholder-shown {
 .price>* {
     display: inline;
     padding: 5px;
+}
+
+.genre-buttons-div {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 /* SINGLE VIEW */
@@ -803,5 +808,4 @@ html ::-webkit-scrollbar-thumb {
 
 /* MOBILE MODIFCATION */
 @media only screen and (max-width: 1281px) {}
-
 

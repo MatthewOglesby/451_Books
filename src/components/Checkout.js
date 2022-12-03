@@ -3,11 +3,13 @@ import { Link, Button, Paper } from "@mui/material";
 import Swal from 'sweetalert2';
 import Badge from "@mui/material/Badge";
 
-const Checkout = ({ cartItems, token, fetchAllUserCartItems }) => {
-  if (cartItems === undefined) {
-    return null;
-  }
-  let total = 0;
+const Checkout = ({cartItems, token, fetchAllUserCartItems}) => { 
+
+  
+    if (cartItems === undefined) {
+        return null;
+      }
+      let total =0;
 
   // if(!user) {
   //   return <Link> to={`/checkout`} </Link>

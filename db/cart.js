@@ -14,9 +14,9 @@ async function getAllCarts() {
     }
   }
 
-async function addProductToCart( productId, userId) {
-    const product = await getProductById(productId);
-   
+async function addProductToCart( productId, userId ) {
+    // const product = await getProductById(productId);
+
     try {
         const { rows: [cart] } = await client.query(`
             INSERT INTO cart ("productId", "userId", order_quantity)
