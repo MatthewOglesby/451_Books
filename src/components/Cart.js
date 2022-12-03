@@ -19,13 +19,11 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, navigate }) => {
         src={cartIMG}
         style={{ paddingTop: "2.89%" }}
         width={"100%"}
-        height={500}
         alt="Cart IMG"
       />
 
       <div className="cartMainContainer">
         <div className="cart-main-div">
-          <div>{cartItems.length === 0 && <div>Cart Is Empty</div>}</div>
 
           {cartItems?.map((cartItem, idx) => {
             console.log("In MAP");
@@ -51,12 +49,12 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, navigate }) => {
           <span style={{ fontWeight: 700, fontSize: 20 }}>
             Total: ${total}
             <br></br>
-            <Link style={{ textDecoration: "none" }} to={`/checkout`}>
-              <Button >Proceed to checkout <PointOfSaleIcon/></Button>
+            <Link style={{color:"white", textDecoration: "none" }} to={`/checkout`}>
+              <Button style={{color:"white"}} >Proceed to checkout <PointOfSaleIcon/></Button>
             </Link>
             <br></br>
             <Link style={{ textDecoration: "none" }} to={`/books`}>
-              <Button >Continue Shopping <ArrowRightIcon/></Button>
+              <Button style={{color:"white"}} >Continue Shopping <ArrowRightIcon/></Button>
             </Link>
           </span>
         </div>

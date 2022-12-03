@@ -50,9 +50,8 @@ const CartItem = ({
           <ButtonGroup
           className="button-group-cartItems"
             style={{
-              opacity:"90%",
               color: "white",
-              background: "#9A7269",
+              background: "rgba(81, 42, 27, 0.703",
               width: "100%",
               borderRadius: "1rem",
             }}
