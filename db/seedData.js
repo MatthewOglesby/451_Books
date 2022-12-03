@@ -49,7 +49,7 @@ async function createTables() {
       CREATE TABLE products (
         id SERIAL PRIMARY KEY,
         title VARCHAR(255) UNIQUE NOT NULL,
-        description VARCHAR(255) UNIQUE NOT NULL,
+        description VARCHAR(500) UNIQUE NOT NULL,
         author VARCHAR(255),
         "pageCount" VARCHAR(255),
         genre VARCHAR(255),

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { addProductToCart } from '../api';
+import { addProductToCart, deleteProduct } from '../api';
 
 import temp from '../coming_soon.JPEG';
 
@@ -55,7 +55,10 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) 
                         <button className='productButtons' onClick={() => history.back()}>Back</button>
                         {
                             isAdmin ? (
+                                <div>
                                 <button className='productButtons'><Link className='productLink' to={`/books/edit/${productID}`}>Edit Product</Link></button>
+                                <button className='productButtons' id='deleteProductButton' onClick={async () => await deleteProduct()}>Delete Book</button>
+                                </div>
                             ) : (
                                 <p>You are not authorized to view this page.</p>
                             )

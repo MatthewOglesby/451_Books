@@ -188,7 +188,7 @@ export const deleteCartItem = async (token, id) => {
         console.log(results);
         return results;
       } catch (ex) {
-        console.log("error deleting routine",ex);
+        console.log("error deleting cart item",ex);
         throw ex;
       }
   };
@@ -236,3 +236,21 @@ export const addProductToCart = async ( productId, userId) => {
     throw ex;
   }
 }
+
+export const deleteProduct = async (token, id) => {
+  try {
+    const response = await fetch(`${baseURL}/products/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+    });
+    const results = await response.json();
+    console.log(results);
+    return results;
+  } catch (ex) {
+    console.log("error deleting product",ex);
+    throw ex;
+  }
+};
