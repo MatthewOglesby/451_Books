@@ -48,7 +48,9 @@ const CartItem = ({
           </p>
 
           <ButtonGroup
+          className="button-group-cartItems"
             style={{
+              opacity:"90%",
               color: "white",
               background: "#9A7269",
               width: "100%",
