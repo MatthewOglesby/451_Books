@@ -23,8 +23,9 @@ const Products = ({ products, navigate }) => {
     // console.log(products)
 
     return (
+        <div>
         <div className='allProductsHere'>
-            <div className='searchBarImageContainer'>
+            
             <div className='containerSearchProducts'>
                 <form
                     className='searchForm'
@@ -93,10 +94,10 @@ const Products = ({ products, navigate }) => {
                                 return (
                                         <div 
                                         key={id}
-                                        
+                                        onClick={() => navigate(`/books/${id}`)}
                                         className='productBox'
                                         >
-                                            <Paper>
+                                            <Paper className='productContents'>
                                                 {
                                                     image == "" ? (
                                                         <img className='productImage' src={temp} />
@@ -105,11 +106,10 @@ const Products = ({ products, navigate }) => {
                                                         <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)}/>
                                                     )
                                                 }
-                                                <p>{title}</p>
-                                                <p>{author}</p>
-                                                <p>${price}</p>
-                                                <Link to={`/books/${id}`}>View</Link>
-                                                </Paper>
+                                                <p className='productTitle'>{title}</p>
+                                                <p className='productAuthor'>{author}</p>
+                                                <p className='productPrice'>${price}</p>
+                                            </Paper>
                                         </div>
  
                                 )
@@ -120,6 +120,7 @@ const Products = ({ products, navigate }) => {
                 }
             </div>
         </div>
+        
     )
 }
 
