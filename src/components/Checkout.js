@@ -2,18 +2,28 @@ import React, { useState } from 'react';
 import { Link, Button, Paper } from "@mui/material";
 import Swal from 'sweetalert2';
 import Badge from "@mui/material/Badge";
+import { deleteCartItem } from '../api';
 
-const Checkout = ({cartItems, token, fetchAllUserCartItems}) => { 
 
-  
+const Checkout = ({cartItems, token, fetchAllUserCartItems, navigate, fetchAllProducts}) => { 
+
     if (cartItems === undefined) {
         return null;
       }
-      let total =0;
+      let total = 0;
 
   // if(!user) {
   //   return <Link> to={`/checkout`} </Link>
   // } 
+
+  const deleteFunc = () => {
+    cartItems.map(async (item) => {
+      await deleteCartItem(token, item.cartId);
+    })
+    // fetch all the users cart items 
+  }
+
+  // alternatively update each item to set "isActive" to false
 
   return (
 
@@ -25,7 +35,16 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems}) => {
 
           const { cartId, order_quantity, productId } = cartItem;
           const [count, setCount] = useState(order_quantity);
+          console.log(cartId)
 
+          const clearCart = async () => {
+            if (cartItem) {
+              const results = await deleteCartItem(token, cartId)
+              return results;
+            } else {
+              console.log('unable to delete cart')
+            }
+          }
 
           async function editCartItem(newCount) {
 
@@ -101,18 +120,18 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems}) => {
               confirmButtonColor: 'orange',
               footer: '<a href="/order">Order Confirmation Page</a>',
               closeOnConfirm: false
-
+            }).then(async (result) => {
+              if (result.isConfirmed) {
+                deleteFunc();
+                fetchAllUserCartItems();
+                navigate('/books');
+              }
             })
-          }} > Submit Order </button>
+          }}> Submit Order </button>
         </form>
       </div>
     </div>
   )
 }
-
-
-
-
-
 
 export default Checkout;

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Paper,TextField, Button } from '@mui/material';
+import { Paper, TextField, Button } from '@mui/material';
 import temp from '../coming_soon.JPEG';
 import SearchImage from '../All_Books_Search.jpg';
 import {createTheme, ThemeProvider } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
-
 
 const customTheme = createTheme({
     palette: {
@@ -15,9 +14,9 @@ const customTheme = createTheme({
     }
 })
 
-
 const Products = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
+    const primary = purple[50]
 
     const productMatches = (product, string) => {
         const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
@@ -35,7 +34,7 @@ const Products = ({ products, navigate }) => {
     // console.log(products)
 
     return (
-        <div>
+
         <div className='allProductsHere'>
 
           <ThemeProvider theme={customTheme}>
@@ -52,19 +51,18 @@ const Products = ({ products, navigate }) => {
                             className='userSearchInput'
                             type='text'
                             color="primary"
-                            
                             onChange={(event) => setSearchTerm(event.target.value)}
                         />
                     </div>
                 </form>
             </div>
             </ThemeProvider>
-            </div>
-            <h3 style={{textAlign:'center'}}>Genre</h3>
+            <h3 style={{textAlign:'center', color: 'black', fontSize: '40px', textShadow: '5px 5px 10px white'}}>Genre</h3>
+
 
             <div className='genre-buttons-div'>
                 <Button
-                style={{background:'rgb(152, 152, 247)'}}
+                    style={{ background: 'rgb(152, 152, 247)' }}
                     variant='contained'
                     onClick={() => navigate('books/fiction')}
                 >
@@ -78,7 +76,7 @@ const Products = ({ products, navigate }) => {
                     Graphic Novels
                 </Button>
                 <Button
-                style={{background:'rgb(152, 152, 247)'}}
+                    style={{ background: 'rgb(152, 152, 247)' }}
                     variant='contained'
                     onClick={() => navigate('/books/nonfiction')}
                 >
@@ -107,26 +105,26 @@ const Products = ({ products, navigate }) => {
                             productsToDisplay.map((product) => {
                                 const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
                                 return (
-                                        <div 
+                                    <div
                                         key={id}
                                         onClick={() => navigate(`/books/${id}`)}
                                         className='productBox'
-                                        >
-                                            <Paper className='productContents'>
-                                                {
-                                                    image == "" ? (
-                                                        <img className='productImage' src={temp} />
-                                                    )
+                                    >
+                                        <Paper className='productContents'>
+                                            {
+                                                image == "" ? (
+                                                    <img className='productImage' src={temp} />
+                                                )
                                                     : (
-                                                        <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)}/>
+                                                        <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)} />
                                                     )
-                                                }
-                                                <p className='productTitle'>{title}</p>
-                                                <p className='productAuthor'>{author}</p>
-                                                <p className='productPrice'>${price}</p>
-                                            </Paper>
-                                        </div>
- 
+                                            }
+                                            <p className='productTitle'>{title}</p>
+                                            <p className='productAuthor'>{author}</p>
+                                            <p className='productPrice'>${price}</p>
+                                        </Paper>
+                                    </div>
+
                                 )
                             })
                         ) : (
@@ -135,7 +133,7 @@ const Products = ({ products, navigate }) => {
                 }
             </div>
         </div>
-        
+
     )
 }
 

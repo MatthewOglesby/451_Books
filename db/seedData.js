@@ -69,7 +69,7 @@ async function createTables() {
       CREATE TABLE cart (
         id SERIAL PRIMARY KEY,
         order_quantity INTEGER,
-        "isActive" BOOLEAN  DEFAULT false,
+        "isActive" BOOLEAN DEFAULT false,
         "userId" INTEGER REFERENCES users(id),
         "productId" INTEGER REFERENCES products(id),
         UNIQUE ("userId", "productId")

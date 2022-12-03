@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { registerUser } from '../api';
 
-const Register = ({setToken, token, navigate}) => {
+const Register = ({ setToken, token, navigate }) => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -11,13 +11,13 @@ const Register = ({setToken, token, navigate}) => {
 
     let loginForm = document.getElementById('loginForm')
 
-    const handleSubmit = async() => {
+    const handleSubmit = async () => {
         const results = await registerUser(email, username, password);
-    
+
         if (password !== confirmPassword) {
             return null;
         }
-    
+
         if (results.token) {
             setToken(results.token)
             console.log(results.message);
@@ -35,54 +35,54 @@ const Register = ({setToken, token, navigate}) => {
 
     return (
         <div className='allRegister'>
-        <div className='registerForm' id='loginForm'>
-            <form className='registrationForm' onSubmit={(event) => {
-                event.preventDefault();
-                handleSubmit();
-            }
-            }>
-                <div className='registerDiv'>
-                    <label className='registerLabel'>Enter Email</label>
-                    <input
-                        className='userorpass'
-                        name='email'
-                        type='text'
-                        autoFocus
-                        onChange={(event) => setEmail(event.target.value)}
-                    />
-                </div>
-                <div className='registerDiv'>
-                    <label className='registerLabel'>Create Username</label>
-                    <input
-                        className='userorpass'
-                        name='username'
-                        type='text'
-                        autoFocus
-                        onChange={(event) => setUsername(event.target.value)}
-                    />
-                </div>
-                <div className='registerDiv'>
-                    <label className='registerLabel'>Create Password</label>
-                    <input
-                        className='userorpass'
-                        name='password'
-                        type='password'
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
-                </div>
-                <div className='registerDiv'>
-                    <label className='registerLabel'>Confirm Password</label>
-                    <input
-                        className='userorpass'
-                        name='confirmPassword'
-                        type='password'
-                        onChange={(event) => setConfirmPassword(event.target.value)}
-                    />
-                </div>
-                <button className='submitRegister' type='submit' />
-                <p id='errorMessage'></p>
-            </form>
-        </div>
+            <div className='registerForm' id='loginForm'>
+                <form className='registrationForm' onSubmit={(event) => {
+                    event.preventDefault();
+                    handleSubmit();
+                }
+                }>
+                    <div className='registerDiv'>
+                        <label className='registerLabel'>Enter Email</label>
+                        <input
+                            className='userorpass'
+                            name='email'
+                            type='text'
+                            autoFocus
+                            onChange={(event) => setEmail(event.target.value)}
+                        />
+                    </div>
+                    <div className='registerDiv'>
+                        <label className='registerLabel'>Create Username</label>
+                        <input
+                            className='userorpass'
+                            name='username'
+                            type='text'
+                            autoFocus
+                            onChange={(event) => setUsername(event.target.value)}
+                        />
+                    </div>
+                    <div className='registerDiv'>
+                        <label className='registerLabel'>Create Password</label>
+                        <input
+                            className='userorpass'
+                            name='password'
+                            type='password'
+                            onChange={(event) => setPassword(event.target.value)}
+                        />
+                    </div>
+                    <div className='registerDiv'>
+                        <label className='registerLabel'>Confirm Password</label>
+                        <input
+                            className='userorpass'
+                            name='confirmPassword'
+                            type='password'
+                            onChange={(event) => setConfirmPassword(event.target.value)}
+                        />
+                    </div>
+                    <button className='submitRegister' type='submit' />
+                    <p id='errorMessage'></p>
+                </form>
+            </div>
         </div>
     )
 }
