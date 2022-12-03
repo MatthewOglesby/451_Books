@@ -2,10 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { addProductToCart, deleteProduct } from '../api';
+import Swal from 'sweetalert2';
 
 import temp from '../coming_soon.JPEG';
 
-const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) => {
+const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate, token, fetchAllProducts }) => {
     const { productID } = useParams();
     // console.log(productID)
     // console.log(products)
@@ -57,7 +58,36 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate }) 
                             isAdmin ? (
                                 <div>
                                 <button className='productButtons'><Link className='productLink' to={`/books/edit/${productID}`}>Edit Product</Link></button>
-                                <button className='productButtons' id='deleteProductButton' onClick={async () => await deleteProduct()}>Delete Book</button>
+                                <button 
+                                    className='productButtons' 
+                                    id='deleteProductButton' 
+                                    onClick={async () => {
+                                        Swal.fire({
+                                            title: 'Are you sure?',
+                                            text: "You won't be able to revert this",
+                                            icon: 'warning',
+                                            iconColor: 'rgb(255, 115, 0)',
+                                            showCancelButton: true,
+                                            confirmButtonColor: 'rgb(255, 42, 42)',
+                                            cancelButtonColor: 'rgb(24, 23, 23)',
+                                            confirmButtonText: 'Yes, delete it!'
+                                        }).then(async (result) => {
+                                            if (result.isConfirmed) {
+                                                const results = await deleteProduct(token, productID);
+                                                navigate('/books');
+                                                fetchAllProducts();
+                                                console.log('successful deletion', results)
+                                                Swal.fire({
+                                                    title: 'Deleted!',
+                                                    text: 'Your book has been deleted.',
+                                                    icon: 'success',
+                                                    iconColor: 'rgb(255, 42, 42)',
+                                                    confirmButtonColor: 'rgb(255, 42, 42)'
+                                                }
+                                                )
+                                            }
+                                        })
+                                        }}>Delete Book</button>
                                 </div>
                             ) : (
                                 <p>You are not authorized to view this page.</p>

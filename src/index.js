@@ -69,7 +69,7 @@ const App = () => {
 
     async function fetchAllUserCartItems() {
         const results = await getUserCart(token, user.id)
-        // console.log("Testing results from getting cart: ",results)
+        console.log("Testing results from getting cart: ",results)
         setCartItems(results)
     }
 
@@ -156,6 +156,8 @@ const App = () => {
                         user={user}
                         navigate={navigate}
                         fetchAllUserCartItems={fetchAllUserCartItems}
+                        token={token}
+                        fetchAllProducts={fetchAllProducts}
                     />}
                 />
                 <Route
@@ -215,9 +217,12 @@ const App = () => {
                 />
                 <Route
                     path='/checkout'
-
                     element={<Checkout
                         cartItems={cartItems}
+                        navigate={navigate}
+                        fetchAllProducts={fetchAllProducts}
+                        fetchAllUserCartItems={fetchAllUserCartItems}
+                        token={token}
                     />}
 
                 />
