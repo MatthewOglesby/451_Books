@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { Navigate } from 'react-router-dom';
 import { registerUser } from '../api';
-import logo from '../Register.jpg'
 
 const Register = ({setToken, token, navigate}) => {
     const [email, setEmail] = useState('');
@@ -36,7 +35,6 @@ const Register = ({setToken, token, navigate}) => {
 
     return (
         <div className='allRegister'>
-            <img src={logo} className='registerLogo'/>
         <div className='registerForm' id='loginForm'>
             <form className='registrationForm' onSubmit={(event) => {
                 event.preventDefault();
