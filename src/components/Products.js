@@ -2,7 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Paper, TextField, Button } from '@mui/material';
 import temp from '../coming_soon.JPEG';
-import {purple} from '@mui/material/colors';
+import SearchImage from '../All_Books_Search.jpg';
+import {createTheme, ThemeProvider } from '@mui/material/styles';
+import { grey } from '@mui/material/colors';
+
+const customTheme = createTheme({
+    palette: {
+        primary: {
+            main: grey[50]
+        }
+    }
+})
 
 const Products = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -27,6 +37,7 @@ const Products = ({ products, navigate }) => {
 
         <div className='allProductsHere'>
 
+          <ThemeProvider theme={customTheme}>
             <div className='containerSearchProducts'>
                 <form
                     className='searchForm'
@@ -36,18 +47,18 @@ const Products = ({ products, navigate }) => {
                     <div className='returnedFormContent'>
                         <h3 className='searchHeader'>Search For Products Here</h3>
                         <TextField
-                            color='warning'
                             id="outlined-basic" label="(i.e. genre, title, author, description)" variant="outlined"
                             className='userSearchInput'
                             type='text'
-
+                            color="primary"
                             onChange={(event) => setSearchTerm(event.target.value)}
                         />
                     </div>
                 </form>
             </div>
+            </ThemeProvider>
+            <h3 style={{textAlign:'center', color: 'black', fontSize: '40px', textShadow: '5px 5px 10px white'}}>Genre</h3>
 
-            <h3 style={{ textAlign: 'center', color: 'black', fontSize: '40px', textShadow: '5px 5px 10px white' }}>Genre</h3>
 
             <div className='genre-buttons-div'>
                 <Button
