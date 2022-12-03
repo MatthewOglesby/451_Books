@@ -9,14 +9,13 @@ import { grey } from '@mui/material/colors';
 const customTheme = createTheme({
     palette: {
         primary: {
-            main: grey[50]
+            main: grey[900]
         }
     }
 })
 
 const Products = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
-    const primary = purple[50]
 
     const productMatches = (product, string) => {
         const { author, title, description, genre, id, image, quantity, pageCount, price } = product;

@@ -528,12 +528,10 @@ input:placeholder-shown {
 }
 
 .userSearchInput {
-    border-radius: 50px;
-    height: 2rem;
-    width: 15rem;
     margin-bottom: 2rem;
     color: white;
     font-size: 30px;
+    box-shadow: 10px 10px 10px black;
 }
 
 /* CART */
