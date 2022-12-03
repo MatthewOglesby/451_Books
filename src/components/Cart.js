@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button, Paper, ButtonGroup, Box } from "@mui/material";
+import { Button} from "@mui/material";
 import CartItem from "./CartItem";
 import cartIMG from "../Cart.jpeg";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
-const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
+const Cart = ({ cartItems, token, fetchAllUserCartItems, navigate }) => {
   let total = 0;
 
   if (cartItems === undefined) {
@@ -38,6 +38,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems }) => {
                 key={idx}
                 cartItem={cartItem}
                 token={token}
+                navigate={navigate}
                 fetchAllUserCartItems={fetchAllUserCartItems}
               />
             );
