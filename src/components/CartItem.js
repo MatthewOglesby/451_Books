@@ -40,7 +40,7 @@ const CartItem = ({
           />
           <br></br>
           <p>
-            Qty: <Badge color="info" badgeContent={count}></Badge>{" "}
+            Qty: <Badge color='warning' badgeContent={count}></Badge>{" "}
           </p>
           <p>Title: {cartItem.title}</p>
           <p>
