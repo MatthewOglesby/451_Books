@@ -302,10 +302,12 @@ header {
 
 .searchHeader {
     font-size: 40px;
+    /* original color black and text-shadow aliceblue */
     color: aliceblue;
     text-shadow: 0px 0px 8px black;
     margin-bottom: 0;
     padding-top: 2rem;
+    /* testing white with black outline */
     -webkit-text-stroke: 1px black;
 }
 
