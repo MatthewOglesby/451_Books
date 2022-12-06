@@ -45,10 +45,17 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate, to
                     </div>
 
                     <div id="productButtonsDiv">
-                        <button className='productButtons' onClick={async (event) => {
+                        <button 
+                        className='productButtons'
+                        id='add-to-cart'
+                        onClick={async (event) => {
                             event.preventDefault();
+                            document.getElementById('add-to-cart').classList.add('pulse')
                             await addProductToCart(productID, id);
                             fetchAllUserCartItems();
+                            setTimeout(function() {
+                                document.getElementById('add-to-cart').classList.remove('pulse')
+                            }, 500);
                         }}
                         >
                             Add to Cart
@@ -90,7 +97,7 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate, to
                                         }}>Delete Book</button>
                                 </div>
                             ) : (
-                                <p>You are not authorized to view this page.</p>
+                                null
                             )
                         }
                     </div>

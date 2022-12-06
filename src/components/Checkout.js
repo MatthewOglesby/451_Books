@@ -5,12 +5,12 @@ import Badge from "@mui/material/Badge";
 import { deleteCartItem } from '../api';
 
 
-const Checkout = ({cartItems, token, fetchAllUserCartItems, navigate, fetchAllProducts}) => { 
+const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllProducts }) => {
 
-    if (cartItems === undefined) {
-        return null;
-      }
-      let total = 0;
+  if (cartItems === undefined) {
+    return null;
+  }
+  let total = 0;
 
   // if(!user) {
   //   return <Link> to={`/checkout`} </Link>
@@ -83,31 +83,40 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems, navigate, fetchAllPr
 
       <div className='containerPayment'>
         <form
-
           className='containerCheckout'
         >
           <h4 style={{ textAlign: 'left' }} >Enter Credit Card Information Below</h4>
+
           <p> First Name </p>
           <input type="text" id="fname" name="firstname" placeholder="Jane"></input>
+
           <p> Last Name </p>
           <input type="text" id="lname" name="lastname" placeholder="Doe"></input>
+
           <p> Shipping Address </p>
           <input type="text" id="saddress" name="shippingaddress" placeholder="1234 Street"></input>
 
+
           <p> City </p>
           <input type="text" id="city" name="city" placeholder="New Orleans" ></input>
+
           <p> State </p>
           <input type="text" id="state" name="state" placeholder="LA" ></input>
+
           <p> Zip Code </p>
           <input type="text" id="zcode" name="zipcode" placeholder="11111" ></input>
         </form>
+
         <form className='containerCheckouts'>
           <p style={{ textAlign: 'left' }} > Name on Card </p>
-          <input type="text" id="cname" name="cardname" placeholder="Jane J. Doe" ></input>
-          <p style={{ textAlign: 'left' }} > Credit Card Number </p>
+          <input type="text" id="cname" name="cardname" placeholder="Jane J. Doe"></input>
+
+          <p style={{ textAlign: 'left' }}> Credit Card Number </p>
           <input type="text" id="creditcard" name="creditcard" placeholder="1111 2222 3333 4444" ></input>
+
           <p style={{ textAlign: 'left' }} > Expiration Date </p>
           <input type="text" id="expirationdate" name="expirationdate" placeholder="11/23" ></input>
+
           <p style={{ textAlign: 'left' }} >CVV </p>
           <input type="text" id="cvv" name="cvv" placeholder="999"></input>
 
@@ -118,7 +127,7 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems, navigate, fetchAllPr
               icon: 'success',
               iconColor: 'green',
               confirmButtonColor: 'orange',
-              footer: '<a href="/order">Order Confirmation Page</a>',
+              footer: '<a href="/order">View Order Confirmation</a>',
               closeOnConfirm: false
             }).then(async (result) => {
               if (result.isConfirmed) {
@@ -129,9 +138,17 @@ const Checkout = ({cartItems, token, fetchAllUserCartItems, navigate, fetchAllPr
             })
           }}> Submit Order </button>
         </form>
+
       </div>
     </div>
   )
 }
 
 export default Checkout;
+
+//  preConfirm: () => {
+                  
+//   setTimeout(() => {
+//     Swal.showLoading();
+//   }, 2000)
+// },

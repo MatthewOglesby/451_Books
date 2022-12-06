@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { registerUser } from '../api';
 
 const Register = ({ setToken, token, navigate }) => {
@@ -9,7 +9,7 @@ const Register = ({ setToken, token, navigate }) => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState(false);
 
-    let loginForm = document.getElementById('loginForm')
+    // let loginForm = document.getElementById('loginForm')
 
     const handleSubmit = async () => {
         const results = await registerUser(email, username, password);
@@ -24,21 +24,22 @@ const Register = ({ setToken, token, navigate }) => {
             window.localStorage.setItem('token', results.token);
             navigate('/');
         } else {
-            console.log('Error registering an account')
-            loginForm.style.animation = 'shake .5s'
-            document.getElementsByName('email')[0].value = ''
-            document.getElementsByName('username')[0].value = ''
-            document.getElementsByName('password')[0].value = ''
-            document.getElementsByName('confirmPassword')[0].value = ''
+            console.log('Error registering an account');
+            setError(true);
+            document.getElementsByName('email')[0].value = '';
+            document.getElementsByName('username')[0].value = '';
+            document.getElementsByName('password')[0].value = '';
+            document.getElementsByName('confirmPassword')[0].value = '';
         }
     }
 
     return (
         <div className='allRegister'>
-            <div className='registerForm' id='loginForm'>
+            <div className={error ? 'error-reg' : 'registerForm'}>
                 <form className='registrationForm' onSubmit={(event) => {
                     event.preventDefault();
                     handleSubmit();
+                    setError(false);
                 }
                 }>
                     <div className='registerDiv'>
@@ -79,8 +80,9 @@ const Register = ({ setToken, token, navigate }) => {
                             onChange={(event) => setConfirmPassword(event.target.value)}
                         />
                     </div>
+                    <p className={error ? 'errorMessage' : 'hidden'}>Whoops, there was an issue signing you up</p>
                     <button className='submitRegister' type='submit' />
-                    <p id='errorMessage'></p>
+                    <p className='errorMessage2'>Alredy have an account? Log in <Link to='/login' id='sign-in-msg'>here</Link></p>
                 </form>
             </div>
         </div>
