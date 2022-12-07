@@ -78,9 +78,9 @@ const SingleProductView = ({ products, user, fetchAllUserCartItems, navigate, to
                         {
                             isAdmin ? (
                                 <div>
-                                    <button className='productButtons'><Link className='productLink' to={`/books/edit/${productID}`}>Edit Product</Link></button>
+                                    <button className='adminButtons'><Link className='productLink' to={`/books/edit/${productID}`}>Edit Product</Link></button>
                                     <button
-                                        className='productButtons'
+                                        className='adminButtons'
                                         id='deleteProductButton'
                                         onClick={async () => {
                                             Swal.fire({

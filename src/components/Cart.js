@@ -48,7 +48,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, user, navigate }) => {
         <div className="cart-total">
 
           <span style={{ fontSize: 27 }}>
-          Subtotal ({cartItems.length}) items: ${total}
+          Subtotal ({cartItems.length}) items: ${total.toFixed(2)}
           <br></br>
           <em style={{fontSize: 20}}>Total calculated at checkout</em>
             <br></br>
