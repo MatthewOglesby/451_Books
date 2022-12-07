@@ -47,21 +47,21 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, user, navigate }) => {
         
         <div className="cart-total">
           <br></br>
-          <span> Subtotal ({cartItems.length}) items</span>
+          <span style={{fontSize: 25}}> Subtotal ({cartItems.length}) items</span>
 
-          <span style={{ fontWeight: 700, fontSize: 20 }}>
+          <span style={{ fontSize: 25 }}>
             Total: ${total}
             <br></br>
             <div className="button-group-cartItems">
             <Link style={{ textDecoration: "none" }} to={`/books`}>
-              <Button style={{ color:"white", width:"100%"}} >Continue Shopping <ArrowRightIcon fontSize="large"/></Button>
+              <Button style={{ fontSize: 20, color:"white", width:"100%"}} >Continue Shopping <ArrowRightIcon fontSize="large"/></Button>
             </Link>
             </div>
             <br></br>
 
             <div className="button-group-cartItems">
             <Link style={{color:"white", textDecoration: "none" }} to={`/checkout`}>
-              <Button style={{color:"white", width:"100%"}} >Proceed to checkout <PointOfSaleIcon fontSize="small"/></Button>
+              <Button style={{fontSize: 20, color:"white", width:"100%"}} >Proceed to checkout <PointOfSaleIcon fontSize="small"/></Button>
             </Link>
            </div>
             <br></br>

@@ -94,7 +94,7 @@ export const loginUser = async (username, password) => {
         return result;
     
       } catch (ex) {
-        console.log('error gettings user details in API', ex)
+        console.log('error getting user details in API', ex)
         throw ex;
       }
   
@@ -170,7 +170,7 @@ export const createProduct = async (token, {title, description, author, pageCoun
         return result;
     
       } catch (ex) {
-        console.log('error gettings user cart details in API',ex)
+        console.log('error getting user cart details in API',ex)
         throw ex;
       }
     }
@@ -221,7 +221,6 @@ export const addProductToCart = async ( productId, userId) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        
       },
       body: JSON.stringify({
         productId: productId,

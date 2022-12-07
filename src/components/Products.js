@@ -35,8 +35,6 @@ const Products = ({ products, navigate }) => {
     return (
         <div className='allProductsHere'>
             <div>
-
-                <ThemeProvider>
                     <div className='containerSearchProducts'>
                         <form
                             className='searchForm'
@@ -44,7 +42,7 @@ const Products = ({ products, navigate }) => {
                                 event.preventDefault();
                             }}>
                             <div className='returnedFormContent'>
-                                <h3 className='searchHeader'>Search For Products Here</h3>
+                                <h3 className='searchHeader'>Search For Your Favorite Book</h3>
                                 <input
                                     id="outlined-basic"
                                     placeholder="(i.e. genre, title, author, description)"
@@ -55,41 +53,50 @@ const Products = ({ products, navigate }) => {
                             </div>
                         </form>
                     </div>
-                </ThemeProvider>
-                <h3 style={{ textAlign: 'center', color: 'black', fontSize: '35px', textShadow: '5px 5px 10px white', color: 'aliceblue',
+
+                <h3 style={{
+                    textAlign: 'center', color: 'black', fontSize: '35px', textShadow: '5px 5px 10px white', color: 'aliceblue',
                     textShadow: "0px 0px 8px black",
-                    WebkitTextStroke: '.5px black' }}>Genre</h3>
+                    WebkitTextStroke: '.8px black', position:'relative'
+                }}>All Books</h3>
+
                 <div className='genre-buttons-div'>
                     <Button
-                        style={{ background: 'rgb(152, 152, 247)' }}
+                        style={{ background: 'rgb(124, 77, 124)', height:'50px', width:'150px'  }}
+                        variant='contained'
+                    >
+                        All Books
+                    </Button>
+                    <Button
+                        style={{ background: 'rgb(152, 152, 247)', height:'50px', width:'150px'  }}
                         variant='contained'
                         onClick={() => navigate('books/fiction')}
                     >
                         Fiction
                     </Button>
                     <Button
-                        style={{ background: 'rgb(152, 152, 247)' }}
+                        style={{ background: 'rgb(152, 152, 247)', height:'50px', minWidth:'150px'  }}
                         variant='contained'
                         onClick={() => navigate('/books/graphic-novel')}
                     >
                         Graphic Novels
                     </Button>
                     <Button
-                        style={{ background: 'rgb(152, 152, 247)' }}
+                        style={{ background: 'rgb(152, 152, 247)', height:'50px', width:'150px'  }}
                         variant='contained'
                         onClick={() => navigate('/books/nonfiction')}
                     >
                         Non-Fiction
                     </Button>
                     <Button
-                        style={{ background: 'rgb(152, 152, 247)' }}
+                        style={{ background: 'rgb(152, 152, 247)', height:'50px', width:'150px'  }}
                         variant='contained'
                         onClick={() => navigate('/books/educational')}
                     >
                         Educational
                     </Button>
                     <Button
-                        style={{ background: 'rgb(152, 152, 247)' }}
+                        style={{ background: 'rgb(152, 152, 247)', height:'50px', width:'150px'  }}
                         variant='contained'
                         onClick={() => navigate('/books/kids')}
                     >

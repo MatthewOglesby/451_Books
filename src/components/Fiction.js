@@ -23,7 +23,6 @@ const Fiction = ({ products, navigate }) => {
     return (
         <div className='allProductsHere'>
             <div>
-            <ThemeProvider>
                     <div className='containerSearchProducts'>
                         <form
                             className='searchForm'
@@ -31,7 +30,7 @@ const Fiction = ({ products, navigate }) => {
                                 event.preventDefault();
                             }}>
                             <div className='returnedFormContent'>
-                                <h3 className='searchHeader'>Search For Products Here</h3>
+                                <h3 className='searchHeader'>Search For Your Favorite Book</h3>
                                 <input
                                     id="outlined-basic"
                                     placeholder="(i.e. genre, title, author, description)"
@@ -42,54 +41,56 @@ const Fiction = ({ products, navigate }) => {
                             </div>
                         </form>
                     </div>
-                </ThemeProvider>
+  
             </div>
             <h3 style={{ textAlign: 'center', fontSize: '35px', color: 'aliceblue',
                     textShadow: "0px 0px 8px black",
-                    WebkitTextStroke: '.5px black' }}>Non-Fiction</h3>
+                    WebkitTextStroke: '.8px black', position:'relative' }}>Fiction</h3>
+
             <div className='genre-buttons-div'>
                 <Button
-                    style={{ background: 'purple' }}
+                    style={{ background: 'rgb(124, 77, 124)', height:'50px', width:'150px'  }}
                     variant='contained'
                     onClick={() => navigate('/books')}
                 >
                     All Books
                 </Button>
                 <Button
-                    style={{ background: 'rgb(152, 152, 247)' }}
+                    style={{ background: 'rgb(152, 152, 247)', height:'50px', width:'150px'  }}
                     variant='contained'
                 >
                     Fiction
                 </Button>
                 <Button
-                    style={{ background: 'rgb(152, 152, 247)' }}
+                    style={{ background: 'rgb(152, 152, 247)', height:'50px', minWidth:'150px'  }}
                     variant='contained'
                     onClick={() => navigate('/books/graphic-novel')}
                 >
                     Graphic Novels
                 </Button>
                 <Button
-                    style={{ background: 'rgb(152, 152, 247)' }}
+                    style={{ background: 'rgb(152, 152, 247)', height:'50px', width:'150px'  }}
                     variant='contained'
                     onClick={() => navigate('/books/nonfiction')}
                 >
                     Non-Fiction
                 </Button>
                 <Button
-                    style={{ background: 'rgb(152, 152, 247)' }}
+                    style={{ background: 'rgb(152, 152, 247)', height:'50px', width:'150px'  }}
                     variant='contained'
                     onClick={() => navigate('/books/educational')}
                 >
                     Educational
                 </Button>
                 <Button
-                    style={{ background: 'rgb(152, 152, 247)' }}
+                    style={{ background: 'rgb(152, 152, 247)', height:'50px', width:'150px'  }}
                     variant='contained'
                     onClick={() => navigate('/books/kids')}
                 >
                     Kids
                 </Button>
             </div>
+
             <div className='allProducts'>
                 {
                     products ?

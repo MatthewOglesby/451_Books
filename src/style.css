@@ -246,13 +246,25 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    position: relative;
 }
 
 .allProductsHere {
     margin-top: 5rem;
-    background-image: url('/images/All_Books_Search_plain.jpeg');
-    background-size: 100%;
+    position: relative;
     min-height: 100vh;
+}
+
+.allProductsHere::before {
+    content: '';
+    background-image: url('/images/All_Books_Search_plain.jpeg');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
 }
 
 .productBox {
@@ -299,6 +311,7 @@ header {
 
 .searchForm {
     height: 110px;
+    position: relative;
 }
 
 .searchHeader {
@@ -309,7 +322,7 @@ header {
     margin-bottom: 0;
     padding-top: 2rem;
     /* testing white with black outline */
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 1.2px black;
 }
 
 .productImage {
@@ -473,6 +486,11 @@ input:placeholder-shown {
     animation: 1s pulse;
 }
 
+.add-to-cart-whoops > *{
+    font-size: 23px;
+    color: rgb(252, 129, 47);
+}
+
 .productLink{
     text-decoration: none;
     color: black;
@@ -495,7 +513,7 @@ input:placeholder-shown {
     flex-direction: row;
     justify-content: center;
     height: 1000px;
-    background-image: url('../images/transparentBackground.png');
+    background-image: url('../images/transparentBackground.PNG');
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -665,7 +683,7 @@ input:placeholder-shown {
     align-items: center;
     flex-wrap: wrap;
     height: 50%;
-    width: 12rem;
+    width: 15rem;
     padding: 1rem;
     
 }
