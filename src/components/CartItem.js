@@ -44,7 +44,7 @@ const CartItem = ({
           </p>
           <p>Title: {cartItem.title}</p>
           <p>
-            <strong>Price</strong> ${cartItem.price}
+            <strong>Price</strong> ${((Math.round((cartItem.price * cartItem.order_quantity)*100))/100).toFixed(2)}
           </p>
 
           <ButtonGroup

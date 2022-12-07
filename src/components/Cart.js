@@ -46,26 +46,26 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, user, navigate }) => {
         </div>
         
         <div className="cart-total">
-          <br></br>
-          <span> Subtotal ({cartItems.length}) items</span>
 
-          <span style={{ fontWeight: 700, fontSize: 20 }}>
-            Total: ${total}
+          <span style={{ fontSize: 27 }}>
+          Subtotal ({cartItems.length}) items: ${total.toFixed(2)}
+          <br></br>
+          <em style={{fontSize: 20}}>Total calculated at checkout</em>
+            <br></br>
             <br></br>
             <div className="button-group-cartItems">
+            <Link style={{color:"white", textDecoration: "none" }} to={`/checkout`}>
+              <Button style={{fontSize: 20, color:"white", width:"100%"}} >Proceed to checkout <PointOfSaleIcon fontSize="small"/></Button>
+            </Link>
+           </div>
+            <p style={{fontSize: 25}}>OR</p>
+            <div className="button-group-cartItems">
             <Link style={{ textDecoration: "none" }} to={`/books`}>
-              <Button style={{ color:"white", width:"100%"}} >Continue Shopping <ArrowRightIcon fontSize="large"/></Button>
+              <Button style={{ fontSize: 20, color:"white", width:"100%"}} >Continue Shopping <ArrowRightIcon fontSize="large"/></Button>
             </Link>
             </div>
             <br></br>
-
-            <div className="button-group-cartItems">
-            <Link style={{color:"white", textDecoration: "none" }} to={`/checkout`}>
-              <Button style={{color:"white", width:"100%"}} >Proceed to checkout <PointOfSaleIcon fontSize="small"/></Button>
-            </Link>
-           </div>
-            <br></br>
-            <h1 className="cart-text-div" style={{fontFamily: 'Droid Sans'}}>Cart</h1>
+            <h1 className="cart-text-div" style={{fontFamily: 'Droid Sans', cursor:'default'}}>Cart</h1>
           </span>
         </div>
         
