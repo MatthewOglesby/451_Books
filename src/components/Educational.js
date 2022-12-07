@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Paper, TextField, Button } from '@mui/material';
 import temp from '../coming_soon.JPEG';
+import { ThemeProvider } from '@mui/material/styles';
 
 const Educational = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -21,28 +22,30 @@ const Educational = ({ products, navigate }) => {
 
     return (
         <div className='allProductsHere'>
-            <div className='searchBarImageContainer'>
-                <div className='containerSearchProducts'>
-                    <form
-                        className='searchForm'
-                        onSubmit={(event) => {
-                            event.preventDefault();
-                        }}>
-                        <div className='returnedFormContent'>
-                            <h3 className='searchHeader'>Search For Products Here</h3>
-                            <TextField
-                                id="standard-basic" label="(i.e. genre, title, author, description)" variant="standard"
-                                className='userSearchInput'
-                                type='text'
-
-                                onChange={(event) => setSearchTerm(event.target.value)}
-                            />
-                        </div>
-                    </form>
-                </div>
+            <div>
+            
+                    <div className='containerSearchProducts'>
+                        <form
+                            className='searchForm'
+                            onSubmit={(event) => {
+                                event.preventDefault();
+                            }}>
+                            <div className='returnedFormContent'>
+                                <h3 className='searchHeader'>Search For Products Here</h3>
+                                <input
+                                    id="outlined-basic"
+                                    placeholder="(i.e. genre, title, author, description)"
+                                    className='userSearchInput'
+                                    type='text'
+                                    onChange={(event) => setSearchTerm(event.target.value)}
+                                />
+                            </div>
+                        </form>
+                    </div>
             </div>
-            <h3>Genre</h3>
-
+            <h3 style={{ textAlign: 'center', fontSize: '35px', color: 'aliceblue',
+                    textShadow: "0px 0px 8px black",
+                    WebkitTextStroke: '.5px black' }}>Non-Fiction</h3>
             <div className='genre-buttons-div'>
                 <Button
                     style={{ background: 'purple' }}
@@ -86,8 +89,6 @@ const Educational = ({ products, navigate }) => {
                     Kids
                 </Button>
             </div>
-
-            <h3 style={{ textAlign: 'center', fontSize: '25px' }}>Educational</h3>
             <div className='allProducts'>
                 {
                     products ?

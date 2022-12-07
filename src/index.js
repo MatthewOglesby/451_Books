@@ -223,6 +223,7 @@ const App = () => {
                         fetchAllProducts={fetchAllProducts}
                         fetchAllUserCartItems={fetchAllUserCartItems}
                         token={token}
+                        products={products}
                     />}
 
                 />

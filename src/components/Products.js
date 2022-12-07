@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Paper, Button } from '@mui/material';
 import temp from '../coming_soon.JPEG';
 import SearchImage from '../All_Books_Search.jpg';
-import {createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 
 const customTheme = createTheme({
@@ -34,104 +34,104 @@ const Products = ({ products, navigate }) => {
 
     return (
         <div className='allProductsHere'>
-        <div >
+            <div>
 
-          <ThemeProvider theme={customTheme}>
-            <div className='containerSearchProducts'>
-                <form
-                    className='searchForm'
-                    onSubmit={(event) => {
-                        event.preventDefault();
-                    }}>
-                    <div className='returnedFormContent'>
-                        <h3 className='searchHeader'>Search For Products Here</h3>
-                        <input
-                            id="outlined-basic" 
-                            placeholder="(i.e. genre, title, author, description)"
-                            className='userSearchInput'
-                            type='text'
-                            onChange={(event) => setSearchTerm(event.target.value)}
-                        />
+                <ThemeProvider>
+                    <div className='containerSearchProducts'>
+                        <form
+                            className='searchForm'
+                            onSubmit={(event) => {
+                                event.preventDefault();
+                            }}>
+                            <div className='returnedFormContent'>
+                                <h3 className='searchHeader'>Search For Products Here</h3>
+                                <input
+                                    id="outlined-basic"
+                                    placeholder="(i.e. genre, title, author, description)"
+                                    className='userSearchInput'
+                                    type='text'
+                                    onChange={(event) => setSearchTerm(event.target.value)}
+                                />
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
-            </ThemeProvider>
-            <h3 style={{textAlign:'center', color: 'black', fontSize: '40px', textShadow: '5px 5px 10px white', marginTop: '0'}}>Genre</h3>
+                </ThemeProvider>
+                <h3 style={{ textAlign: 'center', color: 'black', fontSize: '35px', textShadow: '5px 5px 10px white', color: 'aliceblue',
+                    textShadow: "0px 0px 8px black",
+                    WebkitTextStroke: '.5px black' }}>Genre</h3>
+                <div className='genre-buttons-div'>
+                    <Button
+                        style={{ background: 'rgb(152, 152, 247)' }}
+                        variant='contained'
+                        onClick={() => navigate('books/fiction')}
+                    >
+                        Fiction
+                    </Button>
+                    <Button
+                        style={{ background: 'rgb(152, 152, 247)' }}
+                        variant='contained'
+                        onClick={() => navigate('/books/graphic-novel')}
+                    >
+                        Graphic Novels
+                    </Button>
+                    <Button
+                        style={{ background: 'rgb(152, 152, 247)' }}
+                        variant='contained'
+                        onClick={() => navigate('/books/nonfiction')}
+                    >
+                        Non-Fiction
+                    </Button>
+                    <Button
+                        style={{ background: 'rgb(152, 152, 247)' }}
+                        variant='contained'
+                        onClick={() => navigate('/books/educational')}
+                    >
+                        Educational
+                    </Button>
+                    <Button
+                        style={{ background: 'rgb(152, 152, 247)' }}
+                        variant='contained'
+                        onClick={() => navigate('/books/kids')}
+                    >
+                        Kids
+                    </Button>
 
-
-            <div className='genre-buttons-div'>
-                <Button
-                    style={{ background: 'rgb(152, 152, 247)' }}
-                    variant='contained'
-                    onClick={() => navigate('books/fiction')}
-                >
-                    Fiction
-                </Button>
-                <Button
-                    style={{ background: 'rgb(152, 152, 247)' }}
-                    variant='contained'
-                    onClick={() => navigate('/books/graphic-novel')}
-                >
-                    Graphic Novels
-                </Button>
-                <Button
-                    style={{ background: 'rgb(152, 152, 247)' }}
-                    variant='contained'
-                    onClick={() => navigate('/books/nonfiction')}
-                >
-                    Non-Fiction
-                </Button>
-                <Button
-                    style={{ background: 'rgb(152, 152, 247)' }}
-                    variant='contained'
-                    onClick={() => navigate('/books/educational')}
-                >
-                    Educational
-                </Button>
-                <Button
-                    style={{ background: 'rgb(152, 152, 247)' }}
-                    variant='contained'
-                    onClick={() => navigate('/books/kids')}
-                >
-                    Kids
-                </Button>
-
-            </div>
-            <div className='allProducts'>
-                {
-                    products ?
-                        (
-                            productsToDisplay.map((product) => {
-                                const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
-                                return (
-                                    <div
-                                        key={id}
-                                        onClick={() => navigate(`/books/${id}`)}
-                                        className='productBox'
-                                    >
-                                        <Paper className='productContents'>
-                                            {
-                                                image == "" ? (
-                                                    <img className='productImage' src={temp} />
-                                                )
-                                                    : (
-                                                        <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)} />
+                </div>
+                <div className='allProducts'>
+                    {
+                        products ?
+                            (
+                                productsToDisplay.map((product) => {
+                                    const { author, title, description, genre, id, image, quantity, pageCount, price } = product;
+                                    return (
+                                        <div
+                                            key={id}
+                                            onClick={() => navigate(`/books/${id}`)}
+                                            className='productBox'
+                                        >
+                                            <Paper className='productContents'>
+                                                {
+                                                    image == "" ? (
+                                                        <img className='productImage' src={temp} />
                                                     )
-                                            }
-                                            <p className='productTitle'>{title}</p>
-                                            <p className='productAuthor'>{author}</p>
-                                            <p className='productPrice'>${price}</p>
-                                        </Paper>
-                                    </div>
+                                                        : (
+                                                            <img className='productImage' src={image} onClick={() => navigate(`/books/${id}`)} />
+                                                        )
+                                                }
+                                                <p className='productTitle'>{title}</p>
+                                                <p className='productAuthor'>{author}</p>
+                                                <p className='productPrice'>${price}</p>
+                                            </Paper>
+                                        </div>
 
-                                )
-                            })
-                        ) : (
-                            <p>Whoops! There was an issue getting our books for you.</p>
-                        )
-                }
+                                    )
+                                })
+                            ) : (
+                                <p>Whoops! There was an issue getting our books for you.</p>
+                            )
+                    }
+                </div>
             </div>
-        </div>
         </div>
     )
 }

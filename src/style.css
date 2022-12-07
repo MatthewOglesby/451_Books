@@ -321,20 +321,64 @@ header {
     margin-bottom: 1rem;
     align-items: center;
 }
+.allEditProduct {
+    display: flex;
+    justify-content: center;
+}
 
 .edit-form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin: 2rem;
+    margin-top: 5rem;
+    justify-content: center;
+    border: 3px solid black;
+    width: 1250px;
+    border-radius: 50px;
 }
 
 .edit-form>* {
     margin: 5px;
 }
+.editBox1 {
+    height: 800px;
+    width: 400px;
+    margin-right: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 23px;
+}
+.editBox2 {
+    height: 800px;
+    width: 400px;
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 23px;
+}
+.editP {
+    margin-bottom: 0.5rem;
+}
 
 .long-input {
-    width: 35%;
+    height: 75px;
+    width: 400px;
+}
+
+.editSubmit {
+    margin-top: 5rem;
+    margin-left: 30rem;
+    height: 4rem;
+    width: 10rem;
+    font-size: 25px;
+}
+
+.editSubmit:hover {
+    cursor: pointer;
 }
 
 input:placeholder-shown {
@@ -450,7 +494,7 @@ input:placeholder-shown {
     flex-direction: row;
     justify-content: center;
     height: 1000px;
-    background-image: url('../images/transparentBackground.PNG');
+    background-image: url('../images/transparentBackground.png');
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -603,10 +647,7 @@ input:placeholder-shown {
     width: 100%;
     height: 250px;
 }
-.cartProductImage:hover {
-    cursor: pointer;
-    box-shadow: 0px 0px 10px 5px rgb(58, 58, 58);
-}
+
 
 .individualCartContainer {
     display: flex;
@@ -717,12 +758,12 @@ checkout.input[type=text] {
     display: flex;
     flex-direction: row;
 }
-/* .containerCheckout {
-    
-}
+
 .containerCheckouts {
-    
-} */
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+}
 
 h4 {
     margin-top: 5px;
@@ -769,7 +810,16 @@ h5 {
     display: right;
     font-size: larger;
 }
+.submitOrderCheckout {
+    margin-top: 3rem;
+    border-radius: 50px;
+    height: 2.5rem;
+}
 
+.submitOrderCheckout:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 1px black;
+}
 /* ANIMATIONS */
 @keyframes shake {
     0% {

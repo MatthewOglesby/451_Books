@@ -63,7 +63,7 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
             <div key={cartId} className="individualCartContainer">
               <div className="inner-cart-div">
                 <Paper style={{ borderRadius: "1rem" }}>
-                  <img src={cartItem.image} className="cartProductImage" />
+                  <img src={cartItem.image} className="cartProductImage" onClick={() => navigate(`/books/${id}`)} />
                   <p>
                     Qty: <Badge color='warning' badgeContent={count}></Badge>{" "}
                   </p>
@@ -120,7 +120,7 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
           <p style={{ textAlign: 'left' }} >CVV </p>
           <input type="text" id="cvv" name="cvv" placeholder="999"></input>
 
-          <button onClick={(e) => {
+          <button className='submitOrderCheckout' onClick={(e) => {
             e.preventDefault();
             Swal.fire({
               title: 'Thanks for shopping with us',
