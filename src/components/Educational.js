@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Paper, TextField, Button } from '@mui/material';
 import temp from '../coming_soon.JPEG';
-import { ThemeProvider } from '@mui/material/styles';
 
 const Educational = ({ products, navigate }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -31,10 +30,10 @@ const Educational = ({ products, navigate }) => {
                                 event.preventDefault();
                             }}>
                             <div className='returnedFormContent'>
-                                <h3 className='searchHeader'>Search For Your Favorite Book</h3>
+                                <h3 className='searchHeader'>Search For Your Favorite Books</h3>
                                 <input
                                     id="outlined-basic"
-                                    placeholder="(i.e. genre, title, author, description)"
+                                    placeholder="what do you feel like reading?"
                                     className='userSearchInput'
                                     type='text'
                                     onChange={(event) => setSearchTerm(event.target.value)}
@@ -44,8 +43,8 @@ const Educational = ({ products, navigate }) => {
                     </div>
             </div>
             <h3 style={{ textAlign: 'center', fontSize: '35px', color: 'aliceblue',
-                    textShadow: "0px 0px 8px black",
-                    WebkitTextStroke: '.8px black', position:'relative' }}>Educational</h3>
+                    textShadow: "-2px 4px 8px black",
+                    WebkitTextStroke: '.9px black', position:'relative' }}>Educational</h3>
 
             <div className='genre-buttons-div'>
                 <Button

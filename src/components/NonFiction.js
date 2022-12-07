@@ -31,10 +31,10 @@ const NonFiction = ({ products, navigate }) => {
                                 event.preventDefault();
                             }}>
                             <div className='returnedFormContent'>
-                                <h3 className='searchHeader'>Search For Your Favorite Book</h3>
+                                <h3 className='searchHeader'>Search For Your Favorite Books</h3>
                                 <input
                                     id="outlined-basic"
-                                    placeholder="(i.e. genre, title, author, description)"
+                                    placeholder="what do you feel like reading?"
                                     className='userSearchInput'
                                     type='text'
                                     onChange={(event) => setSearchTerm(event.target.value)}
@@ -45,8 +45,8 @@ const NonFiction = ({ products, navigate }) => {
 
             </div>
             <h3 style={{ textAlign: 'center', fontSize: '35px', color: 'aliceblue',
-                    textShadow: "0px 0px 8px black",
-                    WebkitTextStroke: '.8px black', position:'relative' }}>Non-Fiction</h3>
+                    textShadow: "-2px 4px 8px black",
+                    WebkitTextStroke: '.9px black', position:'relative' }}>Non-Fiction</h3>
 
             <div className='genre-buttons-div'>
                 <Button

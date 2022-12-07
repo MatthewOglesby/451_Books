@@ -49,7 +49,7 @@ async function createTables() {
       CREATE TABLE products (
         id SERIAL PRIMARY KEY,
         title VARCHAR(255) UNIQUE NOT NULL,
-        description VARCHAR(500) UNIQUE NOT NULL,
+        description VARCHAR(800) UNIQUE NOT NULL,
         author VARCHAR(255),
         "pageCount" VARCHAR(255),
         genre VARCHAR(255),
@@ -74,7 +74,7 @@ async function createTables() {
         "productId" INTEGER REFERENCES products(id),
         UNIQUE ("userId", "productId")
      );
-     
+
      CREATE TABLE orders (
       id SERIAL PRIMARY KEY,
       item_quantity INTEGER,
@@ -171,6 +171,19 @@ async function createInitialProducts() {
       "https://m.media-amazon.com/images/I/51Gv-CkrYOL._AC_SY780_.jpg",
       quantity: 49,
     });
+
+    await createProduct({
+      title: "Life 3.0",
+      description:
+        "How will AI affect crime, war, justice, jobs, society and our very sense of being human?",
+      author: "Max Tegmark",
+      pageCount: "384",
+      genre: "Non-Fiction",
+      price: 15.98,
+      image: "https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg",
+      quantity: 57,
+    });
+
     await createProduct({
       title: "Robin",
       description:
@@ -236,15 +249,15 @@ async function createInitialProducts() {
       title: "Ready Player One",
       description:
         "Set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune.",
-      author: "Ernest Cline",
-      pageCount: "374",
-      genre: "Fiction",
-      price: 19.99,
-      image: "https://images.penguinrandomhouse.com/cover/9780307887443",
-      quantity: 56,
-    });
-
-    await createProduct({
+        author: "Ernest Cline",
+        pageCount: "374",
+        genre: "Fiction",
+        price: 19.99,
+        image: "https://images.penguinrandomhouse.com/cover/9780307887443",
+        quantity: 56,
+      });
+      
+      await createProduct({
       title: "Born a Crime",
       description:
         "Autobiography of Trevor Noah's upbringing in the slums of South Africa and how he became one of South Africa's most notable names in recent years.",
@@ -256,17 +269,6 @@ async function createInitialProducts() {
       quantity: 55,
     });
 
-    await createProduct({
-      title: "Life 3.0",
-      description:
-        "How will AI affect crime, war, justice, jobs, society and our very sense of being human?",
-      author: "Max Tegmark",
-      pageCount: "384",
-      genre: "Non-Fiction",
-      price: 15.98,
-      image: "https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg",
-      quantity: 57,
-    });
 
     await createProduct({
       title: "Percy Jackson and The Olympians: The Lightning Thief",
@@ -289,8 +291,8 @@ async function createInitialProducts() {
       price: 12.99,
       image:
         "https://m.media-amazon.com/images/I/51Zhztg+yeL._AC_SY780_.jpg",
-      quantity: 66,
-    });
+        quantity: 66,
+      });
 
     await createProduct({
       title: "Bone #2: The Great Cow Race",
@@ -360,10 +362,10 @@ async function createInitialProducts() {
       genre: "Kids",
       price: 7,
       image:
-        "https://upload.wikimedia.org/wikipedia/en/3/3c/Lyle_crocodile.gif",
+      "https://upload.wikimedia.org/wikipedia/en/3/3c/Lyle_crocodile.gif",
       quantity: 50,
     });
-
+    
     await createProduct({
       title: "Harold Loves His Woolly Hat",
       description: "What makes a bear special? For Harold, it is his beloved striped woolly hat. He wears it when he sleeps and when he goes to school, but when a crow whisks the hat off his head and high up into a nest, Harold doesn't feel so special anymore. This heartwarming picture book featuring an irresistible bear reinforces the notion that it doesn't matter what you have, it's who you are that matters.",
@@ -372,8 +374,32 @@ async function createInitialProducts() {
       genre: "Kids",
       price: 13.99,
       image:
-        "https://m.media-amazon.com/images/I/51jngGIKt7L._AC_SY780_.jpg",
+      "https://m.media-amazon.com/images/I/51jngGIKt7L._AC_SY780_.jpg",
       quantity: 60,
+    });
+    
+    await createProduct({
+      title: "Where the Sidewalk Ends: Poems and Drawings",
+      description: "Here you'll meet a boy who turns into a TV set, and a girl who eats a whale. The Unicorn and the Bloath live there, and so does Sarah Cynthia Sylvia Stout who will not take the garbage out. Shel Silverstein's masterful collection of poems and drawings stretches the bounds of imagination and will be cherished by readers of all ages.",
+      author: "Shel Silverstein",
+      pageCount: "192",
+      genre: "Kids",
+      price: 15.99,
+      image:
+      "https://m.media-amazon.com/images/I/51ZnpIZcanL._AC_SY780_.jpg",
+      quantity: 60,
+    });
+
+    await createProduct({
+      title: "Scary Stories to Tell in the Dark",
+      description: "Scary Stories to Tell in the Dark contains some of the most alarming tales of horror, dark revenge, and supernatural events of all time. Walking corpses, dancing bones, knife-wielding madmen, and narrow escapes from death—they're all here in this chilling collection of ghost stories. Make sure you read these books with the light ON!",
+      author: "Alvin Schwartz, Stephen Gammell (Illustrator)",
+      pageCount: "128",
+      genre: "Kids",
+      price: 7.99,
+      image:
+        "http://prodimage.images-bn.com/pimages/9780062682826_p0_v2_s1200x630.jpg",
+      quantity: 49,
     });
 
     await createProduct({
@@ -384,22 +410,10 @@ async function createInitialProducts() {
       genre: "Kids",
       price: 32,
       image:
-        "https://m.media-amazon.com/images/I/517gTBygcoL._AC_SY780_.jpg",
+      "https://m.media-amazon.com/images/I/517gTBygcoL._AC_SY780_.jpg",
       quantity: 60,
     });
-
-    await createProduct({
-      title: "Where the Sidewalk Ends: Poems and Drawings",
-      description: "Here you'll meet a boy who turns into a TV set, and a girl who eats a whale. The Unicorn and the Bloath live there, and so does Sarah Cynthia Sylvia Stout who will not take the garbage out. Shel Silverstein's masterful collection of poems and drawings stretches the bounds of imagination and will be cherished by readers of all ages.",
-      author: "Shel Silverstein",
-      pageCount: "192",
-      genre: "Kids",
-      price: 15.99,
-      image:
-        "https://m.media-amazon.com/images/I/51ZnpIZcanL._AC_SY780_.jpg",
-      quantity: 60,
-    });
-
+    
     await createProduct({
       title: "The Giving Tree",
       description: "A story of unforgettable perception, beautifully written and illustrated by the gifted and versatile Shel Silverstein. This moving parable for all ages offers a touching interpretation of the gift of giving and a serene acceptance of another's capacity to love in return.",
@@ -409,11 +423,23 @@ async function createInitialProducts() {
       price: 11,
       image:
         "https://m.media-amazon.com/images/I/41ak9Ds2dWL._AC_SY780_.jpg",
-      quantity: 60,
-    });
+        quantity: 60,
+      });
+      
+      await createProduct({
+        title: "Building a Web Site For Dummies",
+        description: "An effective Web site is the key to success for every venture from class reunions to major corporations. And since Web technology changes rapidly, Building a Web Site For Dummies, 4th Edition is fully updated for the cutting-edge tools and trends. If you need to build and maintain a Web site, even if your experience is severely limited, this book makes it easy and fun. You'll learn to plan, design, create, launch, and maintain your site using the most up-to-date tools.",
+        author: "David A. Crowder",
+        pageCount: "368",
+        genre: "Educational",
+        price: 24.95,
+        image:
+          "https://m.media-amazon.com/images/I/51Rj5uyFTIL._AC_SY780_.jpg",
+        quantity: 67,
+      });
 
-    await createProduct({
-      title: "The Official Guide to the GRE General Test, Third Edition",
+      await createProduct({
+        title: "The Official Guide to the GRE General Test, Third Edition",
       description: "If you're looking for the best, most authoritative guide to the GRE General Test, you've found it! The Official Guide to the GRE General Test, Third Edition is the only GRE guide specially created by ETS—the people who actually make the test.",
       author: "Educational Testing Service",
       pageCount: "608",
@@ -421,28 +447,28 @@ async function createInitialProducts() {
       price: 35.99,
       image:
         "http://prodimage.images-bn.com/pimages/9781259862410_p0_v14_s1200x630.jpg",
-      quantity: 62,
-    });
-
-    await createProduct({
-      title: "Anatomy & Physiology For Dummies",
-      description: "Anatomy & Physiology For Dummies combines anatomical terminology and function so you'll learn not only names and terms but also gain an understanding of how the human body works. Whether you're a student, an aspiring medical, healthcare or fitness professional, or just someone who's curious about the human body and how it works.",
-      author: "Erin Odya, Maggie A. Norris",
-      pageCount: "384",
-      genre: "Educational",
-      price: 22.49,
-      image:
+        quantity: 62,
+      });
+      
+      await createProduct({
+        title: "Anatomy & Physiology For Dummies",
+        description: "Anatomy & Physiology For Dummies combines anatomical terminology and function so you'll learn not only names and terms but also gain an understanding of how the human body works. Whether you're a student, an aspiring medical, healthcare or fitness professional, or just someone who's curious about the human body and how it works.",
+        author: "Erin Odya, Maggie A. Norris",
+        pageCount: "384",
+        genre: "Educational",
+        price: 22.49,
+        image:
         "https://m.media-amazon.com/images/I/51XRu8l2dfS._AC_SY780_.jpg",
-      quantity: 61,
-    });
-
-    await createProduct({
-      title: "R for Data Analysis in easy steps - R Programming essentials",
-      description: "The R language is widely used by statisticians for data analysis, and the popularity of R programming has therefore increased substantially in recent years. The emerging Internet of Things (IoT) gathers increasing amounts of data that can be analyzed to gain useful insights into trends.",
-      author: "Mike McGrath",
-      pageCount: "192",
-      genre: "Educational",
-      price: 15.99,
+        quantity: 61,
+      });
+      
+      await createProduct({
+        title: "R for Data Analysis in easy steps - R Programming essentials",
+        description: "The R language is widely used by statisticians for data analysis, and the popularity of R programming has therefore increased substantially in recent years. The emerging Internet of Things (IoT) gathers increasing amounts of data that can be analyzed to gain useful insights into trends.",
+        author: "Mike McGrath",
+        pageCount: "192",
+        genre: "Educational",
+        price: 15.99,
       image:
         "https://m.media-amazon.com/images/I/51tl+JJyOuL._AC_SY780_.jpg",
       quantity: 58,
@@ -458,6 +484,160 @@ async function createInitialProducts() {
       image:
         "https://m.media-amazon.com/images/I/51ta4791GeL._AC_SY780_.jpg",
       quantity: 59,
+    });
+
+    await createProduct({
+      title: "The Pragmatic Programmer",
+      description: 'Dave Thomas and Andy Hunt wrote the first edition of this influential book in 1999 to help their clients create better software and rediscover the joy of coding. These lessons have helped a generation of programmers examine the very essence of software development, independent of any particular language, framework, or methodology, and the Pragmatic philosophy has spawned hundreds of books, screencasts, and audio books, as well as thousands of careers and success stories. Now, twenty years later, this new edition re-examines what it means to be a modern programmer. Topics range from personal responsibility and career development to architectural techniques for keeping your code flexible and easy to adapt and reuse.',
+      author: "David Thomas, Andrew Hunt",
+      pageCount: "352",
+      genre: "Educational",
+      price: 49.99,
+      image:
+        "https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/tpp20.jpg",
+      quantity: 72,
+    });
+
+    await createProduct({
+      title: "Diary of a Wimpy Kid",
+      description: "First things first. Greg Heffley does not own a diary; he owns a journal. So, ignore the bright letters that read diary on the cover. The first book in the Diary of a Wimpy Kid series is the perfect introduction to Greg, a boy who might not be considered the greatest of friends. We follow Greg and his friend Rowley through all their middle school misadventures as Greg chronicles them in his diary — I mean journal.",
+      author: "Jeff Kinney",
+      pageCount: "224",
+      genre: "Kids",
+      price: 13.99,
+      image:
+        "https://m.media-amazon.com/images/I/510rDLhCn7L._AC_SY780_.jpg",
+      quantity: 59,
+    });
+
+    await createProduct({
+      title: "Where the Crawdads Sing",
+      description: "This lyrically haunting novel will stay with you long after the last page. Owens tears into the heart of human nature, exposing our longing to connect with each other and the natural world. Follow Kya Clark as she acclimates to a world that would claim her to be a murderer.",
+      author: "Delia Owens",
+      pageCount: "400",
+      genre: "Fiction",
+      price: 13.49,
+      image:
+        "https://m.media-amazon.com/images/I/51gH2xzBM2L._AC_SY780_.jpg",
+      quantity: 59,
+    });
+
+    await createProduct({
+      title: "Chainsaw Man, Vol. 1",
+      description: "Denji's a poor young man who'll do anything for money, even hunting down devils with his pet devil-dog Pochita. He's a simple man with simple dreams, drowning under a mountain of debt. But his sad life gets turned upside down one day when he's betrayed by someone he trusts. Now with the power of a devil inside him, Denji's become a whole new man—Chainsaw Man!",
+      author: "Tatsuki Fujimoto",
+      pageCount: "192",
+      genre: "Graphic Novel",
+      price: 9.99,
+      image:
+        "https://m.media-amazon.com/images/I/51m9ctmcRnL._AC_SY780_.jpg",
+      quantity: 39,
+    });
+
+    await createProduct({
+      title: "An Immense World: How Animal Senses Reveal the Hidden Realms around Us",
+      description: "In An Immense World, Ed Yong coaxes us beyond the confines of our own senses, allowing us to perceive the skeins of scent, waves of electromagnetism, and pulses of pressure that surround us. We encounter beetles that are drawn to fires, turtles that can track the Earth's magnetic fields, fish that fill rivers with electrical messages, and even humans who wield sonar like bats. We discover that a crocodile's scaly face is as sensitive as a lover's fingertips, that the eyes of a giant squid evolved to see sparkling whales, that plants thrum with the inaudible songs of courting bugs, and that even simple scallops have complex vision. We listen to stories of pivotal discoveries in the field, while looking ahead at the many mysteries that remain unsolved.",
+      author: "Ed Yong",
+      pageCount: "464",
+      genre: "Non-Fiction",
+      price: 24.99,
+      image:
+        "https://images.penguinrandomhouse.com/cover/9780593133231",
+      quantity: 69,
+    });
+
+    await createProduct({
+      title: "I'm Glad My Mom Died",
+      description: "Readers get the chance to learn how 'the industry' really works, as Jennette describes what it's like as a child star, further fueling the narrative, of late, around how victimizing Hollywood can be. Jennette is direct, honest and hilarious, and despite it all, delivers an inspiring story of resilience and recovery.",
+      author: "Jennette McCurdy",
+      pageCount: "320",
+      genre: "Non-Fiction",
+      price: 21.99,
+      image:
+        "https://m.media-amazon.com/images/I/41PYiVyXXHL.jpg",
+      quantity: 52,
+    });
+
+    await createProduct({
+      title: "How the Grinch Stole Christmas!",
+      description: "Every Who down in Who-ville liked Christmas a lot . . . but the Grinch, who lived just north of Who-ville, did NOT! Not since -'Twas the night before Christmas- has the beginning of a Christmas tale been so instantly recognizable. This heartwarming story about the effects of the Christmas spirit will grow even the coldest and smallest of hearts. Like mistletoe, candy canes, and caroling, the Grinch is a mainstay of the holidays, and his story is the perfect gift for readers young and old.",
+      author: "Dr. Seuss",
+      pageCount: "64",
+      genre: "Kids",
+      price: 14.99,
+      image:
+        "https://m.media-amazon.com/images/I/511KgC5-DLL._AC_SY780_.jpg",
+      quantity: 43,
+    });
+    
+    await createProduct({
+      title: "Cryptid Club",
+      description: "Do you hate social gatherings? Dodge cameras? Enjoy staying up just a little too late at night? You might have more in common with your local cryptid than you think! Enter the world of Cryptid Club, a look inside the adventures of elusive creatures ranging from Mothman to the Loch Ness Monster. This humorous new series celebrates the unique qualities that make cryptids so desperately sought after by mankind (to no avail). After all, it's what makes us different that also makes us beautiful.",
+      author: "Sarah Andersen",
+      pageCount: "112",
+      genre: "Graphic Novel",
+      price: 13.99,
+      image:
+        "https://m.media-amazon.com/images/I/41ptGBUep6L._AC_SY780_.jpg",
+      quantity: 62,
+    });
+
+    await createProduct({
+      title: "And There Was Light: Abraham Lincoln and the American Struggle",
+      description: "At once familiar and elusive, Lincoln tends to be seen as the greatest of American presidents—a remote icon—or as a politician driven more by calculation than by conviction. This illuminating new portrait gives us a very human Lincoln—an imperfect man whose moral antislavery commitment, essential to the story of justice in America, began as he grew up in an antislavery Baptist community; who insisted that slavery was a moral evil; and who sought, as he put it, to do right as God gave him to see the right.",
+      author: "Jon Meacham",
+      pageCount: "720",
+      genre: "Non-Fiction",
+      price: 32,
+      image:
+        "https://m.media-amazon.com/images/I/41sz5xi78AL._AC_SY780_.jpg",
+      quantity: 59,
+    });
+    await createProduct({
+      title: "Fairy Tale",
+      description: "Charlie Reade looks like a regular high school kid, great at baseball and football, a decent student. But he carries a heavy load. His mom was killed in a hit-and-run accident when he was seven, and grief drove his dad to drink. Charlie learned how to take care of himself—and his dad. When Charlie is seventeen, he meets a dog named Radar and her aging master, Howard Bowditch, a recluse in a big house at the top of a big hill, with a locked shed in the backyard. Then, when Bowditch dies, he leaves Charlie a cassette tape telling a story no one would believe. What Bowditch knows, and has kept secret all his long life, is that inside the shed is a portal to another world.",
+      author: "Stephen King",
+      pageCount: "608",
+      genre: "Fiction",
+      price: 22.75,
+      image:
+        "https://m.media-amazon.com/images/I/51ECRZXoGyL.jpg",
+      quantity: 39,
+    });
+    await createProduct({
+      title: "Viking Language 1 Learn Old Norse, Runes, and Icelandic Sagas",
+      description: "Viking Language 1: Learn Old Norse, Runes, and Icelandic Sagas is a new introduction to Old Norse and Icelandic. The beginner has everything in one book: Graded lessons, reading passages, vocabulary, grammar exercises, and pronunciation. A full complement of maps, runic inscriptions and culture sections explore the civilization, legends, and myths of the Vikings. The lessons follow an innovative word frequency strategy, a method that speeds learning. Because the grammar of Modern Icelandic has changed so little from Old Norse, the learner is well on the way to mastering Modern Icelandic.",
+      author: "Jesse L. Byock",
+      pageCount: "392",
+      genre: "Educational",
+      price: 39.99,
+      image:
+        "https://m.media-amazon.com/images/I/51ta4791GeL._AC_SY780_.jpg",
+      quantity: 59,
+    });
+
+    await createProduct({
+      title: "Avengers Forever Vol. 1: The Lords of Earthly Vengeance",
+      description: "Practical SQL is an approachable and fast-paced guide to SQL (Structured Query Language), the standard programming language for defining, organizing, and exploring data in relational databases. The book focuses on using SQL to find the story your data tells, with the popular open-source database PostgreSQL and the pgAdmin interface as its primary tools.",
+      author: "Jason Aaron, Aaron Kuder (Artist)",
+      pageCount: "128",
+      genre: "Graphic Novel",
+      price: 15.95,
+      image:
+        "https://i.annihil.us/u/prod/marvel/i/mg/3/b0/61d4c518767b4/clean.jpg",
+      quantity: 51,
+    });
+
+    await createProduct({
+      title: "Chess For Dummies",
+      description: "From Netflix's “The Queen's Gambit” to podcasts, virtual and mobile gaming, and beyond, chess is back in a big way. But, with all those kings, queens, and knights, chess can be a royal pain to grasp. Chess For Dummies is here to help beginners wrap their minds around the rules of the game, make sense of those puzzling pieces, and sharpen their chess strategy such that even Paul Morphy would be impressed. You'll learn the laws of chess, its lingo, and engage in the art of the attack with the easy-to-follow, step-by-step explanations found in the latest edition of Chess For Dummies.",
+      author: "James Eade",
+      pageCount: "416",
+      genre: "Educational",
+      price: 22.99,
+      image:
+        "https://media.wiley.com/product_data/coverImage300/1X/11192800/111928001X.jpg",
+      quantity: 51,
     });
 
     console.log("Finished creating Products");

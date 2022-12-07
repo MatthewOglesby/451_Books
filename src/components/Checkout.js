@@ -69,7 +69,7 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
                   </p>
                   <p>Title: {cartItem.title}</p>
                   <p>
-                    <strong>Price</strong> ${cartItem.price}
+                    <strong>Price</strong> ${((Math.round((cartItem.price * cartItem.order_quantity)*100))/100).toFixed(2)}
                   </p>
                 </Paper>
               </div>
@@ -82,6 +82,13 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
 
 
       <div className='containerPayment'>
+        <div className='totals-checkout'>
+          <p>Subtotal: ${total}</p>
+          <p>Shipping: <em>Free</em></p>
+          <p>Taxes (2.9%) : ${(total * 0.029).toFixed(2)}</p>
+          <p style={{fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0}}>Total: ${(total + (total * 0.029)).toFixed(2)}</p>
+        </div>
+       
         <form
           className='containerCheckout'
         >
@@ -145,10 +152,3 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
 }
 
 export default Checkout;
-
-//  preConfirm: () => {
-                  
-//   setTimeout(() => {
-//     Swal.showLoading();
-//   }, 2000)
-// },

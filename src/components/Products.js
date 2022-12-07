@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Paper, Button } from '@mui/material';
 import temp from '../coming_soon.JPEG';
-import SearchImage from '../All_Books_Search.jpg';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 
 const customTheme = createTheme({
@@ -42,10 +40,10 @@ const Products = ({ products, navigate }) => {
                                 event.preventDefault();
                             }}>
                             <div className='returnedFormContent'>
-                                <h3 className='searchHeader'>Search For Your Favorite Book</h3>
+                                <h3 className='searchHeader'>Search For Your Favorite Books</h3>
                                 <input
                                     id="outlined-basic"
-                                    placeholder="(i.e. genre, title, author, description)"
+                                    placeholder="what do you feel like reading?"
                                     className='userSearchInput'
                                     type='text'
                                     onChange={(event) => setSearchTerm(event.target.value)}
@@ -56,8 +54,8 @@ const Products = ({ products, navigate }) => {
 
                 <h3 style={{
                     textAlign: 'center', color: 'black', fontSize: '35px', textShadow: '5px 5px 10px white', color: 'aliceblue',
-                    textShadow: "0px 0px 8px black",
-                    WebkitTextStroke: '.8px black', position:'relative'
+                    textShadow: "-2px 4px 8px black",
+                    WebkitTextStroke: '.9px black', position:'relative'
                 }}>All Books</h3>
 
                 <div className='genre-buttons-div'>
