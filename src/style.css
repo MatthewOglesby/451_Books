@@ -249,9 +249,9 @@ header {
 
 .allProductsHere {
     margin-top: 5rem;
-    background-image: url('/src/All_Books_Search.jpg');
-    background-repeat: 1;
+    background-image: url('/images/All_Books_Search_plain.jpeg');
     background-size: 100%;
+    min-height: 100vh;
 }
 
 .productBox {
@@ -302,10 +302,13 @@ header {
 
 .searchHeader {
     font-size: 40px;
-    color: black;
-    text-shadow: 5px 5px 10px aliceblue;
+    /* original color black and text-shadow aliceblue */
+    color: aliceblue;
+    text-shadow: 0px 0px 8px black;
     margin-bottom: 0;
     padding-top: 2rem;
+    /* testing white with black outline */
+    -webkit-text-stroke: 1px black;
 }
 
 .productImage {
@@ -313,18 +316,11 @@ header {
     height: 350px;
 }
 
-/* .searchBarImageContainer {
-    background-image: url('/src/All_Books_Search.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 350px; 
-} */
-
 .containerSearchProducts {
     height: 11rem;
     margin-bottom: 1rem;
     align-items: center;
 }
-
 
 .edit-form {
     display: flex;
@@ -354,6 +350,7 @@ input:placeholder-shown {
     display: flex;
     justify-content: space-evenly;
 }
+
 
 /* SINGLE VIEW */
 .single-view-div {
@@ -419,7 +416,16 @@ input:placeholder-shown {
 }
 .productButtons:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 20px 1px #9A7269;
+    box-shadow: 0px 0px 15px 1px #88655dbd;
+}
+
+#add-to-cart:hover {
+    color: rgb(247, 246, 246);
+    box-shadow: none;
+}
+
+.pulse {
+    animation: 1s pulse;
 }
 
 .productLink{
@@ -444,7 +450,7 @@ input:placeholder-shown {
     flex-direction: row;
     justify-content: center;
     height: 1000px;
-    background-image: url('../images/transparentBackground.png');
+    background-image: url('../images/transparentBackground.PNG');
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -530,8 +536,19 @@ input:placeholder-shown {
 .userSearchInput {
     margin-bottom: 2rem;
     color: white;
-    font-size: 30px;
-    box-shadow: 10px 10px 10px black;
+    font-size: 20px;
+    text-align: center;
+    box-shadow: 0px 5px 10px black;
+}
+
+#outlined-basic {
+    width: 20%;
+    border: 3px solid #d4bcb0;
+    padding: 5px;
+    height: 25px;
+    border-radius: 10px 10px 10px 10px;
+    color: black;
+    outline: none;
 }
 
 /* CART */
@@ -543,31 +560,15 @@ input:placeholder-shown {
     top: 4em;
     left: 4rem;
     margin-top: 2%;
-    height: 65%;
+    min-height: 50%;
     max-width:66%;
     padding: 1% 0% 7% 0%;
     backdrop-filter: blur(0.4rem);
-    cursor: grab;
     overflow-x: scroll;
     background: none;
     border-radius: 1rem;
     box-shadow: 0px 0px 2px #daa871, 0px 0px 5px #ffe9d1, 3px 3px 8px #b1b1b1,
       -3px -3px 8px #fff;
-
-}
-
-
-
-@media only screen and (max-width: 600px) {
-    .cart-main-div {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-  
-
-    }
-
 
 }
 
@@ -587,8 +588,10 @@ input:placeholder-shown {
     margin-right: 2%;
     padding: 1rem 1rem;
     border-radius: 1rem;
-    box-shadow: 0px 0px 1px #daa871, 0px 0px 3px #ffe9d1, 1px 1px 2px #b1b1b1,
-        -3px -3px 8px #fff;
+    box-shadow: 0px 0px 1px #daa871, 
+                0px 0px 3px #ffe9d1, 
+                1px 1px 2px #b1b1b1,
+                -3px -3px 8px #fff;
 }
 .button-group-cartItems:hover{
     border-radius: 1rem;
@@ -597,7 +600,6 @@ input:placeholder-shown {
 }
 
 .cartProductImage {
-    
     width: 100%;
     height: 250px;
 }
@@ -615,48 +617,37 @@ input:placeholder-shown {
     width: 12rem;
     padding: 1rem;
     
-    
 }
-
 
 .hidden {
     display: none;
 }
 
 .errorMessage {
-    font-size: 25px;
-    color: black;
+    font-size: 20px;
+    color: rgb(249, 114, 114);
     text-shadow: 5px 5px 10px black;
     text-align: center;
 }
 
 .errorMessage2 {
     font-size: 20px;
-    color: rgb(63, 63, 63);
-    text-shadow: 0px 0px 10px rgb(12, 12, 12);
+    color: white;
     text-align: center;
 }
 
 #sign-in-msg {
-    text-decoration: none;
-    color: rgb(228, 225, 225);
-}
-
-#sign-in-msg:hover {
-    text-decoration: underline;
+    color: rgb(218, 189, 173);
 }
 
 .error {
     animation: 0.5s shake;
-    background-image: url('../images/burningBook.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: -8rem;
+    background-color: rgba(14, 6, 6, 0.741);
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    margin-top: 4rem;
+    margin-top: 15rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
     box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
@@ -664,7 +655,27 @@ input:placeholder-shown {
     color: #F1F1F2;
     position: relative;
     width: 400px;
-    height: 600px;
+    min-height: 200px;
+    opacity: 1;
+}
+
+.error-reg {
+    animation: 0.5s shake;
+    background-color: rgba(14, 6, 6, 0.744);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-left: 30rem;
+    margin-top: 7rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+    border-radius: 5%;
+    color: #F1F1F2;
+    position: relative;
+    width: 400px;
+    height: 450px;
 }
 
 .editProductImage {
@@ -707,10 +718,10 @@ checkout.input[type=text] {
     flex-direction: row;
 }
 /* .containerCheckout {
-
+    
 }
 .containerCheckouts {
-
+    
 } */
 
 h4 {
@@ -759,7 +770,7 @@ h5 {
     font-size: larger;
 }
 
-/* SHAKE ANIMATION FOR FAILING TO LOGIN / REGISTER */
+/* ANIMATIONS */
 @keyframes shake {
     0% {
         transform: translate(1px, 1px) rotate(0deg);
@@ -796,6 +807,23 @@ h5 {
     }
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(0.90);
+        box-shadow: 0 0 0 0 rgba(101, 74, 48, 0.774);
+      }
+      
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+      }
+      
+      100% {
+        transform: scale(0.90);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+      }
+    }
+
 html ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -814,5 +842,16 @@ html ::-webkit-scrollbar-thumb {
 }
 
 /* MOBILE MODIFCATION */
-@media only screen and (max-width: 1281px) {}
+@media only screen and (max-width: 600px) {
+    .cart-main-div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+  
+
+    }
+
+
+}
 

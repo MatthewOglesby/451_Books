@@ -53,7 +53,7 @@ const Login = ({ setToken, navigate }) => {
                     </div>
                     <p className={error ? 'errorMessage' : 'hidden'}>Username or password is incorrect</p>
                     <button className='submitLogin' type='submit'>Login</button>
-                    <p className={error ? 'errorMessage2' : 'hidden'}>Try <Link to='/register' id='sign-in-msg'>signing in</Link> instead</p>
+                    <p className={error ? 'errorMessage2' : 'hidden'}>New here? <Link to='/register' id='sign-in-msg'>Create an account</Link></p>
                 </form>
             </div>
         </div>

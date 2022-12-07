@@ -44,6 +44,7 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, user, navigate }) => {
             );
           })}
         </div>
+        
         <div className="cart-total">
           <br></br>
           <span> Subtotal ({cartItems.length}) items</span>

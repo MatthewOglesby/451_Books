@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Paper, TextField, Button } from '@mui/material';
+import { Paper, Button } from '@mui/material';
 import temp from '../coming_soon.JPEG';
 import SearchImage from '../All_Books_Search.jpg';
 import {createTheme, ThemeProvider } from '@mui/material/styles';
@@ -33,8 +33,8 @@ const Products = ({ products, navigate }) => {
     // console.log(products)
 
     return (
-
         <div className='allProductsHere'>
+        <div >
 
           <ThemeProvider theme={customTheme}>
             <div className='containerSearchProducts'>
@@ -45,18 +45,18 @@ const Products = ({ products, navigate }) => {
                     }}>
                     <div className='returnedFormContent'>
                         <h3 className='searchHeader'>Search For Products Here</h3>
-                        <TextField
-                            id="outlined-basic" label="(i.e. genre, title, author, description)" variant="outlined"
+                        <input
+                            id="outlined-basic" 
+                            placeholder="(i.e. genre, title, author, description)"
                             className='userSearchInput'
                             type='text'
-                            color="primary"
                             onChange={(event) => setSearchTerm(event.target.value)}
                         />
                     </div>
                 </form>
             </div>
             </ThemeProvider>
-            <h3 style={{textAlign:'center', color: 'black', fontSize: '40px', textShadow: '5px 5px 10px white'}}>Genre</h3>
+            <h3 style={{textAlign:'center', color: 'black', fontSize: '40px', textShadow: '5px 5px 10px white', marginTop: '0'}}>Genre</h3>
 
 
             <div className='genre-buttons-div'>
@@ -132,7 +132,7 @@ const Products = ({ products, navigate }) => {
                 }
             </div>
         </div>
-
+        </div>
     )
 }
 
