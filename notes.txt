@@ -2,6 +2,29 @@ Matthew
     - Register
     - Login
     - Home
+
+Ethan
+    - Search for Books
+    - All books
+    - Single Page View
+
+Ross
+    - Add to Cart
+    - Cart Icon w/ Number
+    - Cart Page w/ Functionality
+    - Proceed to Checkout
+
+Jaeln 
+    - Order Page
+    - Submit Order
+    - Order Confirmation
+
+Matthew 
     - All Users
-Claire
-    - Add Book
+
+Claire 
+    - Add Product
+    - Edit Product
+    - Delete Product
+
+
