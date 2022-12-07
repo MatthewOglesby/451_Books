@@ -225,7 +225,13 @@ const App = () => {
                         token={token}
                         products={products}
                     />}
-
+                />
+                <Route
+                    path='/order'
+                    element={<Order
+                    navigate= {navigate}
+                    />}
+                    
                 />
             </Routes>
         </div>

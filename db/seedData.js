@@ -119,33 +119,12 @@ async function createInitialProducts() {
         quantity: 57,
       });
       
+      
+      
       await createProduct({
-        title: "The Inheritance Games",
-        description: "Avery Grambs has a plan for a better future: survive high school, win a scholarship, and get out. But her fortunes change in an instant when billionaire Tobias Hawthorne dies and leaves Avery virtually his entire fortune. The catch? Avery has no idea why — or even who Tobias Hawthorne is.",
-        author: "Jennifer Lynn Barnes",
-        pageCount: "400",
-        genre: "Fiction",
-        price: 8.95,
-        image:
-          "https://m.media-amazon.com/images/I/51Gv-CkrYOL._AC_SY780_.jpg",
-        quantity: 49,
-      });
-
-    await createProduct({
-      title: "Twilight",
-      description: "Bella Swan doesn't expect life to change much when she moves from Arizona to Washington. She meets Edward Cullen, a handsome but mysterious teen with piercing eyes, he is a vampire who does not drink blood. They enter into a dangerous romance.",
-      author: "Stephanie Meyer",
-      pageCount: "498",
-      genre: "Fiction",
-      price: 19.99,
-      image: "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg",
-      quantity: 60,
-    });
-
-    await createProduct({
       title: "The Lord of The Rings",
       description:
-        "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them",
+      "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them",
       author: "J.R.R Toklkien",
       pageCount: "535",
       genre: "Fiction",
@@ -153,25 +132,25 @@ async function createInitialProducts() {
       image: "https://m.media-amazon.com/images/I/51kfFS5-fnL._AC_SY780_.jpg",
       quantity: 60,
     });
-
+    
     await createProduct({
       title:
-        "I Will Find You: Solving Killer Cases from My Life Fighting Crime ",
+      "I Will Find You: Solving Killer Cases from My Life Fighting Crime ",
       description:
-        "Detective Lt. Joe Kenda, star of Homicide Hunter, shares his deepest, darkest, and never before revealed case files from his 19 years as a homicide detective",
+      "Detective Lt. Joe Kenda, star of Homicide Hunter, shares his deepest, darkest, and never before revealed case files from his 19 years as a homicide detective",
       author: "Joe Kenda",
       pageCount: "288",
       genre: "Non-Fiction",
       price: 11.99,
       image:
-        "https://m.media-amazon.com/images/I/51a5n1ueF1L._SX332_BO1,204,203,200_.jpg",
+      "https://m.media-amazon.com/images/I/51a5n1ueF1L._SX332_BO1,204,203,200_.jpg",
       quantity: 60,
     });
-
+    
     await createProduct({
       title: "True Crime Stories You Won't Believe: Book Two ",
       description:
-        "In this book, I present tales of true crime and bizarre applications of justice (or injustice, as the case may be)",
+      "In this book, I present tales of true crime and bizarre applications of justice (or injustice, as the case may be)",
       author: "Romeo Vitelli",
       pageCount: "230",
       genre: "Non-Fiction",
@@ -179,11 +158,22 @@ async function createInitialProducts() {
       image: "https://m.media-amazon.com/images/I/41VZPJHOlFL.jpg",
       quantity: 55,
     });
-
+    
+    await createProduct({
+      title: "The Inheritance Games",
+      description: "Avery Grambs has a plan for a better future: survive high school, win a scholarship, and get out. But her fortunes change in an instant when billionaire Tobias Hawthorne dies and leaves Avery virtually his entire fortune. The catch? Avery has no idea why — or even who Tobias Hawthorne is.",
+      author: "Jennifer Lynn Barnes",
+      pageCount: "400",
+      genre: "Fiction",
+      price: 8.95,
+      image:
+      "https://m.media-amazon.com/images/I/51Gv-CkrYOL._AC_SY780_.jpg",
+      quantity: 49,
+    });
     await createProduct({
       title: "Robin",
       description:
-        "From New York Times culture reporter Dave Itzkoff comes the definitive audiobook biography of Robin Williams - a compelling portrait of one of America's most beloved and misunderstood entertainers",
+      "From New York Times culture reporter Dave Itzkoff comes the definitive audiobook biography of Robin Williams - a compelling portrait of one of America's most beloved and misunderstood entertainers",
       author: "Dave ItzKoff",
       pageCount: "544",
       genre: "Non-Fiction",
@@ -191,7 +181,17 @@ async function createInitialProducts() {
       image: "https://m.media-amazon.com/images/I/51EIw7k-X1L.jpg",
       quantity: 50,
     });
-
+    
+    await createProduct({
+      title: "Twilight",
+      description: "Bella Swan doesn't expect life to change much when she moves from Arizona to Washington. She meets Edward Cullen, a handsome but mysterious teen with piercing eyes, he is a vampire who does not drink blood. They enter into a dangerous romance.",
+    author: "Stephanie Meyer",
+    pageCount: "498",
+    genre: "Fiction",
+    price: 19.99,
+    image: "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg",
+    quantity: 60,
+  });
     await createProduct({
       title: "The Complete Zen Disc Golf",
       description:

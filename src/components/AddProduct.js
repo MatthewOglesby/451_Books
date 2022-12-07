@@ -49,28 +49,33 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
             <div className='formContainerAddProduct'>
             <h3 style={{ textAlign: 'center' }}>Add Product to Inventory</h3>
 
-            <form className='edit-form'>
+            <form className='addProductForm'>
                 <input
+                className='addInput'
                     type='text'
                     placeholder='Book Title'
                     onChange={(e) => setTitle(e.target.value)}
                 />
                 <input
+                className='addInput'
                     type='text'
                     placeholder="Book Description"
                     onChange={(e) => setDesc(e.target.value)}
                 />
                 <input
+                className='addInput'
                     type='text'
                     placeholder="Name of Author"
                     onChange={(e) => setAuthor(e.target.value)}
                 />
                 <input
+                className='addInput'
                     type='text'
                     placeholder="Book Page Count"
                     onChange={(e) => setPageCount(e.target.value)}
                 />
                 <input
+                className='addInput'
                     type='text'
                     placeholder="Book Genre"
                     onChange={(e) => setGenre(e.target.value)}
@@ -79,23 +84,26 @@ const AddProduct = ({ fetchAllProducts, navigate, token }) => {
                 <div className='price'>
                     <p>$</p>
                     <input
+                    className='addInput'
                         type='text'
                         placeholder="Price"
                         onChange={(e) => setPrice(parseFloat(e.target.value))}
                     />
                 </div>
-
                 <input
                     type='text'
+                    className='addInput'
                     placeholder="Image for Book"
                     onChange={(e) => setImage(e.target.value)}
                 />
                 <input
                     type='text'
+                    className='addInput'
                     placeholder="Inventory Quantity"
                     onChange={(e) => setQuantity(e.target.value)}
                 />
                 <button
+                className='addProductButton'
                     onClick={(e) => {
                         e.preventDefault();
                         addProduct();
