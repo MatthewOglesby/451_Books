@@ -9,7 +9,8 @@
     "seed": "node ./db/seedData.js",
     "seed:dev": "nodemon ./db/seedData.js",
     "start-react": "react-scripts start",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "react-scripts build"
   },
   "keywords": [],
   "author": "",

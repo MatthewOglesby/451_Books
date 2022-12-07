@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8d9849de.css",
+    "main.js": "/static/js/main.f479a687.js",
+    "static/media/All_Books_Search.jpg": "/static/media/All_Books_Search.6375fffb11c0715db4be.jpg",
+    "static/media/All_Books_Search_plain.jpeg": "/static/media/All_Books_Search_plain.267b0983a0b6698cbba3.jpeg",
+    "static/media/loginbackground.jpeg": "/static/media/loginbackground.7b8af4dbd2582a586bb0.jpeg",
+    "static/media/registerbackground.jpg": "/static/media/registerbackground.933d6c58e65e5c6abd25.jpg",
+    "static/media/Register.jpg": "/static/media/Register.602474f62949733d5791.jpg",
+    "static/media/Cart.jpeg": "/static/media/Cart.6c43421b9bf888b360a0.jpeg",
+    "static/media/transparentBackground.png": "/static/media/transparentBackground.fb31618170f3d4aa7323.png",
+    "static/media/checkout.gif": "/static/media/checkout.795a497baac92c1141d1.gif",
+    "static/media/451_Books.jpg": "/static/media/451_Books.b67565b46596fd3c1850.jpg",
+    "static/media/coming_soon.JPEG": "/static/media/coming_soon.e9464dbd1d72bff406da.JPEG",
+    "static/media/header_logo-2.jpeg": "/static/media/header_logo-2.5692bc887809458fa973.jpeg",
+    "index.html": "/index.html",
+    "main.8d9849de.css.map": "/static/css/main.8d9849de.css.map",
+    "main.f479a687.js.map": "/static/js/main.f479a687.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d9849de.css",
+    "static/js/main.f479a687.js"
+  ]
+}
