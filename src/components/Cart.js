@@ -64,10 +64,12 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, user, navigate }) => {
             </Link>
            </div>
             <br></br>
-        
+            <h1 className="cart-text-div" style={{fontFamily: 'Droid Sans'}}>Cart</h1>
           </span>
         </div>
+        
       </div>
+      
     </div>
   );
 };

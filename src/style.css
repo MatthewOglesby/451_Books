@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Charis+SIL&family=Courgette&family=Courier+Prime&family=Exo+2:wght@200&family=Gloria+Hallelujah&family=Lato&family=Pacifico&display=swap');
 * {
     font-family: 'EB Garamond', serif;
 }
@@ -595,7 +596,13 @@ input:placeholder-shown {
     cursor: pointer;
     box-shadow: 0px 0px 20px 1px #d4bcb0;
 }
-
+.cart-text-div{
+    font-size: 150px;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    color: white;
+  
+}
 .cartProductImage {
     
     width: 100%;
