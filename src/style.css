@@ -598,8 +598,11 @@ input:placeholder-shown {
 }
 .cart-text-div{
     font-size: 150px;
+    position: fixed;
+    right: 2%;
+    top: 66%;
     padding-right: 1rem;
-    padding-bottom: 1rem;
+   
     color: white;
   
 }
