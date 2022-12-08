@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 
 const Order = () => {
-  const [num, setNum] = useState(0);
+  const [confirm, setConfirm] = useState('');
 
-  function randomNumber(min, max) {
-    setNum(Math.floor(Math.random() * 1000))
+  function randomNumber() {
+    setConfirm(((Math.random().toString(36).slice(2)).toUpperCase()))
   }
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const Order = () => {
   return (
     <div className='orderAll'>
       <div className='orderContainer'>
-        <h5 className='orderInfo'>Order Confirmation Number is: {num} </h5>
+        <h5 className='orderInfo'>Order Confirmation Number: {confirm} </h5>
         <h5 className='orderInfo'>Thank you for shopping with 451 Books!</h5>
       </div>
     </div>
@@ -23,3 +23,5 @@ const Order = () => {
 }
 
 export default Order;
+
+// (Math.floor(Math.random() * 1e9)) + '-' + 

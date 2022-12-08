@@ -108,6 +108,7 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
               aria-labelledby="demo-radio-buttons-group-label"
               value={region}
               name="radio-buttons-group"
+              color='default'
               onChange={(ev) => {
                 handleChange(ev)
 
@@ -212,7 +213,7 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
           <button className='submitOrderCheckout' onClick={(e) => {
             e.preventDefault();
             Swal.fire({
-              title: 'Thanks for shopping with us',
+              title: 'Order Received!',
               icon: 'success',
               iconColor: 'green',
               confirmButtonColor: 'orange',

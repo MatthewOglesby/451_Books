@@ -778,7 +778,30 @@ input:placeholder-shown {
     height: 50%;
     width: 12rem;
     padding: 1rem;
+}
 
+#cart-warning-h1 {
+    color: black;
+    font-size: 5rem;
+    margin-top:2rem;
+    position: absolute;
+    top: 45px;
+    left: 30px;
+    width: 45%;
+    cursor: default;
+}
+
+#cart-login-link {
+    color: rgb(27, 81, 27);
+    font-size: 1.7rem;
+    text-decoration: none;
+    position: absolute;
+    top: 300px;
+    left: 55px;
+}
+
+#cart-login-link:hover {
+    text-decoration: underline;
 }
 
 .hidden {
