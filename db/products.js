@@ -7,7 +7,7 @@ async function getAllProducts() {
     SELECT * FROM products;
     
     `);
-// ORDER BY id ASC;
+
     return rows;
 
   } catch (error) {
