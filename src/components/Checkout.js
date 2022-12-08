@@ -209,45 +209,45 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
 
           <p style={{ textAlign: 'left' }} >CVV </p>
           <input type="text" id="cvv" name="cvv" placeholder="999"></input>
-          <div id='loader' style={{ textAlign: 'center', marginTop: '30px', marginBottom: '-20px' }}>
+
+          
             {
               isLoading ? (
+                <div id='loader' style={{ textAlign: 'center', marginTop: '30px', marginBottom: '-20px' }}>
                 <CircularProgress color="success" />
+                </div>
               ) : (
-                null
+                <button className='submitOrderCheckout' onClick={(e) => {
+                  e.preventDefault();
+                  setTimeout(function () {
+                    setIsLoading(true)
+                  }, 350);
+                  setTimeout(function () {
+                    setIsLoading(false)
+                  }, 2500);
+                  setTimeout(function () {
+                    Swal.fire({
+                      title: 'Order Received!',
+                      icon: 'success',
+                      iconColor: 'green',
+                      confirmButtonColor: 'orange',
+                      footer: '<a href="/order">View Order Confirmation</a>',
+                      closeOnConfirm: false
+                    }).then(async (result) => {
+                      if (result.isConfirmed) {
+                        deleteFunc();
+                        fetchAllUserCartItems();
+                        navigate('/books');
+                      }
+                    })
+        
+                  }, 2500);
+                  
+                  
+                }}> Submit Order </button>
               )
             }
 
-          </div>
-
-          <button className='submitOrderCheckout' onClick={(e) => {
-            e.preventDefault();
-            setTimeout(function () {
-              setIsLoading(true)
-            }, 300);
-            setTimeout(function () {
-              setIsLoading(false)
-            }, 2500);
-            setTimeout(function () {
-              Swal.fire({
-                title: 'Order Received!',
-                icon: 'success',
-                iconColor: 'green',
-                confirmButtonColor: 'orange',
-                footer: '<a href="/order">View Order Confirmation</a>',
-                closeOnConfirm: false
-              }).then(async (result) => {
-                if (result.isConfirmed) {
-                  deleteFunc();
-                  fetchAllUserCartItems();
-                  navigate('/books');
-                }
-              })
-  
-            }, 2500);
-            
-            
-          }}> Submit Order </button>
         </form>
 
       </div>
