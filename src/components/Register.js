@@ -82,7 +82,7 @@ const Register = ({ setToken, token, navigate }) => {
                     </div>
                     <p className={error ? 'errorMessage' : 'hidden'}>Whoops, there was an issue signing you up</p>
                     <button className='submitRegister' type='submit' />
-                    <p className='errorMessage2'>Already have an account? Log in <Link to='/login' id='sign-in-msg'>here</Link></p>
+                    <p className='errorMessage2'>Already have an account? Login <Link to='/login' id='sign-in-msg'>here</Link></p>
                 </form>
             </div>
         </div>

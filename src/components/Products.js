@@ -43,7 +43,7 @@ const Products = ({ products, navigate }) => {
                                 <h3 className='searchHeader'>Search For Your Favorite Books</h3>
                                 <input
                                     id="outlined-basic"
-                                    placeholder="what do you feel like reading?"
+                                    placeholder="What do you feel like reading?"
                                     className='userSearchInput'
                                     type='text'
                                     onChange={(event) => setSearchTerm(event.target.value)}
