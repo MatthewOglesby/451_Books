@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
-import { Link, Button, Paper } from "@mui/material";
+import { Paper } from "@mui/material";
 import Swal from 'sweetalert2';
-import Badge from "@mui/material/Badge";
 import { deleteCartItem } from '../api';
+import Badge from "@mui/material/Badge";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
 
 const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllProducts }) => {
+  const [region, setRegion] = useState('West')
+
 
   if (cartItems === undefined) {
     return null;
   }
   let total = 0;
+
+  let shippingW = 6.99;
+  let shippingC = 5.99;
+  let shippingE = 7.99;
+
+  let taxW = 0.0725;
+  let taxM = 0.029;
+  let taxC = 0.07;
+  let taxE = 0.06;
 
   // if(!user) {
   //   return <Link> to={`/checkout`} </Link>
@@ -23,7 +39,10 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
     // fetch all the users cart items 
   }
 
-  // alternatively update each item to set "isActive" to false
+  function handleChange(ev) {
+    setRegion(ev.target.value)
+    console.log('-region---------', region)
+  }
 
   return (
 
@@ -69,7 +88,7 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
                   </p>
                   <p>Title: {cartItem.title}</p>
                   <p>
-                    <strong>Price</strong> ${((Math.round((cartItem.price * cartItem.order_quantity)*100))/100).toFixed(2)}
+                    <strong>Price</strong> ${((Math.round((cartItem.price * cartItem.order_quantity) * 100)) / 100).toFixed(2)}
                   </p>
                 </Paper>
               </div>
@@ -83,12 +102,75 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
 
       <div className='containerPayment'>
         <div className='totals-checkout'>
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label">Shipping region</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              value={region}
+              name="radio-buttons-group"
+              onChange={(ev) => {
+                handleChange(ev)
+
+              }}
+            >
+              <FormControlLabel value="West" control={<Radio />} label="West" />
+              <FormControlLabel value="Mountain" control={<Radio />} label="Mountain" />
+              <FormControlLabel value="Central" control={<Radio />} label="Central" />
+              <FormControlLabel value="East" control={<Radio />} label="East" />
+            </RadioGroup>
+          </FormControl>
           <p>Subtotal: ${total}</p>
-          <p>Shipping: <em>Free</em></p>
-          <p>Taxes (2.9%) : ${(total * 0.029).toFixed(2)}</p>
-          <p style={{fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0}}>Total: ${(total + (total * 0.029)).toFixed(2)}</p>
+          {
+            region == 'West' ? (
+              <>
+                <p>Shipping: ${shippingW}</p>
+                <p>Taxes ({(taxW * 100).toFixed(1)}%) : ${(total * taxW).toFixed(2)}</p>
+                <p style={{ fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0 }}>Total: ${(total + (total * taxW) + shippingW).toFixed(2)}</p>
+              </>
+            ) : (
+              null
+            )
+          }
+          {
+              region == 'Mountain' ? (
+                <>
+                  <p>Shipping: <em>Free</em> </p>
+                  <p>Taxes ({(taxM * 100).toFixed(1)}%) : ${(total * taxM).toFixed(2)}</p>
+                  <p style={{ fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0 }}>Total: ${(total + (total * taxM)).toFixed(2)}</p>
+                </>
+              ) : (
+                null
+              )
+          }
+          {
+              region == 'Central' ? (
+                <>
+                  <p>Shipping: ${shippingC} </p>
+                  <p>Taxes ({(taxC * 100).toFixed(1)}%) : ${(total * taxC).toFixed(2)}</p>
+                  <p style={{ fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0 }}>Total: ${(total + (total * taxC) + shippingC).toFixed(2)}</p>
+                </>
+              ) : (
+                null
+              )
+          }
+          {
+              region == 'East' ? (
+                <>
+                  <p>Shipping: ${shippingE} </p>
+                  <p>Taxes ({(taxE * 100).toFixed(1)}%) : ${(total * taxE).toFixed(2)}</p>
+                  <p style={{ fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0 }}>Total: ${(total + (total * taxE) + shippingE).toFixed(2)}</p>
+                </>
+              ) : (
+                null
+              )
+          }
+
+
+
+
+
         </div>
-       
+
         <form
           className='containerCheckout'
         >

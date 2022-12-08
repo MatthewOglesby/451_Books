@@ -925,10 +925,11 @@ checkout.input[type=text] {
     margin-right: 1rem;
     margin-top: 3rem;
     padding-right: 2rem;
-    padding-left: 1rem;
+    padding-left: 2rem;
+    padding-top: 1rem;
     border: 2px solid rgb(91, 64, 43);
-    border-radius: 10%;
-    height: 215px;
+    border-radius: 5vh;
+    height: 418px;
 }
 
 .containerCheckouts {
