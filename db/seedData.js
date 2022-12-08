@@ -625,7 +625,7 @@ async function createInitialProducts() {
 
     await createProduct({
       title: "Avengers Forever Vol. 1: The Lords of Earthly Vengeance",
-      description: "Practical SQL is an approachable and fast-paced guide to SQL (Structured Query Language), the standard programming language for defining, organizing, and exploring data in relational databases. The book focuses on using SQL to find the story your data tells, with the popular open-source database PostgreSQL and the pgAdmin interface as its primary tools.",
+      description: "Jason Aaron spreads the legend of the Avengers across the infinite worlds of the Multiverse! On a quest for cosmic vengeance, Ghost Rider finds himself roaring through the wasteland on a ruined Earth where the great Age of Heroes never came to be. Where “hope” is a four-letter word…and where his only ally in the coming battle against the greatest villains any universe has ever known is the world's most wanted archaeologist: Tony Stark, the Invincible Ant-Man! Spinning out of the cataclysmic events of AVENGERS #750 comes the next great Avengers saga, as the mightiest heroes of every Earth assemble!",
       author: "Jason Aaron, Aaron Kuder (Artist)",
       pageCount: "128",
       genre: "Graphic Novel",
