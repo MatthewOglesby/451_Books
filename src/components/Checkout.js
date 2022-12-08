@@ -8,11 +8,12 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllProducts }) => {
-  const [region, setRegion] = useState('West')
-
+  const [region, setRegion] = useState('West');
+  const [isLoading, setIsLoading] = useState(false)
 
   if (cartItems === undefined) {
     return null;
@@ -54,7 +55,7 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
 
           const { cartId, order_quantity, productId } = cartItem;
           const [count, setCount] = useState(order_quantity);
-          console.log(cartId)
+
 
           const clearCart = async () => {
             if (cartItem) {
@@ -103,12 +104,11 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
       <div className='containerPayment'>
         <div className='totals-checkout'>
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label">Shipping region</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label" sx={{ color: 'white', fontWeight: 'bold' }}>Please Select Shipping Region</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               value={region}
               name="radio-buttons-group"
-              color='default'
               onChange={(ev) => {
                 handleChange(ev)
 
@@ -133,37 +133,37 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
             )
           }
           {
-              region == 'Mountain' ? (
-                <>
-                  <p>Shipping: <em>Free</em> </p>
-                  <p>Taxes ({(taxM * 100).toFixed(1)}%) : ${(total * taxM).toFixed(2)}</p>
-                  <p style={{ fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0 }}>Total: ${(total + (total * taxM)).toFixed(2)}</p>
-                </>
-              ) : (
-                null
-              )
+            region == 'Mountain' ? (
+              <>
+                <p>Shipping: <em>Free</em> </p>
+                <p>Taxes ({(taxM * 100).toFixed(1)}%) : ${(total * taxM).toFixed(2)}</p>
+                <p style={{ fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0 }}>Total: ${(total + (total * taxM)).toFixed(2)}</p>
+              </>
+            ) : (
+              null
+            )
           }
           {
-              region == 'Central' ? (
-                <>
-                  <p>Shipping: ${shippingC} </p>
-                  <p>Taxes ({(taxC * 100).toFixed(1)}%) : ${(total * taxC).toFixed(2)}</p>
-                  <p style={{ fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0 }}>Total: ${(total + (total * taxC) + shippingC).toFixed(2)}</p>
-                </>
-              ) : (
-                null
-              )
+            region == 'Central' ? (
+              <>
+                <p>Shipping: ${shippingC} </p>
+                <p>Taxes ({(taxC * 100).toFixed(1)}%) : ${(total * taxC).toFixed(2)}</p>
+                <p style={{ fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0 }}>Total: ${(total + (total * taxC) + shippingC).toFixed(2)}</p>
+              </>
+            ) : (
+              null
+            )
           }
           {
-              region == 'East' ? (
-                <>
-                  <p>Shipping: ${shippingE} </p>
-                  <p>Taxes ({(taxE * 100).toFixed(1)}%) : ${(total * taxE).toFixed(2)}</p>
-                  <p style={{ fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0 }}>Total: ${(total + (total * taxE) + shippingE).toFixed(2)}</p>
-                </>
-              ) : (
-                null
-              )
+            region == 'East' ? (
+              <>
+                <p>Shipping: ${shippingE} </p>
+                <p>Taxes ({(taxE * 100).toFixed(1)}%) : ${(total * taxE).toFixed(2)}</p>
+                <p style={{ fontSize: 18, borderTop: '2px solid black', paddingTop: 12, marginTop: 0 }}>Total: ${(total + (total * taxE) + shippingE).toFixed(2)}</p>
+              </>
+            ) : (
+              null
+            )
           }
 
 
@@ -209,23 +209,44 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
 
           <p style={{ textAlign: 'left' }} >CVV </p>
           <input type="text" id="cvv" name="cvv" placeholder="999"></input>
+          <div id='loader' style={{ textAlign: 'center', marginTop: '30px', marginBottom: '-20px' }}>
+            {
+              isLoading ? (
+                <CircularProgress color="success" />
+              ) : (
+                null
+              )
+            }
+
+          </div>
 
           <button className='submitOrderCheckout' onClick={(e) => {
             e.preventDefault();
-            Swal.fire({
-              title: 'Order Received!',
-              icon: 'success',
-              iconColor: 'green',
-              confirmButtonColor: 'orange',
-              footer: '<a href="/order">View Order Confirmation</a>',
-              closeOnConfirm: false
-            }).then(async (result) => {
-              if (result.isConfirmed) {
-                deleteFunc();
-                fetchAllUserCartItems();
-                navigate('/books');
-              }
-            })
+            setTimeout(function () {
+              setIsLoading(true)
+            }, 300);
+            setTimeout(function () {
+              setIsLoading(false)
+            }, 2500);
+            setTimeout(function () {
+              Swal.fire({
+                title: 'Order Received!',
+                icon: 'success',
+                iconColor: 'green',
+                confirmButtonColor: 'orange',
+                footer: '<a href="/order">View Order Confirmation</a>',
+                closeOnConfirm: false
+              }).then(async (result) => {
+                if (result.isConfirmed) {
+                  deleteFunc();
+                  fetchAllUserCartItems();
+                  navigate('/books');
+                }
+              })
+  
+            }, 2500);
+            
+            
           }}> Submit Order </button>
         </form>
 
