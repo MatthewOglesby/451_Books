@@ -946,13 +946,14 @@ checkout.input[type=text] {
     flex-direction: column;
     width: 135px;
     margin-right: 1rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
     padding-right: 2rem;
     padding-left: 2rem;
     padding-top: 1rem;
     border: 2px solid rgb(91, 64, 43);
     border-radius: 5vh;
-    height: 418px;
+    min-height: 418px;
 }
 
 .containerCheckouts {
