@@ -19,10 +19,8 @@ Jaeln
     - Submit Order
     - Order Confirmation
 
-Matthew 
-    - All Users
-
 Claire 
+    - All Users
     - Add Product
     - Edit Product
     - Delete Product

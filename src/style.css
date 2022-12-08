@@ -604,7 +604,7 @@ input:placeholder-shown {
     flex-direction: row;
     justify-content: center;
     height: 1000px;
-    background-image: url('../images/transparentBackground.PNG');
+    background-image: url('/src/transparentBackground.png');
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
