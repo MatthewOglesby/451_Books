@@ -46,7 +46,7 @@ async function createTables() {
     console.log("Creating Tables");
 
     await client.query(`
-      CREATE TABLE products (
+    CREATE TABLE products (
         id SERIAL PRIMARY KEY,
         title VARCHAR(255) UNIQUE NOT NULL,
         description VARCHAR(800) UNIQUE NOT NULL,
@@ -56,7 +56,7 @@ async function createTables() {
         price FLOAT,
         image VARCHAR(255),
         quantity INTEGER
-      );
+        );
 
       CREATE TABLE users (
         id SERIAL PRIMARY KEY,
@@ -64,26 +64,26 @@ async function createTables() {
         "isAdmin" BOOLEAN,
         username VARCHAR(255) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL
-      );
-
-      CREATE TABLE cart (
-        id SERIAL PRIMARY KEY,
+        );
+        
+        CREATE TABLE cart (
+          id SERIAL PRIMARY KEY,
         order_quantity INTEGER,
         "isActive" BOOLEAN DEFAULT false,
         "userId" INTEGER REFERENCES users(id),
         "productId" INTEGER REFERENCES products(id),
         UNIQUE ("userId", "productId")
-     );
-
-     CREATE TABLE orders (
-      id SERIAL PRIMARY KEY,
-      item_quantity INTEGER,
-      "cartId" INTEGER REFERENCES cart( id ),
-      "customerId" INTEGER REFERENCES users( id ),
-      UNIQUE ("cartId", "customerId")
-   );
-   
-    `);
+        );
+        
+        CREATE TABLE orders (
+          id SERIAL PRIMARY KEY,
+          item_quantity INTEGER,
+          "cartId" INTEGER REFERENCES cart( id ),
+          "customerId" INTEGER REFERENCES users( id ),
+          UNIQUE ("cartId", "customerId")
+          );
+          
+          `);
 
     console.log("Finished Creating Tables");
   } catch (ex) {
@@ -96,6 +96,105 @@ async function createInitialProducts() {
   try {
     console.log("Creating Products");
 
+
+
+
+
+    await createProduct({
+      title: "The Lord of The Rings",
+      description:
+        "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them",
+      author: "J.R.R Toklkien",
+      pageCount: "535",
+      genre: "Fiction",
+      price: 17.89,
+      image: "https://m.media-amazon.com/images/I/51kfFS5-fnL._AC_SY780_.jpg",
+      quantity: 60,
+    });
+
+    await createProduct({
+      title: "An Immense World: How Animal Senses Reveal the Hidden Realms around Us",
+      description: "In An Immense World, Ed Yong coaxes us beyond the confines of our own senses, allowing us to perceive the skeins of scent, waves of electromagnetism, and pulses of pressure that surround us. We encounter beetles that are drawn to fires, turtles that can track the Earth's magnetic fields, fish that fill rivers with electrical messages, and even humans who wield sonar like bats. We discover that a crocodile's scaly face is as sensitive as a lover's fingertips, that the eyes of a giant squid evolved to see sparkling whales, that plants thrum with the inaudible songs of courting bugs, and that even simple scallops have complex vision. We listen to stories of pivotal discoveries in the field, while looking ahead at the many mysteries that remain unsolved.",
+      author: "Ed Yong",
+      pageCount: "464",
+      genre: "Non-Fiction",
+      price: 24.99,
+      image:
+        "https://images.penguinrandomhouse.com/cover/9780593133231",
+      quantity: 69,
+    });
+
+    await createProduct({
+      title: "True Crime Stories You Won't Believe: Book Two ",
+      description:
+        "In this book, I present tales of true crime and bizarre applications of justice (or injustice, as the case may be)",
+      author: "Romeo Vitelli",
+      pageCount: "230",
+      genre: "Non-Fiction",
+      price: 10.89,
+      image: "https://m.media-amazon.com/images/I/41VZPJHOlFL.jpg",
+      quantity: 55,
+    });
+
+    await createProduct({
+      title: "The Inheritance Games",
+      description: "Avery Grambs has a plan for a better future: survive high school, win a scholarship, and get out. But her fortunes change in an instant when billionaire Tobias Hawthorne dies and leaves Avery virtually his entire fortune. The catch? Avery has no idea why — or even who Tobias Hawthorne is.",
+      author: "Jennifer Lynn Barnes",
+      pageCount: "400",
+      genre: "Fiction",
+      price: 8.95,
+      image:
+        "https://m.media-amazon.com/images/I/51Gv-CkrYOL._AC_SY780_.jpg",
+      quantity: 49,
+    });
+    
+    await createProduct({
+      title: "Life 3.0",
+      description:
+      "How will AI affect crime, war, justice, jobs, society and our very sense of being human?",
+      author: "Max Tegmark",
+      pageCount: "384",
+      genre: "Non-Fiction",
+      price: 15.98,
+      image: "https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg",
+      quantity: 57,
+    });
+    
+    await createProduct({
+      title: "And There Was Light: Abraham Lincoln and the American Struggle",
+      description: "At once familiar and elusive, Lincoln tends to be seen as the greatest of American presidents—a remote icon—or as a politician driven more by calculation than by conviction. This illuminating new portrait gives us a very human Lincoln—an imperfect man whose moral antislavery commitment, essential to the story of justice in America, began as he grew up in an antislavery Baptist community; who insisted that slavery was a moral evil; and who sought, as he put it, to do right as God gave him to see the right.",
+      author: "Jon Meacham",
+      pageCount: "720",
+      genre: "Non-Fiction",
+      price: 32,
+      image:
+        "https://m.media-amazon.com/images/I/41sz5xi78AL._AC_SY780_.jpg",
+      quantity: 59,
+    });
+    
+    await createProduct({
+      title: "Robin",
+      description:
+        "From New York Times culture reporter Dave Itzkoff comes the definitive audiobook biography of Robin Williams - a compelling portrait of one of America's most beloved and misunderstood entertainers",
+      author: "Dave ItzKoff",
+      pageCount: "544",
+      genre: "Non-Fiction",
+      price: 24.09,
+      image: "https://m.media-amazon.com/images/I/51EIw7k-X1L.jpg",
+      quantity: 50,
+    });
+
+    await createProduct({
+      title: "Twilight",
+      description: "Bella Swan doesn't expect life to change much when she moves from Arizona to Washington. She meets Edward Cullen, a handsome but mysterious teen with piercing eyes, he is a vampire who does not drink blood. They enter into a dangerous romance.",
+      author: "Stephanie Meyer",
+      pageCount: "498",
+      genre: "Fiction",
+      price: 19.99,
+      image: "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg",
+      quantity: 60,
+    });
+
     await createProduct({
       title: "Harry Potter and the Sorcerer's Stone",
       description: "Harry Potter is a boy who learns on his eleventh birthday that he is the son of two powerful wizards. He is summoned to become a student at Hogwarts. There he meets several friends who help him discover the truth about his parents’ mysterious deaths",
@@ -105,107 +204,21 @@ async function createInitialProducts() {
       price: 20,
       image:
         "https://media.harrypotterfanzone.com/sorcerers-stone-us-childrens-edition.jpg",
-        quantity: 57,
-      });
-
-      await createProduct({
-        title: "Harry Potter and the Chamber of Secrets",
-        description: "A mysterious elf tells Harry to expect trouble during his second year at Hogwarts, but nothing can prepare him for trees that fight back, flying cars, spiders that talk and deadly warnings written in blood on the walls of the school.",
-        author: "J.K. Rowling",
-        pageCount: "299",
-        genre: "Fiction",
-        price: 20,
-        image:
-        "https://media.harrypotterfanzone.com/chamber-of-secrets-ebook-cover-1050x0-c-default.jpg",
-        quantity: 57,
-      });
-      
-      
-      
-      await createProduct({
-      title: "The Lord of The Rings",
-      description:
-      "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them",
-      author: "J.R.R Toklkien",
-      pageCount: "535",
-      genre: "Fiction",
-      price: 17.89,
-      image: "https://m.media-amazon.com/images/I/51kfFS5-fnL._AC_SY780_.jpg",
-      quantity: 60,
-    });
-    
-    await createProduct({
-      title:
-      "I Will Find You: Solving Killer Cases from My Life Fighting Crime ",
-      description:
-      "Detective Lt. Joe Kenda, star of Homicide Hunter, shares his deepest, darkest, and never before revealed case files from his 19 years as a homicide detective",
-      author: "Joe Kenda",
-      pageCount: "288",
-      genre: "Non-Fiction",
-      price: 11.99,
-      image:
-      "https://m.media-amazon.com/images/I/51a5n1ueF1L._SX332_BO1,204,203,200_.jpg",
-      quantity: 60,
-    });
-    
-    await createProduct({
-      title: "True Crime Stories You Won't Believe: Book Two ",
-      description:
-      "In this book, I present tales of true crime and bizarre applications of justice (or injustice, as the case may be)",
-      author: "Romeo Vitelli",
-      pageCount: "230",
-      genre: "Non-Fiction",
-      price: 10.89,
-      image: "https://m.media-amazon.com/images/I/41VZPJHOlFL.jpg",
-      quantity: 55,
-    });
-    
-    await createProduct({
-      title: "The Inheritance Games",
-      description: "Avery Grambs has a plan for a better future: survive high school, win a scholarship, and get out. But her fortunes change in an instant when billionaire Tobias Hawthorne dies and leaves Avery virtually his entire fortune. The catch? Avery has no idea why — or even who Tobias Hawthorne is.",
-      author: "Jennifer Lynn Barnes",
-      pageCount: "400",
-      genre: "Fiction",
-      price: 8.95,
-      image:
-      "https://m.media-amazon.com/images/I/51Gv-CkrYOL._AC_SY780_.jpg",
-      quantity: 49,
-    });
-
-    await createProduct({
-      title: "Life 3.0",
-      description:
-        "How will AI affect crime, war, justice, jobs, society and our very sense of being human?",
-      author: "Max Tegmark",
-      pageCount: "384",
-      genre: "Non-Fiction",
-      price: 15.98,
-      image: "https://m.media-amazon.com/images/I/41-KHndhtVL._AC_SY780_.jpg",
       quantity: 57,
     });
 
     await createProduct({
-      title: "Robin",
-      description:
-      "From New York Times culture reporter Dave Itzkoff comes the definitive audiobook biography of Robin Williams - a compelling portrait of one of America's most beloved and misunderstood entertainers",
-      author: "Dave ItzKoff",
-      pageCount: "544",
-      genre: "Non-Fiction",
-      price: 24.09,
-      image: "https://m.media-amazon.com/images/I/51EIw7k-X1L.jpg",
-      quantity: 50,
+      title: "Harry Potter and the Chamber of Secrets",
+      description: "A mysterious elf tells Harry to expect trouble during his second year at Hogwarts, but nothing can prepare him for trees that fight back, flying cars, spiders that talk and deadly warnings written in blood on the walls of the school.",
+      author: "J.K. Rowling",
+      pageCount: "299",
+      genre: "Fiction",
+      price: 20,
+      image:
+        "https://media.harrypotterfanzone.com/chamber-of-secrets-ebook-cover-1050x0-c-default.jpg",
+      quantity: 57,
     });
-    
-    await createProduct({
-      title: "Twilight",
-      description: "Bella Swan doesn't expect life to change much when she moves from Arizona to Washington. She meets Edward Cullen, a handsome but mysterious teen with piercing eyes, he is a vampire who does not drink blood. They enter into a dangerous romance.",
-    author: "Stephanie Meyer",
-    pageCount: "498",
-    genre: "Fiction",
-    price: 19.99,
-    image: "https://m.media-amazon.com/images/I/318nujF5v5L._AC_SY780_.jpg",
-    quantity: 60,
-  });
+
     await createProduct({
       title: "The Complete Zen Disc Golf",
       description:
@@ -249,15 +262,15 @@ async function createInitialProducts() {
       title: "Ready Player One",
       description:
         "Set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune.",
-        author: "Ernest Cline",
-        pageCount: "374",
-        genre: "Fiction",
-        price: 19.99,
-        image: "https://images.penguinrandomhouse.com/cover/9780307887443",
-        quantity: 56,
-      });
-      
-      await createProduct({
+      author: "Ernest Cline",
+      pageCount: "374",
+      genre: "Fiction",
+      price: 19.99,
+      image: "https://images.penguinrandomhouse.com/cover/9780307887443",
+      quantity: 56,
+    });
+
+    await createProduct({
       title: "Born a Crime",
       description:
         "Autobiography of Trevor Noah's upbringing in the slums of South Africa and how he became one of South Africa's most notable names in recent years.",
@@ -291,8 +304,8 @@ async function createInitialProducts() {
       price: 12.99,
       image:
         "https://m.media-amazon.com/images/I/51Zhztg+yeL._AC_SY780_.jpg",
-        quantity: 66,
-      });
+      quantity: 66,
+    });
 
     await createProduct({
       title: "Bone #2: The Great Cow Race",
@@ -362,10 +375,10 @@ async function createInitialProducts() {
       genre: "Kids",
       price: 7,
       image:
-      "https://upload.wikimedia.org/wikipedia/en/3/3c/Lyle_crocodile.gif",
+        "https://upload.wikimedia.org/wikipedia/en/3/3c/Lyle_crocodile.gif",
       quantity: 50,
     });
-    
+
     await createProduct({
       title: "Harold Loves His Woolly Hat",
       description: "What makes a bear special? For Harold, it is his beloved striped woolly hat. He wears it when he sleeps and when he goes to school, but when a crow whisks the hat off his head and high up into a nest, Harold doesn't feel so special anymore. This heartwarming picture book featuring an irresistible bear reinforces the notion that it doesn't matter what you have, it's who you are that matters.",
@@ -374,10 +387,10 @@ async function createInitialProducts() {
       genre: "Kids",
       price: 13.99,
       image:
-      "https://m.media-amazon.com/images/I/51jngGIKt7L._AC_SY780_.jpg",
+        "https://m.media-amazon.com/images/I/51jngGIKt7L._AC_SY780_.jpg",
       quantity: 60,
     });
-    
+
     await createProduct({
       title: "Where the Sidewalk Ends: Poems and Drawings",
       description: "Here you'll meet a boy who turns into a TV set, and a girl who eats a whale. The Unicorn and the Bloath live there, and so does Sarah Cynthia Sylvia Stout who will not take the garbage out. Shel Silverstein's masterful collection of poems and drawings stretches the bounds of imagination and will be cherished by readers of all ages.",
@@ -386,7 +399,7 @@ async function createInitialProducts() {
       genre: "Kids",
       price: 15.99,
       image:
-      "https://m.media-amazon.com/images/I/51ZnpIZcanL._AC_SY780_.jpg",
+        "https://m.media-amazon.com/images/I/51ZnpIZcanL._AC_SY780_.jpg",
       quantity: 60,
     });
 
@@ -410,10 +423,10 @@ async function createInitialProducts() {
       genre: "Kids",
       price: 32,
       image:
-      "https://m.media-amazon.com/images/I/517gTBygcoL._AC_SY780_.jpg",
+        "https://m.media-amazon.com/images/I/517gTBygcoL._AC_SY780_.jpg",
       quantity: 60,
     });
-    
+
     await createProduct({
       title: "The Giving Tree",
       description: "A story of unforgettable perception, beautifully written and illustrated by the gifted and versatile Shel Silverstein. This moving parable for all ages offers a touching interpretation of the gift of giving and a serene acceptance of another's capacity to love in return.",
@@ -423,23 +436,23 @@ async function createInitialProducts() {
       price: 11,
       image:
         "https://m.media-amazon.com/images/I/41ak9Ds2dWL._AC_SY780_.jpg",
-        quantity: 60,
-      });
-      
-      await createProduct({
-        title: "Building a Web Site For Dummies",
-        description: "An effective Web site is the key to success for every venture from class reunions to major corporations. And since Web technology changes rapidly, Building a Web Site For Dummies, 4th Edition is fully updated for the cutting-edge tools and trends. If you need to build and maintain a Web site, even if your experience is severely limited, this book makes it easy and fun. You'll learn to plan, design, create, launch, and maintain your site using the most up-to-date tools.",
-        author: "David A. Crowder",
-        pageCount: "368",
-        genre: "Educational",
-        price: 24.95,
-        image:
-          "https://m.media-amazon.com/images/I/51Rj5uyFTIL._AC_SY780_.jpg",
-        quantity: 67,
-      });
+      quantity: 60,
+    });
 
-      await createProduct({
-        title: "The Official Guide to the GRE General Test, Third Edition",
+    await createProduct({
+      title: "Building a Web Site For Dummies",
+      description: "Building a Web Site For Dummies, 4th Edition is fully updated for the cutting-edge tools and trends. If you need to build and maintain a Web site, even if your experience is severely limited, this book makes it easy and fun. You'll learn to plan, design, create, launch, and maintain your site using the most up-to-date tools.",
+      author: "David A. Crowder",
+      pageCount: "368",
+      genre: "Educational",
+      price: 24.95,
+      image:
+        "https://m.media-amazon.com/images/I/51Rj5uyFTIL._AC_SY780_.jpg",
+      quantity: 67,
+    });
+
+    await createProduct({
+      title: "The Official Guide to the GRE General Test, Third Edition",
       description: "If you're looking for the best, most authoritative guide to the GRE General Test, you've found it! The Official Guide to the GRE General Test, Third Edition is the only GRE guide specially created by ETS—the people who actually make the test.",
       author: "Educational Testing Service",
       pageCount: "608",
@@ -447,28 +460,28 @@ async function createInitialProducts() {
       price: 35.99,
       image:
         "http://prodimage.images-bn.com/pimages/9781259862410_p0_v14_s1200x630.jpg",
-        quantity: 62,
-      });
-      
-      await createProduct({
-        title: "Anatomy & Physiology For Dummies",
-        description: "Anatomy & Physiology For Dummies combines anatomical terminology and function so you'll learn not only names and terms but also gain an understanding of how the human body works. Whether you're a student, an aspiring medical, healthcare or fitness professional, or just someone who's curious about the human body and how it works.",
-        author: "Erin Odya, Maggie A. Norris",
-        pageCount: "384",
-        genre: "Educational",
-        price: 22.49,
-        image:
+      quantity: 62,
+    });
+
+    await createProduct({
+      title: "Anatomy & Physiology For Dummies",
+      description: "Anatomy & Physiology For Dummies combines anatomical terminology and function so you'll learn not only names and terms but also gain an understanding of how the human body works. Whether you're a student, an aspiring medical, healthcare or fitness professional, or just someone who's curious about the human body and how it works.",
+      author: "Erin Odya, Maggie A. Norris",
+      pageCount: "384",
+      genre: "Educational",
+      price: 22.49,
+      image:
         "https://m.media-amazon.com/images/I/51XRu8l2dfS._AC_SY780_.jpg",
-        quantity: 61,
-      });
-      
-      await createProduct({
-        title: "R for Data Analysis in easy steps - R Programming essentials",
-        description: "The R language is widely used by statisticians for data analysis, and the popularity of R programming has therefore increased substantially in recent years. The emerging Internet of Things (IoT) gathers increasing amounts of data that can be analyzed to gain useful insights into trends.",
-        author: "Mike McGrath",
-        pageCount: "192",
-        genre: "Educational",
-        price: 15.99,
+      quantity: 61,
+    });
+
+    await createProduct({
+      title: "R for Data Analysis in easy steps - R Programming essentials",
+      description: "The R language is widely used by statisticians for data analysis, and the popularity of R programming has therefore increased substantially in recent years. The emerging Internet of Things (IoT) gathers increasing amounts of data that can be analyzed to gain useful insights into trends.",
+      author: "Mike McGrath",
+      pageCount: "192",
+      genre: "Educational",
+      price: 15.99,
       image:
         "https://m.media-amazon.com/images/I/51tl+JJyOuL._AC_SY780_.jpg",
       quantity: 58,
@@ -496,6 +509,20 @@ async function createInitialProducts() {
       image:
         "https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/tpp20.jpg",
       quantity: 72,
+    });
+
+    await createProduct({
+      title:
+        "I Will Find You: Solving Killer Cases from My Life Fighting Crime ",
+      description:
+        "Detective Lt. Joe Kenda, star of Homicide Hunter, shares his deepest, darkest, and never before revealed case files from his 19 years as a homicide detective",
+      author: "Joe Kenda",
+      pageCount: "288",
+      genre: "Non-Fiction",
+      price: 11.99,
+      image:
+        "https://m.media-amazon.com/images/I/51a5n1ueF1L._SX332_BO1,204,203,200_.jpg",
+      quantity: 60,
     });
 
     await createProduct({
@@ -530,21 +557,10 @@ async function createInitialProducts() {
       genre: "Graphic Novel",
       price: 9.99,
       image:
-        "https://m.media-amazon.com/images/I/51m9ctmcRnL._AC_SY780_.jpg",
+        "https://books.google.com/books/publisher/content?id=54T-DwAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U0riT2Mg0vbBSlE4J4zrmZ5JmOntA&w=1280",
       quantity: 39,
     });
 
-    await createProduct({
-      title: "An Immense World: How Animal Senses Reveal the Hidden Realms around Us",
-      description: "In An Immense World, Ed Yong coaxes us beyond the confines of our own senses, allowing us to perceive the skeins of scent, waves of electromagnetism, and pulses of pressure that surround us. We encounter beetles that are drawn to fires, turtles that can track the Earth's magnetic fields, fish that fill rivers with electrical messages, and even humans who wield sonar like bats. We discover that a crocodile's scaly face is as sensitive as a lover's fingertips, that the eyes of a giant squid evolved to see sparkling whales, that plants thrum with the inaudible songs of courting bugs, and that even simple scallops have complex vision. We listen to stories of pivotal discoveries in the field, while looking ahead at the many mysteries that remain unsolved.",
-      author: "Ed Yong",
-      pageCount: "464",
-      genre: "Non-Fiction",
-      price: 24.99,
-      image:
-        "https://images.penguinrandomhouse.com/cover/9780593133231",
-      quantity: 69,
-    });
 
     await createProduct({
       title: "I'm Glad My Mom Died",
@@ -569,7 +585,7 @@ async function createInitialProducts() {
         "https://m.media-amazon.com/images/I/511KgC5-DLL._AC_SY780_.jpg",
       quantity: 43,
     });
-    
+
     await createProduct({
       title: "Cryptid Club",
       description: "Do you hate social gatherings? Dodge cameras? Enjoy staying up just a little too late at night? You might have more in common with your local cryptid than you think! Enter the world of Cryptid Club, a look inside the adventures of elusive creatures ranging from Mothman to the Loch Ness Monster. This humorous new series celebrates the unique qualities that make cryptids so desperately sought after by mankind (to no avail). After all, it's what makes us different that also makes us beautiful.",
@@ -582,17 +598,7 @@ async function createInitialProducts() {
       quantity: 62,
     });
 
-    await createProduct({
-      title: "And There Was Light: Abraham Lincoln and the American Struggle",
-      description: "At once familiar and elusive, Lincoln tends to be seen as the greatest of American presidents—a remote icon—or as a politician driven more by calculation than by conviction. This illuminating new portrait gives us a very human Lincoln—an imperfect man whose moral antislavery commitment, essential to the story of justice in America, began as he grew up in an antislavery Baptist community; who insisted that slavery was a moral evil; and who sought, as he put it, to do right as God gave him to see the right.",
-      author: "Jon Meacham",
-      pageCount: "720",
-      genre: "Non-Fiction",
-      price: 32,
-      image:
-        "https://m.media-amazon.com/images/I/41sz5xi78AL._AC_SY780_.jpg",
-      quantity: 59,
-    });
+
     await createProduct({
       title: "Fairy Tale",
       description: "Charlie Reade looks like a regular high school kid, great at baseball and football, a decent student. But he carries a heavy load. His mom was killed in a hit-and-run accident when he was seven, and grief drove his dad to drink. Charlie learned how to take care of himself—and his dad. When Charlie is seventeen, he meets a dog named Radar and her aging master, Howard Bowditch, a recluse in a big house at the top of a big hill, with a locked shed in the backyard. Then, when Bowditch dies, he leaves Charlie a cassette tape telling a story no one would believe. What Bowditch knows, and has kept secret all his long life, is that inside the shed is a portal to another world.",
@@ -604,6 +610,7 @@ async function createInitialProducts() {
         "https://m.media-amazon.com/images/I/51ECRZXoGyL.jpg",
       quantity: 39,
     });
+
     await createProduct({
       title: "Viking Language 1 Learn Old Norse, Runes, and Icelandic Sagas",
       description: "Viking Language 1: Learn Old Norse, Runes, and Icelandic Sagas is a new introduction to Old Norse and Icelandic. The beginner has everything in one book: Graded lessons, reading passages, vocabulary, grammar exercises, and pronunciation. A full complement of maps, runic inscriptions and culture sections explore the civilization, legends, and myths of the Vikings. The lessons follow an innovative word frequency strategy, a method that speeds learning. Because the grammar of Modern Icelandic has changed so little from Old Norse, the learner is well on the way to mastering Modern Icelandic.",
@@ -612,7 +619,7 @@ async function createInitialProducts() {
       genre: "Educational",
       price: 39.99,
       image:
-        "https://m.media-amazon.com/images/I/51ta4791GeL._AC_SY780_.jpg",
+        "https://m.media-amazon.com/images/I/518HMbIlW1L._AC_SY780_.jpg",
       quantity: 59,
     });
 
