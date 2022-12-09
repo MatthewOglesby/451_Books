@@ -5,8 +5,8 @@ const Order = () => {
   const [confirm, setConfirm] = useState('');
 
   function randomNumber() {
-    setConfirm((Math.floor(Math.random() * 1e6)) + ' - ' + (Math.floor(Math.random() * 1e6)))
-      // ((Math.random().toString(36).slice(2)).toUpperCase())
+    setConfirm(((Math.random().toString(36).slice(2)).toUpperCase()))
+      // 
   }
 
   useEffect(() => {

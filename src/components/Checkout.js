@@ -231,6 +231,7 @@ const Checkout = ({ cartItems, token, fetchAllUserCartItems, navigate, fetchAllP
                       icon: 'success',
                       iconColor: 'green',
                       confirmButtonColor: 'orange',
+                      confirmButtonText: 'return to home',
                       footer: '<a href="/order">View Order Confirmation</a>',
                       closeOnConfirm: false
                     }).then(async (result) => {

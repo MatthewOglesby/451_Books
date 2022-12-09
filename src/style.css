@@ -794,14 +794,18 @@ input:placeholder-shown {
 #cart-login-link {
     color: rgb(27, 81, 27);
     font-size: 1.7rem;
-    text-decoration: none;
+    /* text-decoration: none; */
+    font-weight: bold;
     position: absolute;
     top: 300px;
-    left: 55px;
+    left: 150px;
+    transition: color .4s ease-in-out, box-shadow .4s ease-in-out;
 }
 
 #cart-login-link:hover {
-    text-decoration: underline;
+    box-shadow: inset 320px 0 0 0 rgb(27, 81, 27);
+    text-decoration: none;
+    color: white;
 }
 
 .hidden {
