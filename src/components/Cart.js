@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button} from "@mui/material";
+import { Button } from "@mui/material";
 import CartItem from "./CartItem";
 import cartIMG from "../Cart.jpeg";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
@@ -16,61 +16,80 @@ const Cart = ({ cartItems, token, fetchAllUserCartItems, user, navigate }) => {
   }
 
   return (
+
     <div className="main-cart-div">
-      <img
-        src={cartIMG}
-        style={{ paddingTop: "2.89%" }}
-        width={"100%"}
-        alt="Cart IMG"
-      />
+      {
+        !token ? (
+          <>
+            <img
+              src={cartIMG}
+              style={{ paddingTop: "2.89%"}}
+              width={"100%"}
+              alt="Cart IMG"
+            />
+            <h1 id='cart-warning-h1'>This page is only visible when you're logged in</h1>
+            <Link to='/login' id='cart-login-link'>Click here to get reading!</Link>
+          </>
 
-      <div className="cartMainContainer">
-        <div className="cart-main-div">
+        ) : (
+          <>
+            <img
+              src={cartIMG}
+              style={{ paddingTop: "2.89%" }}
+              width={"100%"}
+              alt="Cart IMG"
+            />
 
-          {cartItems?.map((cartItem, idx) => {
-            console.log("In MAP");
-            total =
-              Math.round(
-                (total + cartItem.price * cartItem.order_quantity) * 100
-              ) / 100;
-            return (
-              <CartItem
-                key={idx}
-                cartItem={cartItem}
-                token={token}
-                navigate={navigate}
-                fetchAllUserCartItems={fetchAllUserCartItems}
-              />
-            );
-          })}
-        </div>
-        
-        <div className="cart-total">
+            <div className="cartMainContainer">
+              <div className="cart-main-div">
 
-          <span style={{ fontSize: 27 }}>
-          Subtotal ({cartItems.length}) items: ${total.toFixed(2)}
-          <br></br>
-          <em style={{fontSize: 20}}>Total calculated at checkout</em>
-            <br></br>
-            <br></br>
-            <div className="button-group-cartItems">
-            <Link style={{color:"white", textDecoration: "none" }} to={`/checkout`}>
-              <Button style={{fontSize: 20, color:"white", width:"100%"}} >Proceed to checkout <PointOfSaleIcon fontSize="small"/></Button>
-            </Link>
-           </div>
-            <p style={{fontSize: 25}}>OR</p>
-            <div className="button-group-cartItems">
-            <Link style={{ textDecoration: "none" }} to={`/books`}>
-              <Button style={{ fontSize: 20, color:"white", width:"100%"}} >Continue Shopping <ArrowRightIcon fontSize="large"/></Button>
-            </Link>
+                {cartItems?.map((cartItem, idx) => {
+                  console.log("In MAP");
+                  total =
+                    Math.round(
+                      (total + cartItem.price * cartItem.order_quantity) * 100
+                    ) / 100;
+                  return (
+                    <CartItem
+                      key={idx}
+                      cartItem={cartItem}
+                      token={token}
+                      navigate={navigate}
+                      fetchAllUserCartItems={fetchAllUserCartItems}
+                    />
+                  );
+                })}
+              </div>
+
+              <div className="cart-total">
+
+                <span style={{ fontSize: 27 }}>
+                  Subtotal ({cartItems.length}) items: ${total.toFixed(2)}
+                  <br></br>
+                  <em style={{ fontSize: 20 }}>Total calculated at checkout</em>
+                  <br></br>
+                  <br></br>
+                  <div className="button-group-cartItems">
+                    <Link style={{ color: "white", textDecoration: "none" }} to={`/checkout`}>
+                      <Button style={{ fontSize: 20, color: "white", width: "100%" }} >Proceed to checkout <PointOfSaleIcon fontSize="small" /></Button>
+                    </Link>
+                  </div>
+                  <p style={{ fontSize: 25 }}>OR</p>
+                  <div className="button-group-cartItems">
+                    <Link style={{ textDecoration: "none" }} to={`/books`}>
+                      <Button style={{ fontSize: 20, color: "white", width: "100%" }} >Continue Shopping <ArrowRightIcon fontSize="large" /></Button>
+                    </Link>
+                  </div>
+                  <br></br>
+                  <h1 className="cart-text-div" style={{ fontFamily: 'Droid Sans', cursor: 'default' }}>Cart</h1>
+                </span>
+              </div>
+
             </div>
-            <br></br>
-            <h1 className="cart-text-div" style={{fontFamily: 'Droid Sans', cursor:'default'}}>Cart</h1>
-          </span>
-        </div>
-        
-      </div>
-      
+          </>
+
+        )
+      }
     </div>
   );
 };
